@@ -28,6 +28,10 @@ select {
   overflow: hidden;
 }
 
+b {
+  font: 125%;
+}
+
 </style>
 
 <div class="home">
@@ -37,6 +41,10 @@ select {
 
   <p>
     <h2> Stations: 572</h2>
+  </p>
+
+  <p>
+    <b>Query count: </b><b id="qCount"></b>
   </p>
 
   <p>
@@ -12346,18 +12354,18 @@ select {
       </tr>
       
   </table>
-
 </div>
 
 <script>
-
 function Filter() {
   // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
+  var count, input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("Input");
   filter = input.value.toUpperCase();
   table = document.getElementById("Table");
   tr = table.getElementsByTagName("tr");
+
+  count = 0;
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
@@ -12365,16 +12373,18 @@ function Filter() {
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        count += 1
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
       }
     }
   }
+  document.getElementById("qCount").innerHTML = count
 }
 
 function networkFilter() {
-  var table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10;
+  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10;
   RBSNIn = document.getElementById("RBSNList").value;
   RBCNIn = document.getElementById("RBCNList").value;
   GSNIn = document.getElementById("GSNList").value;
@@ -12387,6 +12397,8 @@ function networkFilter() {
   SDIn = document.getElementById("SDList").value;
   table = document.getElementById("Table");
   tr = table.getElementsByTagName("tr");
+
+  count = 0;
 
   for (i = 0; i < tr.length; i++) {
     td1 = tr[i].getElementsByTagName("td")[6];
@@ -12401,12 +12413,13 @@ function networkFilter() {
     td10 = tr[i].getElementsByTagName("td")[17];
     if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10) {
       if (td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1) {
+        count += 1
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
       }
     }
   }
+  document.getElementById("qCount").innerHTML = count
 }
-
 </script>
