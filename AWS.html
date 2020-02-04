@@ -16,7 +16,7 @@ td {
 }
 
 input {
-  width: 25%;
+  width: 15%;
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
@@ -75,6 +75,12 @@ b {
   <option value="">Filter by RCS</option>
   <option value="X">RCS</option>
   <option value="  ">Not RCS</option>
+  </select>
+
+  <select id="CoastalList" onchange="networkFilter()" class='form-control'>
+  <option value="">Filter by Coastal</option>
+  <option value="X">Coastal</option>
+  <option value="  ">Not Coastal</option>
   </select>
 
   <select id="TempList" onchange="networkFilter()" class='form-control'>
@@ -331,6 +337,7 @@ b {
           <th> RBCN </th>
           <th> GSN </th>
           <th> RCS </th>
+          <th> Coastal </th>
           <th> PM21 </th>
           <th> PM22 </th>
           <th> Temp </th>
@@ -348,6 +355,7 @@ b {
           <td> WRV </td>
           <td> 53.042863 </td>
           <td> -112.821616 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -373,6 +381,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-10 </td>
           <td> 2019-08-16 </td>
           <td> YSI 44212EC </td>
@@ -394,6 +403,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-16 </td>
           <td> 2017-06-22 </td>
           <td> YSI 44212EC </td>
@@ -415,6 +425,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-23 </td>
           <td> 2019-07-30 </td>
           <td> YSI 44212EC </td>
@@ -432,6 +443,7 @@ b {
           <td> WFE </td>
           <td> 53.682619 </td>
           <td> -112.868105 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -457,6 +469,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-22 </td>
           <td> 2019-07-16 </td>
           <td> YSI 44212EC </td>
@@ -478,6 +491,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-09-01 </td>
           <td> 2019-06-13 </td>
           <td> YSI 44212EC </td>
@@ -495,6 +509,7 @@ b {
           <td> XVG </td>
           <td> 53.1436 </td>
           <td> -115.1264 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -520,6 +535,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-06-25 </td>
           <td> 2018-06-06 </td>
           <td> YSI 44212EC </td>
@@ -541,6 +557,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-09-26 </td>
           <td> 2018-08-01 </td>
           <td> YSI 44212EC </td>
@@ -558,6 +575,7 @@ b {
           <td> WGY </td>
           <td> 51.6697 </td>
           <td> -110.2061 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -583,6 +601,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-10-17 </td>
           <td> 2018-10-15 </td>
           <td> YSI 44212EC </td>
@@ -600,6 +619,7 @@ b {
           <td> WDZ </td>
           <td> 51.4451 </td>
           <td> -112.6758 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -625,6 +645,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-07-05 </td>
           <td> 2019-05-22 </td>
           <td> YSI 44212EC </td>
@@ -642,6 +663,7 @@ b {
           <td> WAV </td>
           <td> 51.7781 </td>
           <td> -114.6825 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -667,6 +689,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2015-12-16 </td>
           <td> 2018-10-30 </td>
           <td>  </td>
@@ -688,6 +711,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-02-22 </td>
           <td> 2019-12-04 </td>
           <td> YSI 44212EC </td>
@@ -709,6 +733,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-21 </td>
           <td> 2019-11-15 </td>
           <td> YSI 44212EC </td>
@@ -726,6 +751,7 @@ b {
           <td> WFJ </td>
           <td> 49.2008 </td>
           <td> -113.2859 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -751,6 +777,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-10-28 </td>
           <td> 2019-06-10 </td>
           <td> YSI 44212EC </td>
@@ -768,6 +795,7 @@ b {
           <td> WDK </td>
           <td> 50.0036 </td>
           <td> -113.6406 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -793,6 +821,7 @@ b {
           <td>  </td>
           <td> X </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-07-10 </td>
           <td> 2018-08-13 </td>
           <td>  </td>
@@ -814,6 +843,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-08-17 </td>
           <td> 2017-06-27 </td>
           <td>  </td>
@@ -835,6 +865,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-09-07 </td>
           <td> 2019-11-21 </td>
           <td> YSI 44212EC </td>
@@ -852,6 +883,7 @@ b {
           <td> PCK </td>
           <td> 49.5222 </td>
           <td> -114.005 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -877,6 +909,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-10-17 </td>
           <td> N/A </td>
           <td>  </td>
@@ -894,6 +927,7 @@ b {
           <td> WVO </td>
           <td> 50.05 </td>
           <td> -112.1333 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -919,6 +953,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-02-28 </td>
           <td> 2018-10-31 </td>
           <td> YSI 44212EC </td>
@@ -940,6 +975,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-11-22 </td>
           <td> YSI 44212EC </td>
@@ -961,6 +997,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-01-04 </td>
           <td> 2019-06-06 </td>
           <td> YSI 44212EC </td>
@@ -982,6 +1019,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-03-27 </td>
           <td> 2019-10-31 </td>
           <td> YSI 44212EC </td>
@@ -999,6 +1037,7 @@ b {
           <td> WXA </td>
           <td> 51.0831 </td>
           <td> -115.066 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1024,6 +1063,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-11-14 </td>
           <td>  </td>
@@ -1045,6 +1085,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-26 </td>
           <td> 2019-05-23 </td>
           <td> YSI 44212EC </td>
@@ -1066,6 +1107,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-16 </td>
           <td> 2019-06-12 </td>
           <td> YSI 44212EC </td>
@@ -1087,6 +1129,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-10-18 </td>
           <td> 2019-08-02 </td>
           <td> YSI 44212EC </td>
@@ -1104,6 +1147,7 @@ b {
           <td> WGM </td>
           <td> 49.1311 </td>
           <td> -113.8086 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1129,6 +1173,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-10-26 </td>
           <td> 2018-08-29 </td>
           <td>  </td>
@@ -1146,6 +1191,7 @@ b {
           <td> XBD </td>
           <td> 54.0947 </td>
           <td> -114.4475 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1171,6 +1217,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-21 </td>
           <td> 2019-05-22 </td>
           <td> YSI 44212EC </td>
@@ -1192,6 +1239,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-04 </td>
           <td> 2019-07-31 </td>
           <td> YSI 44212EC </td>
@@ -1213,6 +1261,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-07-14 </td>
           <td> 2019-07-10 </td>
           <td> YSI 44212EC </td>
@@ -1230,6 +1279,7 @@ b {
           <td> WPA </td>
           <td> 53.79428 </td>
           <td> -118.445061 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1255,6 +1305,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-23 </td>
           <td> 2019-08-07 </td>
           <td> YSI 44212EC </td>
@@ -1272,6 +1323,7 @@ b {
           <td> WLB </td>
           <td> 54.7689 </td>
           <td> -112.0236 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1297,6 +1349,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2017-01-31 </td>
           <td> 2018-09-05 </td>
           <td>  </td>
@@ -1318,6 +1371,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-27 </td>
           <td> 2019-04-29 </td>
           <td> YSI 44212EC </td>
@@ -1335,6 +1389,7 @@ b {
           <td> WWO </td>
           <td> 53.3856 </td>
           <td> -118.3475 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1360,6 +1415,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-11 </td>
           <td> 2019-05-08 </td>
           <td> YSI 44212EC </td>
@@ -1381,6 +1437,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-06 </td>
           <td> YSI 44212EC </td>
@@ -1402,6 +1459,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-07-08 </td>
           <td> 2019-10-31 </td>
           <td> YSI 44212EC </td>
@@ -1419,6 +1477,7 @@ b {
           <td> XFV </td>
           <td> 58.3823 </td>
           <td> -116.0402 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1444,6 +1503,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-02-18 </td>
           <td> 2019-07-25 </td>
           <td> YSI 44212EC </td>
@@ -1461,6 +1521,7 @@ b {
           <td> WGF </td>
           <td> 58.7108 </td>
           <td> -113.8665 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1486,6 +1547,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-07-03 </td>
           <td> 2019-02-26 </td>
           <td> YSI 44212EC </td>
@@ -1507,6 +1569,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-11-06 </td>
           <td> 2019-01-24 </td>
           <td> YSI 44212EC </td>
@@ -1528,6 +1591,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-01-04 </td>
           <td> 2019-02-21 </td>
           <td>  </td>
@@ -1545,6 +1609,7 @@ b {
           <td> WKH </td>
           <td> 48.5749 </td>
           <td> -123.5299 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -1570,7 +1635,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
-          <td> 2019-10-24 </td>
+          <td>  </td>
+          <td> 2020-01-27 </td>
           <td> 2018-09-20 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP41 </td>
@@ -1591,6 +1657,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -1612,6 +1679,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td>  </td>
@@ -1632,6 +1700,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2019-01-24 </td>
           <td> 2019-09-12 </td>
@@ -1654,6 +1723,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-01-24 </td>
           <td> 2019-09-11 </td>
           <td> YSI 44212EC </td>
@@ -1675,6 +1745,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -1695,6 +1766,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2018-06-27 </td>
           <td> 2018-11-29 </td>
@@ -1717,6 +1789,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-10-10 </td>
           <td> YSI 44212EC </td>
@@ -1738,6 +1811,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-07-02 </td>
           <td> 2018-08-02 </td>
           <td> YSI 44212EC </td>
@@ -1759,6 +1833,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-10-24 </td>
           <td> 2018-08-01 </td>
           <td> YSI 44212EC </td>
@@ -1780,6 +1855,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-12-11 </td>
           <td> 2019-09-30 </td>
           <td> YSI 44212EC </td>
@@ -1801,6 +1877,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-11-12 </td>
           <td> 2018-09-19 </td>
           <td> YSI 44212EC </td>
@@ -1822,6 +1899,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-10-24 </td>
           <td> 2018-07-31 </td>
           <td> YSI 44212EC </td>
@@ -1839,6 +1917,7 @@ b {
           <td> WEB </td>
           <td> 49.3832 </td>
           <td> -126.5447 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -1864,6 +1943,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2017-05-18 </td>
           <td> 2018-10-23 </td>
           <td> YSI 44212EC </td>
@@ -1885,6 +1965,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-12-11 </td>
           <td> YSI 44212EC </td>
@@ -1906,6 +1987,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-12-13 </td>
           <td> YSI 44212EC </td>
@@ -1927,6 +2009,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-08-24 </td>
           <td>  </td>
@@ -1948,6 +2031,7 @@ b {
           <td>  </td>
           <td> X </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-08-30 </td>
           <td> YSI 44212EC </td>
@@ -1969,7 +2053,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
-          <td> 2020-01-23 </td>
+          <td> X </td>
+          <td> 2020-01-09 </td>
           <td> 2019-09-24 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP41 </td>
@@ -1986,6 +2071,7 @@ b {
           <td> VOP </td>
           <td> 49.8346 </td>
           <td> -124.4968 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2011,6 +2097,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2017-09-19 </td>
           <td> 2019-09-24 </td>
           <td> YSI 44212EC </td>
@@ -2030,6 +2117,7 @@ b {
           <td> -123.161194 </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td> 2020-01-14 </td>
@@ -2053,6 +2141,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-09-04 </td>
           <td> 2019-07-16 </td>
           <td> YSI 44212EC </td>
@@ -2074,6 +2163,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2017-07-18 </td>
           <td> YSI 44212EC </td>
@@ -2094,6 +2184,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> N/A </td>
           <td> 2019-08-15 </td>
@@ -2116,6 +2207,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-11-05 </td>
           <td> 2018-10-23 </td>
           <td> YSI 44212EC </td>
@@ -2133,6 +2225,7 @@ b {
           <td> VZP </td>
           <td> 53.249444 </td>
           <td> -131.813138 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -2158,6 +2251,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-10 </td>
           <td> 2018-11-08 </td>
           <td> YSI 44212EC </td>
@@ -2179,6 +2273,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-12-19 </td>
           <td> 2018-12-13 </td>
           <td> YSI 44212EC </td>
@@ -2200,6 +2295,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2017-08-31 </td>
           <td> YSI 44212EC </td>
@@ -2221,6 +2317,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-06-19 </td>
           <td> YSI 44212EC </td>
@@ -2242,6 +2339,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2017-10-17 </td>
           <td> YSI 44212EC </td>
@@ -2263,6 +2361,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-12-21 </td>
           <td> 2017-10-19 </td>
           <td> YSI 44212EC </td>
@@ -2282,6 +2381,7 @@ b {
           <td> -130.361 </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td> N/A </td>
@@ -2305,6 +2405,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-06-30 </td>
           <td> 2018-08-09 </td>
           <td> YSI 44212EC </td>
@@ -2326,6 +2427,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-16 </td>
           <td> 2019-10-08 </td>
           <td> YSI 44212EC </td>
@@ -2347,6 +2449,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-12-12 </td>
           <td> YSI 44212EC </td>
@@ -2364,6 +2467,7 @@ b {
           <td> WPN </td>
           <td> 50.3022 </td>
           <td> -122.7381 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2389,6 +2493,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2016-10-19 </td>
           <td> 2018-06-14 </td>
           <td> YSI 44212EC </td>
@@ -2407,6 +2512,7 @@ b {
           <td> 52.1144 </td>
           <td> -124.1356 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2431,6 +2537,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-08-29 </td>
           <td> YSI 44212EC </td>
@@ -2452,6 +2559,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-07 </td>
           <td> 2019-07-31 </td>
           <td> YSI 44212EC </td>
@@ -2473,6 +2581,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-10 </td>
           <td> 2018-09-24 </td>
           <td> YSI 44212EC </td>
@@ -2494,6 +2603,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-06-09 </td>
           <td> 2019-11-15 </td>
           <td> YSI 44212EC </td>
@@ -2515,7 +2625,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
-          <td> 2019-12-02 </td>
+          <td>  </td>
+          <td> 2020-01-08 </td>
           <td> 2019-09-19 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
@@ -2536,6 +2647,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-06-28 </td>
           <td> 2019-10-30 </td>
           <td> YSI 44212EC </td>
@@ -2557,6 +2669,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-09 </td>
           <td> 2019-08-01 </td>
           <td> YSI 44212EC </td>
@@ -2574,6 +2687,7 @@ b {
           <td> VOC </td>
           <td> 50.1289 </td>
           <td> -122.9546 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2599,6 +2713,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-01-25 </td>
           <td> 2019-10-07 </td>
           <td> YSI 44212EC </td>
@@ -2616,6 +2731,7 @@ b {
           <td> VCL </td>
           <td> 49.078889 </td>
           <td> -121.978611 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2641,6 +2757,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-10-18 </td>
           <td> 2018-05-15 </td>
           <td> YSI 44212EC </td>
@@ -2658,6 +2775,7 @@ b {
           <td> VMO </td>
           <td> 49.1819 </td>
           <td> -123.0781 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2683,6 +2801,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-10-18 </td>
           <td> 2019-12-13 </td>
           <td> YSI 44212EC </td>
@@ -2704,6 +2823,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-01-21 </td>
           <td> 2018-08-09 </td>
           <td> YSI 44212EC </td>
@@ -2725,6 +2845,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-08-29 </td>
           <td> YSI 44212EC </td>
@@ -2746,6 +2867,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-10-16 </td>
           <td> 2019-03-08 </td>
           <td>  </td>
@@ -2767,6 +2889,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2018-06-20 </td>
           <td> 2019-01-11 </td>
           <td> YSI 44212EC </td>
@@ -2784,6 +2907,7 @@ b {
           <td> WHC </td>
           <td> 49.2954 </td>
           <td> -123.1219 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2809,6 +2933,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2020-01-03 </td>
           <td> 2018-04-19 </td>
           <td> YSI 44212EC </td>
@@ -2830,6 +2955,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-08-01 </td>
           <td> 2018-04-27 </td>
           <td> YSI 44212EC </td>
@@ -2851,6 +2977,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-02-05 </td>
           <td> 2018-04-10 </td>
           <td> YSI 44212EC </td>
@@ -2868,6 +2995,7 @@ b {
           <td> WKF </td>
           <td> 50.6837 </td>
           <td> -121.9341 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2893,6 +3021,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-24 </td>
           <td> 2019-11-07 </td>
           <td> YSI 44212EC </td>
@@ -2910,6 +3039,7 @@ b {
           <td> VKU </td>
           <td> 49.9406 </td>
           <td> -119.4 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2935,6 +3065,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-10-04 </td>
           <td> 2018-07-24 </td>
           <td> YSI 44212EC </td>
@@ -2952,6 +3083,7 @@ b {
           <td> WYY </td>
           <td> 49.0283 </td>
           <td> -119.4411 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -2977,6 +3109,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-02-12 </td>
           <td> 2019-08-14 </td>
           <td> YSI 44212EC </td>
@@ -2998,6 +3131,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-05-04 </td>
           <td> 2019-05-16 </td>
           <td> YSI 44212EC </td>
@@ -3019,6 +3153,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-03-22 </td>
           <td> YSI 44212EC </td>
@@ -3040,6 +3175,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-02-07 </td>
           <td> 2019-07-23 </td>
           <td> YSI 44212EC </td>
@@ -3057,6 +3193,7 @@ b {
           <td> WNM </td>
           <td> 49.4914 </td>
           <td> -117.3053 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3082,6 +3219,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-29 </td>
           <td> 2019-06-12 </td>
           <td> YSI 44212EC </td>
@@ -3103,6 +3241,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-03-16 </td>
           <td> 2019-06-13 </td>
           <td> YSI 44212EC </td>
@@ -3124,6 +3263,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-08-21 </td>
           <td> YSI 44212EC </td>
@@ -3145,6 +3285,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-11-13 </td>
           <td> YSI 44212EC </td>
@@ -3162,6 +3303,7 @@ b {
           <td> VAS </td>
           <td> 50.7083 </td>
           <td> -121.2814 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3187,6 +3329,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-12-06 </td>
           <td> 2019-07-18 </td>
           <td> YSI 44212EC </td>
@@ -3204,6 +3347,7 @@ b {
           <td> VCW </td>
           <td> 51.65 </td>
           <td> -120.0667 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3229,6 +3373,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-11-07 </td>
           <td> 2019-10-18 </td>
           <td> YSI 44212EC </td>
@@ -3250,6 +3395,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-06-20 </td>
           <td> 2019-03-07 </td>
           <td> YSI 44212EC </td>
@@ -3267,6 +3413,7 @@ b {
           <td> WSL </td>
           <td> 50.703 </td>
           <td> -119.290677 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3292,6 +3439,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-24 </td>
           <td> 2019-07-24 </td>
           <td> YSI 44212EC </td>
@@ -3313,6 +3461,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-25 </td>
           <td> 2019-08-13 </td>
           <td> YSI 44212EC </td>
@@ -3330,6 +3479,7 @@ b {
           <td> WYL </td>
           <td> 51.4429 </td>
           <td> -116.3445 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3355,6 +3505,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-05 </td>
           <td> 2018-08-15 </td>
           <td> YSI 44212EC </td>
@@ -3376,6 +3527,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-05-17 </td>
           <td> 2018-09-13 </td>
           <td> YSI 44212EC </td>
@@ -3397,7 +3549,8 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
-          <td> 2019-08-14 </td>
+          <td>  </td>
+          <td> 2020-01-20 </td>
           <td> 2019-08-14 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
@@ -3418,6 +3571,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-04 </td>
           <td> 2019-05-17 </td>
           <td> YSI 44212EC </td>
@@ -3435,6 +3589,7 @@ b {
           <td> WZE </td>
           <td> 49.9058 </td>
           <td> -99.3574 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3460,6 +3615,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-27 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
@@ -3477,6 +3633,7 @@ b {
           <td> WPG </td>
           <td> 49.903055 </td>
           <td> -98.2838055 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3502,6 +3659,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-09-03 </td>
           <td> 2018-07-24 </td>
           <td> YSI 44212EC </td>
@@ -3519,6 +3677,7 @@ b {
           <td> WUT </td>
           <td> 50.4549 </td>
           <td> -100.6035 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3544,6 +3703,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-10-04 </td>
           <td> 2018-05-16 </td>
           <td> YSI 44212EC </td>
@@ -3565,6 +3725,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-28 </td>
           <td> 2019-05-16 </td>
           <td> YSI 44212EC </td>
@@ -3582,6 +3743,7 @@ b {
           <td> XDW </td>
           <td> 49.3998 </td>
           <td> -98.3193 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3607,6 +3769,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-09-26 </td>
           <td> 2017-07-04 </td>
           <td>  </td>
@@ -3628,6 +3791,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-09-26 </td>
           <td> 2019-03-22 </td>
           <td> YSI 44212EC </td>
@@ -3645,6 +3809,7 @@ b {
           <td> PTG </td>
           <td> 49.534727 </td>
           <td> -96.9147194 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3670,6 +3835,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-16 </td>
           <td> 2019-08-30 </td>
           <td> YSI 44212EC </td>
@@ -3687,6 +3853,7 @@ b {
           <td> WPO </td>
           <td> 49.187933 </td>
           <td> -98.9064 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3712,6 +3879,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-16 </td>
           <td> 2019-07-10 </td>
           <td> YSI 44212EC </td>
@@ -3729,6 +3897,7 @@ b {
           <td> XWN </td>
           <td> 49.8883 </td>
           <td> -97.1294 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3754,6 +3923,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-10-18 </td>
           <td> 2018-05-14 </td>
           <td> YSI 44212EC </td>
@@ -3775,6 +3945,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-10-17 </td>
           <td> 2019-05-01 </td>
           <td> YSI 44212EC </td>
@@ -3792,6 +3963,7 @@ b {
           <td> WCF </td>
           <td> 52.3597 </td>
           <td> -97.022 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -3817,6 +3989,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-07-17 </td>
           <td> YSI 44212EC </td>
@@ -3834,6 +4007,7 @@ b {
           <td> WSZ </td>
           <td> 51.0834 </td>
           <td> -97.5545 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3859,6 +4033,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-02-20 </td>
           <td> 2019-07-17 </td>
           <td> YSI 44212EC </td>
@@ -3880,6 +4055,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-05-30 </td>
           <td> 2019-09-18 </td>
           <td> YSI 44212EC </td>
@@ -3901,6 +4077,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-09-19 </td>
           <td> 2019-09-05 </td>
           <td> YSI 44212EC </td>
@@ -3921,6 +4098,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2017-05-05 </td>
           <td> 2019-07-15 </td>
@@ -3943,6 +4121,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-04-16 </td>
           <td> 2019-12-06 </td>
           <td> YSI 44212EC </td>
@@ -3960,6 +4139,7 @@ b {
           <td> WEA </td>
           <td> 50.1772 </td>
           <td> -96.0647 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -3985,6 +4165,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-05 </td>
           <td> 2019-07-31 </td>
           <td> YSI 44212EC </td>
@@ -4002,6 +4183,7 @@ b {
           <td> WOO </td>
           <td> 50.7119 </td>
           <td> -99.53 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4027,6 +4209,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-10-09 </td>
           <td> 2019-07-19 </td>
           <td> YSI 44212EC </td>
@@ -4048,6 +4231,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-10-03 </td>
           <td> 2018-07-26 </td>
           <td> YSI 44212EC </td>
@@ -4065,6 +4249,7 @@ b {
           <td> WFO </td>
           <td> 54.678111 </td>
           <td> -101.679138 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4090,6 +4275,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-09 </td>
           <td> 2019-07-17 </td>
           <td> YSI 44212EC </td>
@@ -4111,6 +4297,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-25 </td>
           <td> 2019-07-08 </td>
           <td> YSI 44212EC </td>
@@ -4128,6 +4315,7 @@ b {
           <td> WGX </td>
           <td> 56.3589 </td>
           <td> -94.7042 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4153,6 +4341,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-09-26 </td>
           <td> 2018-09-11 </td>
           <td> YSI 44212EC </td>
@@ -4174,6 +4363,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-24 </td>
           <td> 2019-07-16 </td>
           <td> YSI 44212EC </td>
@@ -4192,6 +4382,7 @@ b {
           <td> 58.70925 </td>
           <td> -98.5009167 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4216,6 +4407,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-04 </td>
           <td> 2019-07-31 </td>
           <td> YSI 44212EC </td>
@@ -4237,6 +4429,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-12-05 </td>
           <td> 2019-12-11 </td>
           <td> YSI 44212EC </td>
@@ -4258,6 +4451,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-10 </td>
           <td> 2019-10-24 </td>
           <td> YSI 44212EC </td>
@@ -4279,6 +4473,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-11 </td>
           <td> 2019-09-18 </td>
           <td> YSI 44212EC </td>
@@ -4300,6 +4495,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-04 </td>
           <td> 2019-09-11 </td>
           <td> YSI 44212EC </td>
@@ -4321,6 +4517,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-04 </td>
           <td> 2017-11-17 </td>
           <td> YSI 44212EC </td>
@@ -4342,6 +4539,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-28 </td>
           <td> 2019-10-24 </td>
           <td> YSI 44212EC </td>
@@ -4359,6 +4557,7 @@ b {
           <td> WZF </td>
           <td> 45.9642 </td>
           <td> -66.6547 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4384,6 +4583,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-18 </td>
           <td> 2019-08-07 </td>
           <td> YSI 44212EC </td>
@@ -4405,6 +4605,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-01-22 </td>
           <td> 2018-04-18 </td>
           <td> YSI 44212EC </td>
@@ -4422,6 +4623,7 @@ b {
           <td> XGM </td>
           <td> 44.7121 </td>
           <td> -66.8019 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4447,6 +4649,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-05-08 </td>
           <td> 2018-11-21 </td>
           <td> YSI 44212EC </td>
@@ -4468,6 +4671,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-14 </td>
           <td> 2019-06-04 </td>
           <td> YSI 44212EC </td>
@@ -4489,6 +4693,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-04-04 </td>
           <td> 2018-12-05 </td>
           <td> YSI 44212EC </td>
@@ -4510,6 +4715,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-12-18 </td>
           <td> 2019-10-16 </td>
           <td> YSI 44212EC </td>
@@ -4531,6 +4737,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-25 </td>
           <td> 2019-10-22 </td>
           <td> YSI 44212EC </td>
@@ -4548,6 +4755,7 @@ b {
           <td> WSS </td>
           <td> 45.2102 </td>
           <td> -67.2529 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4573,6 +4781,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-18 </td>
           <td> 2019-06-05 </td>
           <td> YSI 44212EC </td>
@@ -4594,6 +4803,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-18 </td>
           <td> 2018-12-12 </td>
           <td> YSI 44212EC </td>
@@ -4612,6 +4822,7 @@ b {
           <td> 48.9667 </td>
           <td> -56.0667 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4636,6 +4847,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2020-01-15 </td>
           <td> 2019-08-15 </td>
           <td> YSI 44212EC </td>
@@ -4656,6 +4868,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2019-12-18 </td>
           <td> 2018-09-25 </td>
@@ -4678,6 +4891,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-01-11 </td>
           <td> 2017-06-06 </td>
           <td>  </td>
@@ -4699,6 +4913,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-29 </td>
           <td> 2019-06-18 </td>
           <td> YSI 44212EC </td>
@@ -4716,6 +4931,7 @@ b {
           <td> WKB </td>
           <td> 48.9333 </td>
           <td> -57.9167 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4741,7 +4957,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
-          <td> 2020-01-22 </td>
+          <td>  </td>
+          <td> 2019-05-14 </td>
           <td> 2019-06-19 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
@@ -4762,6 +4979,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-09-19 </td>
           <td> 2018-01-18 </td>
           <td> YSI 44212EC </td>
@@ -4783,6 +5001,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-09-18 </td>
           <td> 2017-10-20 </td>
           <td>  </td>
@@ -4804,6 +5023,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-07-25 </td>
           <td> 2019-08-29 </td>
           <td> YSI 44212EC </td>
@@ -4825,6 +5045,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-04 </td>
           <td> 2019-09-26 </td>
           <td> YSI 44212EC </td>
@@ -4846,6 +5067,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-02-19 </td>
           <td> 2019-08-22 </td>
           <td> YSI 44212EC </td>
@@ -4863,6 +5085,7 @@ b {
           <td> APB </td>
           <td> 47.573416 </td>
           <td> -59.1530944 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -4888,6 +5111,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-02-07 </td>
           <td>  </td>
@@ -4909,6 +5133,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-01-04 </td>
           <td> 2015-08-25 </td>
           <td> YSI 44212EC </td>
@@ -4928,6 +5153,7 @@ b {
           <td> -56.1 </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td> 2019-07-22 </td>
@@ -4951,6 +5177,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-12-04 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
@@ -4971,6 +5198,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2020-01-15 </td>
           <td> 2019-06-27 </td>
@@ -4993,6 +5221,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-26 </td>
           <td> 2019-09-27 </td>
           <td> YSI 44212EC </td>
@@ -5013,6 +5242,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2020-01-16 </td>
           <td> 2019-10-16 </td>
@@ -5035,6 +5265,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-06-17 </td>
           <td> 2018-08-01 </td>
           <td> YSI 44212EC </td>
@@ -5050,6 +5281,7 @@ b {
           <td> 07-SURF-NL-8404242 </td>
           <td> 8404242 </td>
           <td> ABH </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5077,6 +5309,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-11-29 </td>
           <td> 2018-09-26 </td>
           <td> YSI 44212EC </td>
@@ -5098,6 +5331,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-03-20 </td>
           <td> 2018-08-29 </td>
           <td> YSI 44212EC </td>
@@ -5119,6 +5353,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-02-20 </td>
           <td> 2018-12-11 </td>
           <td> YSI 44212EC </td>
@@ -5140,6 +5375,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-01-04 </td>
           <td> 2016-08-17 </td>
           <td> YSI 44212EC </td>
@@ -5161,6 +5397,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2016-10-20 </td>
           <td> 2019-10-30 </td>
           <td> YSI 44212EC </td>
@@ -5178,6 +5415,7 @@ b {
           <td> WFP </td>
           <td> 56.55 </td>
           <td> -61.6833 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -5203,6 +5441,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-11-07 </td>
           <td> 2019-08-22 </td>
           <td> YSI 44212EC </td>
@@ -5224,6 +5463,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2017-04-06 </td>
           <td> 2018-05-17 </td>
           <td> YSI 44212EC </td>
@@ -5241,6 +5481,7 @@ b {
           <td> ABB </td>
           <td> 44.706111 </td>
           <td> -63.6333333 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5266,6 +5507,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-02-22 </td>
           <td> 2020-01-20 </td>
           <td>  </td>
@@ -5287,6 +5529,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-02-15 </td>
           <td> 2017-10-19 </td>
           <td> YSI 44212EC </td>
@@ -5308,6 +5551,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-05-03 </td>
           <td> 2018-06-21 </td>
           <td> YSI 44212EC </td>
@@ -5325,6 +5569,7 @@ b {
           <td> AHT </td>
           <td> 46.65112 </td>
           <td> -60.95466 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5350,7 +5595,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
-          <td> 2019-08-22 </td>
+          <td>  </td>
+          <td> 2020-01-21 </td>
           <td> 2019-10-31 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
@@ -5371,6 +5617,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-04 </td>
           <td> 2019-08-07 </td>
           <td> YSI 44212EC </td>
@@ -5392,6 +5639,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2020-01-07 </td>
           <td> 2019-08-06 </td>
           <td> YSI 44212EC </td>
@@ -5413,6 +5661,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-05-23 </td>
           <td> 2018-05-23 </td>
           <td>  </td>
@@ -5434,7 +5683,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
-          <td> 2020-01-27 </td>
+          <td>  </td>
+          <td> 2018-06-19 </td>
           <td> 2020-01-22 </td>
           <td>  </td>
           <td>  </td>
@@ -5451,6 +5701,7 @@ b {
           <td> AHK </td>
           <td> 44.5875 </td>
           <td> -63.55 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5476,6 +5727,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2020-01-07 </td>
           <td> 2019-03-15 </td>
           <td>  </td>
@@ -5497,6 +5749,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-07-24 </td>
           <td> 2018-04-24 </td>
           <td> YSI 44212EC </td>
@@ -5517,6 +5770,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2020-01-22 </td>
           <td> 2019-08-01 </td>
@@ -5539,6 +5793,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-13 </td>
           <td> 2019-08-29 </td>
           <td> YSI 44212EC </td>
@@ -5560,13 +5815,14 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-05 </td>
           <td> 2019-11-21 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP41 </td>
-          <td> SETRA 270 </td>
-          <td> RM YOUNG 05103 </td>
-          <td> GEONOR T-200B WG (600 mm) </td>
+          <td> CAMPBELL SCI. PS100 </td>
+          <td> MSC 30' </td>
+          <td> GENERIC SINGLE ALTER </td>
           <td> CAMPBELL SCI. SR50-45 </td>
       </tr>
       
@@ -5581,6 +5837,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-06 </td>
           <td> 2019-10-24 </td>
           <td> YSI 44212EC </td>
@@ -5602,6 +5859,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-05-22 </td>
           <td> 2016-10-13 </td>
           <td> YSI 44212EC </td>
@@ -5619,6 +5877,7 @@ b {
           <td> XMY </td>
           <td> 44.986936 </td>
           <td> -62.4832945 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5644,6 +5903,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-05-09 </td>
           <td> 2018-04-16 </td>
           <td> YSI 44212EC </td>
@@ -5665,6 +5925,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-11 </td>
           <td> 2018-11-29 </td>
           <td> YSI 44212EC </td>
@@ -5682,6 +5943,7 @@ b {
           <td> WNS </td>
           <td> 46.36854 </td>
           <td> -60.97611 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5707,6 +5969,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-11-07 </td>
           <td> 2018-06-13 </td>
           <td>  </td>
@@ -5724,6 +5987,7 @@ b {
           <td> AOS </td>
           <td> 44.612777 </td>
           <td> -63.4225 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5749,6 +6013,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-14 </td>
           <td> 2019-08-14 </td>
           <td> YSI 44212EC </td>
@@ -5770,6 +6035,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-07 </td>
           <td> 2018-11-01 </td>
           <td> YSI 44212EC </td>
@@ -5791,6 +6057,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-03 </td>
           <td> 2019-10-21 </td>
           <td> YSI 44212EC </td>
@@ -5812,6 +6079,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-06-15 </td>
           <td> 2016-11-08 </td>
           <td> YSI 44212EC </td>
@@ -5833,6 +6101,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2020-01-17 </td>
           <td> 2018-11-08 </td>
           <td> YSI 44212EC </td>
@@ -5850,6 +6119,7 @@ b {
           <td> WZU </td>
           <td> 44.628055 </td>
           <td> -63.5225 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5875,6 +6145,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-25 </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -5896,6 +6167,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-12-19 </td>
           <td> 2019-10-23 </td>
           <td> YSI 44212EC </td>
@@ -5913,6 +6185,7 @@ b {
           <td> XTD </td>
           <td> 45.6084 </td>
           <td> -61.6797 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -5938,6 +6211,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-07-16 </td>
           <td> 2019-09-19 </td>
           <td> YSI 44212EC </td>
@@ -5959,6 +6233,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-26 </td>
           <td> 2019-08-15 </td>
           <td> YSI 44212EC </td>
@@ -5980,6 +6255,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-03-20 </td>
           <td> 2019-03-20 </td>
           <td>  </td>
@@ -5997,6 +6273,7 @@ b {
           <td> XDE </td>
           <td> 65.2086 </td>
           <td> -123.4334 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6022,6 +6299,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-09-25 </td>
           <td>  </td>
@@ -6039,6 +6317,7 @@ b {
           <td> ZGH </td>
           <td> 66.2422 </td>
           <td> -128.6442 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6064,6 +6343,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-11-27 </td>
           <td> 2019-10-01 </td>
           <td> YSI 44212EC </td>
@@ -6081,6 +6361,7 @@ b {
           <td> WID </td>
           <td> 61.3169 </td>
           <td> -117.6019 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6106,6 +6387,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2015-08-25 </td>
           <td> 2019-09-16 </td>
           <td> YSI 44212EC </td>
@@ -6127,6 +6409,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-04-09 </td>
           <td> 2019-10-03 </td>
           <td> YSI 44212EC </td>
@@ -6148,6 +6431,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-16 </td>
           <td> 2019-06-20 </td>
           <td> YSI 44212EC </td>
@@ -6169,6 +6453,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-09-12 </td>
           <td> YSI 44212EC </td>
@@ -6186,6 +6471,7 @@ b {
           <td> ZHY </td>
           <td> 60.8389 </td>
           <td> -115.7767 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6211,6 +6497,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-21 </td>
           <td> YSI 44212EC </td>
@@ -6232,6 +6519,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-01-16 </td>
           <td> 2019-08-23 </td>
           <td> YSI 44212EC </td>
@@ -6249,6 +6537,7 @@ b {
           <td> WMT </td>
           <td> 63.1343 </td>
           <td> -117.244497 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6274,7 +6563,8 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
-          <td> 2018-02-06 </td>
+          <td>  </td>
+          <td> 2020-01-24 </td>
           <td> 2019-03-19 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP41 </td>
@@ -6291,6 +6581,7 @@ b {
           <td> ZPK </td>
           <td> 69.354688 </td>
           <td> -124.076594 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6316,6 +6607,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2017-07-24 </td>
           <td> 2015-11-09 </td>
           <td> YSI 44212EC </td>
@@ -6337,6 +6629,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td>  </td>
@@ -6352,9 +6645,10 @@ b {
           <td> 07-SURF-NT-2203359 </td>
           <td> 2203359 </td>
           <td> WYH </td>
-          <td> 64.1117 </td>
-          <td> -117.3278 </td>
+          <td> 64.115033 </td>
+          <td> -117.313027 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6379,6 +6673,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2017-06-20 </td>
           <td> YSI 44212EC </td>
@@ -6396,6 +6691,7 @@ b {
           <td> XTN </td>
           <td> 69.1989 </td>
           <td> -122.3592 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6421,6 +6717,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-09-25 </td>
           <td>  </td>
@@ -6438,6 +6735,7 @@ b {
           <td> WLG </td>
           <td> 67.1792 </td>
           <td> -130.2281 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6463,6 +6761,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -6480,6 +6779,7 @@ b {
           <td> XLL </td>
           <td> 61.12473 </td>
           <td> -122.852741 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6505,6 +6805,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-09-26 </td>
           <td> 2016-07-14 </td>
           <td>  </td>
@@ -6522,6 +6823,7 @@ b {
           <td> XTV </td>
           <td> 68.7463 </td>
           <td> -133.5018 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6547,6 +6849,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2015-10-14 </td>
           <td> 2016-07-11 </td>
           <td>  </td>
@@ -6568,6 +6871,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-07-16 </td>
           <td> YSI 44212EC </td>
@@ -6589,6 +6893,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-07-11 </td>
           <td> YSI 44212EC </td>
@@ -6606,6 +6911,7 @@ b {
           <td> WSY </td>
           <td> 71.9925 </td>
           <td> -125.2542 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6631,6 +6937,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2016-01-04 </td>
           <td> 2018-06-29 </td>
           <td> YSI 44212EC </td>
@@ -6648,6 +6955,7 @@ b {
           <td> WAY </td>
           <td> 76.2375 </td>
           <td> -119.3472 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6673,6 +6981,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-27 </td>
           <td> 2019-06-19 </td>
           <td> YSI 44212EC </td>
@@ -6694,6 +7003,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-01-24 </td>
           <td> 2019-09-13 </td>
           <td> YSI 44212EC </td>
@@ -6711,6 +7021,7 @@ b {
           <td> NCO </td>
           <td> 67.8172 </td>
           <td> -115.1353 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6736,6 +7047,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-17 </td>
           <td> 2019-09-12 </td>
           <td> YSI 44212EC </td>
@@ -6757,6 +7069,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-02-17 </td>
           <td> 2019-09-11 </td>
           <td> YSI 44212EC </td>
@@ -6774,6 +7087,7 @@ b {
           <td> XAR </td>
           <td> 61.098211 </td>
           <td> -94.0685389 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6799,6 +7113,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2015-10-14 </td>
           <td> 2019-08-28 </td>
           <td> YSI 44212EC </td>
@@ -6816,6 +7131,7 @@ b {
           <td> NBB </td>
           <td> 68.537461 </td>
           <td> -89.7888861 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6841,6 +7157,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-09-10 </td>
           <td> YSI 44212EC </td>
@@ -6858,6 +7175,7 @@ b {
           <td> NSQ </td>
           <td> 56.5374 </td>
           <td> -79.2605 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -6883,6 +7201,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-09-13 </td>
           <td> YSI 44212EC </td>
@@ -6900,6 +7219,7 @@ b {
           <td> ZLT </td>
           <td> 82.493186 </td>
           <td> -62.3496527 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6925,6 +7245,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-09-12 </td>
           <td> YSI 44212EC </td>
@@ -6942,6 +7263,7 @@ b {
           <td> ZVM </td>
           <td> 67.5474 </td>
           <td> -64.0334 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -6967,6 +7289,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2018-08-01 </td>
           <td> 2019-08-21 </td>
           <td> YSI 44212EC </td>
@@ -6984,6 +7307,7 @@ b {
           <td> NCD </td>
           <td> 64.2308 </td>
           <td> -76.5304 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -7009,6 +7333,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-07-22 </td>
           <td> 2019-07-31 </td>
           <td> YSI 44212EC </td>
@@ -7026,6 +7351,7 @@ b {
           <td> ZCY </td>
           <td> 70.4833 </td>
           <td> -68.5167 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -7051,6 +7377,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2018-01-11 </td>
           <td> 2019-07-22 </td>
           <td> YSI 44212EC </td>
@@ -7072,6 +7399,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-02-09 </td>
           <td> 2019-07-30 </td>
           <td> YSI 44212EC </td>
@@ -7093,6 +7421,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-08-02 </td>
           <td> YSI 44212EC </td>
@@ -7114,6 +7443,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-06-21 </td>
           <td> YSI 44212EC </td>
@@ -7131,6 +7461,7 @@ b {
           <td> XUX </td>
           <td> 68.7761 </td>
           <td> -81.2436 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -7156,6 +7487,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2018-10-01 </td>
           <td> 2019-06-03 </td>
           <td> YSI 44212EC </td>
@@ -7177,6 +7509,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-07-29 </td>
           <td> YSI 44212EC </td>
@@ -7194,6 +7527,7 @@ b {
           <td> WXP </td>
           <td> 66.1434 </td>
           <td> -65.7113 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -7219,6 +7553,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-01-25 </td>
           <td> 2019-09-13 </td>
           <td> YSI 44212EC </td>
@@ -7240,6 +7575,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-07-26 </td>
           <td> YSI 44212EC </td>
@@ -7257,6 +7593,7 @@ b {
           <td> XRB </td>
           <td> 74.706277 </td>
           <td> -94.9677777 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -7282,6 +7619,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2015-12-14 </td>
           <td> 2019-07-26 </td>
           <td> YSI 44212EC </td>
@@ -7303,6 +7641,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-07-24 </td>
           <td> YSI 44212EC </td>
@@ -7320,6 +7659,7 @@ b {
           <td> XWB </td>
           <td> 65.8792 </td>
           <td> -89.4458 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -7345,6 +7685,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-06-01 </td>
           <td> 2019-09-10 </td>
           <td> YSI 44212EC </td>
@@ -7366,8 +7707,9 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-07-16 </td>
-          <td> 2019-08-15 </td>
+          <td> 2018-10-24 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
           <td> CAMPBELL SCI. CR3000E </td>
@@ -7387,6 +7729,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-09-21 </td>
           <td> 2019-09-09 </td>
           <td> YSI 44212EC </td>
@@ -7408,6 +7751,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-12-12 </td>
           <td> 2019-09-12 </td>
           <td> YSI 44212EC </td>
@@ -7429,6 +7773,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-20 </td>
           <td> 2018-10-04 </td>
           <td> YSI 44212EC </td>
@@ -7450,6 +7795,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-09-10 </td>
           <td> 2019-07-24 </td>
           <td> YSI 44212EC </td>
@@ -7471,8 +7817,9 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-06-08 </td>
-          <td> 2019-06-12 </td>
+          <td> 2018-06-08 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
           <td> SETRA 270 </td>
@@ -7492,6 +7839,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-29 </td>
           <td> 2019-05-14 </td>
           <td> YSI 44212EC </td>
@@ -7509,6 +7857,7 @@ b {
           <td> TRA </td>
           <td> 49.6642 </td>
           <td> -93.7328 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -7534,6 +7883,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-08-10 </td>
           <td> 2018-09-05 </td>
           <td> YSI 44212EC </td>
@@ -7555,6 +7905,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -7573,6 +7924,7 @@ b {
           <td> 50.2936 </td>
           <td> -88.9053 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -7597,6 +7949,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-07-25 </td>
           <td> 2019-10-17 </td>
           <td> YSI 44212EC </td>
@@ -7618,6 +7971,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-05-29 </td>
           <td> YSI 44212EC </td>
@@ -7639,8 +7993,9 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
+          <td> 2018-12-19 </td>
           <td> N/A </td>
-          <td> 2019-08-30 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
           <td> GENERIC </td>
@@ -7660,8 +8015,9 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-08 </td>
-          <td> 2019-06-12 </td>
+          <td> 2018-07-19 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
           <td> GENERIC </td>
@@ -7677,6 +8033,7 @@ b {
           <td> OTR </td>
           <td> 48.815316 </td>
           <td> -87.0917555 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -7702,8 +8059,9 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-18 </td>
-          <td> 2019-10-15 </td>
+          <td> 2018-10-23 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
           <td> GENERIC </td>
@@ -7721,6 +8079,7 @@ b {
           <td> -90.4613 </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td> 2018-12-21 </td>
@@ -7744,6 +8103,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2017-05-10 </td>
           <td> 2018-08-17 </td>
           <td> YSI 44212EC </td>
@@ -7765,6 +8125,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-10-21 </td>
           <td> 2018-09-06 </td>
           <td> YSI 44212EC </td>
@@ -7786,6 +8147,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-08 </td>
           <td> 2019-07-17 </td>
           <td> YSI 44212EC </td>
@@ -7807,6 +8169,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-15 </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -7828,6 +8191,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-11-18 </td>
           <td> 2016-06-09 </td>
           <td> YSI 44212EC </td>
@@ -7849,6 +8213,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-25 </td>
           <td> 2019-08-19 </td>
           <td> YSI 44212EC </td>
@@ -7870,6 +8235,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-03-08 </td>
           <td> 2019-07-24 </td>
           <td> YSI 44212EC </td>
@@ -7891,6 +8257,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-09-17 </td>
           <td> 2018-10-31 </td>
           <td> YSI 44212EC </td>
@@ -7908,6 +8275,7 @@ b {
           <td> XKI </td>
           <td> 48.151467 </td>
           <td> -80.01195 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -7933,6 +8301,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-22 </td>
           <td> 2019-09-25 </td>
           <td> YSI 44212EC </td>
@@ -7954,8 +8323,9 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-07-24 </td>
-          <td> 2019-10-31 </td>
+          <td> 2018-09-17 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
           <td> GENERIC </td>
@@ -7975,6 +8345,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-01-29 </td>
           <td> 2019-07-08 </td>
           <td> YSI 44212EC </td>
@@ -7992,6 +8363,7 @@ b {
           <td> TNK </td>
           <td> 45.536 </td>
           <td> -78.263 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8017,6 +8389,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-10 </td>
           <td> 2018-10-12 </td>
           <td> YSI 44212EC </td>
@@ -8034,6 +8407,7 @@ b {
           <td> TZE </td>
           <td> 45.885 </td>
           <td> -82.571 </td>
+          <td> X </td>
           <td> X </td>
           <td> X </td>
           <td> X </td>
@@ -8059,6 +8433,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-01-16 </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -8080,6 +8455,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-11 </td>
           <td> 2019-11-13 </td>
           <td> YSI 44212EC </td>
@@ -8101,6 +8477,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -8118,6 +8495,7 @@ b {
           <td> XKE </td>
           <td> 45.005 </td>
           <td> -75.638 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8143,6 +8521,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2018-11-14 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
@@ -8160,6 +8539,7 @@ b {
           <td> TCK </td>
           <td> 45.25111 </td>
           <td> -74.9628 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8185,6 +8565,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-10 </td>
           <td> 2019-11-15 </td>
           <td> YSI 44212EC </td>
@@ -8206,6 +8587,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-06-19 </td>
           <td> 2019-09-04 </td>
           <td> YSI 44212EC </td>
@@ -8227,6 +8609,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-24 </td>
           <td> 2019-08-12 </td>
           <td> YSI 44212EC </td>
@@ -8248,6 +8631,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-07-19 </td>
           <td> 2018-06-07 </td>
           <td> YSI 44212EC </td>
@@ -8265,6 +8649,7 @@ b {
           <td> WGL </td>
           <td> 44.548 </td>
           <td> -79.221 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8290,6 +8675,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-04-25 </td>
           <td> 2018-07-17 </td>
           <td> YSI 44212EC </td>
@@ -8307,6 +8693,7 @@ b {
           <td> XBI </td>
           <td> 44.484 </td>
           <td> -79.547 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8332,6 +8719,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-01-25 </td>
           <td> N/A </td>
           <td>  </td>
@@ -8353,6 +8741,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-09 </td>
           <td> 2019-04-18 </td>
           <td> YSI 44212EC </td>
@@ -8374,6 +8763,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-02-21 </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -8395,6 +8785,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-14 </td>
           <td> 2019-09-12 </td>
           <td> YSI 44212EC </td>
@@ -8416,6 +8807,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-11 </td>
           <td> 2018-06-20 </td>
           <td> YSI 44212EC </td>
@@ -8437,6 +8829,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-25 </td>
           <td> 2019-09-10 </td>
           <td> YSI 44212EC </td>
@@ -8458,6 +8851,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-09 </td>
           <td> 2018-04-26 </td>
           <td> YSI 44212EC </td>
@@ -8479,6 +8873,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-03-08 </td>
           <td> 2019-06-26 </td>
           <td> YSI 44212EC </td>
@@ -8496,6 +8891,7 @@ b {
           <td> WPS </td>
           <td> 42.5486 </td>
           <td> -80.0494 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8521,6 +8917,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-04-23 </td>
           <td> 2018-04-25 </td>
           <td> YSI 44212EC </td>
@@ -8542,6 +8939,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-24 </td>
           <td> 2018-06-20 </td>
           <td> YSI 44212EC </td>
@@ -8559,6 +8957,7 @@ b {
           <td> WNB </td>
           <td> 41.8333 </td>
           <td> -82.4667 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8584,6 +8983,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td> X </td>
           <td> 2019-06-10 </td>
           <td> 2019-08-19 </td>
           <td> YSI 44212EC </td>
@@ -8605,6 +9005,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-10 </td>
           <td> 2018-07-26 </td>
           <td> YSI 44212EC </td>
@@ -8626,6 +9027,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-12-13 </td>
           <td> 2018-09-28 </td>
           <td> YSI 44212EC </td>
@@ -8647,6 +9049,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-12-04 </td>
           <td> 2019-08-23 </td>
           <td> YSI 44212EC </td>
@@ -8668,6 +9071,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-12-05 </td>
           <td> 2019-10-09 </td>
           <td> YSI 44212EC </td>
@@ -8685,6 +9089,7 @@ b {
           <td> TBF </td>
           <td> 43.1375 </td>
           <td> -80.331389 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8710,6 +9115,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-23 </td>
           <td> 2019-07-15 </td>
           <td> YSI 44212EC </td>
@@ -8731,6 +9137,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-23 </td>
           <td> 2019-07-09 </td>
           <td> YSI 44212EC </td>
@@ -8752,6 +9159,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-15 </td>
           <td> 2019-09-23 </td>
           <td> YSI 44212EC </td>
@@ -8769,6 +9177,7 @@ b {
           <td> WLS </td>
           <td> 43.989 </td>
           <td> -80.745 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8794,6 +9203,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2020-01-09 </td>
           <td> 2019-09-11 </td>
           <td> YSI 44212EC </td>
@@ -8815,6 +9225,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-04-23 </td>
           <td> 2017-10-19 </td>
           <td> YSI 44212EC </td>
@@ -8832,6 +9243,7 @@ b {
           <td> XHM </td>
           <td> 43.2863 </td>
           <td> -79.9057 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8857,6 +9269,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -8878,6 +9291,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-05-14 </td>
           <td> 2018-08-01 </td>
           <td> YSI 44212EC </td>
@@ -8895,6 +9309,7 @@ b {
           <td> TRY </td>
           <td> 44.0323 </td>
           <td> -80.0244 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8920,6 +9335,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-02 </td>
           <td> 2019-08-22 </td>
           <td> YSI 44212EC </td>
@@ -8937,6 +9353,7 @@ b {
           <td> TUX </td>
           <td> 44.0981 </td>
           <td> -79.1637 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -8962,6 +9379,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -8983,6 +9401,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-29 </td>
           <td> 2019-05-23 </td>
           <td> YSI 44212EC </td>
@@ -9004,6 +9423,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-03 </td>
           <td> 2019-06-24 </td>
           <td> YSI 44212EC </td>
@@ -9025,6 +9445,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2020-01-16 </td>
           <td> 2019-12-11 </td>
           <td> YSI 44212EC </td>
@@ -9046,6 +9467,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-07-15 </td>
           <td> 2017-07-11 </td>
           <td> YSI 44212EC </td>
@@ -9066,6 +9488,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2020-01-16 </td>
           <td> 2019-10-24 </td>
@@ -9088,6 +9511,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-03-07 </td>
           <td> 2018-07-26 </td>
           <td> YSI 44212EC </td>
@@ -9109,6 +9533,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-19 </td>
           <td> 2019-07-18 </td>
           <td> YSI 44212EC </td>
@@ -9126,6 +9551,7 @@ b {
           <td> XMP </td>
           <td> 46.302878 </td>
           <td> -63.575821 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9151,6 +9577,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-16 </td>
           <td> 2019-08-08 </td>
           <td> YSI 44212EC </td>
@@ -9172,6 +9599,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2017-03-16 </td>
           <td> 2018-10-09 </td>
           <td>  </td>
@@ -9189,6 +9617,7 @@ b {
           <td> WHQ </td>
           <td> 46.6906 </td>
           <td> -71.9717 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9214,6 +9643,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-11-06 </td>
           <td> 2018-08-09 </td>
           <td>  </td>
@@ -9231,6 +9661,7 @@ b {
           <td> WEW </td>
           <td> 45.8094 </td>
           <td> -73.4348 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9256,6 +9687,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2017-02-02 </td>
           <td> 2018-08-07 </td>
           <td> YSI 44212EC </td>
@@ -9273,6 +9705,7 @@ b {
           <td> XSH </td>
           <td> 46.5635 </td>
           <td> -72.7333 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9298,6 +9731,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-05-06 </td>
           <td> 2018-10-03 </td>
           <td> YSI 44212EC </td>
@@ -9319,6 +9753,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-16 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
@@ -9336,6 +9771,7 @@ b {
           <td> WIG </td>
           <td> 47.0736 </td>
           <td> -70.5331 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9361,6 +9797,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-08-18 </td>
           <td> 2018-10-30 </td>
           <td> YSI 44212EC </td>
@@ -9378,6 +9815,7 @@ b {
           <td> WJB </td>
           <td> 46.7803 </td>
           <td> -71.2875 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9403,6 +9841,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-04-10 </td>
           <td> 2019-11-28 </td>
           <td> YSI 44212EC </td>
@@ -9424,6 +9863,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-01-29 </td>
           <td> 2019-08-27 </td>
           <td> YSI 44212EC </td>
@@ -9445,6 +9885,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2020-01-09 </td>
           <td> 2019-09-17 </td>
           <td> YSI 44212EC </td>
@@ -9462,6 +9903,7 @@ b {
           <td> MGB </td>
           <td> 45.3728 </td>
           <td> -72.7739 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9487,6 +9929,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -9508,6 +9951,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-09 </td>
           <td> 2018-07-11 </td>
           <td> YSI 44212EC </td>
@@ -9525,6 +9969,7 @@ b {
           <td> WTA </td>
           <td> 45.5049 </td>
           <td> -73.5793 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9550,6 +9995,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-07-13 </td>
           <td> YSI 44212EC </td>
@@ -9567,6 +10013,7 @@ b {
           <td> WIT </td>
           <td> 45.167222 </td>
           <td> -73.6788888 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9592,6 +10039,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-08-18 </td>
           <td> 2018-11-30 </td>
           <td> YSI 44212EC </td>
@@ -9613,6 +10061,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-07 </td>
           <td> 2019-10-10 </td>
           <td> YSI 44212EC </td>
@@ -9630,6 +10079,7 @@ b {
           <td> WHV </td>
           <td> 46.205 </td>
           <td> -70.785 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9655,6 +10105,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-06-27 </td>
           <td> YSI 44212EC </td>
@@ -9672,6 +10123,7 @@ b {
           <td> WVQ </td>
           <td> 45.435833 </td>
           <td> -73.9288888 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9697,6 +10149,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-20 </td>
           <td> 2019-10-22 </td>
           <td> YSI 44212EC </td>
@@ -9714,6 +10167,7 @@ b {
           <td> WIZ </td>
           <td> 45.294 </td>
           <td> -73.3498 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9739,6 +10193,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-30 </td>
           <td> 2019-11-26 </td>
           <td> YSI 44212EC </td>
@@ -9756,6 +10211,7 @@ b {
           <td> XHF </td>
           <td> 45.83983 </td>
           <td> -75.6487 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9781,6 +10237,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2015-10-29 </td>
           <td> 2019-06-05 </td>
           <td> YSI 44212EC </td>
@@ -9798,6 +10255,7 @@ b {
           <td> WJT </td>
           <td> 46.080222 </td>
           <td> -74.555805 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9823,6 +10281,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-07 </td>
           <td> 2019-08-21 </td>
           <td> YSI 44212EC </td>
@@ -9844,6 +10303,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-25 </td>
           <td> YSI 44212EC </td>
@@ -9861,6 +10321,7 @@ b {
           <td> WQM </td>
           <td> 48.3742 </td>
           <td> -70.5353 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -9886,6 +10347,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-01-11 </td>
           <td> 2018-07-26 </td>
           <td> YSI 44212EC </td>
@@ -9907,6 +10369,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-05-17 </td>
           <td> YSI 44212EC </td>
@@ -9928,6 +10391,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-06-20 </td>
           <td> 2018-10-22 </td>
           <td> YSI 44212EC </td>
@@ -9949,6 +10413,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-03-15 </td>
           <td> 2019-07-03 </td>
           <td> YSI 44212EC </td>
@@ -9970,6 +10435,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-23 </td>
           <td> 2018-07-25 </td>
           <td> YSI 44212EC </td>
@@ -9987,6 +10453,7 @@ b {
           <td> WQR </td>
           <td> 50.2208 </td>
           <td> -64.2072 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10012,6 +10479,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-11-29 </td>
           <td> YSI 44212EC </td>
@@ -10033,6 +10501,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-11-20 </td>
           <td> 2018-07-21 </td>
           <td> YSI 44212EC </td>
@@ -10054,6 +10523,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2015-10-29 </td>
           <td> 2019-09-26 </td>
           <td> YSI 44212EC </td>
@@ -10075,6 +10545,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-28 </td>
           <td> YSI 44212EC </td>
@@ -10092,6 +10563,7 @@ b {
           <td> WQV </td>
           <td> 48.2605 </td>
           <td> -70.1146 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10117,6 +10589,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td> X </td>
           <td> 2015-10-27 </td>
           <td> 2019-08-17 </td>
           <td> YSI 44212EC </td>
@@ -10138,6 +10611,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2015-10-28 </td>
           <td> 2019-09-25 </td>
           <td> YSI 44212EC </td>
@@ -10159,6 +10633,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-11 </td>
           <td> YSI 44212EC </td>
@@ -10176,6 +10651,7 @@ b {
           <td> WIP </td>
           <td> 50.1625 </td>
           <td> -66.4339 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10201,6 +10677,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-09-08 </td>
           <td> 2018-07-19 </td>
           <td>  </td>
@@ -10222,6 +10699,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-22 </td>
           <td> YSI 44212EC </td>
@@ -10242,6 +10720,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> N/A </td>
           <td> 2019-06-11 </td>
@@ -10264,6 +10743,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-05-02 </td>
           <td> 2019-07-23 </td>
           <td> YSI 44212EC </td>
@@ -10279,6 +10759,7 @@ b {
           <td> 07-SURF-QC-7052603 </td>
           <td> 7052603 </td>
           <td> GGA </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10306,6 +10787,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-25 </td>
           <td> YSI 44212EC </td>
@@ -10327,6 +10809,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-11-27 </td>
           <td> 2019-10-09 </td>
           <td> YSI 44212EC </td>
@@ -10348,6 +10831,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-01-24 </td>
           <td> 2019-06-06 </td>
           <td> YSI 44212EC </td>
@@ -10369,6 +10853,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-01 </td>
           <td> 2019-06-08 </td>
           <td> YSI 44212EC </td>
@@ -10390,6 +10875,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-10-30 </td>
           <td> 2019-10-10 </td>
           <td> YSI 44212EC </td>
@@ -10411,6 +10897,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-09-11 </td>
           <td> 2019-07-25 </td>
           <td> YSI 44212EC </td>
@@ -10432,6 +10919,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2018-09-26 </td>
           <td> 2016-08-16 </td>
           <td> YSI 44212EC </td>
@@ -10453,6 +10941,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-16 </td>
           <td> YSI 44212EC </td>
@@ -10471,6 +10960,7 @@ b {
           <td> 47.8061 </td>
           <td> -69.5485 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10495,6 +10985,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-27 </td>
           <td> YSI 44212EC </td>
@@ -10516,6 +11007,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-09-25 </td>
           <td> YSI 44212EC </td>
@@ -10533,6 +11025,7 @@ b {
           <td> WKD </td>
           <td> 50.7289 </td>
           <td> -71.0131 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10558,6 +11051,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2017-06-15 </td>
           <td>  </td>
@@ -10575,6 +11069,7 @@ b {
           <td> WDT </td>
           <td> 49.840138 </td>
           <td> -71.168333 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10600,6 +11095,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2015-10-28 </td>
           <td> 2018-05-29 </td>
           <td> YSI 44212EC </td>
@@ -10617,6 +11113,7 @@ b {
           <td> XLT </td>
           <td> 48.3072 </td>
           <td> -71.1292 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10642,6 +11139,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2015-10-30 </td>
           <td> 2017-06-12 </td>
           <td> YSI 44212EC </td>
@@ -10663,6 +11161,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-06-29 </td>
           <td> 2019-06-12 </td>
           <td> YSI 44212EC </td>
@@ -10680,6 +11179,7 @@ b {
           <td> WXC </td>
           <td> 48.8942 </td>
           <td> -71.0322 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10705,6 +11205,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2016-05-25 </td>
           <td> 2017-06-14 </td>
           <td> YSI 44212EC </td>
@@ -10722,6 +11223,7 @@ b {
           <td> WDP </td>
           <td> 50.656472 </td>
           <td> -70.532028 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10747,6 +11249,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-05-28 </td>
           <td> YSI 44212EC </td>
@@ -10768,6 +11271,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-11-20 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
@@ -10789,6 +11293,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-01-05 </td>
           <td> 2019-05-22 </td>
           <td> YSI 44212EC </td>
@@ -10810,6 +11315,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-01-30 </td>
           <td> 2019-07-04 </td>
           <td> YSI 44212EC </td>
@@ -10831,6 +11337,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-12-13 </td>
           <td> 2016-08-03 </td>
           <td> YSI 44212EC </td>
@@ -10848,6 +11355,7 @@ b {
           <td> WUY </td>
           <td> 48.2458 </td>
           <td> -79.0342 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10873,6 +11381,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2018-10-04 </td>
           <td> YSI 44212EC </td>
@@ -10890,6 +11399,7 @@ b {
           <td> GCH </td>
           <td> 49.777316 </td>
           <td> -74.5303833 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -10915,6 +11425,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-09-28 </td>
           <td> 2019-07-18 </td>
           <td> YSI 44212EC </td>
@@ -10936,6 +11447,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-02-08 </td>
           <td> 2019-12-04 </td>
           <td> YSI 44212EC </td>
@@ -10957,6 +11469,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-08 </td>
           <td> 2019-08-07 </td>
           <td> YSI 44212EC </td>
@@ -10977,6 +11490,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> 2015-08-06 </td>
           <td> 2019-08-06 </td>
@@ -10999,7 +11513,8 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
-          <td> 2020-01-24 </td>
+          <td> X </td>
+          <td> 2019-11-07 </td>
           <td> 2019-11-18 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
@@ -11020,6 +11535,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> 2019-07-18 </td>
           <td> YSI 44212EC </td>
@@ -11041,6 +11557,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2015-10-30 </td>
           <td> 2018-07-03 </td>
           <td> YSI 44212EC </td>
@@ -11058,6 +11575,7 @@ b {
           <td> MFX </td>
           <td> 62.17945 </td>
           <td> -75.6703 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11083,6 +11601,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> N/A </td>
           <td> N/A </td>
           <td> YSI 44212EC </td>
@@ -11090,7 +11609,7 @@ b {
           <td> SETRA 270 </td>
           <td> MSC 30' </td>
           <td> GENERIC SINGLE ALTER </td>
-          <td> CAMPBELL SCI. SR50-45 </td>
+          <td> CAMPBELL SCI. SR50M-4 </td>
       </tr>
       
       <tr>
@@ -11104,6 +11623,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-02 </td>
           <td> 2019-08-14 </td>
           <td> YSI 44212EC </td>
@@ -11122,6 +11642,7 @@ b {
           <td> 50.3681 </td>
           <td> -102.5708 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11146,6 +11667,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-07 </td>
           <td> 2019-05-07 </td>
           <td> YSI 44212EC </td>
@@ -11167,6 +11689,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-24 </td>
           <td> 2019-08-15 </td>
           <td> YSI 44212EC </td>
@@ -11184,6 +11707,7 @@ b {
           <td> WXG </td>
           <td> 51.4152 </td>
           <td> -105.2431 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11209,6 +11733,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-12 </td>
           <td> 2019-11-15 </td>
           <td> YSI 44212EC </td>
@@ -11230,6 +11755,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-19 </td>
           <td> 2019-10-08 </td>
           <td> YSI 44212EC </td>
@@ -11251,6 +11777,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-04-10 </td>
           <td> 2019-10-08 </td>
           <td> YSI 44212EC </td>
@@ -11272,6 +11799,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-10-07 </td>
           <td> 2019-06-11 </td>
           <td> YSI 44212EC </td>
@@ -11293,6 +11821,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-06-12 </td>
           <td> 2019-05-31 </td>
           <td> YSI 44212EC </td>
@@ -11314,6 +11843,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-07-16 </td>
           <td> 2018-06-28 </td>
           <td> YSI 44212EC </td>
@@ -11331,6 +11861,7 @@ b {
           <td> WWF </td>
           <td> 49.6945 </td>
           <td> -103.8009 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11356,6 +11887,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-09-11 </td>
           <td> 2019-11-14 </td>
           <td> YSI 44212EC </td>
@@ -11373,6 +11905,7 @@ b {
           <td> WOK </td>
           <td> 51.1333 </td>
           <td> -106.5833 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11398,6 +11931,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-08-21 </td>
           <td> 2018-04-20 </td>
           <td> YSI 44212EC </td>
@@ -11419,6 +11953,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-09-21 </td>
           <td> 2019-08-20 </td>
           <td> YSI 44212EC </td>
@@ -11440,6 +11975,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-17 </td>
           <td> 2019-08-20 </td>
           <td> YSI 44212EC </td>
@@ -11457,6 +11993,7 @@ b {
           <td> WJX </td>
           <td> 50.9095 </td>
           <td> -109.5014 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11482,6 +12019,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-07-16 </td>
           <td> 2018-05-22 </td>
           <td> YSI 44212EC </td>
@@ -11499,6 +12037,7 @@ b {
           <td> WVP </td>
           <td> 49.6406 </td>
           <td> -109.5144 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11524,6 +12063,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2017-08-25 </td>
           <td> 2019-07-18 </td>
           <td> YSI 44212EC </td>
@@ -11545,6 +12085,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-19 </td>
           <td> 2019-11-13 </td>
           <td> YSI 44212EC </td>
@@ -11566,6 +12107,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-09-11 </td>
           <td> 2019-11-14 </td>
           <td> YSI 44212EC </td>
@@ -11584,6 +12126,7 @@ b {
           <td> 49.0583 </td>
           <td> -107.5858 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11608,6 +12151,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2017-06-22 </td>
           <td> 2019-05-17 </td>
           <td> YSI 44212EC </td>
@@ -11629,6 +12173,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-07-24 </td>
           <td> 2018-06-07 </td>
           <td> YSI 44212EC </td>
@@ -11646,6 +12191,7 @@ b {
           <td> WTS </td>
           <td> 52.3597 </td>
           <td> -108.8347 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11671,6 +12217,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-24 </td>
           <td> 2019-08-07 </td>
           <td> YSI 44212EC </td>
@@ -11688,6 +12235,7 @@ b {
           <td> WFF </td>
           <td> 52.8163 </td>
           <td> -104.5964 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11713,6 +12261,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2019-10-18 </td>
           <td> 2018-07-31 </td>
           <td> YSI 44212EC </td>
@@ -11734,6 +12283,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-12-05 </td>
           <td> 2019-09-17 </td>
           <td> YSI 44212EC </td>
@@ -11755,6 +12305,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-08-07 </td>
           <td> 2019-10-03 </td>
           <td> YSI 44212EC </td>
@@ -11776,6 +12327,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-06 </td>
           <td> 2019-10-18 </td>
           <td> YSI 44212EC </td>
@@ -11797,6 +12349,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-26 </td>
           <td> 2019-08-29 </td>
           <td> YSI 44212EC </td>
@@ -11814,6 +12367,7 @@ b {
           <td> WWC </td>
           <td> 58.2292 </td>
           <td> -103.6781 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11839,6 +12393,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-11 </td>
           <td> 2019-08-29 </td>
           <td> YSI 44212EC </td>
@@ -11860,6 +12415,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-09-28 </td>
           <td> 2019-06-27 </td>
           <td> YSI 44212EC </td>
@@ -11881,6 +12437,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-11-14 </td>
           <td> 2019-06-17 </td>
           <td> YSI 44212EC </td>
@@ -11902,6 +12459,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2018-07-25 </td>
           <td> 2019-08-28 </td>
           <td> YSI 44212EC </td>
@@ -11923,6 +12481,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-08-22 </td>
           <td> 2019-10-31 </td>
           <td> YSI 44212EC </td>
@@ -11940,6 +12499,7 @@ b {
           <td> WSR </td>
           <td> 53.366194 </td>
           <td> -107.556508 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -11965,6 +12525,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-08-01 </td>
           <td> 2019-10-03 </td>
           <td> YSI 44212EC </td>
@@ -11982,6 +12543,7 @@ b {
           <td> WLJ </td>
           <td> 54.1333 </td>
           <td> -108.5167 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -12007,6 +12569,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-09-28 </td>
           <td> 2019-07-09 </td>
           <td> YSI 44212EC </td>
@@ -12024,6 +12587,7 @@ b {
           <td> WBU </td>
           <td> 53.3323 </td>
           <td> -104.0031 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -12049,6 +12613,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-09-27 </td>
           <td> 2019-08-08 </td>
           <td> YSI 44212EC </td>
@@ -12070,6 +12635,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-05-15 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
@@ -12088,6 +12654,7 @@ b {
           <td> 62.115 </td>
           <td> -136.192 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -12112,6 +12679,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td>  </td>
           <td> 2018-11-28 </td>
           <td> 2018-05-31 </td>
           <td> YSI 44212EC </td>
@@ -12133,7 +12701,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td> X </td>
-          <td> 2019-12-11 </td>
+          <td>  </td>
+          <td> 2020-01-29 </td>
           <td> 2019-05-15 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP41 </td>
@@ -12154,6 +12723,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-07-11 </td>
           <td> YSI 44212EC </td>
@@ -12171,6 +12741,7 @@ b {
           <td> WOI </td>
           <td> 69.1644 </td>
           <td> -140.15 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -12196,6 +12767,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2016-01-27 </td>
           <td> 2018-09-13 </td>
           <td> YSI 44212EC </td>
@@ -12213,6 +12785,7 @@ b {
           <td> WZR </td>
           <td> 68.8006 </td>
           <td> -140.8475 </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -12238,6 +12811,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-02-05 </td>
           <td> 2018-09-20 </td>
           <td> YSI 44212EC </td>
@@ -12256,6 +12830,7 @@ b {
           <td> 66.9811 </td>
           <td> -136.2181 </td>
           <td> X </td>
+          <td>  </td>
           <td>  </td>
           <td>  </td>
           <td>  </td>
@@ -12280,6 +12855,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-07-31 </td>
           <td> 2019-07-31 </td>
           <td> YSI 44212EC </td>
@@ -12301,7 +12877,8 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
-          <td> 2019-08-16 </td>
+          <td>  </td>
+          <td> 2020-01-17 </td>
           <td> 2018-08-31 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP41 </td>
@@ -12322,7 +12899,8 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
-          <td> 2019-08-15 </td>
+          <td>  </td>
+          <td> 2020-01-23 </td>
           <td> 2019-08-15 </td>
           <td> YSI 44212EC </td>
           <td> VAISALA HMP155A </td>
@@ -12343,6 +12921,7 @@ b {
           <td> X </td>
           <td> X </td>
           <td> X </td>
+          <td>  </td>
           <td> 2019-04-26 </td>
           <td> 2019-04-26 </td>
           <td> YSI 44212EC </td>
@@ -12384,11 +12963,12 @@ function Filter() {
 }
 
 function networkFilter() {
-  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10;
+  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, filter;
   RBSNIn = document.getElementById("RBSNList").value;
   RBCNIn = document.getElementById("RBCNList").value;
   GSNIn = document.getElementById("GSNList").value;
   RCSIn = document.getElementById("RCSList").value;
+  CoastalIn = document.getElementById("CoastalList").value;
   TempIn = document.getElementById("TempList").value;
   RHIn = document.getElementById("RHList").value;
   BARIn = document.getElementById("BARList").value;
@@ -12405,14 +12985,20 @@ function networkFilter() {
     td2 = tr[i].getElementsByTagName("td")[7];
     td3 = tr[i].getElementsByTagName("td")[8];
     td4 = tr[i].getElementsByTagName("td")[9];
-    td5 = tr[i].getElementsByTagName("td")[12];
-    td6 = tr[i].getElementsByTagName("td")[13];
-    td7 = tr[i].getElementsByTagName("td")[14];
-    td8 = tr[i].getElementsByTagName("td")[15];
-    td9 = tr[i].getElementsByTagName("td")[16];
-    td10 = tr[i].getElementsByTagName("td")[17];
-    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10) {
-      if (td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1) {
+    td11 = tr[i].getElementsByTagName("td")[10];
+    td5 = tr[i].getElementsByTagName("td")[13];
+    td6 = tr[i].getElementsByTagName("td")[14];
+    td7 = tr[i].getElementsByTagName("td")[15];
+    td8 = tr[i].getElementsByTagName("td")[16];
+    td9 = tr[i].getElementsByTagName("td")[17];
+    td10 = tr[i].getElementsByTagName("td")[18];
+    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11) {
+      filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1
+&& td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1
+&& td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1
+&& td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1;
+
+      if (filter) {
         count += 1
         tr[i].style.display = "";
       } else {

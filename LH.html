@@ -16,7 +16,7 @@ td {
 }
 
 input {
-  width: 25%;
+  width: 15%;
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
@@ -31,11 +31,12 @@ select {
 b {
   font: 125%;
 }
+
 </style>
 
 <div class="home">
   <p>
-    <h1> LightHouses </h1>
+    <h1> Lighthouses </h1>
   </p>
 
   <p>
@@ -74,6 +75,12 @@ b {
   <option value="">Filter by RCS</option>
   <option value="X">RCS</option>
   <option value="  ">Not RCS</option>
+  </select>
+
+  <select id="CoastalList" onchange="networkFilter()" class='form-control'>
+  <option value="">Filter by Coastal</option>
+  <option value="X">Coastal</option>
+  <option value="  ">Not Coastal</option>
   </select>
 
   <select id="TempList" onchange="networkFilter()" class='form-control'>
@@ -330,6 +337,7 @@ b {
           <th> RBCN </th>
           <th> GSN </th>
           <th> RCS </th>
+          <th> Coastal </th>
           <th> PM21 </th>
           <th> PM22 </th>
           <th> Temp </th>
@@ -351,6 +359,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> N/A </td>
           <td>  </td>
@@ -372,6 +381,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-11-14 </td>
           <td> GENERIC </td>
@@ -393,6 +403,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-11-13 </td>
           <td> GENERIC </td>
@@ -414,6 +425,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-11-17 </td>
           <td> GENERIC </td>
@@ -435,6 +447,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-11-05 </td>
           <td> 2018-11-22 </td>
           <td> GENERIC </td>
@@ -456,6 +469,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-08-10 </td>
           <td>  </td>
@@ -477,6 +491,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-08-10 </td>
           <td>  </td>
@@ -498,6 +513,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2015-12-31 </td>
           <td> 2016-11-01 </td>
           <td> GENERIC </td>
@@ -519,6 +535,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> N/A </td>
           <td>  </td>
@@ -540,6 +557,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-11-29 </td>
           <td> 2016-08-30 </td>
           <td> GENERIC MAXIMUM THERMOMETER </td>
@@ -561,6 +579,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-12-11 </td>
           <td> GENERIC </td>
@@ -582,6 +601,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-08-30 </td>
           <td>  </td>
@@ -603,6 +623,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2016-09-27 </td>
           <td> GENERIC </td>
@@ -624,6 +645,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2017-04-28 </td>
           <td> 2017-01-24 </td>
           <td> GENERIC </td>
@@ -645,6 +667,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-09-25 </td>
           <td> GENERIC </td>
@@ -666,6 +689,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-06-20 </td>
           <td> 2016-09-01 </td>
           <td> GENERIC </td>
@@ -687,6 +711,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-11-21 </td>
           <td> GENERIC </td>
@@ -708,6 +733,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-07-18 </td>
           <td> GENERIC </td>
@@ -729,6 +755,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-08-15 </td>
           <td> GENERIC </td>
@@ -750,6 +777,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-11-20 </td>
           <td> GENERIC </td>
@@ -771,6 +799,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-10-18 </td>
           <td> GENERIC </td>
@@ -792,6 +821,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2019-11-18 </td>
           <td> 2019-08-14 </td>
           <td> GENERIC </td>
@@ -813,6 +843,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-10-30 </td>
           <td> GENERIC </td>
@@ -834,6 +865,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2018-11-20 </td>
           <td> GENERIC </td>
@@ -855,6 +887,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> 2016-12-12 </td>
           <td> 2019-08-13 </td>
           <td> GENERIC </td>
@@ -876,6 +909,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-10-30 </td>
           <td> GENERIC </td>
@@ -896,6 +930,7 @@ b {
           <td> X </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> X </td>
           <td> N/A </td>
           <td> 2019-10-29 </td>
@@ -918,6 +953,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> 2019-08-13 </td>
           <td> GENERIC </td>
@@ -939,6 +975,7 @@ b {
           <td>  </td>
           <td>  </td>
           <td>  </td>
+          <td> X </td>
           <td> N/A </td>
           <td> N/A </td>
           <td>  </td>
@@ -950,7 +987,6 @@ b {
       </tr>
       
   </table>
-
 </div>
 
 <script>
@@ -981,11 +1017,12 @@ function Filter() {
 }
 
 function networkFilter() {
-  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10;
+  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, filter;
   RBSNIn = document.getElementById("RBSNList").value;
   RBCNIn = document.getElementById("RBCNList").value;
   GSNIn = document.getElementById("GSNList").value;
   RCSIn = document.getElementById("RCSList").value;
+  CoastalIn = document.getElementById("CoastalList").value;
   TempIn = document.getElementById("TempList").value;
   RHIn = document.getElementById("RHList").value;
   BARIn = document.getElementById("BARList").value;
@@ -1002,14 +1039,20 @@ function networkFilter() {
     td2 = tr[i].getElementsByTagName("td")[7];
     td3 = tr[i].getElementsByTagName("td")[8];
     td4 = tr[i].getElementsByTagName("td")[9];
-    td5 = tr[i].getElementsByTagName("td")[12];
-    td6 = tr[i].getElementsByTagName("td")[13];
-    td7 = tr[i].getElementsByTagName("td")[14];
-    td8 = tr[i].getElementsByTagName("td")[15];
-    td9 = tr[i].getElementsByTagName("td")[16];
-    td10 = tr[i].getElementsByTagName("td")[17];
-    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10) {
-      if (td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1) {
+    td11 = tr[i].getElementsByTagName("td")[10];
+    td5 = tr[i].getElementsByTagName("td")[13];
+    td6 = tr[i].getElementsByTagName("td")[14];
+    td7 = tr[i].getElementsByTagName("td")[15];
+    td8 = tr[i].getElementsByTagName("td")[16];
+    td9 = tr[i].getElementsByTagName("td")[17];
+    td10 = tr[i].getElementsByTagName("td")[18];
+    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11) {
+      filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1
+&& td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1
+&& td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1
+&& td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1;
+
+      if (filter) {
         count += 1
         tr[i].style.display = "";
       } else {
