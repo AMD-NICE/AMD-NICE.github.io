@@ -28,6 +28,16 @@ select {
   overflow: hidden;
 }
 
+#ProvList {
+  margin-left: 285px;
+  width: 100px;
+  height: 20px;
+}
+
+#ProvList:hover {
+  height: auto;
+}
+
 b {
   font: 125%;
 }
@@ -56,276 +66,295 @@ b {
   <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
 
   <select id="RBSNList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by RBSN</option>
-  <option value="X">RBSN</option>
-  <option value="  ">Not RBSN</option>
+      <option value="">Filter by RBSN</option>
+      <option value="X">RBSN</option>
+      <option value="  ">Not RBSN</option>
   </select>
 
   <select id="RBCNList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by RBCN</option>
-  <option value="X">RBCN</option>
-  <option value="  ">Not RBCN</option>
+      <option value="">Filter by RBCN</option>
+      <option value="X">RBCN</option>
+      <option value="  ">Not RBCN</option>
   </select>
 
   <select id="GSNList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by GSN</option>
-  <option value="X">GSN</option>
-  <option value="  ">Not GSN</option>
+      <option value="">Filter by GSN</option>
+      <option value="X">GSN</option>
+      <option value="  ">Not GSN</option>
   </select>
 
   <select id="RCSList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by RCS</option>
-  <option value="X">RCS</option>
-  <option value="  ">Not RCS</option>
+      <option value="">Filter by RCS</option>
+      <option value="X">RCS</option>
+      <option value="  ">Not RCS</option>
   </select>
 
   <select id="CoastalList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by Coastal</option>
-  <option value="X">Coastal</option>
-  <option value="  ">Not Coastal</option>
+      <option value="">Filter by Coastal</option>
+      <option value="X">Coastal</option>
+      <option value="  ">Not Coastal</option>
   </select>
 
   <select id="TempList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by Temp</option>
-  
+      <option value="">Filter by Temp</option>
       
           
-              <option>GENERIC</option>
+              
+                  <option>GENERIC</option>
+              
+                  <option>GENERIC MAXIMUM THERMOMETER</option>
+              
+                  <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+              
+                  <option>YSI 44212EC</option>
+              
           
-              <option>GENERIC MAXIMUM THERMOMETER</option>
-          
-              <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
-          
-              <option>YSI 44212EC</option>
+      
           
       
-  
+          
       
-  
+          
       
-  
+          
       
-  
+          
       
-  
-      
-  
   </select>
 
   <select id="RHList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by RH</option>
-  
-      
-  
+      <option value="">Filter by RH</option>
       
           
-              <option>VAISALA HMP155A</option>
+      
           
-              <option>VAISALA HMP35AC</option>
+              
+                  <option>VAISALA HMP155A</option>
+              
+                  <option>VAISALA HMP35AC</option>
+              
+                  <option>VAISALA HMP41</option>
+              
           
-              <option>VAISALA HMP41</option>
+      
           
       
-  
+          
       
-  
+          
       
-  
+          
       
-  
-      
-  
   </select>
 
   <select id="BARList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by Bar</option>
-  
-      
-  
-      
-  
+      <option value="">Filter by Bar</option>
       
           
-              <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
-          
-              <option>CAMPBELL SCI.</option>
-          
-              <option>CAMPBELL SCI. CH150</option>
-          
-              <option>CAMPBELL SCI. COM200</option>
-          
-              <option>CAMPBELL SCI. COM210</option>
-          
-              <option>CAMPBELL SCI. COM220</option>
-          
-              <option>CAMPBELL SCI. CR10</option>
-          
-              <option>CAMPBELL SCI. CR10X</option>
-          
-              <option>CAMPBELL SCI. CR21X</option>
-          
-              <option>CAMPBELL SCI. CR23X</option>
-          
-              <option>CAMPBELL SCI. CR3000E</option>
-          
-              <option>CAMPBELL SCI. PS100</option>
-          
-              <option>CAMPBELL SCI. PS12</option>
-          
-              <option>CAMPBELL SCI. PS150</option>
-          
-              <option>CAMPBELL SCI. PS34</option>
-          
-              <option>CAMPBELL SCI. TX320</option>
-          
-              <option>GENERIC</option>
-          
-              <option>HYDROLOGICAL TB3</option>
-          
-              <option>MSC CD</option>
-          
-              <option>MSC POSS RC</option>
-          
-              <option>MSC PRESSURE PB</option>
-          
-              <option>MSC SA</option>
-          
-              <option>MSC WIND WC - 78D</option>
-          
-              <option>SETRA 270</option>
-          
-              <option>SETRA 270A</option>
-          
-              <option>SUTRON 5600-0120-3B</option>
-          
-              <option>VAISALA PTB220</option>
-          
-              <option>VAISALA PTB220PB</option>
+      
           
       
-  
+          
+              
+                  <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
+              
+                  <option>CAMPBELL SCI.</option>
+              
+                  <option>CAMPBELL SCI. CH150</option>
+              
+                  <option>CAMPBELL SCI. COM200</option>
+              
+                  <option>CAMPBELL SCI. COM210</option>
+              
+                  <option>CAMPBELL SCI. COM220</option>
+              
+                  <option>CAMPBELL SCI. CR10</option>
+              
+                  <option>CAMPBELL SCI. CR10X</option>
+              
+                  <option>CAMPBELL SCI. CR21X</option>
+              
+                  <option>CAMPBELL SCI. CR23X</option>
+              
+                  <option>CAMPBELL SCI. CR3000E</option>
+              
+                  <option>CAMPBELL SCI. PS100</option>
+              
+                  <option>CAMPBELL SCI. PS12</option>
+              
+                  <option>CAMPBELL SCI. PS150</option>
+              
+                  <option>CAMPBELL SCI. PS34</option>
+              
+                  <option>CAMPBELL SCI. TX320</option>
+              
+                  <option>GENERIC</option>
+              
+                  <option>HYDROLOGICAL TB3</option>
+              
+                  <option>MSC CD</option>
+              
+                  <option>MSC POSS RC</option>
+              
+                  <option>MSC PRESSURE PB</option>
+              
+                  <option>MSC SA</option>
+              
+                  <option>MSC WIND WC - 78D</option>
+              
+                  <option>SETRA 270</option>
+              
+                  <option>SETRA 270A</option>
+              
+                  <option>SUTRON 5600-0120-3B</option>
+              
+                  <option>VAISALA PTB220</option>
+              
+                  <option>VAISALA PTB220PB</option>
+              
+          
       
-  
+          
       
-  
+          
       
-  
+          
+      
   </select>
 
   <select id="10MList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by 10m</option>
-  
-      
-  
-      
-  
-      
-  
+      <option value="">Filter by 10m</option>
       
           
-              <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
-          
-              <option>CAMPBELL SCI. CR10</option>
-          
-              <option>CAMPBELL SCI. PS100</option>
-          
-              <option>GENERIC</option>
-          
-              <option>GENERIC 40'</option>
-          
-              <option>GENERIC 50'</option>
-          
-              <option>MSC 30'</option>
-          
-              <option>MSC 78D</option>
-          
-              <option>MSC ID</option>
-          
-              <option>MSC U2A</option>
-          
-              <option>RM YOUNG 04503</option>
-          
-              <option>RM YOUNG 05103</option>
-          
-              <option>RM YOUNG 05103AP</option>
-          
-              <option>RM YOUNG 05106</option>
-          
-              <option>YSI 44212EC</option>
+      
           
       
-  
+          
       
-  
+          
+              
+                  <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
+              
+                  <option>CAMPBELL SCI. CR10</option>
+              
+                  <option>CAMPBELL SCI. PS100</option>
+              
+                  <option>GENERIC</option>
+              
+                  <option>GENERIC 40'</option>
+              
+                  <option>GENERIC 50'</option>
+              
+                  <option>MSC 30'</option>
+              
+                  <option>MSC 78D</option>
+              
+                  <option>MSC ID</option>
+              
+                  <option>MSC U2A</option>
+              
+                  <option>RM YOUNG 04503</option>
+              
+                  <option>RM YOUNG 05103</option>
+              
+                  <option>RM YOUNG 05103AP</option>
+              
+                  <option>RM YOUNG 05106</option>
+              
+                  <option>YSI 44212EC</option>
+              
+          
       
-  
+          
+      
+          
+      
   </select>
 
   <select id="AWGList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by WG</option>
-  
-      
-  
-      
-  
-      
-  
-      
-  
+      <option value="">Filter by WG</option>
       
           
-              <option>BELFORT</option>
-          
-              <option>GENERIC SINGLE ALTER</option>
-          
-              <option>GEONOR T-200B WG (600 mm)</option>
-          
-              <option>MSC DOUBLE ALTER</option>
-          
-              <option>MSC FP1</option>
-          
-              <option>OTT PLUVIO (1000 mm)</option>
-          
-              <option>OTT PLUVIO2 (1500 mm)</option>
+      
           
       
-  
+          
       
-  
+          
+      
+          
+              
+                  <option>BELFORT</option>
+              
+                  <option>GENERIC SINGLE ALTER</option>
+              
+                  <option>GEONOR T-200B WG (600 mm)</option>
+              
+                  <option>MSC DOUBLE ALTER</option>
+              
+                  <option>MSC FP1</option>
+              
+                  <option>OTT PLUVIO (1000 mm)</option>
+              
+                  <option>OTT PLUVIO2 (1500 mm)</option>
+              
+          
+      
+          
+      
   </select>
 
   <select id="SDList" onchange="networkFilter()" class='form-control'>
-  <option value="">Filter by SG</option>
-  
-      
-  
-      
-  
-      
-  
-      
-  
-      
-  
+      <option value="">Filter by SG</option>
       
           
-              <option>CAMPBELL SCI. SR50</option>
-          
-              <option>CAMPBELL SCI. SR50-45</option>
-          
-              <option>CAMPBELL SCI. SR50A</option>
-          
-              <option>CAMPBELL SCI. SR50M-4</option>
-          
-              <option>CAMPBELL SCI. UDG01</option>
-          
-              <option>GENERIC</option>
+      
           
       
-  
+          
+      
+          
+      
+          
+      
+          
+              
+                  <option>CAMPBELL SCI. SR50</option>
+              
+                  <option>CAMPBELL SCI. SR50-45</option>
+              
+                  <option>CAMPBELL SCI. SR50A</option>
+              
+                  <option>CAMPBELL SCI. SR50M-4</option>
+              
+                  <option>CAMPBELL SCI. UDG01</option>
+              
+                  <option>GENERIC</option>
+              
+          
+      
   </select>
 
   <button onClick="window.location.reload();">Clear Filters</button>
+
+  <p>
+      <select name="Provs" id="ProvList" onchange="networkFilter()" class='form-control' size="14" multiple="multiple">
+      <option value="">Filter by Prov</option>
+      <option value="AB">AB</option>
+      <option value="BC">BC</option>
+      <option value="MB">MB</option>
+      <option value="NB">NB</option>
+      <option value="NL">NL</option>
+      <option value="NS">NS</option>
+      <option value="NT">NT</option>
+      <option value="NU">NU</option>
+      <option value="ON">ON</option>
+      <option value="PE">PE</option>
+      <option value="QC">QC</option>
+      <option value="SK">SK</option>
+      <option value="YT">YT</option>
+  </select>
+  </p>
 
   <table id="Table">
       <tr class=""header>
@@ -9841,7 +9870,8 @@ function Filter() {
 }
 
 function networkFilter() {
-  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, filter;
+  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
+  var td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, filter, prov, ProvIn;
   RBSNIn = document.getElementById("RBSNList").value;
   RBCNIn = document.getElementById("RBCNList").value;
   GSNIn = document.getElementById("GSNList").value;
@@ -9855,6 +9885,13 @@ function networkFilter() {
   SDIn = document.getElementById("SDList").value;
   table = document.getElementById("Table");
   tr = table.getElementsByTagName("tr");
+
+  var Provs = "";
+  for (var x = 0; x < document.getElementById("ProvList").options.length; x++) {
+    if (document.getElementById("ProvList").options[x].selected) {
+        Provs = Provs + document.getElementById("ProvList").options[x].text;
+    }
+  }
 
   count = 0;
 
@@ -9870,21 +9907,38 @@ function networkFilter() {
     td8 = tr[i].getElementsByTagName("td")[16];
     td9 = tr[i].getElementsByTagName("td")[17];
     td10 = tr[i].getElementsByTagName("td")[18];
-    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11) {
-      filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1
-&& td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1
-&& td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1
-&& td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1;
+    try {
+        prov = tr[i].getElementsByTagName("td")[1].innerHTML.split("-")[2];
+    } catch {
+        prov = tr[i].getElementsByTagName("td")[1];
+    }
+
+
+    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
+      if (Provs == "") {
+        filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 &&
+td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 &&
+td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 &&
+td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1;
+      } else {
+        filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 &&
+td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 &&
+td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 &&
+td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1 &&
+Provs.indexOf(prov) > -1;
+     }
 
       if (filter) {
-        count += 1
+        count += 1;
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
       }
     }
   }
-  document.getElementById("qCount").innerHTML = count
+
+
+  document.getElementById("qCount").innerHTML = count;
 }
 
 function download_csv(csv, filename) {
