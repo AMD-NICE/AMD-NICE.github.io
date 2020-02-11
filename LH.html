@@ -28,21 +28,9 @@ select {
   overflow: hidden;
 }
 
-#ProvList {
-  margin-left: 285px;
-  width: 100px;
-  height: 20px;
-}
-
-#ProvList:hover {
-  height: auto;
-}
-
-b {
-  font: 125%;
-}
-
 </style>
+
+<link rel="stylesheet" href="multiple-select.css">
 
 <div class="home">
   <p>
@@ -338,26 +326,25 @@ b {
   <button onClick="window.location.reload();">Clear Filters</button>
 
   <p>
-      <select name="Provs" id="ProvList" onchange="networkFilter()" class='form-control' size="14" multiple="multiple">
-      <option value="">Filter by Prov</option>
-      <option value="AB">AB</option>
-      <option value="BC">BC</option>
-      <option value="MB">MB</option>
-      <option value="NB">NB</option>
-      <option value="NL">NL</option>
-      <option value="NS">NS</option>
-      <option value="NT">NT</option>
-      <option value="NU">NU</option>
-      <option value="ON">ON</option>
-      <option value="PE">PE</option>
-      <option value="QC">QC</option>
-      <option value="SK">SK</option>
-      <option value="YT">YT</option>
-  </select>
+      <select name="Provs" id="ms" onchange="networkFilter()" class='form-control' size="13" multiple="multiple">
+          <option value="AB">AB</option>
+          <option value="BC">BC</option>
+          <option value="MB">MB</option>
+          <option value="NB">NB</option>
+          <option value="NL">NL</option>
+          <option value="NS">NS</option>
+          <option value="NT">NT</option>
+          <option value="NU">NU</option>
+          <option value="ON">ON</option>
+          <option value="PE">PE</option>
+          <option value="QC">QC</option>
+          <option value="SK">SK</option>
+          <option value="YT">YT</option>
+      </select>
   </p>
 
   <table id="Table">
-      <tr class=""header>
+      <tr class="header">
           <th> Name </th>
           <th> Floc </th>
           <th> Climate ID </th>
@@ -1065,9 +1052,9 @@ function networkFilter() {
   tr = table.getElementsByTagName("tr");
 
   var Provs = "";
-  for (var x = 0; x < document.getElementById("ProvList").options.length; x++) {
-    if (document.getElementById("ProvList").options[x].selected) {
-        Provs = Provs + document.getElementById("ProvList").options[x].text;
+  for (var x = 0; x < document.getElementById("ms").options.length; x++) {
+    if (document.getElementById("ms").options[x].selected) {
+        Provs = Provs + document.getElementById("ms").options[x].text;
     }
   }
 
@@ -1091,7 +1078,6 @@ function networkFilter() {
         prov = tr[i].getElementsByTagName("td")[1];
     }
 
-
     if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
       if (Provs == "") {
         filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 &&
@@ -1105,7 +1091,6 @@ td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.inn
 td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1 &&
 Provs.indexOf(prov) > -1;
      }
-
       if (filter) {
         count += 1;
         tr[i].style.display = "";
@@ -1114,8 +1099,6 @@ Provs.indexOf(prov) > -1;
       }
     }
   }
-
-
   document.getElementById("qCount").innerHTML = count;
 }
 
@@ -1148,7 +1131,8 @@ function download_csv(csv, filename) {
 function export_table_to_csv(html, filename) {
 	var csv = [];
 
-	var  table, tr, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, filter;
+	var  table, tr, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
+	var td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter;
     RBSNIn = document.getElementById("RBSNList").value;
     RBCNIn = document.getElementById("RBCNList").value;
     GSNIn = document.getElementById("GSNList").value;
@@ -1162,6 +1146,13 @@ function export_table_to_csv(html, filename) {
     SDIn = document.getElementById("SDList").value;
     table = document.getElementById("Table");
     tr = table.getElementsByTagName("tr");
+
+    var Provs = "";
+    for (var x = 0; x < document.getElementById("ms").options.length; x++) {
+        if (document.getElementById("ms").options[x].selected) {
+            Provs = Provs + document.getElementById("ms").options[x].text;
+        }
+    }
 
     var head = []
 
@@ -1185,16 +1176,30 @@ function export_table_to_csv(html, filename) {
         td8 = tr[i].getElementsByTagName("td")[16];
         td9 = tr[i].getElementsByTagName("td")[17];
         td10 = tr[i].getElementsByTagName("td")[18];
-        if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11) {
-          filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 && td3.innerHTML.indexOf(GSNIn) > -1
-&& td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 && td6.innerHTML.indexOf(RHIn) > -1
-&& td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 && td9.innerHTML.indexOf(AWGIn) > -1
-&& td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1;
+        try {
+        prov = tr[i].getElementsByTagName("td")[1].innerHTML.split("-")[2];
+        } catch {
+        prov = tr[i].getElementsByTagName("td")[1];
+        }
 
-          if (filter) {
+        if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
+            if (Provs == "") {
+                filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 &&
+td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 &&
+td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 &&
+td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1;
+            } else {
+                filter = td1.innerHTML.indexOf(RBSNIn) > -1 && td2.innerHTML.indexOf(RBCNIn) > -1 &&
+td3.innerHTML.indexOf(GSNIn) > -1 && td4.innerHTML.indexOf(RCSIn) > -1 && td5.innerHTML.indexOf(TempIn) > -1 &&
+td6.innerHTML.indexOf(RHIn) > -1 && td7.innerHTML.indexOf(BARIn) > -1 && td8.innerHTML.indexOf(WindIn) > -1 &&
+td9.innerHTML.indexOf(AWGIn) > -1 && td10.innerHTML.indexOf(SDIn) > -1 && td11.innerHTML.indexOf(CoastalIn) > -1 &&
+Provs.indexOf(prov) > -1;
+            }
 
-            for (var j = 0; j < cols.length; j++) {
-              row.push(cols[j].innerText);
+            if (filter) {
+
+                for (var j = 0; j < cols.length; j++) {
+                    row.push(cols[j].innerText);
 
             }
 
@@ -1212,4 +1217,19 @@ document.querySelector("button").addEventListener("click", function () {
     var html = document.querySelector("Table").outerHTML;
 	export_table_to_csv(html, "export.csv");
 });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="multiple-select.js"></script>
+
+<script>
+    $(function() {
+        $('#ms').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '10%'
+        });
+    });
 </script>
