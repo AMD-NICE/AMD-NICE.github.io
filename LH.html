@@ -16,15 +16,15 @@ td {
 }
 
 input {
-  width: 15%;
+  width: 30%;
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
 }
 
 select {
   width: 125px;
+  height: 25px;
   overflow: hidden;
 }
 
@@ -51,279 +51,9 @@ select {
     <a href="/">Home</a>
   </p>
 
-  <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
-
-  <select id="RBSNList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by RBSN</option>
-      <option value="X">RBSN</option>
-      <option value="  ">Not RBSN</option>
-  </select>
-
-  <select id="RBCNList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by RBCN</option>
-      <option value="X">RBCN</option>
-      <option value="  ">Not RBCN</option>
-  </select>
-
-  <select id="GSNList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by GSN</option>
-      <option value="X">GSN</option>
-      <option value="  ">Not GSN</option>
-  </select>
-
-  <select id="RCSList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by RCS</option>
-      <option value="X">RCS</option>
-      <option value="  ">Not RCS</option>
-  </select>
-
-  <select id="CoastalList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by Coastal</option>
-      <option value="X">Coastal</option>
-      <option value="  ">Not Coastal</option>
-  </select>
-
-  <select id="TempList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by Temp</option>
-      
-          
-              
-                  <option>GENERIC</option>
-              
-                  <option>GENERIC MAXIMUM THERMOMETER</option>
-              
-                  <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
-              
-                  <option>YSI 44212EC</option>
-              
-          
-      
-          
-      
-          
-      
-          
-      
-          
-      
-          
-      
-  </select>
-
-  <select id="RHList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by RH</option>
-      
-          
-      
-          
-              
-                  <option>VAISALA HMP155A</option>
-              
-                  <option>VAISALA HMP35AC</option>
-              
-                  <option>VAISALA HMP41</option>
-              
-          
-      
-          
-      
-          
-      
-          
-      
-          
-      
-  </select>
-
-  <select id="BARList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by Bar</option>
-      
-          
-      
-          
-      
-          
-              
-                  <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
-              
-                  <option>CAMPBELL SCI.</option>
-              
-                  <option>CAMPBELL SCI. CH150</option>
-              
-                  <option>CAMPBELL SCI. COM200</option>
-              
-                  <option>CAMPBELL SCI. COM210</option>
-              
-                  <option>CAMPBELL SCI. COM220</option>
-              
-                  <option>CAMPBELL SCI. CR10</option>
-              
-                  <option>CAMPBELL SCI. CR10X</option>
-              
-                  <option>CAMPBELL SCI. CR21X</option>
-              
-                  <option>CAMPBELL SCI. CR23X</option>
-              
-                  <option>CAMPBELL SCI. CR3000E</option>
-              
-                  <option>CAMPBELL SCI. PS100</option>
-              
-                  <option>CAMPBELL SCI. PS12</option>
-              
-                  <option>CAMPBELL SCI. PS150</option>
-              
-                  <option>CAMPBELL SCI. PS34</option>
-              
-                  <option>CAMPBELL SCI. TX320</option>
-              
-                  <option>GENERIC</option>
-              
-                  <option>HYDROLOGICAL TB3</option>
-              
-                  <option>MSC CD</option>
-              
-                  <option>MSC POSS RC</option>
-              
-                  <option>MSC PRESSURE PB</option>
-              
-                  <option>MSC SA</option>
-              
-                  <option>MSC WIND WC - 78D</option>
-              
-                  <option>SETRA 270</option>
-              
-                  <option>SETRA 270A</option>
-              
-                  <option>SUTRON 5600-0120-3B</option>
-              
-                  <option>VAISALA PTB220</option>
-              
-                  <option>VAISALA PTB220PB</option>
-              
-          
-      
-          
-      
-          
-      
-          
-      
-  </select>
-
-  <select id="10MList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by 10m</option>
-      
-          
-      
-          
-      
-          
-      
-          
-              
-                  <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
-              
-                  <option>CAMPBELL SCI. CR10</option>
-              
-                  <option>CAMPBELL SCI. PS100</option>
-              
-                  <option>GENERIC</option>
-              
-                  <option>GENERIC 40'</option>
-              
-                  <option>GENERIC 50'</option>
-              
-                  <option>MSC 30'</option>
-              
-                  <option>MSC 78D</option>
-              
-                  <option>MSC ID</option>
-              
-                  <option>MSC U2A</option>
-              
-                  <option>RM YOUNG 04503</option>
-              
-                  <option>RM YOUNG 05103</option>
-              
-                  <option>RM YOUNG 05103AP</option>
-              
-                  <option>RM YOUNG 05106</option>
-              
-                  <option>YSI 44212EC</option>
-              
-          
-      
-          
-      
-          
-      
-  </select>
-
-  <select id="AWGList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by WG</option>
-      
-          
-      
-          
-      
-          
-      
-          
-      
-          
-              
-                  <option>BELFORT</option>
-              
-                  <option>GENERIC SINGLE ALTER</option>
-              
-                  <option>GEONOR T-200B WG (600 mm)</option>
-              
-                  <option>MSC DOUBLE ALTER</option>
-              
-                  <option>MSC FP1</option>
-              
-                  <option>OTT PLUVIO (1000 mm)</option>
-              
-                  <option>OTT PLUVIO2 (1500 mm)</option>
-              
-          
-      
-          
-      
-  </select>
-
-  <select id="SDList" onchange="networkFilter()" class='form-control'>
-      <option value="">Filter by SG</option>
-      
-          
-      
-          
-      
-          
-      
-          
-      
-          
-      
-          
-              
-                  <option>CAMPBELL SCI. SR50</option>
-              
-                  <option>CAMPBELL SCI. SR50-45</option>
-              
-                  <option>CAMPBELL SCI. SR50A</option>
-              
-                  <option>CAMPBELL SCI. SR50M-4</option>
-              
-                  <option>CAMPBELL SCI. UDG01</option>
-              
-                  <option>GENERIC</option>
-              
-          
-      
-  </select>
-
-  <button onClick="window.location.reload();">Clear Filters</button>
+  <p>
+    <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
+  </p>
 
   <p>
       <select name="Provs" id="ms" onchange="networkFilter()" class='form-control' size="13" multiple="multiple">
@@ -341,6 +71,278 @@ select {
           <option value="SK">SK</option>
           <option value="YT">YT</option>
       </select>
+
+      <select id="RBSNList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by RBSN</option>
+          <option value="X">RBSN</option>
+          <option value="  ">Not RBSN</option>
+      </select>
+
+      <select id="RBCNList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by RBCN</option>
+          <option value="X">RBCN</option>
+          <option value="  ">Not RBCN</option>
+      </select>
+
+      <select id="GSNList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by GSN</option>
+          <option value="X">GSN</option>
+          <option value="  ">Not GSN</option>
+      </select>
+
+      <select id="RCSList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by RCS</option>
+          <option value="X">RCS</option>
+          <option value="  ">Not RCS</option>
+      </select>
+
+      <select id="CoastalList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by Coastal</option>
+          <option value="X">Coastal</option>
+          <option value="  ">Not Coastal</option>
+      </select>
+
+      <select id="TempList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by Temp</option>
+          
+              
+                  
+                      <option>GENERIC</option>
+                  
+                      <option>GENERIC MAXIMUM THERMOMETER</option>
+                  
+                      <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+                  
+                      <option>YSI 44212EC</option>
+                  
+              
+          
+              
+          
+              
+          
+              
+          
+              
+          
+              
+          
+      </select>
+
+      <select id="RHList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by RH</option>
+          
+              
+          
+              
+                  
+                      <option>VAISALA HMP155A</option>
+                  
+                      <option>VAISALA HMP35AC</option>
+                  
+                      <option>VAISALA HMP41</option>
+                  
+              
+          
+              
+          
+              
+          
+              
+          
+              
+          
+      </select>
+
+      <select id="BARList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by Bar</option>
+          
+              
+          
+              
+          
+              
+                  
+                      <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
+                  
+                      <option>CAMPBELL SCI.</option>
+                  
+                      <option>CAMPBELL SCI. CH150</option>
+                  
+                      <option>CAMPBELL SCI. COM200</option>
+                  
+                      <option>CAMPBELL SCI. COM210</option>
+                  
+                      <option>CAMPBELL SCI. COM220</option>
+                  
+                      <option>CAMPBELL SCI. CR10</option>
+                  
+                      <option>CAMPBELL SCI. CR10X</option>
+                  
+                      <option>CAMPBELL SCI. CR21X</option>
+                  
+                      <option>CAMPBELL SCI. CR23X</option>
+                  
+                      <option>CAMPBELL SCI. CR3000E</option>
+                  
+                      <option>CAMPBELL SCI. PS100</option>
+                  
+                      <option>CAMPBELL SCI. PS12</option>
+                  
+                      <option>CAMPBELL SCI. PS150</option>
+                  
+                      <option>CAMPBELL SCI. PS34</option>
+                  
+                      <option>CAMPBELL SCI. TX320</option>
+                  
+                      <option>GENERIC</option>
+                  
+                      <option>HYDROLOGICAL TB3</option>
+                  
+                      <option>MSC CD</option>
+                  
+                      <option>MSC POSS RC</option>
+                  
+                      <option>MSC PRESSURE PB</option>
+                  
+                      <option>MSC SA</option>
+                  
+                      <option>MSC WIND WC - 78D</option>
+                  
+                      <option>SETRA 270</option>
+                  
+                      <option>SETRA 270A</option>
+                  
+                      <option>SUTRON 5600-0120-3B</option>
+                  
+                      <option>VAISALA PTB220</option>
+                  
+                      <option>VAISALA PTB220PB</option>
+                  
+              
+          
+              
+          
+              
+          
+              
+          
+      </select>
+
+      <select id="10MList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by 10m</option>
+          
+              
+          
+              
+          
+              
+          
+              
+                  
+                      <option>C-MICROHARD SYSTEMS  BULLET-LTE</option>
+                  
+                      <option>CAMPBELL SCI. CR10</option>
+                  
+                      <option>CAMPBELL SCI. PS100</option>
+                  
+                      <option>GENERIC</option>
+                  
+                      <option>GENERIC 40'</option>
+                  
+                      <option>GENERIC 50'</option>
+                  
+                      <option>MSC 30'</option>
+                  
+                      <option>MSC 78D</option>
+                  
+                      <option>MSC ID</option>
+                  
+                      <option>MSC U2A</option>
+                  
+                      <option>RM YOUNG 04503</option>
+                  
+                      <option>RM YOUNG 05103</option>
+                  
+                      <option>RM YOUNG 05103AP</option>
+                  
+                      <option>RM YOUNG 05106</option>
+                  
+                      <option>YSI 44212EC</option>
+                  
+              
+          
+              
+          
+              
+          
+      </select>
+
+      <select id="AWGList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by WG</option>
+          
+              
+          
+              
+          
+              
+          
+              
+          
+              
+                  
+                      <option>BELFORT</option>
+                  
+                      <option>GENERIC SINGLE ALTER</option>
+                  
+                      <option>GEONOR T-200B WG (600 mm)</option>
+                  
+                      <option>MSC DOUBLE ALTER</option>
+                  
+                      <option>MSC FP1</option>
+                  
+                      <option>OTT PLUVIO (1000 mm)</option>
+                  
+                      <option>OTT PLUVIO2 (1500 mm)</option>
+                  
+              
+          
+              
+          
+      </select>
+
+      <select id="SDList" onchange="networkFilter()" class='form-control'>
+          <option value="">Filter by SG</option>
+          
+              
+          
+              
+          
+              
+          
+              
+          
+              
+          
+              
+                  
+                      <option>CAMPBELL SCI. SR50</option>
+                  
+                      <option>CAMPBELL SCI. SR50-45</option>
+                  
+                      <option>CAMPBELL SCI. SR50A</option>
+                  
+                      <option>CAMPBELL SCI. SR50M-4</option>
+                  
+                      <option>CAMPBELL SCI. UDG01</option>
+                  
+                      <option>GENERIC</option>
+                  
+              
+          
+      </select>
+
+  <button onClick="window.location.reload();">Clear Filters</button>
   </p>
 
   <table id="Table">

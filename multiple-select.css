@@ -6,6 +6,7 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
+    height: 25px;
 }
 
 .ms-choice {
@@ -15,15 +16,15 @@
     padding: 0;
     overflow: hidden;
     cursor: pointer;
-    border: 0px solid #aaa;
+    border: 1px solid #aaa;
     text-align: left;
     white-space: nowrap;
     line-height: 26px;
     color: #444;
     text-decoration: none;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
     background-color: #fff;
 }
 
