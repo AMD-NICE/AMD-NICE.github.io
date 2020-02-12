@@ -34,11 +34,22 @@ button {
   padding-bottom: 4px;
 }
 
+footer {
+  padding-top: 15px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
 
 <link rel="stylesheet" href="multiple-select.css">
 
 <div class="home">
+  <img src="ECCC_Logo.png" alt="Logo" class="center">
   <p>
     <h1> CCN </h1>
   </p>
@@ -52,9 +63,11 @@ button {
   </p>
 
   <p>
+      <a href="/">Home</a>
+  </p>
+
+  <p>
         <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
-        <button>Export to CSV</button>
-        <a href="/">Home</a>
   </p>
 
   <p>
@@ -272,6 +285,7 @@ button {
           
       </select>
 
+  <button id="Export">Export to CSV</button>
   <button onClick="window.location.reload();">Clear Filters</button>
   </p>
 
@@ -9759,6 +9773,8 @@ button {
       </tr>
       
   </table>
+
+  <footer dir="rtl"> Jeffrey Welch, 2020 </footer>
 </div>
 
 <script>
@@ -9959,11 +9975,11 @@ function export_table_to_csv(html, filename) {
             txt11 = td11.textContent || td11.innerText;
 
             filter = (RBSNIn == "" || txt1.trim() == RBSNIn) && (RBCNIn == "" || txt2.trim() == RBCNIn) &&
-    (GSNIn == "" || txt3.trim() == GSNIn) && (RCSIn == "" || txt4.trim() == RCSIn) &&
-    (CoastalIn == "" || txt5.trim() == CoastalIn) && (TempIn == "" || txt6.trim() == TempIn) &&
-    (RHIn == "" || txt7.trim() == RHIn) && (BARIn == "" || txt8.trim() == BARIn) &&
-    (WindIn == "" || txt9.trim() == WindIn) && (AWGIn == "" || txt10.trim() == AWGIn) &&
-    (SDIn == "" || txt11.trim() == SDIn);
+(GSNIn == "" || txt3.trim() == GSNIn) && (RCSIn == "" || txt4.trim() == RCSIn) &&
+(CoastalIn == "" || txt5.trim() == CoastalIn) && (TempIn == "" || txt6.trim() == TempIn) &&
+(RHIn == "" || txt7.trim() == RHIn) && (BARIn == "" || txt8.trim() == BARIn) &&
+(WindIn == "" || txt9.trim() == WindIn) && (AWGIn == "" || txt10.trim() == AWGIn) &&
+(SDIn == "" || txt11.trim() == SDIn);
             if (filter && (Provs == "" || Provs.indexOf(prov) > -1)){
                 for (var j = 0; j < cols.length; j++) {
                     row.push(cols[j].innerText);
@@ -9977,7 +9993,7 @@ function export_table_to_csv(html, filename) {
     download_csv(csv.join("\n"), filename);
 }
 
-document.querySelector("button").addEventListener("click", function () {
+document.getElementById("Export").addEventListener("click", function () {
     var html = document.querySelector("Table").outerHTML;
 	export_table_to_csv(html, "export.csv");
 });
