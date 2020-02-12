@@ -34,957 +34,942 @@ button {
   padding-bottom: 4px;
 }
 
-footer {
-  padding-top: 15px;
+.page {
+  position: relative;
+  min-height: 100vh;
 }
 
-.center {
+.centre {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%
+}
+
+.content-wrap {
+  padding-bottom: 50px;
 }
 
 </style>
 
 <link rel="stylesheet" href="multiple-select.css">
 
-<div class="home">
-  <img src="ECCC_Logo.png" alt="Logo" class="center">
-  <p>
-    <h1> Lighthouses </h1>
-  </p>
+<div class="page">
+  <div class="content-wrap">
+      <img src="ECCC_Logo.png" alt="Logo" class="centre">
+      <p>
+        <h1> Lighthouses </h1>
+      </p>
 
-  <p>
-    <h2> Stations: 29</h2>
-  </p>
+      <p>
+        <h2> Stations: 29</h2>
+      </p>
 
-  <p>
-    <b>Query count: </b><b id="qCount"></b>
-  </p>
+      <p>
+        <b>Query count: </b><b id="qCount"></b>
+      </p>
 
-  <p>
-      <a href="/">Home</a>
-  </p>
+      <p>
+          <a href="/">Home</a>
+      </p>
 
-  <p>
-        <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
-  </p>
+      <p>
+            <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
+      </p>
+      <p>
+          <select name="Provs" id="ms" onchange="Filter()" class='form-control' size="13" multiple="multiple">
+              <option value="AB">AB</option>
+              <option value="BC">BC</option>
+              <option value="MB">MB</option>
+              <option value="NB">NB</option>
+              <option value="NL">NL</option>
+              <option value="NS">NS</option>
+              <option value="NT">NT</option>
+              <option value="NU">NU</option>
+              <option value="ON">ON</option>
+              <option value="PE">PE</option>
+              <option value="QC">QC</option>
+              <option value="SK">SK</option>
+              <option value="YT">YT</option>
+          </select>
 
-  <p>
-      <select name="Provs" id="ms" onchange="networkFilter()" class='form-control' size="13" multiple="multiple">
-          <option value="AB">AB</option>
-          <option value="BC">BC</option>
-          <option value="MB">MB</option>
-          <option value="NB">NB</option>
-          <option value="NL">NL</option>
-          <option value="NS">NS</option>
-          <option value="NT">NT</option>
-          <option value="NU">NU</option>
-          <option value="ON">ON</option>
-          <option value="PE">PE</option>
-          <option value="QC">QC</option>
-          <option value="SK">SK</option>
-          <option value="YT">YT</option>
-      </select>
+          <select id="RBSNList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by RBSN</option>
+              <option value="X">RBSN</option>
+              <option value="  ">Not RBSN</option>
+          </select>
 
-      <select id="RBSNList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by RBSN</option>
-          <option value="X">RBSN</option>
-          <option value="  ">Not RBSN</option>
-      </select>
+          <select id="RBCNList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by RBCN</option>
+              <option value="X">RBCN</option>
+              <option value="  ">Not RBCN</option>
+          </select>
 
-      <select id="RBCNList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by RBCN</option>
-          <option value="X">RBCN</option>
-          <option value="  ">Not RBCN</option>
-      </select>
+          <select id="GSNList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by GSN</option>
+              <option value="X">GSN</option>
+              <option value="  ">Not GSN</option>
+          </select>
 
-      <select id="GSNList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by GSN</option>
-          <option value="X">GSN</option>
-          <option value="  ">Not GSN</option>
-      </select>
+          <select id="RCSList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by RCS</option>
+              <option value="X">RCS</option>
+              <option value="  ">Not RCS</option>
+          </select>
 
-      <select id="RCSList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by RCS</option>
-          <option value="X">RCS</option>
-          <option value="  ">Not RCS</option>
-      </select>
+          <select id="CoastalList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by Coastal</option>
+              <option value="X">Coastal</option>
+              <option value="  ">Not Coastal</option>
+          </select>
 
-      <select id="CoastalList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by Coastal</option>
-          <option value="X">Coastal</option>
-          <option value="  ">Not Coastal</option>
-      </select>
+          <select id="TempList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by Temp</option>
+              
+                  
+                      
+                          <option>GENERIC</option>
+                      
+                          <option>GENERIC MAXIMUM THERMOMETER</option>
+                      
+                          <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+                      
+                          <option>VAISALA HMP155A</option>
+                      
+                          <option>VAISALA HMP35AC</option>
+                      
+                          <option>VAISALA HMP41</option>
+                      
+                          <option>YSI 44212EC</option>
+                      
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          </select>
 
-      <select id="TempList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by Temp</option>
-          
+          <select id="RHList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by RH</option>
               
                   
-                      <option>GENERIC</option>
+              
                   
-                      <option>GENERIC MAXIMUM THERMOMETER</option>
-                  
-                      <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
-                  
-                      <option>VAISALA HMP155A</option>
-                  
-                      <option>VAISALA HMP35AC</option>
-                  
-                      <option>VAISALA HMP41</option>
-                  
-                      <option>YSI 44212EC</option>
+                      
+                          <option>VAISALA HMP155A</option>
+                      
+                          <option>VAISALA HMP35AC</option>
+                      
+                          <option>VAISALA HMP41</option>
+                      
                   
               
-          
+                  
               
-          
+                  
               
-          
+                  
               
-          
+                  
               
-          
-              
-          
-      </select>
+          </select>
 
-      <select id="RHList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by RH</option>
-          
-              
-          
+          <select id="BARList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by Bar</option>
               
                   
-                      <option>VAISALA HMP155A</option>
-                  
-                      <option>VAISALA HMP35AC</option>
-                  
-                      <option>VAISALA HMP41</option>
+              
                   
               
-          
+                  
+                      
+                          <option>SETRA 270</option>
+                      
+                          <option>SETRA 270A</option>
+                      
+                          <option>SUTRON 5600-0120-3B</option>
+                      
+                          <option>VAISALA PTB220</option>
+                      
+                          <option>VAISALA PTB220PB</option>
+                      
+                  
               
-          
+                  
               
-          
+                  
               
-          
+                  
               
-          
-      </select>
+          </select>
 
-      <select id="BARList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by Bar</option>
-          
-              
-          
-              
-          
+          <select id="10MList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by 10m</option>
               
                   
-                      <option>SETRA 270</option>
-                  
-                      <option>SETRA 270A</option>
-                  
-                      <option>SUTRON 5600-0120-3B</option>
-                  
-                      <option>VAISALA PTB220</option>
-                  
-                      <option>VAISALA PTB220PB</option>
+              
                   
               
-          
+                  
               
-          
+                  
+                      
+                          <option>RM YOUNG 05103</option>
+                      
+                          <option>RM YOUNG 05103AP</option>
+                      
+                          <option>RM YOUNG 05106</option>
+                      
+                  
               
-          
+                  
               
-          
-      </select>
+                  
+              
+          </select>
 
-      <select id="10MList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by 10m</option>
-          
-              
-          
-              
-          
-              
-          
+          <select id="AWGList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by WG</option>
               
                   
-                      <option>RM YOUNG 05103</option>
-                  
-                      <option>RM YOUNG 05103AP</option>
-                  
-                      <option>RM YOUNG 05106</option>
+              
                   
               
-          
+                  
               
-          
+                  
               
-          
-      </select>
+                  
+                      
+                          <option>BELFORT</option>
+                      
+                          <option>GEONOR T-200B WG (600 mm)</option>
+                      
+                          <option>GEONOR T-200B-M WG (1000 mm)</option>
+                      
+                          <option>OTT PLUVIO (1000 mm)</option>
+                      
+                          <option>OTT PLUVIO2 (1500 mm)</option>
+                      
+                  
+              
+                  
+              
+          </select>
 
-      <select id="AWGList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by WG</option>
-          
-              
-          
-              
-          
-              
-          
-              
-          
+          <select id="SDList" onchange="Filter()" class='form-control'>
+              <option value="">Filter by SG</option>
               
                   
-                      <option>BELFORT</option>
-                  
-                      <option>GEONOR T-200B WG (600 mm)</option>
-                  
-                      <option>GEONOR T-200B-M WG (1000 mm)</option>
-                  
-                      <option>OTT PLUVIO (1000 mm)</option>
-                  
-                      <option>OTT PLUVIO2 (1500 mm)</option>
+              
                   
               
-          
+                  
               
-          
-      </select>
+                  
+              
+                  
+              
+                  
+                      
+                          <option>CAMPBELL SCI. SR50</option>
+                      
+                          <option>CAMPBELL SCI. SR50-45</option>
+                      
+                          <option>CAMPBELL SCI. SR50A</option>
+                      
+                          <option>CAMPBELL SCI. SR50M-4</option>
+                      
+                  
+              
+          </select>
 
-      <select id="SDList" onchange="networkFilter()" class='form-control'>
-          <option value="">Filter by SG</option>
-          
-              
-          
-              
-          
-              
-          
-              
-          
-              
-          
-              
-                  
-                      <option>CAMPBELL SCI. SR50</option>
-                  
-                      <option>CAMPBELL SCI. SR50-45</option>
-                  
-                      <option>CAMPBELL SCI. SR50A</option>
-                  
-                      <option>CAMPBELL SCI. SR50M-4</option>
-                  
-              
-          
-      </select>
+      <button id="Export">Export to CSV</button>
+      <button onClick="window.location.reload();">Clear Filters</button>
+      </p>
 
-  <button id="Export">Export to CSV</button>
-  <button onClick="window.location.reload();">Clear Filters</button>
-  </p>
-
-  <table id="Table">
-      <tr class="header">
-          <th> Name </th>
-          <th> Floc </th>
-          <th> Climate ID </th>
-          <th> Station ID </th>
-          <th> Lat </th>
-          <th> Long </th>
-          <th> RBSN </th>
-          <th> RBCN </th>
-          <th> GSN </th>
-          <th> RCS </th>
-          <th> Coastal </th>
-          <th> PM21 </th>
-          <th> PM22 </th>
-          <th> Temp </th>
-          <th> RH </th>
-          <th> Bar </th>
-          <th> 10m </th>
-          <th> WG </th>
-          <th> SG </th>
-      </tr>
-      
-      <tr>
-          <td> TRIAL ISLAND </td>
-          <td> 07-SURF-BC-1018238 </td>
-          <td> 1018238 </td>
-          <td> WIN </td>
-          <td> 48.3951 </td>
-          <td> -123.3049 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> N/A </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> CAPE MUDGE </td>
-          <td> 07-SURF-BC-1021330 </td>
-          <td> 1021330 </td>
-          <td> WAD </td>
-          <td> 49.9984 </td>
-          <td> -125.1955 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-11-14 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> CHATHAM POINT </td>
-          <td> 07-SURF-BC-1021480 </td>
-          <td> 1021480 </td>
-          <td> WFM </td>
-          <td> 50.3331 </td>
-          <td> -125.4456 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-11-13 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> CHROME ISLAND </td>
-          <td> 07-SURF-BC-1021500 </td>
-          <td> 1021500 </td>
-          <td>  </td>
-          <td> 49.4722 </td>
-          <td> -124.6831 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2016-11-17 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> PINE ISLAND </td>
-          <td> 07-SURF-BC-1026170 </td>
-          <td> 1026170 </td>
-          <td> WPI </td>
-          <td> 50.9758 </td>
-          <td> -127.7281 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2019-11-05 </td>
-          <td> 2018-11-22 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> PULTENEY POINT </td>
-          <td> 07-SURF-BC-1026550 </td>
-          <td> 1026550 </td>
-          <td>  </td>
-          <td> 50.6306 </td>
-          <td> -127.155 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2016-08-10 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> SCARLETT POINT </td>
-          <td> 07-SURF-BC-1027121 </td>
-          <td> 1027121 </td>
-          <td>  </td>
-          <td> 50.8607 </td>
-          <td> -127.6133 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2016-08-10 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> ENTRANCE ISLAND </td>
-          <td> 07-SURF-BC-102BFHH </td>
-          <td> 102BFHH </td>
-          <td>  </td>
-          <td> 49.2089 </td>
-          <td> -123.8089 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2015-12-31 </td>
-          <td> 2016-11-01 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> AMPHITRITE POINT </td>
-          <td> 07-SURF-BC-1030426 </td>
-          <td> 1030426 </td>
-          <td> WAN </td>
-          <td> 48.9211 </td>
-          <td> -125.5411 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> N/A </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> CAPE BEALE LIGHT </td>
-          <td> 07-SURF-BC-1031316 </td>
-          <td> 1031316 </td>
-          <td>  </td>
-          <td> 48.7861 </td>
-          <td> -125.2161 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2016-11-29 </td>
-          <td> 2016-08-30 </td>
-          <td> GENERIC MAXIMUM THERMOMETER </td>
-          <td>  </td>
-          <td>  </td>
-          <td> RM YOUNG 05103 </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> CAPE SCOTT </td>
-          <td> 07-SURF-BC-1031353 </td>
-          <td> 1031353 </td>
-          <td> WES </td>
-          <td> 50.7822 </td>
-          <td> -128.4272 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2018-12-11 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> CARMANAH POINT </td>
-          <td> 07-SURF-BC-1031402 </td>
-          <td> 1031402 </td>
-          <td>  </td>
-          <td> 48.611666 </td>
-          <td> -124.751388 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2016-08-30 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> ESTEVAN POINT </td>
-          <td> 07-SURF-BC-1032730 </td>
-          <td> 1032730 </td>
-          <td>  </td>
-          <td> 49.3835 </td>
-          <td> -126.5508 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2016-09-27 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> LENNARD ISLAND </td>
-          <td> 07-SURF-BC-1034600 </td>
-          <td> 1034600 </td>
-          <td>  </td>
-          <td> 49.1105 </td>
-          <td> -125.9233 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2017-04-28 </td>
-          <td> 2017-01-24 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td> RM YOUNG 05103 </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> NOOTKA LIGHTSTATION </td>
-          <td> 07-SURF-BC-1035614 </td>
-          <td> 1035614 </td>
-          <td> WCV </td>
-          <td> 49.6 </td>
-          <td> -126.6167 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-09-25 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td> RM YOUNG 05103 </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> PACHENA POINT </td>
-          <td> 07-SURF-BC-1035940 </td>
-          <td> 1035940 </td>
-          <td>  </td>
-          <td> 48.7228 </td>
-          <td> -125.0972 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2016-06-20 </td>
-          <td> 2016-09-01 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td> RM YOUNG 05103 </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> QUATSINO LIGHTSTATION </td>
-          <td> 07-SURF-BC-1036572 </td>
-          <td> 1036572 </td>
-          <td> WIF </td>
-          <td> 50.4411 </td>
-          <td> -128.0325 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2018-11-21 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> MERRY ISLAND LIGHTSTATION </td>
-          <td> 07-SURF-BC-1045100 </td>
-          <td> 1045100 </td>
-          <td> WMR </td>
-          <td> 49.4675 </td>
-          <td> -123.9125 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-07-18 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td> RM YOUNG 05103 </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> LANGARA </td>
-          <td> 07-SURF-BC-1054500 </td>
-          <td> 1054500 </td>
-          <td> WLA </td>
-          <td> 54.2551 </td>
-          <td> -133.058 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-08-15 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> ADDENBROKE ISLAND </td>
-          <td> 07-SURF-BC-1060080 </td>
-          <td> 1060080 </td>
-          <td> WCZ </td>
-          <td> 51.6035 </td>
-          <td> -127.8639 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2018-11-20 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> BOAT BLUFF </td>
-          <td> 07-SURF-BC-1060901 </td>
-          <td> 1060901 </td>
-          <td> WZM </td>
-          <td> 52.643 </td>
-          <td> -128.5239 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2018-10-18 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> BONILLA ISLAND </td>
-          <td> 07-SURF-BC-1060902 </td>
-          <td> 1060902 </td>
-          <td> WVB </td>
-          <td> 53.4928 </td>
-          <td> -130.6377 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2019-11-18 </td>
-          <td> 2019-08-14 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> DRYAD POINT </td>
-          <td> 07-SURF-BC-1062544 </td>
-          <td> 1062544 </td>
-          <td> WAU </td>
-          <td> 52.185 </td>
-          <td> -127.8878 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-10-30 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> EGG ISLAND </td>
-          <td> 07-SURF-BC-1062646 </td>
-          <td> 1062646 </td>
-          <td> UNK </td>
-          <td> 51.2472 </td>
-          <td> -127.8354 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2018-11-20 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> GREEN ISLAND </td>
-          <td> 07-SURF-BC-1063298 </td>
-          <td> 1063298 </td>
-          <td>  </td>
-          <td> 54.5686 </td>
-          <td> -130.7081 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> 2016-12-12 </td>
-          <td> 2019-08-13 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> IVORY ISLAND </td>
-          <td> 07-SURF-BC-1063690 </td>
-          <td> 1063690 </td>
-          <td> WJG </td>
-          <td> 52.2697 </td>
-          <td> -127.5933 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-10-30 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> MCINNES ISLAND </td>
-          <td> 07-SURF-BC-1065010 </td>
-          <td> 1065010 </td>
-          <td> WMS </td>
-          <td> 52.261666 </td>
-          <td> -128.719444 </td>
-          <td> X </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-10-29 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> TRIPLE ISLAND </td>
-          <td> 07-SURF-BC-1068250 </td>
-          <td> 1068250 </td>
-          <td>  </td>
-          <td> 54.2947 </td>
-          <td> -130.8803 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> 2019-08-13 </td>
-          <td> GENERIC </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-      <tr>
-          <td> TSAWWASSEN FERRY </td>
-          <td> 07-SURF-BC-1108290 </td>
-          <td> 1108290 </td>
-          <td>  </td>
-          <td> 49.0047 </td>
-          <td> -123.1328 </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td> X </td>
-          <td> N/A </td>
-          <td> N/A </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-          <td>  </td>
-      </tr>
-      
-  </table>
-
+      <table id="Table">
+          <tr class="header">
+              <th> Name </th>
+              <th> Floc </th>
+              <th> Climate ID </th>
+              <th> Station ID </th>
+              <th> Lat </th>
+              <th> Long </th>
+              <th> RBSN </th>
+              <th> RBCN </th>
+              <th> GSN </th>
+              <th> RCS </th>
+              <th> Coastal </th>
+              <th> PM21 </th>
+              <th> PM22 </th>
+              <th> Temp </th>
+              <th> RH </th>
+              <th> Bar </th>
+              <th> 10m </th>
+              <th> WG </th>
+              <th> SG </th>
+          </tr>
+          
+          <tr>
+              <td> TRIAL ISLAND </td>
+              <td> 07-SURF-BC-1018238 </td>
+              <td> 1018238 </td>
+              <td> WIN </td>
+              <td> 48.3951 </td>
+              <td> -123.3049 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> N/A </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> CAPE MUDGE </td>
+              <td> 07-SURF-BC-1021330 </td>
+              <td> 1021330 </td>
+              <td> WAD </td>
+              <td> 49.9984 </td>
+              <td> -125.1955 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-11-14 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> CHATHAM POINT </td>
+              <td> 07-SURF-BC-1021480 </td>
+              <td> 1021480 </td>
+              <td> WFM </td>
+              <td> 50.3331 </td>
+              <td> -125.4456 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-11-13 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> CHROME ISLAND </td>
+              <td> 07-SURF-BC-1021500 </td>
+              <td> 1021500 </td>
+              <td>  </td>
+              <td> 49.4722 </td>
+              <td> -124.6831 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2016-11-17 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> PINE ISLAND </td>
+              <td> 07-SURF-BC-1026170 </td>
+              <td> 1026170 </td>
+              <td> WPI </td>
+              <td> 50.9758 </td>
+              <td> -127.7281 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2019-11-05 </td>
+              <td> 2018-11-22 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> PULTENEY POINT </td>
+              <td> 07-SURF-BC-1026550 </td>
+              <td> 1026550 </td>
+              <td>  </td>
+              <td> 50.6306 </td>
+              <td> -127.155 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2016-08-10 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> SCARLETT POINT </td>
+              <td> 07-SURF-BC-1027121 </td>
+              <td> 1027121 </td>
+              <td>  </td>
+              <td> 50.8607 </td>
+              <td> -127.6133 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2016-08-10 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> ENTRANCE ISLAND </td>
+              <td> 07-SURF-BC-102BFHH </td>
+              <td> 102BFHH </td>
+              <td>  </td>
+              <td> 49.2089 </td>
+              <td> -123.8089 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2015-12-31 </td>
+              <td> 2016-11-01 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> AMPHITRITE POINT </td>
+              <td> 07-SURF-BC-1030426 </td>
+              <td> 1030426 </td>
+              <td> WAN </td>
+              <td> 48.9211 </td>
+              <td> -125.5411 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> N/A </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> CAPE BEALE LIGHT </td>
+              <td> 07-SURF-BC-1031316 </td>
+              <td> 1031316 </td>
+              <td>  </td>
+              <td> 48.7861 </td>
+              <td> -125.2161 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2016-11-29 </td>
+              <td> 2016-08-30 </td>
+              <td> GENERIC MAXIMUM THERMOMETER </td>
+              <td>  </td>
+              <td>  </td>
+              <td> RM YOUNG 05103 </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> CAPE SCOTT </td>
+              <td> 07-SURF-BC-1031353 </td>
+              <td> 1031353 </td>
+              <td> WES </td>
+              <td> 50.7822 </td>
+              <td> -128.4272 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2018-12-11 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> CARMANAH POINT </td>
+              <td> 07-SURF-BC-1031402 </td>
+              <td> 1031402 </td>
+              <td>  </td>
+              <td> 48.611666 </td>
+              <td> -124.751388 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2016-08-30 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> ESTEVAN POINT </td>
+              <td> 07-SURF-BC-1032730 </td>
+              <td> 1032730 </td>
+              <td>  </td>
+              <td> 49.3835 </td>
+              <td> -126.5508 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2016-09-27 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> LENNARD ISLAND </td>
+              <td> 07-SURF-BC-1034600 </td>
+              <td> 1034600 </td>
+              <td>  </td>
+              <td> 49.1105 </td>
+              <td> -125.9233 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2017-04-28 </td>
+              <td> 2017-01-24 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td> RM YOUNG 05103 </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> NOOTKA LIGHTSTATION </td>
+              <td> 07-SURF-BC-1035614 </td>
+              <td> 1035614 </td>
+              <td> WCV </td>
+              <td> 49.6 </td>
+              <td> -126.6167 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-09-25 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td> RM YOUNG 05103 </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> PACHENA POINT </td>
+              <td> 07-SURF-BC-1035940 </td>
+              <td> 1035940 </td>
+              <td>  </td>
+              <td> 48.7228 </td>
+              <td> -125.0972 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2016-06-20 </td>
+              <td> 2016-09-01 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td> RM YOUNG 05103 </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> QUATSINO LIGHTSTATION </td>
+              <td> 07-SURF-BC-1036572 </td>
+              <td> 1036572 </td>
+              <td> WIF </td>
+              <td> 50.4411 </td>
+              <td> -128.0325 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2018-11-21 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> MERRY ISLAND LIGHTSTATION </td>
+              <td> 07-SURF-BC-1045100 </td>
+              <td> 1045100 </td>
+              <td> WMR </td>
+              <td> 49.4675 </td>
+              <td> -123.9125 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-07-18 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td> RM YOUNG 05103 </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> LANGARA </td>
+              <td> 07-SURF-BC-1054500 </td>
+              <td> 1054500 </td>
+              <td> WLA </td>
+              <td> 54.2551 </td>
+              <td> -133.058 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-08-15 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> ADDENBROKE ISLAND </td>
+              <td> 07-SURF-BC-1060080 </td>
+              <td> 1060080 </td>
+              <td> WCZ </td>
+              <td> 51.6035 </td>
+              <td> -127.8639 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2018-11-20 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> BOAT BLUFF </td>
+              <td> 07-SURF-BC-1060901 </td>
+              <td> 1060901 </td>
+              <td> WZM </td>
+              <td> 52.643 </td>
+              <td> -128.5239 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2018-10-18 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> BONILLA ISLAND </td>
+              <td> 07-SURF-BC-1060902 </td>
+              <td> 1060902 </td>
+              <td> WVB </td>
+              <td> 53.4928 </td>
+              <td> -130.6377 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2019-11-18 </td>
+              <td> 2019-08-14 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> DRYAD POINT </td>
+              <td> 07-SURF-BC-1062544 </td>
+              <td> 1062544 </td>
+              <td> WAU </td>
+              <td> 52.185 </td>
+              <td> -127.8878 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-10-30 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> EGG ISLAND </td>
+              <td> 07-SURF-BC-1062646 </td>
+              <td> 1062646 </td>
+              <td> UNK </td>
+              <td> 51.2472 </td>
+              <td> -127.8354 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2018-11-20 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> GREEN ISLAND </td>
+              <td> 07-SURF-BC-1063298 </td>
+              <td> 1063298 </td>
+              <td>  </td>
+              <td> 54.5686 </td>
+              <td> -130.7081 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> 2016-12-12 </td>
+              <td> 2019-08-13 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> IVORY ISLAND </td>
+              <td> 07-SURF-BC-1063690 </td>
+              <td> 1063690 </td>
+              <td> WJG </td>
+              <td> 52.2697 </td>
+              <td> -127.5933 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-10-30 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> MCINNES ISLAND </td>
+              <td> 07-SURF-BC-1065010 </td>
+              <td> 1065010 </td>
+              <td> WMS </td>
+              <td> 52.261666 </td>
+              <td> -128.719444 </td>
+              <td> X </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-10-29 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> TRIPLE ISLAND </td>
+              <td> 07-SURF-BC-1068250 </td>
+              <td> 1068250 </td>
+              <td>  </td>
+              <td> 54.2947 </td>
+              <td> -130.8803 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> 2019-08-13 </td>
+              <td> GENERIC </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+          <tr>
+              <td> TSAWWASSEN FERRY </td>
+              <td> 07-SURF-BC-1108290 </td>
+              <td> 1108290 </td>
+              <td>  </td>
+              <td> 49.0047 </td>
+              <td> -123.1328 </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td> X </td>
+              <td> N/A </td>
+              <td> N/A </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+              <td>  </td>
+          </tr>
+          
+      </table>
+  </div>
   <footer dir="rtl"> Jeffrey Welch, 2020 </footer>
 </div>
 
 <script>
 function Filter() {
-  // Declare variables
-  var count, input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("Input");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("Table");
-  tr = table.getElementsByTagName("tr");
-
-  count = 0;
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        count += 1
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-  document.getElementById("qCount").innerHTML = count;
-}
-
-function networkFilter() {
-  var count, table, tr, i, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
-  var td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter, prov;
+  var count, table, tr, i, nameIn, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
+  var td0, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter, prov;
   RBSNIn = document.getElementById("RBSNList").value;
   RBCNIn = document.getElementById("RBCNList").value;
   GSNIn = document.getElementById("GSNList").value;
@@ -996,6 +981,7 @@ function networkFilter() {
   WindIn = document.getElementById("10MList").value;
   AWGIn = document.getElementById("AWGList").value;
   SDIn = document.getElementById("SDList").value;
+  nameIn = document.getElementById("Input").value.toUpperCase();
   table = document.getElementById("Table");
   tr = table.getElementsByTagName("tr");
 
@@ -1011,6 +997,7 @@ function networkFilter() {
   var len = tr.length;
 
   for (i = 0; i < len; i++) {
+    td0 = tr[i].getElementsByTagName("td")[0];
     td1 = tr[i].getElementsByTagName("td")[6];
     td2 = tr[i].getElementsByTagName("td")[7];
     td3 = tr[i].getElementsByTagName("td")[8];
@@ -1029,6 +1016,7 @@ function networkFilter() {
     }
 
     if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
+        txt0 = td0.textContent || td0.innerText;
         txt1 = td1.textContent || td1.innerText;
         txt2 = td2.textContent || td2.innerText;
         txt3 = td3.textContent || td3.innerText;
@@ -1041,11 +1029,12 @@ function networkFilter() {
         txt10 = td10.textContent || td10.innerText;
         txt11 = td11.textContent || td11.innerText;
 
-        filter = (RBSNIn == "" || txt1.trim() == RBSNIn) && (RBCNIn == "" || txt2.trim() == RBCNIn) &&
-(GSNIn == "" || txt3.trim() == GSNIn) && (RCSIn == "" || txt4.trim() == RCSIn) &&
-(CoastalIn == "" || txt5.trim() == CoastalIn) && (TempIn == "" || txt6.trim() == TempIn) &&
-(RHIn == "" || txt7.trim() == RHIn) && (BARIn == "" || txt8.trim() == BARIn) &&
-(WindIn == "" || txt9.trim() == WindIn) && (AWGIn == "" || txt10.trim() == AWGIn) &&
+        filter = txt0.toUpperCase().indexOf(nameIn) > -1 && (RBSNIn == "" || txt1.trim() == RBSNIn) &&
+(RBCNIn == "" || txt2.trim() == RBCNIn) && (GSNIn == "" || txt3.trim() == GSNIn) &&
+(RCSIn == "" || txt4.trim() == RCSIn) && (CoastalIn == "" || txt5.trim() == CoastalIn) &&
+(TempIn == "" || txt6.trim() == TempIn) && (RHIn == "" || txt7.trim() == RHIn) &&
+(BARIn == "" || txt8.trim() == BARIn) && (WindIn == "" || txt9.trim() == WindIn) &&
+(AWGIn == "" || txt10.trim() == AWGIn) &&
 (SDIn == "" || txt11.trim() == SDIn);
         if (filter && (Provs == "" || Provs.indexOf(prov) > -1)) {
             count += 1;
@@ -1089,7 +1078,7 @@ function export_table_to_csv(html, filename) {
 	var csv = [];
 
 	var  table, tr, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
-	var td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter;
+	var td0, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter;
     RBSNIn = document.getElementById("RBSNList").value;
     RBCNIn = document.getElementById("RBCNList").value;
     GSNIn = document.getElementById("GSNList").value;
@@ -1101,6 +1090,7 @@ function export_table_to_csv(html, filename) {
     WindIn = document.getElementById("10MList").value;
     AWGIn = document.getElementById("AWGList").value;
     SDIn = document.getElementById("SDList").value;
+    nameIn = document.getElementById("Input").value.toUpperCase();
     table = document.getElementById("Table");
     tr = table.getElementsByTagName("tr");
 
@@ -1122,6 +1112,7 @@ function export_table_to_csv(html, filename) {
     for (var i = 0; i < tr.length; i++) {
 		var row = [], cols = tr[i].querySelectorAll("td, th");
 
+        td0 = tr[i].getElementsByTagName("td")[0];
 		td1 = tr[i].getElementsByTagName("td")[6];
         td2 = tr[i].getElementsByTagName("td")[7];
         td3 = tr[i].getElementsByTagName("td")[8];
@@ -1140,6 +1131,7 @@ function export_table_to_csv(html, filename) {
         }
 
         if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
+            txt0 = td0.textContent || td0.innerText;
             txt1 = td1.textContent || td1.innerText;
             txt2 = td2.textContent || td2.innerText;
             txt3 = td3.textContent || td3.innerText;
@@ -1152,11 +1144,12 @@ function export_table_to_csv(html, filename) {
             txt10 = td10.textContent || td10.innerText;
             txt11 = td11.textContent || td11.innerText;
 
-            filter = (RBSNIn == "" || txt1.trim() == RBSNIn) && (RBCNIn == "" || txt2.trim() == RBCNIn) &&
-(GSNIn == "" || txt3.trim() == GSNIn) && (RCSIn == "" || txt4.trim() == RCSIn) &&
-(CoastalIn == "" || txt5.trim() == CoastalIn) && (TempIn == "" || txt6.trim() == TempIn) &&
-(RHIn == "" || txt7.trim() == RHIn) && (BARIn == "" || txt8.trim() == BARIn) &&
-(WindIn == "" || txt9.trim() == WindIn) && (AWGIn == "" || txt10.trim() == AWGIn) &&
+            filter = txt0.toUpperCase().indexOf(nameIn) > -1 && (RBSNIn == "" || txt1.trim() == RBSNIn) &&
+(RBCNIn == "" || txt2.trim() == RBCNIn) && (GSNIn == "" || txt3.trim() == GSNIn) &&
+(RCSIn == "" || txt4.trim() == RCSIn) && (CoastalIn == "" || txt5.trim() == CoastalIn) &&
+(TempIn == "" || txt6.trim() == TempIn) && (RHIn == "" || txt7.trim() == RHIn) &&
+(BARIn == "" || txt8.trim() == BARIn) && (WindIn == "" || txt9.trim() == WindIn) &&
+(AWGIn == "" || txt10.trim() == AWGIn) &&
 (SDIn == "" || txt11.trim() == SDIn);
             if (filter && (Provs == "" || Provs.indexOf(prov) > -1)){
                 for (var j = 0; j < cols.length; j++) {
