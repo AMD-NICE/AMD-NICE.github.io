@@ -140,13 +140,13 @@
 
         // restore class and title from select element
         this.$parent = $(sprintf(
-            '<div class="ms-parent %s" %s/>',
+            '<div class="ProvList-parent %s" %s/>',
             $el.attr('class') || '',
             sprintf('title="%s"', $el.attr('title'))));
 
         // add placeholder to choice button
         this.$choice = $(sprintf([
-                '<button type="button" class="ms-choice">',
+                '<button type="button" class="ProvList-choice">',
                 '<span class="placeholder">%s</span>',
                 '<div></div>',
                 '</button>'
@@ -154,7 +154,7 @@
             this.options.placeholder));
 
         // default position is bottom
-        this.$drop = $(sprintf('<div class="ms-drop %s"%s></div>',
+        this.$drop = $(sprintf('<div class="ProvList-drop %s"%s></div>',
             this.options.position,
             sprintf(' style="width: %s"', this.options.dropWidth)));
 
@@ -177,11 +177,11 @@
         if (!this.options.keepOpen) {
             $(document).click(function (e) {
                 if ($(e.target)[0] === that.$choice[0] ||
-                    $(e.target).parents('.ms-choice')[0] === that.$choice[0]) {
+                    $(e.target).parents('.ProvList-choice')[0] === that.$choice[0]) {
                     return;
                 }
                 if (($(e.target)[0] === that.$drop[0] ||
-                    $(e.target).parents('.ms-drop')[0] !== that.$drop[0] && e.target !== $el[0]) &&
+                    $(e.target).parents('.ProvList-drop')[0] !== that.$drop[0] && e.target !== $el[0]) &&
                     that.options.isOpen) {
                     that.close();
                 }
@@ -200,7 +200,7 @@
 
             if (this.options.filter) {
                 this.$drop.append([
-                    '<div class="ms-search">',
+                    '<div class="ProvList-search">',
                     '<input type="text" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">',
                     '</div>'].join('')
                 );
@@ -208,7 +208,7 @@
 
             if (this.options.selectAll && !this.options.single) {
                 $ul.append([
-                    '<li class="ms-select-all">',
+                    '<li class="ProvList-select-all">',
                     '<label>',
                     sprintf('<input type="checkbox" %s /> ', this.selectAllName),
                     this.options.selectAllDelimiter[0],
@@ -222,18 +222,18 @@
             $.each(this.$el.children(), function (i, elm) {
                 $ul.append(that.optionToHtml(i, elm));
             });
-            $ul.append(sprintf('<li class="ms-no-results">%s</li>', this.options.noMatchesFound));
+            $ul.append(sprintf('<li class="ProvList-no-results">%s</li>', this.options.noMatchesFound));
             this.$drop.append($ul);
 
             this.$drop.find('ul').css('max-height', this.options.maxHeight + 'px');
             this.$drop.find('.multiple').css('width', this.options.multipleWidth + 'px');
 
-            this.$searchInput = this.$drop.find('.ms-search input');
+            this.$searchInput = this.$drop.find('.ProvList-search input');
             this.$selectAll = this.$drop.find('input[' + this.selectAllName + ']');
             this.$selectGroups = this.$drop.find('input[' + this.selectGroupName + ']');
             this.$selectItems = this.$drop.find('input[' + this.selectItemName + ']:enabled');
             this.$disableItems = this.$drop.find('input[' + this.selectItemName + ']:disabled');
-            this.$noResults = this.$drop.find('.ms-no-results');
+            this.$noResults = this.$drop.find('.ProvList-no-results');
 
             this.events();
             this.updateSelectAll(true);
@@ -786,3 +786,11 @@
         }
     };
 })(jQuery);
+
+$(function() {
+    $('#ProvList').change(function() {
+        console.log($(this).val());
+    }).multipleSelect({
+        width: '10%'
+    });
+});

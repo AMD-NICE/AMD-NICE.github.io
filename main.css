@@ -76,14 +76,14 @@ footer {
   padding-bottom: 50px;
 }
 
-.ms-parent {
+.ProvList-parent {
     display: inline-block;
     position: relative;
     vertical-align: middle;
     height: 25px;
 }
 
-.ms-choice {
+.ProvList-choice {
     display: block;
     width: 100%;
     height: 26px;
@@ -102,14 +102,14 @@ footer {
     background-color: #fff;
 }
 
-.ms-choice.disabled {
+.ProvList-choice.disabled {
     background-color: #f4f4f4;
     background-image: none;
     border: 1px solid #ddd;
     cursor: default;
 }
 
-.ms-choice > span {
+.ProvList-choice > span {
     position: absolute;
     top: 0;
     left: 0;
@@ -121,11 +121,11 @@ footer {
     padding-left: 8px;
 }
 
-.ms-choice > span.placeholder {
+.ProvList-choice > span.placeholder {
     color: #999;
 }
 
-.ms-choice > div {
+.ProvList-choice > div {
     position: absolute;
     top: 0;
     right: 0;
@@ -134,11 +134,11 @@ footer {
     background: url('multiple-select.png') left top no-repeat;
 }
 
-.ms-choice > div.open {
+.ProvList-choice > div.open {
     background: url('multiple-select.png') right top no-repeat;
 }
 
-.ms-drop {
+.ProvList-drop {
     width: 100%;
     overflow: hidden;
     display: none;
@@ -154,21 +154,21 @@ footer {
     border-radius: 4px;
 }
 
-.ms-drop.bottom {
+.ProvList-drop.bottom {
     top: 100%;
     -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
     -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
     box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
 }
 
-.ms-drop.top {
+.ProvList-drop.top {
     bottom: 100%;
     -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
     -moz-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
     box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
 }
 
-.ms-search {
+.ProvList-search {
     display: inline-block;
     margin: 0;
     min-height: 26px;
@@ -179,7 +179,7 @@ footer {
     z-index: 10000;
 }
 
-.ms-search input {
+.ProvList-search input {
     width: 100%;
     height: auto !important;
     min-height: 24px;
@@ -204,7 +204,7 @@ footer {
     background: url('multiple-select.png') no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
 }
 
-.ms-search, .ms-search input {
+.ProvList-search, .ProvList-search input {
     -webkit-box-sizing: border-box;
     -khtml-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -212,34 +212,34 @@ footer {
     box-sizing: border-box;
 }
 
-.ms-drop ul {
+.ProvList-drop ul {
     overflow: auto;
     margin: 0;
     padding: 5px 8px;
 }
 
-.ms-drop ul > li {
+.ProvList-drop ul > li {
     list-style: none;
     display: list-item;
     background-image: none;
     position: static;
 }
 
-.ms-drop ul > li .disabled {
+.ProvList-drop ul > li .disabled {
     opacity: .35;
     filter: Alpha(Opacity=35);
 }
 
-.ms-drop ul > li.multiple {
+.ProvList-drop ul > li.multiple {
     display: block;
     float: left;
 }
 
-.ms-drop ul > li.group {
+.ProvList-drop ul > li.group {
     clear: both;
 }
 
-.ms-drop ul > li.multiple label {
+.ProvList-drop ul > li.multiple label {
     width: 100%;
     display: block;
     white-space: nowrap;
@@ -247,20 +247,20 @@ footer {
     text-overflow: ellipsis;
 }
 
-.ms-drop ul > li label {
+.ProvList-drop ul > li label {
     font-weight: normal;
     display: block;
     white-space: nowrap;
 }
 
-.ms-drop ul > li label.optgroup {
+.ProvList-drop ul > li label.optgroup {
     font-weight: bold;
 }
 
-.ms-drop input[type="checkbox"] {
+.ProvList-drop input[type="checkbox"] {
     vertical-align: middle;
 }
 
-.ms-drop .ms-no-results {
+.ProvList-drop .ProvList-no-results {
     display: none;
 }
