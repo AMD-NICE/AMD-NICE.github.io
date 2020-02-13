@@ -91,7 +91,7 @@ function clearFilters() {
         $('#ProvList').change(function() {
             console.log($(this).val());
         }).multipleSelect({
-            width: '10%'
+            width: '150px'
         });
     });
     clearFilter("RBSNList", "");

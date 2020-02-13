@@ -720,6 +720,7 @@
     $.fn.multipleSelect.defaults = {
         name: '',
         isOpen: false,
+        isOpen: false,
         placeholder: 'Filter by province',
         selectAll: true,
         selectAllDelimiter: ['[', ']'],
@@ -731,7 +732,7 @@
         filter: false,
         width: undefined,
         dropWidth: undefined,
-        maxHeight: 250,
+        maxHeight: 300,
         container: null,
         position: 'bottom',
         keepOpen: false,
@@ -791,6 +792,6 @@ $(function() {
     $('#ProvList').change(function() {
         console.log($(this).val());
     }).multipleSelect({
-        width: '10%'
+        width: '150px'
     });
 });
