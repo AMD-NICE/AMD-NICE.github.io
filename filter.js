@@ -48,11 +48,11 @@ function Filter() {
 
     if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
         txt0 = td0.textContent || td0.innerText;
-        txt1 = td1.textContent || td1.innerText;
-        txt2 = td2.textContent || td2.innerText;
-        txt3 = td3.textContent || td3.innerText;
-        txt4 = td4.textContent || td4.innerText;
-        txt5 = td5.textContent || td5.innerText;
+        txt1 = td1.innerHTML;
+        txt2 = td2.innerHTML;
+        txt3 = td3.innerHTML;
+        txt4 = td4.innerHTML;
+        txt5 = td5.innerHTML;
         txt6 = td6.textContent || td6.innerText;
         txt7 = td7.textContent || td7.innerText;
         txt8 = td8.textContent || td8.innerText;
@@ -60,9 +60,8 @@ function Filter() {
         txt10 = td10.textContent || td10.innerText;
         txt11 = td11.textContent || td11.innerText;
 
-        filter = txt0.toUpperCase().indexOf(nameIn) > -1 && (RBSNIn == "" || txt1.trim() == RBSNIn) &&
-(RBCNIn == "" || txt2.trim() == RBCNIn) && (GSNIn == "" || txt3.trim() == GSNIn) &&
-(RCSIn == "" || txt4.trim() == RCSIn) && (CoastalIn == "" || txt5.trim() == CoastalIn) &&
+        filter = txt0.toUpperCase().indexOf(nameIn) > -1 && txt1.indexOf(RBSNIn) > -1 && txt2.indexOf(RBCNIn) > -1 &&
+txt3.indexOf(GSNIn) > -1 && txt4.indexOf(RCSIn) > -1 && txt5.indexOf(CoastalIn) > -1 &&
 (TempIn == "" || txt6.trim() == TempIn) && (RHIn == "" || txt7.trim() == RHIn) &&
 (BARIn == "" || txt8.trim() == BARIn) && (WindIn == "" || txt9.trim() == WindIn) &&
 (AWGIn == "" || txt10.trim() == AWGIn) &&
