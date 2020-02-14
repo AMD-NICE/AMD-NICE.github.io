@@ -1,6 +1,8 @@
 function Filter() {
   var count, table, tr, i, nameIn, RBSNIn, RBCNIn, GSNIn, RCSIn, CoastalIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
-  var td0, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter, prov;
+  var td0, td01, td02, td03, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter, prov;
+  var txt0, txt01, txt02, txt03, txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11;
+
   RBSNIn = document.getElementById("RBSNList").value;
   RBCNIn = document.getElementById("RBCNList").value;
   GSNIn = document.getElementById("GSNList").value;
@@ -49,7 +51,7 @@ function Filter() {
         prov = tr[i].getElementsByTagName("td")[1];
     }
 
-    if (td0 && td01 && td02 & td03 && td1 && td2 && td3 && td4 && td5 &&
+    if (td0 && td01 && td02 && td03 && td1 && td2 && td3 && td4 && td5 &&
 td6 && td7 && td8 && td9 && td10 && td11 && prov) {
         txt0 = td0.textContent || td0.innerText;
         txt01 = td01.textContent || td01.innerText;
