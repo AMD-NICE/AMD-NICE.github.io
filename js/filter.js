@@ -49,7 +49,8 @@ function Filter() {
         prov = tr[i].getElementsByTagName("td")[1];
     }
 
-    if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
+    if (td0 && td01 && td02 & td03 && td1 && td2 && td3 && td4 && td5 &&
+td6 && td7 && td8 && td9 && td10 && td11 && prov) {
         txt0 = td0.textContent || td0.innerText;
         txt01 = td01.textContent || td01.innerText;
         txt02 = td02.textContent || td02.innerText;
@@ -71,8 +72,7 @@ txt02.toUpperCase().indexOf(nameIn) > -1 || txt03.toUpperCase().indexOf(nameIn) 
 txt2.indexOf(RBCNIn) > -1 && txt3.indexOf(GSNIn) > -1 && txt4.indexOf(RCSIn) > -1 && txt5.indexOf(CoastalIn) > -1 &&
 (TempIn == "" || txt6.trim() == TempIn) && (RHIn == "" || txt7.trim() == RHIn) &&
 (BARIn == "" || txt8.trim() == BARIn) && (WindIn == "" || txt9.trim() == WindIn) &&
-(AWGIn == "" || txt10.trim() == AWGIn) &&
-(SDIn == "" || txt11.trim() == SDIn);
+(AWGIn == "" || txt10.trim() == AWGIn) && (SDIn == "" || txt11.trim() == SDIn);
         if (filter && (Provs == "" || Provs.indexOf(prov) > -1)) {
             count += 1;
             tr[i].style.display = "";
