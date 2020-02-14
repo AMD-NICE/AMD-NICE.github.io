@@ -28,23 +28,24 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+
 th, td {
-  width: 100px;
+  width: calc(calc(100vw - 20px)/14);
   height: 75px;
 }
 td {
-  font-size: 80%;
+  font-size: 70%;
 }
 
 input {
-  width: 30%;
+  width: 50%;
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
 }
 
 select {
-  width: 125px;
+  width: calc(90vw/14);
   height: 26px;
   overflow: hidden;
   padding-bottom: 3px;
@@ -52,6 +53,7 @@ select {
 }
 
 button {
+  width: calc(90vw/14);
   height: 26px;
   padding-bottom: 4px;
 }
@@ -70,7 +72,7 @@ button {
 footer {
   position: absolute;
   bottom: 0;
-  width: 100%
+  width: 100%;
 }
 
 .content-wrap {
