@@ -5,7 +5,6 @@
 
 <div class="page">
   <div class="content-wrap">
-      <img src="/ECCC_Logo.png" alt="Logo" class="centre">
       <p>
         <h1> Lighthouses </h1>
       </p>
@@ -23,7 +22,7 @@
       </p>
 
       <p>
-            <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
+            <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name, FLOC, or IDs...">
       </p>
       <p>
           <select name="Provs" id="ProvList" onchange="Filter()" class='form-control' size="13" multiple="multiple">
@@ -247,18 +246,19 @@
       <table id="Table">
           <tr class="header">
               <th> Name </th>
-              <th> Floc </th>
+              <th> FLOC </th>
               <th> Climate ID </th>
-              <th> Station ID </th>
-              <th> Lat </th>
-              <th> Long </th>
+              <th> TC ID </th>
+              <th> WMO ID </th>
+              <th> Latitude </th>
+              <th> Longitude </th>
               <th> RBSN </th>
               <th> RBCN </th>
               <th> GSN </th>
               <th> RCS </th>
               <th> Coastal </th>
-              <th> PM21 </th>
-              <th> PM22 </th>
+              <th> Last Complete PM21 </th>
+              <th> Last Complete PM22 </th>
               <th> Temp </th>
               <th> RH </th>
               <th> Bar </th>
@@ -272,6 +272,7 @@
               <td> 07-SURF-BC-1018238 </td>
               <td> 1018238 </td>
               <td> WIN </td>
+              <td> 71034 </td>
               <td> 48.3951 </td>
               <td> -123.3049 </td>
               <td>  </td>
@@ -294,6 +295,7 @@
               <td> 07-SURF-BC-1021330 </td>
               <td> 1021330 </td>
               <td> WAD </td>
+              <td> 8888 </td>
               <td> 49.9984 </td>
               <td> -125.1955 </td>
               <td>  </td>
@@ -316,6 +318,7 @@
               <td> 07-SURF-BC-1021480 </td>
               <td> 1021480 </td>
               <td> WFM </td>
+              <td>  </td>
               <td> 50.3331 </td>
               <td> -125.4456 </td>
               <td>  </td>
@@ -337,6 +340,7 @@
               <td> CHROME ISLAND </td>
               <td> 07-SURF-BC-1021500 </td>
               <td> 1021500 </td>
+              <td>  </td>
               <td>  </td>
               <td> 49.4722 </td>
               <td> -124.6831 </td>
@@ -360,6 +364,7 @@
               <td> 07-SURF-BC-1026170 </td>
               <td> 1026170 </td>
               <td> WPI </td>
+              <td> 16170 </td>
               <td> 50.9758 </td>
               <td> -127.7281 </td>
               <td>  </td>
@@ -381,6 +386,7 @@
               <td> PULTENEY POINT </td>
               <td> 07-SURF-BC-1026550 </td>
               <td> 1026550 </td>
+              <td>  </td>
               <td>  </td>
               <td> 50.6306 </td>
               <td> -127.155 </td>
@@ -404,6 +410,7 @@
               <td> 07-SURF-BC-1027121 </td>
               <td> 1027121 </td>
               <td>  </td>
+              <td>  </td>
               <td> 50.8607 </td>
               <td> -127.6133 </td>
               <td>  </td>
@@ -425,6 +432,7 @@
               <td> ENTRANCE ISLAND </td>
               <td> 07-SURF-BC-102BFHH </td>
               <td> 102BFHH </td>
+              <td>  </td>
               <td>  </td>
               <td> 49.2089 </td>
               <td> -123.8089 </td>
@@ -448,6 +456,7 @@
               <td> 07-SURF-BC-1030426 </td>
               <td> 1030426 </td>
               <td> WAN </td>
+              <td>  </td>
               <td> 48.9211 </td>
               <td> -125.5411 </td>
               <td>  </td>
@@ -469,6 +478,7 @@
               <td> CAPE BEALE LIGHT </td>
               <td> 07-SURF-BC-1031316 </td>
               <td> 1031316 </td>
+              <td>  </td>
               <td>  </td>
               <td> 48.7861 </td>
               <td> -125.2161 </td>
@@ -492,6 +502,7 @@
               <td> 07-SURF-BC-1031353 </td>
               <td> 1031353 </td>
               <td> WES </td>
+              <td> 11353 </td>
               <td> 50.7822 </td>
               <td> -128.4272 </td>
               <td>  </td>
@@ -513,6 +524,7 @@
               <td> CARMANAH POINT </td>
               <td> 07-SURF-BC-1031402 </td>
               <td> 1031402 </td>
+              <td>  </td>
               <td>  </td>
               <td> 48.611666 </td>
               <td> -124.751388 </td>
@@ -536,6 +548,7 @@
               <td> 07-SURF-BC-1032730 </td>
               <td> 1032730 </td>
               <td>  </td>
+              <td>  </td>
               <td> 49.3835 </td>
               <td> -126.5508 </td>
               <td>  </td>
@@ -557,6 +570,7 @@
               <td> LENNARD ISLAND </td>
               <td> 07-SURF-BC-1034600 </td>
               <td> 1034600 </td>
+              <td>  </td>
               <td>  </td>
               <td> 49.1105 </td>
               <td> -125.9233 </td>
@@ -580,6 +594,7 @@
               <td> 07-SURF-BC-1035614 </td>
               <td> 1035614 </td>
               <td> WCV </td>
+              <td>  </td>
               <td> 49.6 </td>
               <td> -126.6167 </td>
               <td>  </td>
@@ -601,6 +616,7 @@
               <td> PACHENA POINT </td>
               <td> 07-SURF-BC-1035940 </td>
               <td> 1035940 </td>
+              <td>  </td>
               <td>  </td>
               <td> 48.7228 </td>
               <td> -125.0972 </td>
@@ -624,6 +640,7 @@
               <td> 07-SURF-BC-1036572 </td>
               <td> 1036572 </td>
               <td> WIF </td>
+              <td> 16572 </td>
               <td> 50.4411 </td>
               <td> -128.0325 </td>
               <td>  </td>
@@ -646,6 +663,7 @@
               <td> 07-SURF-BC-1045100 </td>
               <td> 1045100 </td>
               <td> WMR </td>
+              <td>  </td>
               <td> 49.4675 </td>
               <td> -123.9125 </td>
               <td>  </td>
@@ -668,6 +686,7 @@
               <td> 07-SURF-BC-1054500 </td>
               <td> 1054500 </td>
               <td> WLA </td>
+              <td> 71899 </td>
               <td> 54.2551 </td>
               <td> -133.058 </td>
               <td>  </td>
@@ -690,6 +709,7 @@
               <td> 07-SURF-BC-1060080 </td>
               <td> 1060080 </td>
               <td> WCZ </td>
+              <td> 10020 </td>
               <td> 51.6035 </td>
               <td> -127.8639 </td>
               <td>  </td>
@@ -712,6 +732,7 @@
               <td> 07-SURF-BC-1060901 </td>
               <td> 1060901 </td>
               <td> WZM </td>
+              <td>  </td>
               <td> 52.643 </td>
               <td> -128.5239 </td>
               <td>  </td>
@@ -734,6 +755,7 @@
               <td> 07-SURF-BC-1060902 </td>
               <td> 1060902 </td>
               <td> WVB </td>
+              <td>  </td>
               <td> 53.4928 </td>
               <td> -130.6377 </td>
               <td>  </td>
@@ -756,6 +778,7 @@
               <td> 07-SURF-BC-1062544 </td>
               <td> 1062544 </td>
               <td> WAU </td>
+              <td>  </td>
               <td> 52.185 </td>
               <td> -127.8878 </td>
               <td>  </td>
@@ -778,6 +801,7 @@
               <td> 07-SURF-BC-1062646 </td>
               <td> 1062646 </td>
               <td> UNK </td>
+              <td> 12646 </td>
               <td> 51.2472 </td>
               <td> -127.8354 </td>
               <td>  </td>
@@ -799,6 +823,7 @@
               <td> GREEN ISLAND </td>
               <td> 07-SURF-BC-1063298 </td>
               <td> 1063298 </td>
+              <td>  </td>
               <td>  </td>
               <td> 54.5686 </td>
               <td> -130.7081 </td>
@@ -822,6 +847,7 @@
               <td> 07-SURF-BC-1063690 </td>
               <td> 1063690 </td>
               <td> WJG </td>
+              <td>  </td>
               <td> 52.2697 </td>
               <td> -127.5933 </td>
               <td>  </td>
@@ -844,6 +870,7 @@
               <td> 07-SURF-BC-1065010 </td>
               <td> 1065010 </td>
               <td> WMS </td>
+              <td> 71897 </td>
               <td> 52.261666 </td>
               <td> -128.719444 </td>
               <td> X </td>
@@ -865,6 +892,7 @@
               <td> TRIPLE ISLAND </td>
               <td> 07-SURF-BC-1068250 </td>
               <td> 1068250 </td>
+              <td>  </td>
               <td>  </td>
               <td> 54.2947 </td>
               <td> -130.8803 </td>
@@ -888,6 +916,7 @@
               <td> 07-SURF-BC-1108290 </td>
               <td> 1108290 </td>
               <td>  </td>
+              <td>  </td>
               <td> 49.0047 </td>
               <td> -123.1328 </td>
               <td>  </td>
@@ -910,7 +939,7 @@
   <footer class="site-footer h-card" dir="rtl">
   
 
-  Jeffrey Welch, 2020; Data Retrieved: 2020-02-12
+  Jeffrey Welch, 2020; Data Retrieved: 2020-02-13
 </footer>
 
 </div>

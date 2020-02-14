@@ -29,17 +29,20 @@ function Filter() {
 
   for (i = 0; i < len; i++) {
     td0 = tr[i].getElementsByTagName("td")[0];
-    td1 = tr[i].getElementsByTagName("td")[6];
-    td2 = tr[i].getElementsByTagName("td")[7];
-    td3 = tr[i].getElementsByTagName("td")[8];
-    td4 = tr[i].getElementsByTagName("td")[9];
-    td5 = tr[i].getElementsByTagName("td")[10];
-    td6 = tr[i].getElementsByTagName("td")[13];
-    td7 = tr[i].getElementsByTagName("td")[14];
-    td8 = tr[i].getElementsByTagName("td")[15];
-    td9 = tr[i].getElementsByTagName("td")[16];
-    td10 = tr[i].getElementsByTagName("td")[17];
-    td11 = tr[i].getElementsByTagName("td")[18];
+    td01 = tr[i].getElementsByTagName("td")[1];
+    td02 = tr[i].getElementsByTagName("td")[2];
+    td03 = tr[i].getElementsByTagName("td")[3];
+    td1 = tr[i].getElementsByTagName("td")[7];
+    td2 = tr[i].getElementsByTagName("td")[8];
+    td3 = tr[i].getElementsByTagName("td")[9];
+    td4 = tr[i].getElementsByTagName("td")[10];
+    td5 = tr[i].getElementsByTagName("td")[11];
+    td6 = tr[i].getElementsByTagName("td")[14];
+    td7 = tr[i].getElementsByTagName("td")[15];
+    td8 = tr[i].getElementsByTagName("td")[16];
+    td9 = tr[i].getElementsByTagName("td")[17];
+    td10 = tr[i].getElementsByTagName("td")[18];
+    td11 = tr[i].getElementsByTagName("td")[19];
     try {
         prov = tr[i].getElementsByTagName("td")[1].innerHTML.split("-")[2];
     } catch {
@@ -48,6 +51,9 @@ function Filter() {
 
     if (td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11 && prov) {
         txt0 = td0.textContent || td0.innerText;
+        txt01 = td01.textContent || td01.innerText;
+        txt02 = td02.textContent || td02.innerText;
+        txt03 = td03.textContent || td03.innerText;
         txt1 = td1.innerHTML;
         txt2 = td2.innerHTML;
         txt3 = td3.innerHTML;
@@ -60,8 +66,9 @@ function Filter() {
         txt10 = td10.textContent || td10.innerText;
         txt11 = td11.textContent || td11.innerText;
 
-        filter = txt0.toUpperCase().indexOf(nameIn) > -1 && txt1.indexOf(RBSNIn) > -1 && txt2.indexOf(RBCNIn) > -1 &&
-txt3.indexOf(GSNIn) > -1 && txt4.indexOf(RCSIn) > -1 && txt5.indexOf(CoastalIn) > -1 &&
+        filter = (txt0.toUpperCase().indexOf(nameIn) > -1 || txt01.toUpperCase().indexOf(nameIn) > -1 ||
+txt02.toUpperCase().indexOf(nameIn) > -1 || txt03.toUpperCase().indexOf(nameIn) > -1)&& txt1.indexOf(RBSNIn) > -1 &&
+txt2.indexOf(RBCNIn) > -1 && txt3.indexOf(GSNIn) > -1 && txt4.indexOf(RCSIn) > -1 && txt5.indexOf(CoastalIn) > -1 &&
 (TempIn == "" || txt6.trim() == TempIn) && (RHIn == "" || txt7.trim() == RHIn) &&
 (BARIn == "" || txt8.trim() == BARIn) && (WindIn == "" || txt9.trim() == WindIn) &&
 (AWGIn == "" || txt10.trim() == AWGIn) &&
@@ -90,7 +97,7 @@ function clearFilters() {
         $('#ProvList').change(function() {
             console.log($(this).val());
         }).multipleSelect({
-            width: '150px'
+            width: 'calc(90vw/14)'
         });
     });
     clearFilter("RBSNList", "");

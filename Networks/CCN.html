@@ -5,9 +5,8 @@
 
 <div class="page">
   <div class="content-wrap">
-      <img src="/ECCC_Logo.png" alt="Logo" class="centre">
       <p>
-        <h1> CCN </h1>
+        <h1> Cooperative Climate Network (CCN) </h1>
       </p>
 
       <p>
@@ -23,7 +22,7 @@
       </p>
 
       <p>
-            <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name...">
+            <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name, FLOC, or IDs...">
       </p>
       <p>
           <select name="Provs" id="ProvList" onchange="Filter()" class='form-control' size="13" multiple="multiple">
@@ -247,18 +246,19 @@
       <table id="Table">
           <tr class="header">
               <th> Name </th>
-              <th> Floc </th>
+              <th> FLOC </th>
               <th> Climate ID </th>
-              <th> Station ID </th>
-              <th> Lat </th>
-              <th> Long </th>
+              <th> TC ID </th>
+              <th> WMO ID </th>
+              <th> Latitude </th>
+              <th> Longitude </th>
               <th> RBSN </th>
               <th> RBCN </th>
               <th> GSN </th>
               <th> RCS </th>
               <th> Coastal </th>
-              <th> PM21 </th>
-              <th> PM22 </th>
+              <th> Last Complete PM21 </th>
+              <th> Last Complete PM22 </th>
               <th> Temp </th>
               <th> RH </th>
               <th> Bar </th>
@@ -272,6 +272,7 @@
               <td> 07-SURF-AB-3010234 </td>
               <td> 3010234 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.0167 </td>
               <td> -112.2333 </td>
               <td>  </td>
@@ -294,6 +295,7 @@
               <td> 07-SURF-AB-3010815 </td>
               <td> 3010815 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.1667 </td>
               <td> -114.4833 </td>
               <td>  </td>
@@ -316,6 +318,7 @@
               <td> 07-SURF-AB-3010830 </td>
               <td> 3010830 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.9833 </td>
               <td> -113.7167 </td>
               <td>  </td>
@@ -338,6 +341,7 @@
               <td> 07-SURF-AB-3010890 </td>
               <td> 3010890 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.3192 </td>
               <td> -111.4695 </td>
               <td>  </td>
@@ -360,6 +364,7 @@
               <td> 07-SURF-AB-3010978 </td>
               <td> 3010978 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.9968 </td>
               <td> -113.8888 </td>
               <td>  </td>
@@ -382,6 +387,7 @@
               <td> 07-SURF-AB-3011120 </td>
               <td> 3011120 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.2897 </td>
               <td> -113.8631 </td>
               <td>  </td>
@@ -404,6 +410,7 @@
               <td> 07-SURF-AB-3011241 </td>
               <td> 3011241 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.95 </td>
               <td> -112.8 </td>
               <td>  </td>
@@ -426,6 +433,7 @@
               <td> 07-SURF-AB-3011350 </td>
               <td> 3011350 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.2344 </td>
               <td> -114.6544 </td>
               <td>  </td>
@@ -448,6 +456,7 @@
               <td> 07-SURF-AB-3011953 </td>
               <td> 3011953 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.75 </td>
               <td> -113.95 </td>
               <td>  </td>
@@ -470,6 +479,7 @@
               <td> 07-SURF-AB-3012095 </td>
               <td> 3012095 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.5167 </td>
               <td> -112.3511 </td>
               <td>  </td>
@@ -492,6 +502,7 @@
               <td> 07-SURF-AB-3012233 </td>
               <td> 3012233 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.6597 </td>
               <td> -113.3636 </td>
               <td>  </td>
@@ -514,6 +525,7 @@
               <td> 07-SURF-AB-3012234 </td>
               <td> 3012234 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.4711 </td>
               <td> -113.6194 </td>
               <td>  </td>
@@ -536,6 +548,7 @@
               <td> 07-SURF-AB-3012235 </td>
               <td> 3012235 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.4456 </td>
               <td> -113.4775 </td>
               <td>  </td>
@@ -558,6 +571,7 @@
               <td> 07-SURF-AB-3012515 </td>
               <td> 3012515 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.9667 </td>
               <td> -111.0 </td>
               <td>  </td>
@@ -580,6 +594,7 @@
               <td> 07-SURF-AB-3012652 </td>
               <td> 3012652 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.4675 </td>
               <td> -112.1203 </td>
               <td>  </td>
@@ -602,6 +617,7 @@
               <td> 07-SURF-AB-3012710 </td>
               <td> 3012710 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.7167 </td>
               <td> -113.1833 </td>
               <td>  </td>
@@ -624,6 +640,7 @@
               <td> 07-SURF-AB-3012992 </td>
               <td> 3012992 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.1667 </td>
               <td> -112.6167 </td>
               <td>  </td>
@@ -646,6 +663,7 @@
               <td> 07-SURF-AB-3013770 </td>
               <td> 3013770 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.5333 </td>
               <td> -111.8667 </td>
               <td>  </td>
@@ -668,6 +686,7 @@
               <td> 07-SURF-AB-3013C44 </td>
               <td> 3013C44 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.0833 </td>
               <td> -112.2667 </td>
               <td>  </td>
@@ -690,6 +709,7 @@
               <td> 07-SURF-AB-3014600 </td>
               <td> 3014600 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.0167 </td>
               <td> -110.55 </td>
               <td>  </td>
@@ -712,6 +732,7 @@
               <td> 07-SURF-AB-3015405 </td>
               <td> 3015405 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.4167 </td>
               <td> -111.7333 </td>
               <td>  </td>
@@ -734,6 +755,7 @@
               <td> 07-SURF-AB-3015808 </td>
               <td> 3015808 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.7833 </td>
               <td> -111.7 </td>
               <td>  </td>
@@ -756,6 +778,7 @@
               <td> 07-SURF-AB-3016253 </td>
               <td> 3016253 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.05 </td>
               <td> -111.95 </td>
               <td>  </td>
@@ -778,6 +801,7 @@
               <td> 07-SURF-AB-3016494 </td>
               <td> 3016494 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.55 </td>
               <td> -112.75 </td>
               <td>  </td>
@@ -800,6 +824,7 @@
               <td> 07-SURF-AB-3016650 </td>
               <td> 3016650 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.5 </td>
               <td> -113.0333 </td>
               <td>  </td>
@@ -822,6 +847,7 @@
               <td> 07-SURF-AB-3016845 </td>
               <td> 3016845 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.2833 </td>
               <td> -111.7667 </td>
               <td>  </td>
@@ -844,6 +870,7 @@
               <td> 07-SURF-AB-3016928 </td>
               <td> 3016928 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.8269 </td>
               <td> -110.8786 </td>
               <td>  </td>
@@ -866,6 +893,7 @@
               <td> 07-SURF-AB-3021940 </td>
               <td> 3021940 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.7667 </td>
               <td> -112.2833 </td>
               <td>  </td>
@@ -888,6 +916,7 @@
               <td> 07-SURF-AB-3022159 </td>
               <td> 3022159 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.2847 </td>
               <td> -114.3908 </td>
               <td>  </td>
@@ -910,6 +939,7 @@
               <td> 07-SURF-AB-3023430 </td>
               <td> 3023430 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.7397 </td>
               <td> -111.3209 </td>
               <td>  </td>
@@ -932,6 +962,7 @@
               <td> 07-SURF-AB-3024150 </td>
               <td> 3024150 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.5043 </td>
               <td> -114.3251 </td>
               <td>  </td>
@@ -954,6 +985,7 @@
               <td> 07-SURF-AB-3025441 </td>
               <td> 3025441 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.2467 </td>
               <td> -113.8278 </td>
               <td>  </td>
@@ -976,6 +1008,7 @@
               <td> 07-SURF-AB-3025928 </td>
               <td> 3025928 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.4247 </td>
               <td> -110.1456 </td>
               <td>  </td>
@@ -998,6 +1031,7 @@
               <td> 07-SURF-AB-3026009 </td>
               <td> 3026009 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.4919 </td>
               <td> -112.9592 </td>
               <td>  </td>
@@ -1020,6 +1054,7 @@
               <td> 07-SURF-AB-3031927 </td>
               <td> 3031927 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6472 </td>
               <td> -114.04 </td>
               <td>  </td>
@@ -1042,6 +1077,7 @@
               <td> 07-SURF-AB-3033281 </td>
               <td> 3033281 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2914 </td>
               <td> -113.6267 </td>
               <td>  </td>
@@ -1064,6 +1100,7 @@
               <td> 07-SURF-AB-3033892 </td>
               <td> 3033892 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.7 </td>
               <td> -112.7833 </td>
               <td>  </td>
@@ -1086,6 +1123,7 @@
               <td> 07-SURF-AB-3035340 </td>
               <td> 3035340 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.6065 </td>
               <td> -112.9844 </td>
               <td>  </td>
@@ -1108,6 +1146,7 @@
               <td> 07-SURF-AB-3036360 </td>
               <td> 3036360 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.7919 </td>
               <td> -112.1256 </td>
               <td>  </td>
@@ -1130,6 +1169,7 @@
               <td> 07-SURF-AB-303M9JM </td>
               <td> 303M9JM </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.7292 </td>
               <td> -113.9611 </td>
               <td>  </td>
@@ -1152,6 +1192,7 @@
               <td> 07-SURF-AB-303N1G3 </td>
               <td> 303N1G3 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.8714 </td>
               <td> -112.7883 </td>
               <td>  </td>
@@ -1174,6 +1215,7 @@
               <td> 07-SURF-AB-3042148 </td>
               <td> 3042148 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.5814 </td>
               <td> -110.3708 </td>
               <td>  </td>
@@ -1196,6 +1238,7 @@
               <td> 07-SURF-AB-3050533 </td>
               <td> 3050533 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.05 </td>
               <td> -115.0783 </td>
               <td>  </td>
@@ -1218,6 +1261,7 @@
               <td> 07-SURF-AB-3052603 </td>
               <td> 3052603 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.6333 </td>
               <td> -116.5 </td>
               <td>  </td>
@@ -1240,6 +1284,7 @@
               <td> 07-SURF-AB-3053552 </td>
               <td> 3053552 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.35 </td>
               <td> -116.7833 </td>
               <td>  </td>
@@ -1262,6 +1307,7 @@
               <td> 07-SURF-AB-3053600 </td>
               <td> 3053600 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.0277 </td>
               <td> -115.0349 </td>
               <td>  </td>
@@ -1284,6 +1330,7 @@
               <td> 07-SURF-AB-3053604 </td>
               <td> 3053604 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.7126 </td>
               <td> -115.1202 </td>
               <td>  </td>
@@ -1306,6 +1353,7 @@
               <td> 07-SURF-AB-3056510 </td>
               <td> 3056510 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.3 </td>
               <td> -119.6667 </td>
               <td>  </td>
@@ -1328,6 +1376,7 @@
               <td> 07-SURF-AB-3056657 </td>
               <td> 3056657 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.1833 </td>
               <td> -117.0833 </td>
               <td>  </td>
@@ -1350,6 +1399,7 @@
               <td> 07-SURF-AB-3056984 </td>
               <td> 3056984 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3202 </td>
               <td> -113.6844 </td>
               <td>  </td>
@@ -1372,6 +1422,7 @@
               <td> 07-SURF-AB-3059998 </td>
               <td> 3059998 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.7333 </td>
               <td> -113.4333 </td>
               <td>  </td>
@@ -1394,6 +1445,7 @@
               <td> 07-SURF-AB-305A003 </td>
               <td> 305A003 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.0667 </td>
               <td> -115.75 </td>
               <td>  </td>
@@ -1416,6 +1468,7 @@
               <td> 07-SURF-AB-3060630 </td>
               <td> 3060630 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.0833 </td>
               <td> -117.4 </td>
               <td>  </td>
@@ -1438,6 +1491,7 @@
               <td> 07-SURF-AB-3060903 </td>
               <td> 3060903 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.35 </td>
               <td> -117.8667 </td>
               <td>  </td>
@@ -1460,6 +1514,7 @@
               <td> 07-SURF-AB-3060L20 </td>
               <td> 3060L20 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.7222 </td>
               <td> -113.2881 </td>
               <td>  </td>
@@ -1482,6 +1537,7 @@
               <td> 07-SURF-AB-3062451 </td>
               <td> 3062451 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.6 </td>
               <td> -114.9833 </td>
               <td>  </td>
@@ -1504,6 +1560,7 @@
               <td> 07-SURF-AB-3063178 </td>
               <td> 3063178 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.49 </td>
               <td> -116.4581 </td>
               <td>  </td>
@@ -1526,6 +1583,7 @@
               <td> 07-SURF-AB-3063620 </td>
               <td> 3063620 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.1139 </td>
               <td> -116.6311 </td>
               <td>  </td>
@@ -1548,6 +1606,7 @@
               <td> 07-SURF-AB-3065885 </td>
               <td> 3065885 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.85 </td>
               <td> -115.9667 </td>
               <td>  </td>
@@ -1570,6 +1629,7 @@
               <td> 07-SURF-AB-3065886 </td>
               <td> 3065886 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.81 </td>
               <td> -115.94 </td>
               <td>  </td>
@@ -1592,6 +1652,7 @@
               <td> 07-SURF-AB-3066710 </td>
               <td> 3066710 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.4333 </td>
               <td> -114.4333 </td>
               <td>  </td>
@@ -1614,6 +1675,7 @@
               <td> 07-SURF-AB-306A009 </td>
               <td> 306A009 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.4038 </td>
               <td> -117.5376 </td>
               <td>  </td>
@@ -1636,6 +1698,7 @@
               <td> 07-SURF-AB-3072001 </td>
               <td> 3072001 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.2592 </td>
               <td> -118.1789 </td>
               <td>  </td>
@@ -1658,6 +1721,7 @@
               <td> 07-SURF-AB-3072096 </td>
               <td> 3072096 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.7286 </td>
               <td> -117.1017 </td>
               <td>  </td>
@@ -1680,6 +1744,7 @@
               <td> 07-SURF-AB-3072322 </td>
               <td> 3072322 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.1 </td>
               <td> -119.75 </td>
               <td>  </td>
@@ -1702,6 +1767,7 @@
               <td> 07-SURF-AB-3072895 </td>
               <td> 3072895 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.8675 </td>
               <td> -119.1578 </td>
               <td>  </td>
@@ -1724,6 +1790,7 @@
               <td> 07-SURF-AB-3073642 </td>
               <td> 3073642 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 57.65 </td>
               <td> -118.35 </td>
               <td>  </td>
@@ -1746,6 +1813,7 @@
               <td> 07-SURF-AB-3073F4M </td>
               <td> 3073F4M </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 56.0 </td>
               <td> -116.6 </td>
               <td>  </td>
@@ -1768,6 +1836,7 @@
               <td> 07-SURF-AB-3074182 </td>
               <td> 3074182 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 56.9508 </td>
               <td> -117.6442 </td>
               <td>  </td>
@@ -1790,6 +1859,7 @@
               <td> 07-SURF-AB-3075858 </td>
               <td> 3075858 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.4539 </td>
               <td> -118.6397 </td>
               <td>  </td>
@@ -1812,6 +1882,7 @@
               <td> 07-SURF-AB-3075937 </td>
               <td> 3075937 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.4247 </td>
               <td> -117.7411 </td>
               <td>  </td>
@@ -1834,6 +1905,7 @@
               <td> 07-SURF-AB-3076675 </td>
               <td> 3076675 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.37 </td>
               <td> -107.8475 </td>
               <td>  </td>
@@ -1856,6 +1928,7 @@
               <td> 07-SURF-AB-3077661 </td>
               <td> 3077661 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 56.5333 </td>
               <td> -119.0003 </td>
               <td>  </td>
@@ -1878,6 +1951,7 @@
               <td> 07-SURF-AB-307K73D </td>
               <td> 307K73D </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.395 </td>
               <td> -116.8197 </td>
               <td>  </td>
@@ -1900,6 +1974,7 @@
               <td> 07-SURF-AB-3081682 </td>
               <td> 3081682 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.4147 </td>
               <td> -110.2639 </td>
               <td>  </td>
@@ -1922,6 +1997,7 @@
               <td> 07-SURF-BC-1011500 </td>
               <td> 1011500 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.935 </td>
               <td> -123.7417 </td>
               <td>  </td>
@@ -1944,6 +2020,7 @@
               <td> 07-SURF-BC-1012040 </td>
               <td> 1012040 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8244 </td>
               <td> -124.1333 </td>
               <td>  </td>
@@ -1966,6 +2043,7 @@
               <td> 07-SURF-BC-1012055 </td>
               <td> 1012055 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8294 </td>
               <td> -124.0522 </td>
               <td>  </td>
@@ -1988,6 +2066,7 @@
               <td> 07-SURF-BC-1012573 </td>
               <td> 1012573 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.7347 </td>
               <td> -123.7275 </td>
               <td>  </td>
@@ -2010,6 +2089,7 @@
               <td> 07-SURF-BC-10130MN </td>
               <td> 10130MN </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.985 </td>
               <td> -123.5733 </td>
               <td>  </td>
@@ -2032,6 +2112,7 @@
               <td> 07-SURF-BC-1015105 </td>
               <td> 1015105 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.374194 </td>
               <td> -123.561444 </td>
               <td>  </td>
@@ -2054,6 +2135,7 @@
               <td> 07-SURF-BC-1015628 </td>
               <td> 1015628 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8242 </td>
               <td> -123.7187 </td>
               <td>  </td>
@@ -2076,6 +2158,7 @@
               <td> 07-SURF-BC-1015638 </td>
               <td> 1015638 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8125 </td>
               <td> -123.3167 </td>
               <td>  </td>
@@ -2098,6 +2181,7 @@
               <td> 07-SURF-BC-1016335 </td>
               <td> 1016335 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.5914 </td>
               <td> -124.3258 </td>
               <td>  </td>
@@ -2120,6 +2204,7 @@
               <td> 07-SURF-BC-1016940 </td>
               <td> 1016940 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.6217 </td>
               <td> -123.4189 </td>
               <td>  </td>
@@ -2142,6 +2227,7 @@
               <td> 07-SURF-BC-1016995 </td>
               <td> 1016995 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8881 </td>
               <td> -123.5464 </td>
               <td>  </td>
@@ -2164,6 +2250,7 @@
               <td> 07-SURF-BC-1016RM0 </td>
               <td> 1016RM0 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.5975 </td>
               <td> -123.4272 </td>
               <td>  </td>
@@ -2186,6 +2273,7 @@
               <td> 07-SURF-BC-1017098 </td>
               <td> 1017098 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.7753 </td>
               <td> -123.1278 </td>
               <td>  </td>
@@ -2208,6 +2296,7 @@
               <td> 07-SURF-BC-1017230 </td>
               <td> 1017230 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.646947 </td>
               <td> -123.626408 </td>
               <td>  </td>
@@ -2230,6 +2319,7 @@
               <td> 07-SURF-BC-1018605 </td>
               <td> 1018605 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.4764 </td>
               <td> -123.4431 </td>
               <td>  </td>
@@ -2252,6 +2342,7 @@
               <td> 07-SURF-BC-1018618 </td>
               <td> 1018618 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.5375 </td>
               <td> -123.501111 </td>
               <td>  </td>
@@ -2274,6 +2365,7 @@
               <td> 07-SURF-BC-1018935 </td>
               <td> 1018935 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.3397 </td>
               <td> -123.5386 </td>
               <td>  </td>
@@ -2296,6 +2388,7 @@
               <td> 07-SURF-BC-1021266 </td>
               <td> 1021266 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.945 </td>
               <td> -125.2075 </td>
               <td>  </td>
@@ -2318,6 +2411,7 @@
               <td> 07-SURF-BC-1021960 </td>
               <td> 1021960 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0714 </td>
               <td> -124.9494 </td>
               <td>  </td>
@@ -2340,6 +2434,7 @@
               <td> 07-SURF-BC-1021988 </td>
               <td> 1021988 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.7631 </td>
               <td> -124.9992 </td>
               <td>  </td>
@@ -2362,6 +2457,7 @@
               <td> 07-SURF-BC-1021989 </td>
               <td> 1021989 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6864 </td>
               <td> -125.0325 </td>
               <td>  </td>
@@ -2384,6 +2480,7 @@
               <td> 07-SURF-BC-1023042 </td>
               <td> 1023042 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1539 </td>
               <td> -123.7336 </td>
               <td>  </td>
@@ -2406,6 +2503,7 @@
               <td> 07-SURF-BC-1023462 </td>
               <td> 1023462 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0992 </td>
               <td> -125.2031 </td>
               <td>  </td>
@@ -2428,6 +2526,7 @@
               <td> 07-SURF-BC-1024638 </td>
               <td> 1024638 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3528 </td>
               <td> -124.5122 </td>
               <td>  </td>
@@ -2450,6 +2549,7 @@
               <td> 07-SURF-BC-1025240 </td>
               <td> 1025240 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.4708 </td>
               <td> -124.7942 </td>
               <td>  </td>
@@ -2472,6 +2572,7 @@
               <td> 07-SURF-BC-1025254 </td>
               <td> 1025254 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.5756 </td>
               <td> -125.6058 </td>
               <td>  </td>
@@ -2494,6 +2595,7 @@
               <td> 07-SURF-BC-10253G0 </td>
               <td> 10253G0 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1989 </td>
               <td> -123.9878 </td>
               <td>  </td>
@@ -2516,6 +2618,7 @@
               <td> 07-SURF-BC-1026565 </td>
               <td> 1026565 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3936 </td>
               <td> -124.6172 </td>
               <td>  </td>
@@ -2538,6 +2641,7 @@
               <td> 07-SURF-BC-1026639 </td>
               <td> 1026639 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0161 </td>
               <td> -125.3039 </td>
               <td>  </td>
@@ -2560,6 +2664,7 @@
               <td> 07-SURF-BC-1030230 </td>
               <td> 1030230 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3372 </td>
               <td> -124.982 </td>
               <td>  </td>
@@ -2582,6 +2687,7 @@
               <td> 07-SURF-BC-1031844 </td>
               <td> 1031844 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.8003 </td>
               <td> -126.4181 </td>
               <td>  </td>
@@ -2604,6 +2710,7 @@
               <td> 07-SURF-BC-1033232 </td>
               <td> 1033232 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.7828 </td>
               <td> -126.0481 </td>
               <td>  </td>
@@ -2626,6 +2733,7 @@
               <td> 07-SURF-BC-1035612 </td>
               <td> 1035612 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8594 </td>
               <td> -124.6553 </td>
               <td>  </td>
@@ -2648,6 +2756,7 @@
               <td> 07-SURF-BC-1036208 </td>
               <td> 1036208 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2017 </td>
               <td> -124.7517 </td>
               <td>  </td>
@@ -2670,6 +2779,7 @@
               <td> 07-SURF-BC-1036240 </td>
               <td> 1036240 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.9 </td>
               <td> -127.4533 </td>
               <td>  </td>
@@ -2692,6 +2802,7 @@
               <td> 07-SURF-BC-1036570 </td>
               <td> 1036570 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.5333 </td>
               <td> -127.6536 </td>
               <td>  </td>
@@ -2714,6 +2825,7 @@
               <td> 07-SURF-BC-1037899 </td>
               <td> 1037899 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.932 </td>
               <td> -126.6539 </td>
               <td>  </td>
@@ -2736,6 +2848,7 @@
               <td> 07-SURF-BC-1038332 </td>
               <td> 1038332 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.9453 </td>
               <td> -125.5272 </td>
               <td>  </td>
@@ -2758,6 +2871,7 @@
               <td> 07-SURF-BC-1039035 </td>
               <td> 1039035 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0529 </td>
               <td> -126.7787 </td>
               <td>  </td>
@@ -2780,6 +2894,7 @@
               <td> 07-SURF-BC-104090R </td>
               <td> 104090R </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3655 </td>
               <td> -123.421 </td>
               <td>  </td>
@@ -2802,6 +2917,7 @@
               <td> 07-SURF-BC-104091B </td>
               <td> 104091B </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3599 </td>
               <td> -123.402 </td>
               <td>  </td>
@@ -2824,6 +2940,7 @@
               <td> 07-SURF-BC-1043152 </td>
               <td> 1043152 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.385555 </td>
               <td> -123.5414 </td>
               <td>  </td>
@@ -2846,6 +2963,7 @@
               <td> 07-SURF-BC-1044840 </td>
               <td> 1044840 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1647 </td>
               <td> -123.8531 </td>
               <td>  </td>
@@ -2868,6 +2986,7 @@
               <td> 07-SURF-BC-1046115 </td>
               <td> 1046115 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6344 </td>
               <td> -124.0322 </td>
               <td>  </td>
@@ -2890,6 +3009,7 @@
               <td> 07-SURF-BC-105PA91 </td>
               <td> 105PA91 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.7636 </td>
               <td> -132.2992 </td>
               <td>  </td>
@@ -2912,6 +3032,7 @@
               <td> 07-SURF-BC-1064020 </td>
               <td> 1064020 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.5633 </td>
               <td> -127.9431 </td>
               <td>  </td>
@@ -2934,6 +3055,7 @@
               <td> 07-SURF-BC-1064320 </td>
               <td> 1064320 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.0536 </td>
               <td> -128.6342 </td>
               <td>  </td>
@@ -2956,6 +3078,7 @@
               <td> 07-SURF-BC-1064321 </td>
               <td> 1064321 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.0097 </td>
               <td> -128.705 </td>
               <td>  </td>
@@ -2978,6 +3101,7 @@
               <td> 07-SURF-BC-1066488 </td>
               <td> 1066488 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.3203 </td>
               <td> -130.29 </td>
               <td>  </td>
@@ -3000,6 +3124,7 @@
               <td> 07-SURF-BC-1068131 </td>
               <td> 1068131 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.5019 </td>
               <td> -128.6247 </td>
               <td>  </td>
@@ -3022,6 +3147,7 @@
               <td> 07-SURF-BC-106D289 </td>
               <td> 106D289 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.0436 </td>
               <td> -128.6822 </td>
               <td>  </td>
@@ -3044,6 +3170,7 @@
               <td> 07-SURF-BC-1070573 </td>
               <td> 1070573 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.4464 </td>
               <td> -125.4597 </td>
               <td>  </td>
@@ -3066,6 +3193,7 @@
               <td> 07-SURF-BC-1072692 </td>
               <td> 1072692 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.1986 </td>
               <td> -126.2766 </td>
               <td>  </td>
@@ -3088,6 +3216,7 @@
               <td> 07-SURF-BC-1073615 </td>
               <td> 1073615 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.3964 </td>
               <td> -126.6678 </td>
               <td>  </td>
@@ -3110,6 +3239,7 @@
               <td> 07-SURF-BC-1075384 </td>
               <td> 1075384 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.2375 </td>
               <td> -129.0294 </td>
               <td>  </td>
@@ -3132,6 +3262,7 @@
               <td> 07-SURF-BC-1078209 </td>
               <td> 1078209 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.8158 </td>
               <td> -126.1631 </td>
               <td>  </td>
@@ -3154,6 +3285,7 @@
               <td> 07-SURF-BC-107G879 </td>
               <td> 107G879 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 55.2886 </td>
               <td> -127.1706 </td>
               <td>  </td>
@@ -3176,6 +3308,7 @@
               <td> 07-SURF-BC-1090660 </td>
               <td> 1090660 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.0692 </td>
               <td> -121.5147 </td>
               <td>  </td>
@@ -3198,6 +3331,7 @@
               <td> 07-SURF-BC-1092970 </td>
               <td> 1092970 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.4553 </td>
               <td> -124.2856 </td>
               <td>  </td>
@@ -3220,6 +3354,7 @@
               <td> 07-SURF-BC-1093474 </td>
               <td> 1093474 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.5317 </td>
               <td> -122.6994 </td>
               <td>  </td>
@@ -3242,6 +3377,7 @@
               <td> 07-SURF-BC-1093600 </td>
               <td> 1093600 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.3625 </td>
               <td> -121.3642 </td>
               <td>  </td>
@@ -3264,6 +3400,7 @@
               <td> 07-SURF-BC-1095015 </td>
               <td> 1095015 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.3797 </td>
               <td> -122.3736 </td>
               <td>  </td>
@@ -3286,6 +3423,7 @@
               <td> 07-SURF-BC-1095018 </td>
               <td> 1095018 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.5303 </td>
               <td> -122.2867 </td>
               <td>  </td>
@@ -3308,6 +3446,7 @@
               <td> 07-SURF-BC-1096468 </td>
               <td> 1096468 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.88 </td>
               <td> -122.7675 </td>
               <td>  </td>
@@ -3330,6 +3469,7 @@
               <td> 07-SURF-BC-1097646 </td>
               <td> 1097646 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.1839 </td>
               <td> -121.6864 </td>
               <td>  </td>
@@ -3352,6 +3492,7 @@
               <td> 07-SURF-BC-1098D90 </td>
               <td> 1098D90 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.0333 </td>
               <td> -124.0167 </td>
               <td>  </td>
@@ -3374,6 +3515,7 @@
               <td> 07-SURF-BC-109A4NG </td>
               <td> 109A4NG </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.5414 </td>
               <td> -122.4886 </td>
               <td>  </td>
@@ -3396,6 +3538,7 @@
               <td> 07-SURF-BC-109E7R6 </td>
               <td> 109E7R6 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.7048 </td>
               <td> -121.4042 </td>
               <td>  </td>
@@ -3418,6 +3561,7 @@
               <td> 07-SURF-BC-1100120 </td>
               <td> 1100120 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2431 </td>
               <td> -121.7603 </td>
               <td>  </td>
@@ -3440,6 +3584,7 @@
               <td> 07-SURF-BC-1101158 </td>
               <td> 1101158 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2784 </td>
               <td> -122.918 </td>
               <td>  </td>
@@ -3462,6 +3607,7 @@
               <td> 07-SURF-BC-1101571 </td>
               <td> 1101571 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1073 </td>
               <td> -120.0288 </td>
               <td>  </td>
@@ -3484,6 +3630,7 @@
               <td> 07-SURF-BC-1101708 </td>
               <td> 1101708 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1 </td>
               <td> -122.7167 </td>
               <td>  </td>
@@ -3506,6 +3653,7 @@
               <td> 07-SURF-BC-1101889 </td>
               <td> 1101889 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2694 </td>
               <td> -122.8658 </td>
               <td>  </td>
@@ -3528,6 +3676,7 @@
               <td> 07-SURF-BC-1101N65 </td>
               <td> 1101N65 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.080002 </td>
               <td> -121.704166 </td>
               <td>  </td>
@@ -3550,6 +3699,7 @@
               <td> 07-SURF-BC-1102425 </td>
               <td> 1102425 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0111 </td>
               <td> -123.0933 </td>
               <td>  </td>
@@ -3572,6 +3722,7 @@
               <td> 07-SURF-BC-1102912 </td>
               <td> 1102912 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1444 </td>
               <td> -122.5508 </td>
               <td>  </td>
@@ -3594,6 +3745,7 @@
               <td> 07-SURF-BC-1103326 </td>
               <td> 1103326 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2044 </td>
               <td> -122.5583 </td>
               <td>  </td>
@@ -3616,6 +3768,7 @@
               <td> 07-SURF-BC-1103332 </td>
               <td> 1103332 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.265 </td>
               <td> -122.5728 </td>
               <td>  </td>
@@ -3638,6 +3791,7 @@
               <td> 07-SURF-BC-1104488 </td>
               <td> 1104488 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3565 </td>
               <td> -121.5797 </td>
               <td>  </td>
@@ -3660,6 +3814,7 @@
               <td> 07-SURF-BC-1104910 </td>
               <td> 1104910 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2101 </td>
               <td> -122.481 </td>
               <td>  </td>
@@ -3682,6 +3837,7 @@
               <td> 07-SURF-BC-1104R02 </td>
               <td> 1104R02 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2111 </td>
               <td> -122.5067 </td>
               <td>  </td>
@@ -3704,6 +3860,7 @@
               <td> 07-SURF-BC-1105192 </td>
               <td> 1105192 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1525 </td>
               <td> -122.2708 </td>
               <td>  </td>
@@ -3726,6 +3883,7 @@
               <td> 07-SURF-BC-1105658 </td>
               <td> 1105658 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3681 </td>
               <td> -123.0806 </td>
               <td>  </td>
@@ -3748,6 +3906,7 @@
               <td> 07-SURF-BC-1105666 </td>
               <td> 1105666 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2981 </td>
               <td> -123.0153 </td>
               <td>  </td>
@@ -3770,6 +3929,7 @@
               <td> 07-SURF-BC-1105669 </td>
               <td> 1105669 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3139 </td>
               <td> -123.1194 </td>
               <td>  </td>
@@ -3792,6 +3952,7 @@
               <td> 07-SURF-BC-1106764 </td>
               <td> 1106764 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1792 </td>
               <td> -123.0872 </td>
               <td>  </td>
@@ -3814,6 +3975,7 @@
               <td> 07-SURF-BC-1106CL2 </td>
               <td> 1106CL2 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2792 </td>
               <td> -122.8814 </td>
               <td>  </td>
@@ -3836,6 +3998,7 @@
               <td> 07-SURF-BC-1106PF7 </td>
               <td> 1106PF7 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1708 </td>
               <td> -123.0931 </td>
               <td>  </td>
@@ -3858,6 +4021,7 @@
               <td> 07-SURF-BC-1107785 </td>
               <td> 1107785 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1133 </td>
               <td> -122.1097 </td>
               <td>  </td>
@@ -3880,6 +4044,7 @@
               <td> 07-SURF-BC-1108906 </td>
               <td> 1108906 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0678 </td>
               <td> -122.9472 </td>
               <td>  </td>
@@ -3902,6 +4067,7 @@
               <td> 07-SURF-BC-110N666 </td>
               <td> 110N666 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.4372 </td>
               <td> -122.9667 </td>
               <td>  </td>
@@ -3924,6 +4090,7 @@
               <td> 07-SURF-BC-1123370 </td>
               <td> 1123370 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3633 </td>
               <td> -120.0689 </td>
               <td>  </td>
@@ -3946,6 +4113,7 @@
               <td> 07-SURF-BC-1123721 </td>
               <td> 1123721 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6728 </td>
               <td> -120.3328 </td>
               <td>  </td>
@@ -3968,6 +4136,7 @@
               <td> 07-SURF-BC-1123993 </td>
               <td> 1123993 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.8422 </td>
               <td> -119.5728 </td>
               <td>  </td>
@@ -3990,6 +4159,7 @@
               <td> 07-SURF-BC-1125079 </td>
               <td> 1125079 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1142 </td>
               <td> -120.8008 </td>
               <td>  </td>
@@ -4012,6 +4182,7 @@
               <td> 07-SURF-BC-1125700 </td>
               <td> 1125700 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0563 </td>
               <td> -119.4439 </td>
               <td>  </td>
@@ -4034,6 +4205,7 @@
               <td> 07-SURF-BC-1125760 </td>
               <td> 1125760 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1658 </td>
               <td> -119.5642 </td>
               <td>  </td>
@@ -4056,6 +4228,7 @@
               <td> 07-SURF-BC-1125766 </td>
               <td> 1125766 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1792 </td>
               <td> -119.5447 </td>
               <td>  </td>
@@ -4078,6 +4251,7 @@
               <td> 07-SURF-BC-1126071 </td>
               <td> 1126071 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.7827 </td>
               <td> -119.7145 </td>
               <td>  </td>
@@ -4100,6 +4274,7 @@
               <td> 07-SURF-BC-1128553 </td>
               <td> 1128553 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.2644 </td>
               <td> -119.3089 </td>
               <td>  </td>
@@ -4122,6 +4297,7 @@
               <td> 07-SURF-BC-1128583 </td>
               <td> 1128583 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.3444 </td>
               <td> -119.2703 </td>
               <td>  </td>
@@ -4144,6 +4320,7 @@
               <td> 07-SURF-BC-1128584 </td>
               <td> 1128584 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.3578 </td>
               <td> -119.0544 </td>
               <td>  </td>
@@ -4166,6 +4343,7 @@
               <td> 07-SURF-BC-1128958 </td>
               <td> 1128958 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0367 </td>
               <td> -119.4151 </td>
               <td>  </td>
@@ -4188,6 +4366,7 @@
               <td> 07-SURF-BC-1133273 </td>
               <td> 1133273 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.037305 </td>
               <td> -118.491472 </td>
               <td>  </td>
@@ -4210,6 +4389,7 @@
               <td> 07-SURF-BC-1135126 </td>
               <td> 1135126 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0 </td>
               <td> -118.7725 </td>
               <td>  </td>
@@ -4232,6 +4412,7 @@
               <td> 07-SURF-BC-1140876 </td>
               <td> 1140876 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0168 </td>
               <td> -118.2283 </td>
               <td>  </td>
@@ -4254,6 +4435,7 @@
               <td> 07-SURF-BC-1141457 </td>
               <td> 1141457 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.343388 </td>
               <td> -117.774177 </td>
               <td>  </td>
@@ -4276,6 +4458,7 @@
               <td> 07-SURF-BC-1142160 </td>
               <td> 1142160 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0972 </td>
               <td> -116.5181 </td>
               <td>  </td>
@@ -4298,6 +4481,7 @@
               <td> 07-SURF-BC-1142574 </td>
               <td> 1142574 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.238694 </td>
               <td> -116.971583 </td>
               <td>  </td>
@@ -4320,6 +4504,7 @@
               <td> 07-SURF-BC-1143900 </td>
               <td> 1143900 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.912722 </td>
               <td> -116.920611 </td>
               <td>  </td>
@@ -4342,6 +4527,7 @@
               <td> 07-SURF-BC-1144635 </td>
               <td> 1144635 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0319 </td>
               <td> -116.4578 </td>
               <td>  </td>
@@ -4364,6 +4550,7 @@
               <td> 07-SURF-BC-1145442 </td>
               <td> 1145442 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.5861 </td>
               <td> -117.2064 </td>
               <td>  </td>
@@ -4386,6 +4573,7 @@
               <td> 07-SURF-BC-1145460 </td>
               <td> 1145460 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.9958 </td>
               <td> -117.3703 </td>
               <td>  </td>
@@ -4408,6 +4596,7 @@
               <td> 07-SURF-BC-114EMDM </td>
               <td> 114EMDM </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.5122 </td>
               <td> -117.3989 </td>
               <td>  </td>
@@ -4430,6 +4619,7 @@
               <td> 07-SURF-BC-1150690 </td>
               <td> 1150690 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2261 </td>
               <td> -115.2206 </td>
               <td>  </td>
@@ -4452,6 +4642,7 @@
               <td> 07-SURF-BC-1152850 </td>
               <td> 1152850 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.4889 </td>
               <td> -115.0722 </td>
               <td>  </td>
@@ -4474,6 +4665,7 @@
               <td> 07-SURF-BC-1152899 </td>
               <td> 1152899 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1486 </td>
               <td> -114.855 </td>
               <td>  </td>
@@ -4496,6 +4688,7 @@
               <td> 07-SURF-BC-1153034 </td>
               <td> 1153034 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.5239 </td>
               <td> -115.4606 </td>
               <td>  </td>
@@ -4518,6 +4711,7 @@
               <td> 07-SURF-BC-1154203 </td>
               <td> 1154203 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6312 </td>
               <td> -115.9623 </td>
               <td>  </td>
@@ -4540,6 +4734,7 @@
               <td> 07-SURF-BC-1154410 </td>
               <td> 1154410 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.6308 </td>
               <td> -116.0614 </td>
               <td>  </td>
@@ -4562,6 +4757,7 @@
               <td> 07-SURF-BC-1154909 </td>
               <td> 1154909 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6375 </td>
               <td> -115.9569 </td>
               <td>  </td>
@@ -4584,6 +4780,7 @@
               <td> 07-SURF-BC-1158692 </td>
               <td> 1158692 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.4731 </td>
               <td> -115.4594 </td>
               <td>  </td>
@@ -4606,6 +4803,7 @@
               <td> 07-SURF-BC-1158730 </td>
               <td> 1158730 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.8239 </td>
               <td> -115.6314 </td>
               <td>  </td>
@@ -4628,6 +4826,7 @@
               <td> 07-SURF-BC-1160986 </td>
               <td> 1160986 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.5038 </td>
               <td> -120.7935 </td>
               <td>  </td>
@@ -4650,6 +4849,7 @@
               <td> 07-SURF-BC-1161104 </td>
               <td> 1161104 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.7075 </td>
               <td> -121.0828 </td>
               <td>  </td>
@@ -4672,6 +4872,7 @@
               <td> 07-SURF-BC-1162177 </td>
               <td> 1162177 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.0297 </td>
               <td> -120.7283 </td>
               <td>  </td>
@@ -4694,6 +4895,7 @@
               <td> 07-SURF-BC-1162265 </td>
               <td> 1162265 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2973 </td>
               <td> -120.1827 </td>
               <td>  </td>
@@ -4716,6 +4918,7 @@
               <td> 07-SURF-BC-1165793 </td>
               <td> 1165793 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.6814 </td>
               <td> -121.2169 </td>
               <td>  </td>
@@ -4738,6 +4941,7 @@
               <td> 07-SURF-BC-1166658 </td>
               <td> 1166658 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.935 </td>
               <td> -120.8 </td>
               <td>  </td>
@@ -4760,6 +4964,7 @@
               <td> 07-SURF-BC-1166912 </td>
               <td> 1166912 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.8447 </td>
               <td> -120.9792 </td>
               <td>  </td>
@@ -4782,6 +4987,7 @@
               <td> 07-SURF-BC-1167337 </td>
               <td> 1167337 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.5453 </td>
               <td> -119.35 </td>
               <td>  </td>
@@ -4804,6 +5010,7 @@
               <td> 07-SURF-BC-1168204 </td>
               <td> 1168204 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.903011 </td>
               <td> -119.911336 </td>
               <td>  </td>
@@ -4826,6 +5033,7 @@
               <td> 07-SURF-BC-1168520 </td>
               <td> 1168520 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.5761 </td>
               <td> -119.7781 </td>
               <td>  </td>
@@ -4848,6 +5056,7 @@
               <td> 07-SURF-BC-1168880 </td>
               <td> 1168880 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.4689 </td>
               <td> -119.7506 </td>
               <td>  </td>
@@ -4870,6 +5079,7 @@
               <td> 07-SURF-BC-116C8P0 </td>
               <td> 116C8P0 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.6 </td>
               <td> -120.2 </td>
               <td>  </td>
@@ -4892,6 +5102,7 @@
               <td> 07-SURF-BC-116Q20D </td>
               <td> 116Q20D </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.887069 </td>
               <td> -119.883055 </td>
               <td>  </td>
@@ -4914,6 +5125,7 @@
               <td> 07-SURF-BC-116QK0M </td>
               <td> 116QK0M </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.9023 </td>
               <td> -119.9183 </td>
               <td>  </td>
@@ -4936,6 +5148,7 @@
               <td> 07-SURF-BC-1171105 </td>
               <td> 1171105 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.7547 </td>
               <td> -116.7064 </td>
               <td>  </td>
@@ -4958,6 +5171,7 @@
               <td> 07-SURF-BC-1171393 </td>
               <td> 1171393 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.7195 </td>
               <td> -119.4717 </td>
               <td>  </td>
@@ -4980,6 +5194,7 @@
               <td> 07-SURF-BC-1173191 </td>
               <td> 1173191 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.3008 </td>
               <td> -117.5164 </td>
               <td>  </td>
@@ -5002,6 +5217,7 @@
               <td> 07-SURF-BC-1175122 </td>
               <td> 1175122 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.0531 </td>
               <td> -118.5853 </td>
               <td>  </td>
@@ -5024,6 +5240,7 @@
               <td> 07-SURF-BC-117CA90 </td>
               <td> 117CA90 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2361 </td>
               <td> -117.7008 </td>
               <td>  </td>
@@ -5046,6 +5263,7 @@
               <td> 07-SURF-BC-117R00G </td>
               <td> 117R00G </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.4335 </td>
               <td> -116.5403 </td>
               <td>  </td>
@@ -5068,6 +5286,7 @@
               <td> 07-SURF-BC-117R00H </td>
               <td> 117R00H </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.3561 </td>
               <td> -116.3367 </td>
               <td>  </td>
@@ -5090,6 +5309,7 @@
               <td> 07-SURF-BC-11814FR </td>
               <td> 11814FR </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 56.2976 </td>
               <td> -121.0164 </td>
               <td>  </td>
@@ -5112,6 +5332,7 @@
               <td> 07-SURF-BC-1200560 </td>
               <td> 1200560 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 59.5667 </td>
               <td> -133.7 </td>
               <td>  </td>
@@ -5134,6 +5355,7 @@
               <td> 07-SURF-BC-1203255 </td>
               <td> 1203255 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 59.6 </td>
               <td> -134.1833 </td>
               <td>  </td>
@@ -5156,6 +5378,7 @@
               <td> 07-SURF-BC-1206197 </td>
               <td> 1206197 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 59.45 </td>
               <td> -136.3667 </td>
               <td>  </td>
@@ -5185,6 +5408,7 @@
               <td>  </td>
               <td>  </td>
               <td>  </td>
+              <td>  </td>
               <td> N/A </td>
               <td> N/A </td>
               <td> GENERIC </td>
@@ -5200,6 +5424,7 @@
               <td> 07-SURF-MB-5010140 </td>
               <td> 5010140 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2764 </td>
               <td> -99.2924 </td>
               <td>  </td>
@@ -5222,6 +5447,7 @@
               <td> 07-SURF-MB-5010QFQ </td>
               <td> 5010QFQ </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.9267 </td>
               <td> -101.2028 </td>
               <td>  </td>
@@ -5244,6 +5470,7 @@
               <td> 07-SURF-MB-5012300 </td>
               <td> 5012300 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.9833 </td>
               <td> -98.3 </td>
               <td>  </td>
@@ -5266,6 +5493,7 @@
               <td> 07-SURF-MB-5012321 </td>
               <td> 5012321 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.95 </td>
               <td> -98.2667 </td>
               <td>  </td>
@@ -5288,6 +5516,7 @@
               <td> 07-SURF-MB-5012961 </td>
               <td> 5012961 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.8415 </td>
               <td> -100.9344 </td>
               <td>  </td>
@@ -5310,6 +5539,7 @@
               <td> 07-SURF-MB-501B4G2 </td>
               <td> 501B4G2 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2667 </td>
               <td> -101.4 </td>
               <td>  </td>
@@ -5332,6 +5562,7 @@
               <td> 07-SURF-MB-501BMMA </td>
               <td> 501BMMA </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1082 </td>
               <td> -100.179 </td>
               <td>  </td>
@@ -5354,6 +5585,7 @@
               <td> 07-SURF-MB-501KE01 </td>
               <td> 501KE01 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.75 </td>
               <td> -100.8167 </td>
               <td>  </td>
@@ -5376,6 +5608,7 @@
               <td> 07-SURF-MB-5021302 </td>
               <td> 5021302 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6061 </td>
               <td> -98.875 </td>
               <td>  </td>
@@ -5398,6 +5631,7 @@
               <td> 07-SURF-MB-5021695 </td>
               <td> 5021695 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0134 </td>
               <td> -97.8071 </td>
               <td>  </td>
@@ -5420,6 +5654,7 @@
               <td> 07-SURF-MB-5022051 </td>
               <td> 5022051 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.9333 </td>
               <td> -96.85 </td>
               <td>  </td>
@@ -5442,6 +5677,7 @@
               <td> 07-SURF-MB-5022550 </td>
               <td> 5022550 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.65 </td>
               <td> -98.3667 </td>
               <td>  </td>
@@ -5464,6 +5700,7 @@
               <td> 07-SURF-MB-5022575 </td>
               <td> 5022575 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3525 </td>
               <td> -96.035 </td>
               <td>  </td>
@@ -5486,6 +5723,7 @@
               <td> 07-SURF-MB-5022623 </td>
               <td> 5022623 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1333 </td>
               <td> -97.95 </td>
               <td>  </td>
@@ -5508,6 +5746,7 @@
               <td> 07-SURF-MB-5022791 </td>
               <td> 5022791 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1167 </td>
               <td> -97.1667 </td>
               <td>  </td>
@@ -5530,6 +5769,7 @@
               <td> 07-SURF-MB-5023225 </td>
               <td> 5023225 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.85 </td>
               <td> -97.2725 </td>
               <td>  </td>
@@ -5552,6 +5792,7 @@
               <td> 07-SURF-MB-5030080 </td>
               <td> 5030080 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.9333 </td>
               <td> -97.0833 </td>
               <td>  </td>
@@ -5574,6 +5815,7 @@
               <td> 07-SURF-MB-5031039 </td>
               <td> 5031039 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.6333 </td>
               <td> -97.0167 </td>
               <td>  </td>
@@ -5596,6 +5838,7 @@
               <td> 07-SURF-MB-5031111 </td>
               <td> 5031111 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.1581 </td>
               <td> -99.2833 </td>
               <td>  </td>
@@ -5618,6 +5861,7 @@
               <td> 07-SURF-MB-5031310 </td>
               <td> 5031310 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2116 </td>
               <td> -97.5682 </td>
               <td>  </td>
@@ -5640,6 +5884,7 @@
               <td> 07-SURF-MB-5031320 </td>
               <td> 5031320 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6239 </td>
               <td> -95.1972 </td>
               <td>  </td>
@@ -5662,6 +5907,7 @@
               <td> 07-SURF-MB-5032161 </td>
               <td> 5032161 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1475 </td>
               <td> -95.8903 </td>
               <td>  </td>
@@ -5684,6 +5930,7 @@
               <td> 07-SURF-MB-5032162 </td>
               <td> 5032162 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1806 </td>
               <td> -96.0583 </td>
               <td>  </td>
@@ -5706,6 +5953,7 @@
               <td> 07-SURF-MB-5032360 </td>
               <td> 5032360 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.85 </td>
               <td> -95.5331 </td>
               <td>  </td>
@@ -5728,6 +5976,7 @@
               <td> 07-SURF-MB-5040166 </td>
               <td> 5040166 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.05 </td>
               <td> -98.7 </td>
               <td>  </td>
@@ -5750,6 +5999,7 @@
               <td> 07-SURF-MB-5040FJ3 </td>
               <td> 5040FJ3 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.0333 </td>
               <td> -100.65 </td>
               <td>  </td>
@@ -5772,6 +6022,7 @@
               <td> 07-SURF-MB-5041670 </td>
               <td> 5041670 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.1667 </td>
               <td> -98.5 </td>
               <td>  </td>
@@ -5794,6 +6045,7 @@
               <td> 07-SURF-MB-5041685 </td>
               <td> 5041685 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.6664 </td>
               <td> -101.0978 </td>
               <td>  </td>
@@ -5816,6 +6068,7 @@
               <td> 07-SURF-MB-5050920 </td>
               <td> 5050920 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.7667 </td>
               <td> -101.8833 </td>
               <td>  </td>
@@ -5838,6 +6091,7 @@
               <td> 07-SURF-MB-5060623 </td>
               <td> 5060623 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.5333 </td>
               <td> -98.0333 </td>
               <td>  </td>
@@ -5860,6 +6114,7 @@
               <td> 07-SURF-NB-8100300 </td>
               <td> 8100300 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.7122 </td>
               <td> -67.7156 </td>
               <td>  </td>
@@ -5882,6 +6137,7 @@
               <td> 07-SURF-NB-8102275 </td>
               <td> 8102275 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.55 </td>
               <td> -67.1667 </td>
               <td>  </td>
@@ -5904,6 +6160,7 @@
               <td> 07-SURF-NB-8102536 </td>
               <td> 8102536 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.9544 </td>
               <td> -66.8986 </td>
               <td>  </td>
@@ -5926,6 +6183,7 @@
               <td> 07-SURF-NB-8103780 </td>
               <td> 8103780 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.5075 </td>
               <td> -66.0986 </td>
               <td>  </td>
@@ -5948,6 +6206,7 @@
               <td> 07-SURF-NB-8103828 </td>
               <td> 8103828 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.86956 </td>
               <td> -65.06336 </td>
               <td>  </td>
@@ -5970,6 +6229,7 @@
               <td> 07-SURF-NB-8104400 </td>
               <td> 8104400 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.6667 </td>
               <td> -64.8667 </td>
               <td>  </td>
@@ -5992,6 +6252,7 @@
               <td> 07-SURF-NB-8105600 </td>
               <td> 8105600 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.1703 </td>
               <td> -67.5536 </td>
               <td>  </td>
@@ -6014,6 +6275,7 @@
               <td> 07-SURF-NL-8400413 </td>
               <td> 8400413 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.9833 </td>
               <td> -55.8 </td>
               <td>  </td>
@@ -6036,6 +6298,7 @@
               <td> 07-SURF-NL-8400666 </td>
               <td> 8400666 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.8831 </td>
               <td> -53.9681 </td>
               <td>  </td>
@@ -6058,6 +6321,7 @@
               <td> 07-SURF-NL-8400698 </td>
               <td> 8400698 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.8167 </td>
               <td> -56.8667 </td>
               <td>  </td>
@@ -6080,6 +6344,7 @@
               <td> 07-SURF-NL-8400812 </td>
               <td> 8400812 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.1667 </td>
               <td> -57.3333 </td>
               <td>  </td>
@@ -6102,6 +6367,7 @@
               <td> 07-SURF-NL-8400QJK </td>
               <td> 8400QJK </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.5792 </td>
               <td> -53.3161 </td>
               <td>  </td>
@@ -6124,6 +6390,7 @@
               <td> 07-SURF-NL-8401128 </td>
               <td> 8401128 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.3833 </td>
               <td> -53.6667 </td>
               <td>  </td>
@@ -6146,6 +6413,7 @@
               <td> 07-SURF-NL-8401141 </td>
               <td> 8401141 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.3633 </td>
               <td> -53.9639 </td>
               <td>  </td>
@@ -6168,6 +6436,7 @@
               <td> 07-SURF-NL-8401300 </td>
               <td> 8401300 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.95 </td>
               <td> -57.95 </td>
               <td>  </td>
@@ -6190,6 +6459,7 @@
               <td> 07-SURF-NL-8401335 </td>
               <td> 8401335 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.9117 </td>
               <td> -57.7889 </td>
               <td>  </td>
@@ -6212,6 +6482,7 @@
               <td> 07-SURF-NL-8401500 </td>
               <td> 8401500 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1667 </td>
               <td> -57.4333 </td>
               <td>  </td>
@@ -6234,6 +6505,7 @@
               <td> 07-SURF-NL-8401642 </td>
               <td> 8401642 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.7 </td>
               <td> -58.2333 </td>
               <td>  </td>
@@ -6256,6 +6528,7 @@
               <td> 07-SURF-NL-8401880 </td>
               <td> 8401880 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.9492 </td>
               <td> -53.9653 </td>
               <td>  </td>
@@ -6278,6 +6551,7 @@
               <td> 07-SURF-NL-8402071 </td>
               <td> 8402071 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.4667 </td>
               <td> -55.8333 </td>
               <td>  </td>
@@ -6300,6 +6574,7 @@
               <td> 07-SURF-NL-8402303 </td>
               <td> 8402303 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.3819 </td>
               <td> -53.1233 </td>
               <td>  </td>
@@ -6322,6 +6597,7 @@
               <td> 07-SURF-NL-8402309 </td>
               <td> 8402309 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.45 </td>
               <td> -53.1 </td>
               <td>  </td>
@@ -6344,6 +6620,7 @@
               <td> 07-SURF-NL-8402436 </td>
               <td> 8402436 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0389 </td>
               <td> -53.8756 </td>
               <td>  </td>
@@ -6366,6 +6643,7 @@
               <td> 07-SURF-NL-8402544 </td>
               <td> 8402544 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.35 </td>
               <td> -53.9017 </td>
               <td>  </td>
@@ -6388,6 +6666,7 @@
               <td> 07-SURF-NL-8402644 </td>
               <td> 8402644 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.6833 </td>
               <td> -56.0833 </td>
               <td>  </td>
@@ -6410,6 +6689,7 @@
               <td> 07-SURF-NL-8402958 </td>
               <td> 8402958 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.0667 </td>
               <td> -56.8833 </td>
               <td>  </td>
@@ -6432,6 +6712,7 @@
               <td> 07-SURF-NL-8402966 </td>
               <td> 8402966 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3333 </td>
               <td> -55.4 </td>
               <td>  </td>
@@ -6454,6 +6735,7 @@
               <td> 07-SURF-NL-8403690 </td>
               <td> 8403690 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.7667 </td>
               <td> -56.8833 </td>
               <td>  </td>
@@ -6476,6 +6758,7 @@
               <td> 07-SURF-NL-8403693 </td>
               <td> 8403693 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0167 </td>
               <td> -57.6167 </td>
               <td>  </td>
@@ -6498,6 +6781,7 @@
               <td> 07-SURF-NL-8403825 </td>
               <td> 8403825 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.8853 </td>
               <td> -54.2131 </td>
               <td>  </td>
@@ -6520,6 +6804,7 @@
               <td> 07-SURF-NL-8404210 </td>
               <td> 8404210 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.1833 </td>
               <td> -56.7667 </td>
               <td>  </td>
@@ -6542,6 +6827,7 @@
               <td> 07-SURF-NL-840B5HH </td>
               <td> 840B5HH </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.65 </td>
               <td> -58.9833 </td>
               <td>  </td>
@@ -6564,6 +6850,7 @@
               <td> 07-SURF-NL-840KE88 </td>
               <td> 840KE88 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.1833 </td>
               <td> -56.0167 </td>
               <td>  </td>
@@ -6586,6 +6873,7 @@
               <td> 07-SURF-NL-840M001 </td>
               <td> 840M001 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.0667 </td>
               <td> -58.1167 </td>
               <td>  </td>
@@ -6608,6 +6896,7 @@
               <td> 07-SURF-NS-8200810 </td>
               <td> 8200810 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.5833 </td>
               <td> -65.7833 </td>
               <td>  </td>
@@ -6630,6 +6919,7 @@
               <td> 07-SURF-NS-8202896 </td>
               <td> 8202896 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.7167 </td>
               <td> -63.4833 </td>
               <td>  </td>
@@ -6652,6 +6942,7 @@
               <td> 07-SURF-NS-8203230 </td>
               <td> 8203230 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.6583 </td>
               <td> -62.7967 </td>
               <td>  </td>
@@ -6674,6 +6965,7 @@
               <td> 07-SURF-NS-8203535 </td>
               <td> 8203535 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.0667 </td>
               <td> -63.1 </td>
               <td>  </td>
@@ -6696,6 +6988,7 @@
               <td> 07-SURF-NS-8204453 </td>
               <td> 8204453 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.7667 </td>
               <td> -63.8333 </td>
               <td>  </td>
@@ -6718,6 +7011,7 @@
               <td> 07-SURF-NS-8204800 </td>
               <td> 8204800 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.7 </td>
               <td> -63.9 </td>
               <td>  </td>
@@ -6740,6 +7034,7 @@
               <td> 07-SURF-NS-8205774 </td>
               <td> 8205774 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.6833 </td>
               <td> -63.2333 </td>
               <td>  </td>
@@ -6762,6 +7057,7 @@
               <td> 07-SURF-NS-8206222 </td>
               <td> 8206222 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.05 </td>
               <td> -64.65 </td>
               <td>  </td>
@@ -6784,6 +7080,7 @@
               <td> 07-SURF-NT-2202405 </td>
               <td> 2202405 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 60.65 </td>
               <td> -116.0 </td>
               <td>  </td>
@@ -6806,6 +7103,7 @@
               <td> 07-SURF-NT-2204110 </td>
               <td> 2204110 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 62.45 </td>
               <td> -114.3833 </td>
               <td>  </td>
@@ -6828,6 +7126,7 @@
               <td> 07-SURF-ON-6020559 </td>
               <td> 6020559 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.6333 </td>
               <td> -93.9667 </td>
               <td>  </td>
@@ -6850,6 +7149,7 @@
               <td> 07-SURF-ON-6025205 </td>
               <td> 6025205 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.7597 </td>
               <td> -92.6228 </td>
               <td>  </td>
@@ -6872,6 +7172,7 @@
               <td> 07-SURF-ON-6036904 </td>
               <td> 6036904 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.65 </td>
               <td> -93.7167 </td>
               <td>  </td>
@@ -6894,6 +7195,7 @@
               <td> 07-SURF-ON-6042MJ7 </td>
               <td> 6042MJ7 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.35 </td>
               <td> -89.6833333 </td>
               <td>  </td>
@@ -6916,6 +7218,7 @@
               <td> 07-SURF-ON-6043390 </td>
               <td> 6043390 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.4778 </td>
               <td> -89.2816 </td>
               <td>  </td>
@@ -6938,6 +7241,7 @@
               <td> 07-SURF-ON-6048155 </td>
               <td> 6048155 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.0764 </td>
               <td> -90.8536 </td>
               <td>  </td>
@@ -6960,6 +7264,7 @@
               <td> 07-SURF-ON-6048266 </td>
               <td> 6048266 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.4139 </td>
               <td> -89.2783 </td>
               <td>  </td>
@@ -6982,6 +7287,7 @@
               <td> 07-SURF-ON-6065006 </td>
               <td> 6065006 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.1931 </td>
               <td> -82.0247 </td>
               <td>  </td>
@@ -7004,6 +7310,7 @@
               <td> 07-SURF-ON-6065252 </td>
               <td> 6065252 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.2145 </td>
               <td> -80.3034 </td>
               <td>  </td>
@@ -7026,6 +7333,7 @@
               <td> 07-SURF-ON-6070QK6 </td>
               <td> 6070QK6 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3833 </td>
               <td> -82.1236 </td>
               <td>  </td>
@@ -7048,6 +7356,7 @@
               <td> 07-SURF-ON-6071855 </td>
               <td> 6071855 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.6167 </td>
               <td> -80.9 </td>
               <td>  </td>
@@ -7070,6 +7379,7 @@
               <td> 07-SURF-ON-6100285 </td>
               <td> 6100285 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.1858 </td>
               <td> -76.1128 </td>
               <td>  </td>
@@ -7092,6 +7402,7 @@
               <td> 07-SURF-ON-6100971 </td>
               <td> 6100971 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.6 </td>
               <td> -75.6667 </td>
               <td>  </td>
@@ -7114,6 +7425,7 @@
               <td> 07-SURF-ON-6101335 </td>
               <td> 6101335 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.05 </td>
               <td> -77.3667 </td>
               <td>  </td>
@@ -7136,6 +7448,7 @@
               <td> 07-SURF-ON-6101874 </td>
               <td> 6101874 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.0156 </td>
               <td> -74.7489 </td>
               <td>  </td>
@@ -7158,6 +7471,7 @@
               <td> 07-SURF-ON-6102J13 </td>
               <td> 6102J13 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.0322 </td>
               <td> -76.2528 </td>
               <td>  </td>
@@ -7180,6 +7494,7 @@
               <td> 07-SURF-ON-6103367 </td>
               <td> 6103367 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.4281 </td>
               <td> -76.6903 </td>
               <td>  </td>
@@ -7202,6 +7517,7 @@
               <td> 07-SURF-ON-6104725 </td>
               <td> 6104725 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.5167 </td>
               <td> -76.0833 </td>
               <td>  </td>
@@ -7224,6 +7540,7 @@
               <td> 07-SURF-ON-6105762 </td>
               <td> 6105762 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.0536 </td>
               <td> -76.7839 </td>
               <td>  </td>
@@ -7246,6 +7563,7 @@
               <td> 07-SURF-ON-6105976 </td>
               <td> 6105976 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.3833 </td>
               <td> -75.7167 </td>
               <td>  </td>
@@ -7268,6 +7586,7 @@
               <td> 07-SURF-ON-6107276 </td>
               <td> 6107276 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.2872 </td>
               <td> -75.0636 </td>
               <td>  </td>
@@ -7290,6 +7609,7 @@
               <td> 07-SURF-ON-610FC98 </td>
               <td> 610FC98 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.8833 </td>
               <td> -77.25 </td>
               <td>  </td>
@@ -7312,6 +7632,7 @@
               <td> 07-SURF-ON-6110480 </td>
               <td> 6110480 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.267 </td>
               <td> -79.3189 </td>
               <td>  </td>
@@ -7334,6 +7655,7 @@
               <td> 07-SURF-ON-6110556 </td>
               <td> 6110556 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.3853 </td>
               <td> -79.7361 </td>
               <td>  </td>
@@ -7363,6 +7685,7 @@
               <td>  </td>
               <td>  </td>
               <td>  </td>
+              <td>  </td>
               <td> N/A </td>
               <td> N/A </td>
               <td> GENERIC </td>
@@ -7378,6 +7701,7 @@
               <td> 07-SURF-ON-6111769 </td>
               <td> 6111769 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.6311 </td>
               <td> -79.5389 </td>
               <td>  </td>
@@ -7400,6 +7724,7 @@
               <td> 07-SURF-ON-6113662 </td>
               <td> 6113662 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.3131 </td>
               <td> -79.1991 </td>
               <td>  </td>
@@ -7422,6 +7747,7 @@
               <td> 07-SURF-ON-6114979 </td>
               <td> 6114979 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.2689 </td>
               <td> -80.7119 </td>
               <td>  </td>
@@ -7444,6 +7770,7 @@
               <td> 07-SURF-ON-6115127 </td>
               <td> 6115127 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.7578 </td>
               <td> -79.8753 </td>
               <td>  </td>
@@ -7466,6 +7793,7 @@
               <td> 07-SURF-ON-6115811 </td>
               <td> 6115811 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.6028 </td>
               <td> -79.4389 </td>
               <td>  </td>
@@ -7488,6 +7816,7 @@
               <td> 07-SURF-ON-6116679 </td>
               <td> 6116679 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.25 </td>
               <td> -80.4667 </td>
               <td>  </td>
@@ -7510,6 +7839,7 @@
               <td> 07-SURF-ON-6116718 </td>
               <td> 6116718 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.2036 </td>
               <td> -80.6378 </td>
               <td>  </td>
@@ -7532,6 +7862,7 @@
               <td> 07-SURF-ON-6117684 </td>
               <td> 6117684 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.3995 </td>
               <td> -79.6328 </td>
               <td>  </td>
@@ -7554,6 +7885,7 @@
               <td> 07-SURF-ON-6117981 </td>
               <td> 6117981 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.425 </td>
               <td> -79.4875 </td>
               <td>  </td>
@@ -7576,6 +7908,7 @@
               <td> 07-SURF-ON-6118240 </td>
               <td> 6118240 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.5511 </td>
               <td> -80.4675 </td>
               <td>  </td>
@@ -7598,6 +7931,7 @@
               <td> 07-SURF-ON-6119055 </td>
               <td> 6119055 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.2625 </td>
               <td> -79.1614 </td>
               <td>  </td>
@@ -7620,6 +7954,7 @@
               <td> 07-SURF-ON-6124127 </td>
               <td> 6124127 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.1728 </td>
               <td> -81.6233 </td>
               <td>  </td>
@@ -7642,6 +7977,7 @@
               <td> 07-SURF-ON-6129660 </td>
               <td> 6129660 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.8633 </td>
               <td> -81.1522 </td>
               <td>  </td>
@@ -7664,6 +8000,7 @@
               <td> 07-SURF-ON-6130257 </td>
               <td> 6130257 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.1034 </td>
               <td> -83.0945 </td>
               <td>  </td>
@@ -7686,6 +8023,7 @@
               <td> 07-SURF-ON-6132470 </td>
               <td> 6132470 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.8833 </td>
               <td> -78.9667 </td>
               <td>  </td>
@@ -7708,6 +8046,7 @@
               <td> 07-SURF-ON-6133055 </td>
               <td> 6133055 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.1836 </td>
               <td> -79.5583 </td>
               <td>  </td>
@@ -7730,6 +8069,7 @@
               <td> 07-SURF-ON-6134190 </td>
               <td> 6134190 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.0431 </td>
               <td> -82.6739 </td>
               <td>  </td>
@@ -7752,6 +8092,7 @@
               <td> 07-SURF-ON-6135583 </td>
               <td> 6135583 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.5145 </td>
               <td> -81.6361 </td>
               <td>  </td>
@@ -7774,6 +8115,7 @@
               <td> 07-SURF-ON-6135657 </td>
               <td> 6135657 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.1333 </td>
               <td> -79.05 </td>
               <td>  </td>
@@ -7796,6 +8138,7 @@
               <td> 07-SURF-ON-6136606 </td>
               <td> 6136606 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.8833 </td>
               <td> -79.25 </td>
               <td>  </td>
@@ -7818,6 +8161,7 @@
               <td> 07-SURF-ON-6137135 </td>
               <td> 6137135 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.85 </td>
               <td> -79.7667 </td>
               <td>  </td>
@@ -7840,6 +8184,7 @@
               <td> 07-SURF-ON-6137161 </td>
               <td> 6137161 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.0417 </td>
               <td> -79.325 </td>
               <td>  </td>
@@ -7862,6 +8207,7 @@
               <td> 07-SURF-ON-6137362 </td>
               <td> 6137362 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.7683 </td>
               <td> -81.205 </td>
               <td>  </td>
@@ -7884,6 +8230,7 @@
               <td> 07-SURF-ON-6138269 </td>
               <td> 6138269 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.8606 </td>
               <td> -80.7406 </td>
               <td>  </td>
@@ -7906,6 +8253,7 @@
               <td> 07-SURF-ON-6138270 </td>
               <td> 6138270 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.8553 </td>
               <td> -80.7217 </td>
               <td>  </td>
@@ -7928,6 +8276,7 @@
               <td> 07-SURF-ON-6139141 </td>
               <td> 6139141 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.15 </td>
               <td> -79.4167 </td>
               <td>  </td>
@@ -7950,6 +8299,7 @@
               <td> 07-SURF-ON-6139356 </td>
               <td> 6139356 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.8833 </td>
               <td> -80.2333 </td>
               <td>  </td>
@@ -7972,6 +8322,7 @@
               <td> 07-SURF-ON-6139520 </td>
               <td> 6139520 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.3333 </td>
               <td> -82.9333 </td>
               <td>  </td>
@@ -7994,6 +8345,7 @@
               <td> 07-SURF-ON-6142400 </td>
               <td> 6142400 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.7347 </td>
               <td> -80.3303 </td>
               <td>  </td>
@@ -8016,6 +8368,7 @@
               <td> 07-SURF-ON-6142402 </td>
               <td> 6142402 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.7017 </td>
               <td> -80.3789 </td>
               <td>  </td>
@@ -8038,6 +8391,7 @@
               <td> 07-SURF-ON-6142803 </td>
               <td> 6142803 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.6839 </td>
               <td> -80.7103 </td>
               <td>  </td>
@@ -8060,6 +8414,7 @@
               <td> 07-SURF-ON-6147188 </td>
               <td> 6147188 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.3536 </td>
               <td> -80.4736 </td>
               <td>  </td>
@@ -8082,6 +8437,7 @@
               <td> 07-SURF-ON-6147664 </td>
               <td> 6147664 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.0008 </td>
               <td> -80.4278 </td>
               <td>  </td>
@@ -8104,6 +8460,7 @@
               <td> 07-SURF-ON-6148105 </td>
               <td> 6148105 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.3689 </td>
               <td> -81.0047 </td>
               <td>  </td>
@@ -8126,6 +8483,7 @@
               <td> 07-SURF-ON-6148122 </td>
               <td> 6148122 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 42.9806 </td>
               <td> -81.6428 </td>
               <td>  </td>
@@ -8148,6 +8506,7 @@
               <td> 07-SURF-ON-6149625 </td>
               <td> 6149625 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.1361 </td>
               <td> -80.7706 </td>
               <td>  </td>
@@ -8170,6 +8529,7 @@
               <td> 07-SURF-ON-6150689 </td>
               <td> 6150689 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.1506 </td>
               <td> -77.3947 </td>
               <td>  </td>
@@ -8192,6 +8552,7 @@
               <td> 07-SURF-ON-6150815 </td>
               <td> 6150815 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.9833 </td>
               <td> -77.2167 </td>
               <td>  </td>
@@ -8214,6 +8575,7 @@
               <td> 07-SURF-ON-6151309 </td>
               <td> 6151309 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.4034 </td>
               <td> -76.9078 </td>
               <td>  </td>
@@ -8236,6 +8598,7 @@
               <td> 07-SURF-ON-6151689 </td>
               <td> 6151689 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.9667 </td>
               <td> -78.1833 </td>
               <td>  </td>
@@ -8258,6 +8621,7 @@
               <td> 07-SURF-ON-6152695 </td>
               <td> 6152695 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.64 </td>
               <td> -79.8792 </td>
               <td>  </td>
@@ -8280,6 +8644,7 @@
               <td> 07-SURF-ON-6155750 </td>
               <td> 6155750 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.5125 </td>
               <td> -79.69 </td>
               <td>  </td>
@@ -8302,6 +8667,7 @@
               <td> 07-SURF-ON-6155878 </td>
               <td> 6155878 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.8667 </td>
               <td> -78.8333 </td>
               <td>  </td>
@@ -8324,6 +8690,7 @@
               <td> 07-SURF-ON-6157012 </td>
               <td> 6157012 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.8772 </td>
               <td> -79.4478 </td>
               <td>  </td>
@@ -8346,6 +8713,7 @@
               <td> 07-SURF-ON-615S001 </td>
               <td> 615S001 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 43.78 </td>
               <td> -79.4678 </td>
               <td>  </td>
@@ -8368,6 +8736,7 @@
               <td> 07-SURF-ON-6163171 </td>
               <td> 6163171 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.0322 </td>
               <td> -78.5311 </td>
               <td>  </td>
@@ -8390,6 +8759,7 @@
               <td> 07-SURF-ON-6165195 </td>
               <td> 6165195 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.9333 </td>
               <td> -78.7167 </td>
               <td>  </td>
@@ -8412,6 +8782,7 @@
               <td> 07-SURF-ON-6168100 </td>
               <td> 6168100 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.2167 </td>
               <td> -78.95 </td>
               <td>  </td>
@@ -8434,6 +8805,7 @@
               <td> 07-SURF-ON-6168525 </td>
               <td> 6168525 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 44.1706 </td>
               <td> -78.5014 </td>
               <td>  </td>
@@ -8456,6 +8828,7 @@
               <td> 07-SURF-PE-8300497 </td>
               <td> 8300497 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.4089 </td>
               <td> -63.3503 </td>
               <td>  </td>
@@ -8478,6 +8851,7 @@
               <td> 07-SURF-QC-701HE63 </td>
               <td> 701HE63 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.3833 </td>
               <td> -72.6167 </td>
               <td>  </td>
@@ -8500,6 +8874,7 @@
               <td> 07-SURF-QC-7020057 </td>
               <td> 7020057 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.65 </td>
               <td> -72.5667 </td>
               <td>  </td>
@@ -8522,6 +8897,7 @@
               <td> 07-SURF-QC-7022160 </td>
               <td> 7022160 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 45.8833 </td>
               <td> -72.4833 </td>
               <td>  </td>
@@ -8544,6 +8920,7 @@
               <td> 07-SURF-QC-7028441 </td>
               <td> 7028441 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.1 </td>
               <td> -71.35 </td>
               <td>  </td>
@@ -8566,6 +8943,7 @@
               <td> 07-SURF-QC-7041010 </td>
               <td> 7041010 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.2333 </td>
               <td> -72.5667 </td>
               <td>  </td>
@@ -8588,6 +8966,7 @@
               <td> 07-SURF-QC-7042840 </td>
               <td> 7042840 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.25 </td>
               <td> -69.5167 </td>
               <td>  </td>
@@ -8610,6 +8989,7 @@
               <td> 07-SURF-QC-7044288 </td>
               <td> 7044288 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1167 </td>
               <td> -68.3833 </td>
               <td>  </td>
@@ -8632,6 +9012,7 @@
               <td> 07-SURF-QC-7045326 </td>
               <td> 7045326 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.0733 </td>
               <td> -70.9067 </td>
               <td>  </td>
@@ -8654,6 +9035,7 @@
               <td> 07-SURF-QC-7056870 </td>
               <td> 7056870 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 47.8 </td>
               <td> -69.45 </td>
               <td>  </td>
@@ -8676,6 +9058,7 @@
               <td> 07-SURF-QC-7077570 </td>
               <td> 7077570 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 46.6833 </td>
               <td> -73.9167 </td>
               <td>  </td>
@@ -8698,6 +9081,7 @@
               <td> 07-SURF-SK-4010984 </td>
               <td> 4010984 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.55 </td>
               <td> -105.3833 </td>
               <td>  </td>
@@ -8720,6 +9104,7 @@
               <td> 07-SURF-SK-4011980 </td>
               <td> 4011980 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.85 </td>
               <td> -104.2667 </td>
               <td>  </td>
@@ -8742,6 +9127,7 @@
               <td> 07-SURF-SK-4012300 </td>
               <td> 4012300 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.1833 </td>
               <td> -104.8667 </td>
               <td>  </td>
@@ -8764,6 +9150,7 @@
               <td> 07-SURF-SK-4013660 </td>
               <td> 4013660 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2574 </td>
               <td> -103.753 </td>
               <td>  </td>
@@ -8786,6 +9173,7 @@
               <td> 07-SURF-SK-4014040 </td>
               <td> 4014040 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.2 </td>
               <td> -102.7333 </td>
               <td>  </td>
@@ -8808,6 +9196,7 @@
               <td> 07-SURF-SK-4014145 </td>
               <td> 4014145 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.9 </td>
               <td> -101.7167 </td>
               <td>  </td>
@@ -8830,6 +9219,7 @@
               <td> 07-SURF-SK-4014322 </td>
               <td> 4014322 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.995336 </td>
               <td> -104.62645 </td>
               <td>  </td>
@@ -8852,6 +9242,7 @@
               <td> 07-SURF-SK-4014481 </td>
               <td> 4014481 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.1522 </td>
               <td> -103.8894 </td>
               <td>  </td>
@@ -8874,6 +9265,7 @@
               <td> 07-SURF-SK-4014870 </td>
               <td> 4014870 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.2333 </td>
               <td> -103.2333 </td>
               <td>  </td>
@@ -8896,6 +9288,7 @@
               <td> 07-SURF-SK-4015440 </td>
               <td> 4015440 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.3333 </td>
               <td> -105.0 </td>
               <td>  </td>
@@ -8918,6 +9311,7 @@
               <td> 07-SURF-SK-4015800 </td>
               <td> 4015800 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.3167 </td>
               <td> -102.1167 </td>
               <td>  </td>
@@ -8940,6 +9334,7 @@
               <td> 07-SURF-SK-4015870 </td>
               <td> 4015870 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.4033 </td>
               <td> -103.2653 </td>
               <td>  </td>
@@ -8962,6 +9357,7 @@
               <td> 07-SURF-SK-4016322 </td>
               <td> 4016322 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.5667 </td>
               <td> -103.9833 </td>
               <td>  </td>
@@ -8984,6 +9380,7 @@
               <td> 07-SURF-SK-4016565 </td>
               <td> 4016565 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.4506 </td>
               <td> -104.6667 </td>
               <td>  </td>
@@ -9006,6 +9403,7 @@
               <td> 07-SURF-SK-4019040 </td>
               <td> 4019040 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.8225 </td>
               <td> -104.177777 </td>
               <td>  </td>
@@ -9028,6 +9426,7 @@
               <td> 07-SURF-SK-4019082 </td>
               <td> 4019082 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2 </td>
               <td> -102.2333 </td>
               <td>  </td>
@@ -9050,6 +9449,7 @@
               <td> 07-SURF-SK-401JR89 </td>
               <td> 401JR89 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2894 </td>
               <td> -106.8483 </td>
               <td>  </td>
@@ -9072,6 +9472,7 @@
               <td> 07-SURF-SK-4020560 </td>
               <td> 4020560 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.831944 </td>
               <td> -107.311388 </td>
               <td>  </td>
@@ -9094,6 +9495,7 @@
               <td> 07-SURF-SK-4022363 </td>
               <td> 4022363 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.1667 </td>
               <td> -106.55 </td>
               <td>  </td>
@@ -9116,6 +9518,7 @@
               <td> 07-SURF-SK-4023240 </td>
               <td> 4023240 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.9786 </td>
               <td> -107.9353 </td>
               <td>  </td>
@@ -9138,6 +9541,7 @@
               <td> 07-SURF-SK-4027775 </td>
               <td> 4027775 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 50.6 </td>
               <td> -106.2 </td>
               <td>  </td>
@@ -9160,6 +9564,7 @@
               <td> 07-SURF-SK-4031581 </td>
               <td> 4031581 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1333 </td>
               <td> -109.1 </td>
               <td>  </td>
@@ -9182,6 +9587,7 @@
               <td> 07-SURF-SK-4031844 </td>
               <td> 4031844 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 49.1167 </td>
               <td> -105.5167 </td>
               <td>  </td>
@@ -9204,6 +9610,7 @@
               <td> 07-SURF-SK-4038116 </td>
               <td> 4038116 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 48.999561 </td>
               <td> -108.388792 </td>
               <td>  </td>
@@ -9226,6 +9633,7 @@
               <td> 07-SURF-SK-4040587 </td>
               <td> 4040587 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.2944 </td>
               <td> -108.4067 </td>
               <td>  </td>
@@ -9248,6 +9656,7 @@
               <td> 07-SURF-SK-4041000 </td>
               <td> 4041000 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 53.45 </td>
               <td> -109.2 </td>
               <td>  </td>
@@ -9270,6 +9679,7 @@
               <td> 07-SURF-SK-4044850 </td>
               <td> 4044850 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.3328 </td>
               <td> -109.9475 </td>
               <td>  </td>
@@ -9292,6 +9702,7 @@
               <td> 07-SURF-SK-4047644 </td>
               <td> 4047644 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.3167 </td>
               <td> -107.7667 </td>
               <td>  </td>
@@ -9314,6 +9725,7 @@
               <td> 07-SURF-SK-4053264 </td>
               <td> 4053264 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.85 </td>
               <td> -105.7833 </td>
               <td>  </td>
@@ -9336,6 +9748,7 @@
               <td> 07-SURF-SK-4060452 </td>
               <td> 4060452 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 54.3353 </td>
               <td> -109.6261 </td>
               <td>  </td>
@@ -9358,6 +9771,7 @@
               <td> 07-SURF-SK-4061570 </td>
               <td> 4061570 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 58.0833 </td>
               <td> -104.4833 </td>
               <td>  </td>
@@ -9380,6 +9794,7 @@
               <td> 07-SURF-SK-4061632 </td>
               <td> 4061632 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 58.1833 </td>
               <td> -103.7 </td>
               <td>  </td>
@@ -9402,6 +9817,7 @@
               <td> 07-SURF-SK-4063755 </td>
               <td> 4063755 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 57.25 </td>
               <td> -105.6167 </td>
               <td>  </td>
@@ -9424,6 +9840,7 @@
               <td> 07-SURF-SK-4085052 </td>
               <td> 4085052 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 52.59 </td>
               <td> -103.8298 </td>
               <td>  </td>
@@ -9446,6 +9863,7 @@
               <td> 07-SURF-SK-4086001 </td>
               <td> 4086001 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 51.731 </td>
               <td> -101.9046 </td>
               <td>  </td>
@@ -9468,6 +9886,7 @@
               <td> 07-SURF-YT-2100161 </td>
               <td> 2100161 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 62.3667 </td>
               <td> -140.8667 </td>
               <td>  </td>
@@ -9490,6 +9909,7 @@
               <td> 07-SURF-YT-2100163 </td>
               <td> 2100163 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 60.0 </td>
               <td> -136.7667 </td>
               <td>  </td>
@@ -9512,6 +9932,7 @@
               <td> 07-SURF-YT-2100300 </td>
               <td> 2100300 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 62.1 </td>
               <td> -136.3 </td>
               <td>  </td>
@@ -9534,6 +9955,7 @@
               <td> 07-SURF-YT-2100631 </td>
               <td> 2100631 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 60.7495 </td>
               <td> -137.5053 </td>
               <td>  </td>
@@ -9556,6 +9978,7 @@
               <td> 07-SURF-YT-2100679 </td>
               <td> 2100679 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 64.4539 </td>
               <td> -138.2156 </td>
               <td>  </td>
@@ -9578,6 +10001,7 @@
               <td> 07-SURF-YT-2100709 </td>
               <td> 2100709 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 60.8764 </td>
               <td> -135.1828 </td>
               <td>  </td>
@@ -9600,6 +10024,7 @@
               <td> 07-SURF-YT-2100719 </td>
               <td> 2100719 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 63.6 </td>
               <td> -137.5167 </td>
               <td>  </td>
@@ -9622,6 +10047,7 @@
               <td> 07-SURF-YT-2100840 </td>
               <td> 2100840 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 61.0333 </td>
               <td> -137.05 </td>
               <td>  </td>
@@ -9644,6 +10070,7 @@
               <td> 07-SURF-YT-2100880 </td>
               <td> 2100880 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 62.8167 </td>
               <td> -137.3667 </td>
               <td>  </td>
@@ -9673,6 +10100,7 @@
               <td>  </td>
               <td>  </td>
               <td>  </td>
+              <td>  </td>
               <td> N/A </td>
               <td> N/A </td>
               <td>  </td>
@@ -9688,6 +10116,7 @@
               <td> 07-SURF-YT-2100FCG </td>
               <td> 2100FCG </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 61.1817 </td>
               <td> -129.1317 </td>
               <td>  </td>
@@ -9710,6 +10139,7 @@
               <td> 07-SURF-YT-2101095 </td>
               <td> 2101095 </td>
               <td> N/A </td>
+              <td>  </td>
               <td> 60.9458 </td>
               <td> -135.5731 </td>
               <td>  </td>
@@ -9732,7 +10162,7 @@
   <footer class="site-footer h-card" dir="rtl">
   
 
-  Jeffrey Welch, 2020; Data Retrieved: 2020-02-12
+  Jeffrey Welch, 2020; Data Retrieved: 2020-02-13
 </footer>
 
 </div>
