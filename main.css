@@ -2,6 +2,10 @@
  * Jeffrey Welch
  */
 
+html {
+  width: calc(100vw - 20px);
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -23,14 +27,19 @@ footer {
   padding-bottom: 50px;
 }
 
+table {
+  width: 100%;
+}
+
 table, th, td {
+  table-layout: fixed;
   text-align: center;
   border: 1px solid black;
   border-collapse: collapse;
 }
 
 th, td {
-  width: calc(calc(100vw - 20px)/14);
+  width: 5%;
   height: 75px;
 }
 td {
@@ -58,10 +67,6 @@ button {
   padding-bottom: 4px;
 }
 
-.page {
-  position: relative;
-  min-height: calc(100vh - 20px);
-}
 
 .centre {
   display: block;
@@ -142,7 +147,7 @@ footer {
 }
 
 .ProvList-drop {
-    width: 100%;
+    width: 125%;
     overflow: hidden;
     display: none;
     margin-top: -1px;
@@ -171,54 +176,10 @@ footer {
     box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
 }
 
-.ProvList-search {
-    display: inline-block;
-    margin: 0;
-    min-height: 26px;
-    padding: 4px;
-    position: relative;
-    white-space: nowrap;
-    width: 100%;
-    z-index: 10000;
-}
-
-.ProvList-search input {
-    width: 100%;
-    height: auto !important;
-    min-height: 24px;
-    padding: 0 20px 0 5px;
-    margin: 0;
-    outline: 0;
-    font-family: sans-serif;
-    font-size: 1em;
-    border: 1px solid #aaa;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    background: #fff url('multiple-select.png') no-repeat 100% -22px;
-    background: url('multiple-select.png') no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-    background: url('multiple-select.png') no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url('multiple-select.png') no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url('multiple-select.png') no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-    background: url('multiple-select.png') no-repeat 100% -22px, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
-    background: url('multiple-select.png') no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
-}
-
-.ProvList-search, .ProvList-search input {
-    -webkit-box-sizing: border-box;
-    -khtml-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 .ProvList-drop ul {
     overflow: auto;
     margin: 0;
-    padding: 5px 8px;
+    padding: 5px 0px 0px 0px;
 }
 
 .ProvList-drop ul > li {
