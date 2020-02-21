@@ -1,0 +1,253 @@
+html {
+  background: dimgrey;
+  color: linen;
+  width: calc(100vw - 20px);
+  font-family: "Arial", Arial, sans-serif;
+  font-size: 0.8vw;
+}
+
+select {
+  background: lightgrey;
+  width: 7%;
+  height: 26px;
+  overflow: hidden;
+  padding-bottom: 3px;
+  border: 1px solid #aaa;
+  font-size: 0.6vw;
+}
+
+input {
+  background: lightgrey;
+  width: 100%;
+  font-size: 0.8vw;
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+}
+
+button {
+  background: lightgrey;
+  width: 6%;
+  height: 26px;
+  padding-bottom: 4px;
+  font-size: 0.6vw;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%
+}
+
+a:link {
+  color: linen;
+}
+
+a:visited {
+  color: ivory;
+}
+
+.fitWidth {
+    width: 100%;
+    margin: 5px 0px 5px 0px;
+}
+
+.page {
+  position: relative;
+  min-height: calc(100vh - 20px);
+}
+
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-wrap {
+  padding-bottom: 50px;
+}
+
+table {
+  width: 100%;
+}
+
+table, th, td {
+  table-layout: fixed;
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  width: 5%;
+}
+
+th {
+  font-size: 0.8vw;;
+  height: 75 px;
+}
+
+td {
+  font-size: 0.55vw;
+  padding: 0px 5px 0px 5px;
+  height: 65px;
+}
+
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.ProvList-parent {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    height: 25px;
+    width: 6%;
+}
+
+.ProvList-choice {
+    display: block;
+    width: 100%;
+    height: 26px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #aaa;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 26px;
+    color: #444;
+    text-decoration: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background-color: lightgrey;
+}
+
+.ProvList-choice.disabled {
+    background-color: #f4f4f4;
+    background-image: none;
+    border: 1px solid #ddd;
+    cursor: default;
+}
+
+.ProvList-choice > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    padding-left: 8px;
+}
+
+.ProvList-choice > span.placeholder {
+    color: #000;
+}
+
+.ProvList-choice > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 25px;
+    background: url('/js/multiple-select.png') left top no-repeat;
+}
+
+.ProvList-choice > div.open {
+    background: url('/js/multiple-select.png') right top no-repeat;
+}
+
+.ProvList-drop {
+    width: 100%;
+    overflow: hidden;
+    display: none;
+    margin-top: -1px;
+    padding: 0;
+    position: absolute;
+    z-index: 1000;
+    background: lightgrey;
+    color: #000;
+    border: 1px solid #aaa;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.ProvList-drop.bottom {
+    top: 100%;
+    -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+}
+
+.ProvList-drop.top {
+    bottom: 100%;
+    -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+    box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+}
+
+.ProvList-drop ul {
+    width: 125%;
+    overflow: auto;
+    margin: 0;
+    padding: 5px 0px;
+}
+
+.ProvList-drop ul > li {
+    list-style: none;
+    display: list-item;
+    background-image: none;
+    position: static;
+}
+
+.ProvList-drop ul > li .disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+}
+
+.ProvList-drop ul > li.multiple {
+    display: block;
+    float: left;
+}
+
+.ProvList-drop ul > li.group {
+    clear: both;
+}
+
+.ProvList-drop ul > li.multiple label {
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ProvList-drop ul > li label {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+}
+
+.ProvList-drop ul > li label.optgroup {
+    font-weight: bold;
+}
+
+.ProvList-drop input[type="checkbox"] {
+    width: 40px;
+    vertical-align: middle;
+}
+
+.ProvList-drop .ProvList-no-results {
+    display: none;
+}
