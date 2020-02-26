@@ -792,6 +792,6 @@ $(function() {
     $('#ProvList').change(function() {
         console.log($(this).val());
     }).multipleSelect({
-        width: 'calc(calc(90vw/14) + 20px)'
+        width: '7vw'
     });
 });

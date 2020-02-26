@@ -4,7 +4,7 @@
 
 
 <html>
-    <body>
+    <body onload="setFilters()" onresize="setFilters()">
         <div class="page">
           <div class="content-wrap">
               <p>
@@ -19,253 +19,258 @@
                 <b>Query count: </b><b id="qCount"></b>
               </p>
 
-              <p>
-                  <a href="/">Home</a>
-              </p>
-
               <div class="fitWidth">
                   <input type="text" id="Input" onkeyup="Filter()" placeholder="Search by site name, FLOC, or IDs...">
               </div>
-              <div class="fitWidth">
-                  <select name="Provs" id="ProvList" onchange="Filter()" class='form-control' size="13" multiple="multiple">
-                      <option value="AB">AB</option>
-                      <option value="BC">BC</option>
-                      <option value="MB">MB</option>
-                      <option value="NB">NB</option>
-                      <option value="NL">NL</option>
-                      <option value="NS">NS</option>
-                      <option value="NT">NT</option>
-                      <option value="NU">NU</option>
-                      <option value="ON">ON</option>
-                      <option value="PE">PE</option>
-                      <option value="QC">QC</option>
-                      <option value="SK">SK</option>
-                      <option value="YT">YT</option>
-                  </select>
+              <div class="fitWidth2">
+                  <span id="buttons">
+                      <button id="Home" onclick="window.location.href ='/'">Home</button>
 
-                  <select id="RBSNList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by RBSN</option>
-                      <option value="X">RBSN</option>
-                      <option value="  ">Not RBSN</option>
-                  </select>
+                      <button id="Export">Export to CSV</button>
 
-                  <select id="RBCNList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by RBCN</option>
-                      <option value="X">RBCN</option>
-                      <option value="  ">Not RBCN</option>
-                  </select>
+                      <button onClick="clearFilters();">Clear Filters</button>
 
-                  <select id="GSNList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by GSN</option>
-                      <option value="X">GSN</option>
-                      <option value="  ">Not GSN</option>
-                  </select>
+                      <select name="Provs" id="ProvList" onchange="Filter()" class='form-control' size="13" multiple="multiple">
+                          <option value="AB">AB</option>
+                          <option value="BC">BC</option>
+                          <option value="MB">MB</option>
+                          <option value="NB">NB</option>
+                          <option value="NL">NL</option>
+                          <option value="NS">NS</option>
+                          <option value="NT">NT</option>
+                          <option value="NU">NU</option>
+                          <option value="ON">ON</option>
+                          <option value="PE">PE</option>
+                          <option value="QC">QC</option>
+                          <option value="SK">SK</option>
+                          <option value="YT">YT</option>
+                      </select>
+                  </span>
 
-                  <select id="RCSList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by RCS</option>
-                      <option value="X">RCS</option>
-                      <option value="  ">Not RCS</option>
-                  </select>
+                  <span id="filter1" class="filters">
+                      <select id="RBSNList" onchange="Filter()" class='form-control1'>
+                          <option value="">Filter by RBSN</option>
+                          <option value="X">RBSN</option>
+                          <option value="  ">Not RBSN</option>
+                      </select>
 
-                  <select id="CoastalList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by Coastal</option>
-                      <option value="X">Coastal</option>
-                      <option value="  ">Not Coastal</option>
-                  </select>
+                      <select id="RBCNList" onchange="Filter()" class='form-control1'>
+                          <option value="">Filter by RBCN</option>
+                          <option value="X">RBCN</option>
+                          <option value="  ">Not RBCN</option>
+                      </select>
 
-                  <select id="TempList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by Temp</option>
-                      
-                          
-                              
-                                  <option>GENERIC</option>
-                              
-                                  <option>GENERIC MAXIMUM THERMOMETER</option>
-                              
-                                  <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
-                              
-                                  <option>VAISALA HMP155A</option>
-                              
-                                  <option>VAISALA HMP35AC</option>
-                              
-                                  <option>VAISALA HMP41</option>
-                              
-                                  <option>YSI 44212EC</option>
-                              
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                  </select>
+                      <select id="GSNList" onchange="Filter()" class='form-control1'>
+                          <option value="">Filter by GSN</option>
+                          <option value="X">GSN</option>
+                          <option value="  ">Not GSN</option>
+                      </select>
 
-                  <select id="RHList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by RH</option>
-                      
-                          
-                      
-                          
-                              
-                                  <option>VAISALA HMP155A</option>
-                              
-                                  <option>VAISALA HMP35AC</option>
-                              
-                                  <option>VAISALA HMP41</option>
-                              
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                  </select>
+                      <select id="RCSList" onchange="Filter()" class='form-control1'>
+                          <option value="">Filter by RCS</option>
+                          <option value="X">RCS</option>
+                          <option value="  ">Not RCS</option>
+                      </select>
 
-                  <select id="BARList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by Bar</option>
-                      
-                          
-                      
-                          
-                      
-                          
-                              
-                                  <option>SETRA 270</option>
-                              
-                                  <option>SETRA 270A</option>
-                              
-                                  <option>SUTRON 5600-0120-3B</option>
-                              
-                                  <option>VAISALA PTB220</option>
-                              
-                                  <option>VAISALA PTB220PB</option>
-                              
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                  </select>
+                      <select id="CoastalList" onchange="Filter()" class='form-control1'>
+                          <option value="">Filter by Coastal</option>
+                          <option value="X">Coastal</option>
+                          <option value="  ">Not Coastal</option>
+                      </select>
+                  </span>
 
-                  <select id="10MList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by 10m</option>
-                      
-                          
-                      
-                          
-                      
-                          
-                      
+                  <span id="filter2" class="filters">
+                      <select id="TempList" onchange="Filter()" class='form-control2'>
+                          <option value="">Filter by Temp</option>
                           
                               
-                                  <option>RM YOUNG 05103</option>
-                              
-                                  <option>RM YOUNG 05103AP</option>
-                              
-                                  <option>RM YOUNG 05106</option>
+                                  
+                                      <option>GENERIC</option>
+                                  
+                                      <option>GENERIC MAXIMUM THERMOMETER</option>
+                                  
+                                      <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+                                  
+                                      <option>VAISALA HMP155A</option>
+                                  
+                                      <option>VAISALA HMP35AC</option>
+                                  
+                                      <option>VAISALA HMP41</option>
+                                  
+                                      <option>YSI 44212EC</option>
+                                  
                               
                           
-                      
+                              
                           
-                      
+                              
                           
-                      
-                  </select>
+                              
+                          
+                              
+                          
+                              
+                          
+                      </select>
 
-                  <select id="AWGList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by WG</option>
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
+                      <select id="RHList" onchange="Filter()" class='form-control2'>
+                          <option value="">Filter by RH</option>
                           
                               
-                                  <option>BELFORT</option>
+                          
                               
-                                  <option>GEONOR T-200B WG (600 mm)</option>
-                              
-                                  <option>GEONOR T-200B-M WG (1000 mm)</option>
-                              
-                                  <option>OTT PLUVIO (1000 mm)</option>
-                              
-                                  <option>OTT PLUVIO2 (1500 mm)</option>
+                                  
+                                      <option>VAISALA HMP155A</option>
+                                  
+                                      <option>VAISALA HMP35AC</option>
+                                  
+                                      <option>VAISALA HMP41</option>
+                                  
                               
                           
-                      
+                              
                           
-                      
-                  </select>
+                              
+                          
+                              
+                          
+                              
+                          
+                      </select>
 
-                  <select id="SDList" onchange="Filter()" class='form-control'>
-                      <option value="">Filter by SG</option>
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
-                          
-                      
+                      <select id="BARList" onchange="Filter()" class='form-control2'>
+                          <option value="">Filter by Bar</option>
                           
                               
-                                  <option>CAMPBELL SCI. SR50</option>
-                              
-                                  <option>CAMPBELL SCI. SR50-45</option>
-                              
-                                  <option>CAMPBELL SCI. SR50A</option>
-                              
-                                  <option>CAMPBELL SCI. SR50M-4</option>
+                          
                               
                           
-                      
-                  </select>
+                              
+                                  
+                                      <option>SETRA 270</option>
+                                  
+                                      <option>SETRA 270A</option>
+                                  
+                                      <option>SUTRON 5600-0120-3B</option>
+                                  
+                                      <option>VAISALA PTB220</option>
+                                  
+                                      <option>VAISALA PTB220PB</option>
+                                  
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                      </select>
 
-                  <button id="Export">Export to CSV</button>
-                  <button onClick="clearFilters();">Clear Filters</button>
+                      <select id="10MList" onchange="Filter()" class='form-control2'>
+                          <option value="">Filter by 10m</option>
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                                  
+                                      <option>RM YOUNG 05103</option>
+                                  
+                                      <option>RM YOUNG 05103AP</option>
+                                  
+                                      <option>RM YOUNG 05106</option>
+                                  
+                              
+                          
+                              
+                          
+                              
+                          
+                      </select>
+
+                      <select id="AWGList" onchange="Filter()" class='form-control2'>
+                          <option value="">Filter by WG</option>
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                                  
+                                      <option>BELFORT</option>
+                                  
+                                      <option>GEONOR T-200B WG (600 mm)</option>
+                                  
+                                      <option>GEONOR T-200B-M WG (1000 mm)</option>
+                                  
+                                      <option>OTT PLUVIO (1000 mm)</option>
+                                  
+                                      <option>OTT PLUVIO2 (1500 mm)</option>
+                                  
+                              
+                          
+                              
+                          
+                      </select>
+
+                      <select id="SDList" onchange="Filter()" class='form-control2'>
+                          <option value="">Filter by SG</option>
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                          
+                              
+                                  
+                                      <option>CAMPBELL SCI. SR50</option>
+                                  
+                                      <option>CAMPBELL SCI. SR50-45</option>
+                                  
+                                      <option>CAMPBELL SCI. SR50A</option>
+                                  
+                                      <option>CAMPBELL SCI. SR50M-4</option>
+                                  
+                              
+                          
+                      </select>
+                  </span>
               </div>
 
               <table id="Table">
                   <tr class="header">
-                      <th> Name </th>
+                      <th id="name"> Name </th>
                       <th> FLOC </th>
                       <th> Climate ID </th>
                       <th> TC ID </th>
                       <th> WMO ID </th>
                       <th> Latitude </th>
                       <th> Longitude </th>
-                      <th> RBSN </th>
+                      <th id="marker1"> RBSN </th>
                       <th> RBCN </th>
                       <th> GSN </th>
                       <th> RCS </th>
-                      <th> Coastal </th>
+                      <th id="marker3"> Coastal </th>
                       <th> Last Complete PM21 </th>
                       <th> Last Complete PM22 </th>
-                      <th> Temp </th>
+                      <th id="marker2"> Temp </th>
                       <th> RH </th>
                       <th> Bar </th>
                       <th> 10m </th>
-                      <th> WG </th>
+                      <th> AWG </th>
                       <th> SG </th>
                   </tr>
                   
@@ -941,7 +946,7 @@
           
 
 <footer class="site-footer h-card" dir="rtl">
-  Data Retrieved: 2020-02-20
+  Data Retrieved: 2020-02-25
 </footer>
 
         </div>
