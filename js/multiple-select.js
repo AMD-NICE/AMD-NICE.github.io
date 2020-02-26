@@ -721,7 +721,7 @@
         name: '',
         isOpen: false,
         isOpen: false,
-        placeholder: 'Filter by province',
+        placeholder: 'Filter by Province',
         selectAll: true,
         selectAllDelimiter: ['[', ']'],
         minimumCountSelected: 3,

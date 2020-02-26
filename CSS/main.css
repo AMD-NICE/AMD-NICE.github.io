@@ -33,6 +33,7 @@ select {
   overflow: hidden;
   border: 1px solid #aaa;
   font-size: 0.55vw;
+  cursor: pointer;
 }
 
 input {
@@ -49,6 +50,7 @@ button {
   height: 26px;
   padding-bottom: 3px;
   font-size: 0.6vw;
+  cursor: pointer;
 }
 
 footer {
