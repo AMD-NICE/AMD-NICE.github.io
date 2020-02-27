@@ -116,3 +116,114 @@ function clearFilters() {
 
     Filter();
 }
+
+function setFilters() {
+    var mark1 = $('#marker1');
+    var left1 = mark1.position().left;
+
+    var mark2 = $('#marker2');
+
+    var left2 = mark2.position().left;
+
+    var filter1 = $('#filter1')[0];
+    var filter2 = $('#filter2')[0];
+
+    filter1.style.position = "absolute";
+    filter2.style.position = "absolute";
+
+    var buttons = $("#buttons");
+    var top = buttons.position().top;
+
+
+    filter1.style.left = left1 + 1.5;
+    filter1.style.top = top;
+
+    filter2.style.left = left2 + 1.5;
+    filter2.style.top = top;
+
+
+    var width1 = document.getElementById("marker1").offsetWidth;
+    var x = document.getElementsByClassName("form-control1");
+    var len1 = x.length;
+
+    filter1.style.width = width1 * len1;
+
+    var width2 = document.getElementById("marker2").offsetWidth;
+    var y = document.getElementsByClassName("form-control2");
+    var len2 = y.length;
+
+    filter2.style.width = width2 * len2;
+}
+
+function setMode() {
+    var modeButton = document.getElementById("mode");
+
+    if (localStorage.getItem("modeType") === null) {
+        localStorage.setItem("modeType", "dark");
+        modeButton.innerText = "Light mode";
+
+    } else {
+        if (localStorage.getItem("modeType") == "dark") {
+            modeButton.innerText = "Light mode";
+        } else {
+            var main = document.getElementById("main");
+            main.style.background = "white";
+            main.style.color = "black";
+
+            var links = document.getElementsByTagName('a');
+            var len = links.length;
+
+            for (var i = 0; i < len; i++) {
+                links[i].style.color = "black";
+            }
+
+            modeButton.innerText = "Dark mode";
+        }
+    }
+}
+
+function toggleDark() {
+    var modeButton = document.getElementById("mode");
+
+    if (localStorage.getItem("modeType") == "light") {
+        var main = document.getElementById("main");
+        main.style.background = "dimgrey";
+        main.style.color = "linen";
+
+        var links = document.getElementsByTagName('a');
+        var len = links.length;
+
+        for (var i = 0; i < len; i++) {
+            links[i].style.color = "linen";
+        }
+
+        modeButton.innerText = "Light mode";
+        localStorage.setItem("modeType", "dark");
+
+    } else  {
+        var main = document.getElementById("main");
+        main.style.background = "white";
+        main.style.color = "black";
+
+        var links = document.getElementsByTagName('a');
+        var len = links.length;
+
+        for (var i = 0; i < len; i++) {
+            links[i].style.color = "black";
+        }
+
+        modeButton.innerText = "Dark mode";
+        localStorage.setItem("modeType", "light");
+    }
+}
+
+function setupPage() {
+    try {
+        setFilters();
+    } catch {
+    }
+    setMode();
+
+    var html = $('#main')[0];
+    html.style.visibility = "visible";
+}

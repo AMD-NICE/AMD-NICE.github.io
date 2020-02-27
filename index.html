@@ -1,34 +1,41 @@
 <link rel="stylesheet" href="/CSS/main.css">
 
-<html id="test">
-  <body>
-    <div class="page">
-      <div class="wrap-content">
-        <h1> Surface Networks: </h1>
+<html id="main">
+    <body onload="setupPage();">
+        <div class="page">
+            <div class="wrap-content">
+                <p>
+                    <b id="title"> Surface Networks: </b>
+                    <button id="mode" onclick="toggleDark();"></button>
+                </p>
 
-        <ul>
-          
-          
+                <ul>
+                    
+                    
 
-          <li><a href="/Networks/AWS.html">MSC Automatic Weather Station Network (AWS) - (569 stations)</a></li>
+                    <li><a href="/Networks/AWS.html">MSC Automatic Weather Station Network (AWS) - (569 stations)</a></li>
 
-          
-          
+                    
+                    
 
-          <li><a href="/Networks/CCN.html">Cooperative Climate Network (CCN) - (411 stations)</a></li>
+                    <li><a href="/Networks/CCN.html">Cooperative Climate Network (CCN) - (411 stations)</a></li>
 
-          
-          
+                    
+                    
 
-          <li><a href="/Networks/LH.html">Lighthouses - (29 stations)</a></li>
-        </ul>
-      </div>
-      
+                    <li><a href="/Networks/LH.html">Lighthouses - (29 stations)</a></li>
+                </ul>
+            </div>
+            
 
 <footer class="site-footer h-card" dir="rtl">
-  Data Retrieved: 2020-02-25
+  Data Retrieved: 2020-02-26
 </footer>
 
-    </div>
-  </body>
+        </div>
+    </body>
 </html>
+
+<script src="/js/jquery-3.3.1.slim.min.js"></script>
+
+<script src="/js/format.js"></script>
