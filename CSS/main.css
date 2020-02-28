@@ -18,7 +18,7 @@ html {
 #mode {
   width: 5vw;
   position: absolute;
-  left: calc(94.5vw - 20px);
+  left: calc(94vw - 20px);
 }
 
 .form-control1  {
