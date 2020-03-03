@@ -7,41 +7,6 @@ html {
   visibility: hidden;
 }
 
-#title {
-  font-size: 1.5vw;
-}
-
-#count {
-  font-size: 1vw;
-}
-
-#mode {
-  width: 5vw;
-  position: absolute;
-  left: calc(94vw - 20px);
-}
-
-.form-control1  {
-  margin: 0px 0px 0px 0px;
-  width: calc(100%/ 5);
-}
-
-.form-control2 {
-  margin: 0px 0px 0px 0px;
-  width: calc(100% / 6);
-}
-
-.filters {
-  display: flex;
-  justify-content: space-between;
-}
-
-#buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 25vw;
-}
-
 select {
   background: lightgrey;
   height: 26px;
@@ -82,32 +47,6 @@ a:visited {
   color: ivory;
 }
 
-.fitWidth {
-    width: 100%;
-    margin: 5px 0px 5px 0px;
-}
-
-.fitWidth2 {
-    width: 100%;
-    margin: 0px 0px 0px 0px;
-    display: inline-block;
-}
-
-.page {
-  position: relative;
-  min-height: calc(100vh - 20px);
-}
-
-.centre {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.content-wrap {
-  padding-bottom: 50px;
-}
-
 table {
   width: 100%;
   margin-top: 5px;
@@ -136,8 +75,30 @@ td {
   height: 65px;
 }
 
-#name {
-  width: 5vw;
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.fitWidth {
+    width: 100%;
+    margin: 5px 0px 5px 0px;
+}
+
+.fitWidth2 {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    display: inline-block;
+}
+
+.page {
+  position: relative;
+  min-height: calc(100vh - 20px);
+}
+
+.content-wrap {
+  padding-bottom: 50px;
 }
 
 .centre {
@@ -146,10 +107,41 @@ td {
   margin-right: auto;
 }
 
-footer {
+.form-control1  {
+  width: calc(100% / 5);
+}
+
+.form-control2 {
+  width: calc(100% / 6);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+#title {
+  font-size: 1.5vw;
+}
+
+#name {
+  width: 5vw;
+}
+
+#count {
+  font-size: 1vw;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 25vw;
+}
+
+#mode {
+  width: 5vw;
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  left: calc(94vw - 20px);
 }
 
 .ProvList-parent {
