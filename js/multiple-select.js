@@ -721,7 +721,7 @@
         name: '',
         isOpen: false,
         isOpen: false,
-        placeholder: 'Filter by Province',
+        placeholder: 'Province',
         selectAll: true,
         selectAllDelimiter: ['[', ']'],
         minimumCountSelected: 3,
@@ -792,6 +792,6 @@ $(function() {
     $('#ProvList').change(function() {
         console.log($(this).val());
     }).multipleSelect({
-        width: '7vw'
+        width: '5vw'
     });
 });
