@@ -1,0 +1,2845 @@
+<link rel="stylesheet" href="/CSS/main.css">
+
+
+
+
+<html id="main">
+    <head>
+        <title>NICE/Moored</title>
+    </head>
+    <body onload="setupPage();">
+        <div class="page">
+            <div class="top">
+                <p>
+                    <b id="networks"> MSC Moored Buoy Network </b>
+                    <button id="mode" onclick="toggleDark();"></button>
+                </p>
+
+                <p>
+                    <b id="count"> Sites: 60 </b>
+                </p>
+
+                <p>
+                    <b>Query count: </b><b id="qCount">60</b>
+                </p>
+
+                <div class="fitWidth">
+                    <input type="text" id="Input" onkeyup="MarineFilter();" placeholder="Search by site name or FLOC...">
+                </div>
+                <div class="fitWidth2">
+                    <span class="buttons">
+                        <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
+
+                        <button id="Export" class="button">Export to CSV</button>
+
+                        <button class="button" onClick="clearMarineFilters();">Clear Filters</button>
+
+                        <div class="floc legend"> FLOC </div>
+                        <div class="mooring legend"> Mooring </div>
+                        <div class="WO legend"> Work Orders </div>
+                        <div class="buoy legend"> Buoy/Payload </div>
+                        <div class="trans legend"> Communications </div>
+                        <div class="sensor legend"> Sensors </div>
+                    </span>
+                </div>
+            </div>
+            <div class="middle">
+                <div id="tablehead1">
+                    <table id="head1">
+                        <tr>
+                            <th class="floc">
+                                <select id="RegList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Region </option>
+                                    <option> ATL </option>
+                                    <option> CENTRAL </option>
+                                    <option> PYR </option>
+                                </select>
+                            </th>
+                            <th id="name" class="floc"> Name </th>
+                            <th class="floc"> FLOC </th>
+                            <th class="floc selectCell">
+                                <select id="FlocList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> FLOC Type </option>
+                                    <option> Anchor </option>
+                                    <option> Storage </option>
+                                </select>
+                            </th>
+                            <th class="floc"> Buoy Equip. # </th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tablehead2">
+                    <table id="head2">
+                        <tr>
+                            <th class="mooring"> Latitude </th>
+                            <th class="mooring"> Longitude </th>
+                            <th class="mooring selectCell">
+                                <select id="MooringList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Mooring Type </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> All chain (shallow to 90 m) </option>
+                                            
+                                                <option> Float inv cat (deep;>600m) </option>
+                                            
+                                                <option> Semitaut (int.;60-600m;nylon) </option>
+                                            
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="mooring"> Mooring Length </th>
+                            <th class="mooring"> Water Depth </th>
+                            <th class="WO"> Last Complete PM21 </th>
+                            <th class="WO"> Last Complete PM22 </th>
+                            <th class="buoy selectCell">
+                                <select id="BuoyList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Buoy Type </option>
+                                    
+                                        
+                                            
+                                                <option> AXYS 1.7m WATCHKEEPER </option>
+                                            
+                                                <option> AXYS 3m DISCUS </option>
+                                            
+                                                <option> AXYS 3m FOAM </option>
+                                            
+                                                <option> AXYS 6m NOMAD </option>
+                                            
+                                                <option> AXYS TRIAXYS DCTNL (NWII) </option>
+                                            
+                                                <option> PROF COMPONENTS 3M DISCUS </option>
+                                            
+                                                <option> PROF COMPONENTS 3m DISCUS </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="buoy selectCell">
+                                <select id="ProcessorList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Sensor Processor </option>
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> AXYS 1.7m WK BUOY </option>
+                                            
+                                                <option> AXYS 3m & NOMAD BUO </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="buoy selectCell">
+                                <select id="PrsList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Pressure </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> VAISALA PTB210B1T1B </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="buoy selectCell">
+                                <select id="CompassList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Compass </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> KVH KVH1000 AUTOCOMP </option>
+                                            
+                                                <option> KVH KVHC100 SE25 </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="trans selectCell">
+                                <select id="PTransList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Primary Trans. </option>
+                                    <option value> GOES DCP </option>
+                                    <option value> GOES primary ARGOS backup </option>
+                                </select>
+                            </th>
+                            <th class="trans selectCell">
+                                <select id="STransList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Secondary Trans. </option>
+                                    <option value> Iridium </option>
+                                    <option value> None </option>
+                                </select>
+                            </th>
+                            <th class="trans selectCell">
+                                <select id="TransList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Transmitter </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> AXYS 1.7m WK BUOY </option>
+                                            
+                                                <option> AXYS 3m & NOMAD BUOY </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="trans selectCell">
+                                <select id="SubTransList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Sub Transmitter </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> SUTRON 40W SATLINK2 SL2-B40W-1 </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="trans selectCell">
+                                <select id="GOESList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> GOES Antenna </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> HARSH SYNERGETICS 14 </option>
+                                            
+                                                <option> HARSH SYNERGETICS 14A-NS </option>
+                                            
+                                                <option> HARSH SYNERGETICS 15A-NS </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="trans selectCell">
+                                <select id="IridiumList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Iridium Beacon </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> XEOS MELO </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="sensor selectCell">
+                                <select id="ATempList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Air Temp. </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> AXYS TAIR </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="sensor selectCell">
+                                <select id="WTempList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Water Temp. </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> AXYS 1.7m BUOY </option>
+                                            
+                                                <option> AXYS 3m & NOMAD BUOY </option>
+                                            
+                                                <option> AXYS HATS </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="sensor selectCell">
+                                <select id="WindList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Wind </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> RM YOUNG 05103 </option>
+                                            
+                                                <option> RM YOUNG 05106 </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="sensor selectCell">
+                                <select id="WindUSList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Wind (Ultra Sonic) </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> VAISALA WMT702 </option>
+                                            
+                                                <option> VAISALA WS425 </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="sensor selectCell">
+                                <select id="WaveList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Wave Module </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> AXYS 1.7m WK/3m/6m NOMAD BUOY </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="sensor selectCell">
+                                <select id="SubWaveList" class="filter" onchange="MarineFilter();">
+                                    <option value=""> Sub-Wave </option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option> AXYS TRIAXYS G3 </option>
+                                            
+                                                <option> AXYS TRIAXYS OEM MOTION </option>
+                                            
+                                                <option> COLUMBIA RESEACH SA-107B </option>
+                                            
+                                                <option> JEWELL LCM100 </option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="tablewrapper">
+                    <div id="tablebody1">
+                        <table id="body1">
+                            
+                            <tr>
+                                <td> ATL </td>
+                                <td id="name"> EAST SCOTIA SLOPE </td>
+                                <td> 07-BUOY-XX-44137 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20142844 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> ATL </td>
+                                <td id="name"> BANQUEREAU BANK </td>
+                                <td> 07-BUOY-XX-44139 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133228 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> ATL </td>
+                                <td id="name"> LA HAVE BANK </td>
+                                <td> 07-BUOY-XX-44150 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20170561 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> ATL </td>
+                                <td id="name"> HALIFAX HARBOUR </td>
+                                <td> 07-BUOY-XX-44258 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133184 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> PORT STANLEY </td>
+                                <td> 07-BUOY-XX-45132 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> PRINCE EDWARD PT </td>
+                                <td> 07-BUOY-XX-45135 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> SLATE ISLAND </td>
+                                <td> 07-BUOY-XX-45136 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> NORTH GEORGIAN BAY </td>
+                                <td> 07-BUOY-XX-45137 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> MONT LOUIS (QUEBEC) </td>
+                                <td> 07-BUOY-XX-45138 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> WEST LAKE ONTARIO </td>
+                                <td> 07-BUOY-XX-45139 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE WINNIPEG S. BASIN </td>
+                                <td> 07-BUOY-XX-45140 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> GREAT SLAVE LAKE </td>
+                                <td> 07-BUOY-XX-45141 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133223 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> PORT COLBORNE </td>
+                                <td> 07-BUOY-XX-45142 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> SOUTH GEORGIAN BAY </td>
+                                <td> 07-BUOY-XX-45143 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE WINNIPEG N. </td>
+                                <td> 07-BUOY-XX-45144 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE WINNIPEG NARROWS </td>
+                                <td> 07-BUOY-XX-45145 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE ST. CLAIR </td>
+                                <td> 07-BUOY-XX-45147 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE OF THE WOODS </td>
+                                <td> 07-BUOY-XX-45148 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> SOUTHERN LAKE HURON(BAYFIELD) </td>
+                                <td> 07-BUOY-XX-45149 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> GT. SLAVE LK N. ARM </td>
+                                <td> 07-BUOY-XX-45150 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20192382 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE SIMCOE </td>
+                                <td> 07-BUOY-XX-45151 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> LAKE NIPISSING </td>
+                                <td> 07-BUOY-XX-45152 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> NORTH CHANNEL EAST </td>
+                                <td> 07-BUOY-XX-45154 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> CENTRAL </td>
+                                <td id="name"> NW LAKE ONTARIO AJAX </td>
+                                <td> 07-BUOY-XX-45159 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> MIDDLE NOMAD </td>
+                                <td> 07-BUOY-XX-46004 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133258 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> SOUTH NOMAD </td>
+                                <td> 07-BUOY-XX-46036 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> SENTRY SHOAL </td>
+                                <td> 07-BUOY-XX-46131 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133273 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> SOUTH BROOKS </td>
+                                <td> 07-BUOY-XX-46132 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133182 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> CENTRAL DIXON ENTRANCE </td>
+                                <td> 07-BUOY-XX-46145 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133270 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> HALIBUT BANK </td>
+                                <td> 07-BUOY-XX-46146 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133255 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> SOUTH MORESBY </td>
+                                <td> 07-BUOY-XX-46147 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133271 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> NANAKWA SHOAL </td>
+                                <td> 07-BUOY-XX-46181 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133269 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> NORTH HECATE STRAIT </td>
+                                <td> 07-BUOY-XX-46183 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133179 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> NORTH NOMAD </td>
+                                <td> 07-BUOY-XX-46184 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133185 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> SOUTH HECATE STRAIT </td>
+                                <td> 07-BUOY-XX-46185 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133183 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> WEST SEA OTTER </td>
+                                <td> 07-BUOY-XX-46204 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133256 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> WEST DIXON ENTRANCE </td>
+                                <td> 07-BUOY-XX-46205 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133180 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> LA PEROUSE BANK </td>
+                                <td> 07-BUOY-XX-46206 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133181 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> EAST DELLWOOD </td>
+                                <td> 07-BUOY-XX-46207 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133264 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> PYR </td>
+                                <td id="name"> WEST MORESBY </td>
+                                <td> 07-BUOY-XX-46208 </td>
+                                <td class="selectCell"> Anchor </td>
+                                <td> 20133248 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> MARINE WH DOWNSVIEW </td>
+                                <td> 07-BUOY-ST-00003 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20133229 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> HAMILTON-DEPOT </td>
+                                <td> 07-BUOY-ST-02106 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20217780 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> MAR-ORILLIA </td>
+                                <td> 07-BUOY-ST-02119 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20184358 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> MAR-PORT COLBORNE </td>
+                                <td> 07-BUOY-ST-02120 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20133267 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> BEDFORD-DEPOT </td>
+                                <td> 07-BUOY-ST-02216 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20187892 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> PARADISE-DEPOT </td>
+                                <td> 07-BUOY-ST-02222 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20133230 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> EDMONTON-DEPOT </td>
+                                <td> 07-BUOY-ST-02304 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> WPG WH-DEPOT </td>
+                                <td> 07-BUOY-ST-02310 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20217779 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> DFO-MONT JOLI </td>
+                                <td> 07-BUOY-ST-02407 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20143967 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> RICHMOND-DEPOT </td>
+                                <td> 07-BUOY-ST-02504 </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20143281 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-AMHERSTBURG </td>
+                                <td> 07-BUOY-ST-CCGAM </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20189941 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-DARTMOUTH </td>
+                                <td> 07-BUOY-ST-CCGDA </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-HAY RIVER </td>
+                                <td> 07-BUOY-ST-CCGHR </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-KENORA </td>
+                                <td> 07-BUOY-ST-CCGKE </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20133252 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-PARRY SOUND </td>
+                                <td> 07-BUOY-ST-CCGPS </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20195694 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-ST. JOHN'S </td>
+                                <td> 07-BUOY-ST-CCGSJ </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-THUNDER BAY </td>
+                                <td> 07-BUOY-ST-CCGTB </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> CCG-VICTORIA </td>
+                                <td> 07-BUOY-ST-CCGVI </td>
+                                <td class="selectCell"> Storage </td>
+                                <td> 20205953 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> DND TRENTON </td>
+                                <td> 07-BUOY-ST-DNDTR </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td id="name"> AT SUPPLIER </td>
+                                <td> 07-BUOY-ST-SUPPL </td>
+                                <td class="selectCell"> Storage </td>
+                                <td>  </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div id="tablebody2">
+                        <table id="body2">
+                            
+                            <tr>
+                                <td> 42.25822 </td>
+                                <td> -62.03432 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 5200 m </td>
+                                <td> 4000 m </td>
+                                <td> 2018-01-09 </td>
+                                <td> 2018-08-05 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> XEOS MELO </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 44.24 </td>
+                                <td> -57.1033333 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 2400 m </td>
+                                <td> 1500 m </td>
+                                <td> N/A </td>
+                                <td> 2018-08-06 </td>
+                                <td class="selectCell"> AXYS 6m NOMAD </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell"> XEOS MELO </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> COLUMBIA RESEACH SA-107B </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 42.505 </td>
+                                <td> -64.018 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 1950 m </td>
+                                <td> 1300 m </td>
+                                <td> N/A </td>
+                                <td> 2018-08-03 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell"> XEOS MELO </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 44.502 </td>
+                                <td> -63.403 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 135 m </td>
+                                <td> 58 m </td>
+                                <td> 2019-09-06 </td>
+                                <td> 2019-07-05 </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 42.4633 </td>
+                                <td> -81.2157 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 57 m </td>
+                                <td> 22 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 43.78444 </td>
+                                <td> -76.86778 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 112 m </td>
+                                <td> 68 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 48.535 </td>
+                                <td> -86.9527 </td>
+                                <td class="selectCell"> Semitaut (int.;60-600m;nylon) </td>
+                                <td> 299 m </td>
+                                <td> 183 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 45.544 </td>
+                                <td> -81.015 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 81 m </td>
+                                <td> 55 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 49.538256 </td>
+                                <td> -65.706629 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 477 m </td>
+                                <td> 340 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 43.25139 </td>
+                                <td> -79.53417 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 57 m </td>
+                                <td> 35 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 50.8 </td>
+                                <td> -96.733 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 25 m </td>
+                                <td> 11 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 61.181 </td>
+                                <td> -115.314 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 92 m </td>
+                                <td> 58 m </td>
+                                <td> 2018-10-29 </td>
+                                <td> 2019-06-06 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 42.73671 </td>
+                                <td> -79.289857 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 57 m </td>
+                                <td> 27 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 44.944873 </td>
+                                <td> -80.626773 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 140 m </td>
+                                <td> 100 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 53.23 </td>
+                                <td> -98.29 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 30 m </td>
+                                <td> 12 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 51.87 </td>
+                                <td> -96.97 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 30 m </td>
+                                <td> 11 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 42.43 </td>
+                                <td> -82.683 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 21 m </td>
+                                <td> 6 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 49.651111 </td>
+                                <td> -94.5019444 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 30 m </td>
+                                <td> 15 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 43.542 </td>
+                                <td> -82.075 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 138 m </td>
+                                <td> 58 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 61.98 </td>
+                                <td> -114.129 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 92 m </td>
+                                <td> 46 m </td>
+                                <td> 2019-11-05 </td>
+                                <td> 2019-06-07 </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell"> AXYS 1.7m WK BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 44.500417 </td>
+                                <td> -79.36667 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 54 m </td>
+                                <td> 22 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 46.232958 </td>
+                                <td> -79.715501 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 38 m </td>
+                                <td> 15 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 46.05071 </td>
+                                <td> -82.637256 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 71 m </td>
+                                <td> 31 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 43.766667 </td>
+                                <td> -78.983611 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 107 m </td>
+                                <td> 54 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> None </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 50.93 </td>
+                                <td> -136.095 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 4746 m </td>
+                                <td> 3600 m </td>
+                                <td> 2019-01-10 </td>
+                                <td> 2016-05-06 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> COLUMBIA RESEACH SA-107B </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 48.355 </td>
+                                <td> -133.938 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 4736 m </td>
+                                <td> 3500 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 49.906 </td>
+                                <td> -124.985 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 54 m </td>
+                                <td> 14 m </td>
+                                <td> N/A </td>
+                                <td> 2016-05-06 </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 49.738333 </td>
+                                <td> -127.931666 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 2894 m </td>
+                                <td> 2040 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 54.366 </td>
+                                <td> -132.417 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 449 m </td>
+                                <td> 265 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS 3m FOAM </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 49.34 </td>
+                                <td> -123.727 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 81 m </td>
+                                <td> 42 m </td>
+                                <td> N/A </td>
+                                <td> 2016-05-02 </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 51.828 </td>
+                                <td> -131.225 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 2876 m </td>
+                                <td> 2000 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 53.833 </td>
+                                <td> -128.831 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 54 m </td>
+                                <td> 19 m </td>
+                                <td> N/A </td>
+                                <td> 2015-05-04 </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES primary ARGOS backup </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 53.617 </td>
+                                <td> -131.105 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 135 m </td>
+                                <td> 65 m </td>
+                                <td> N/A </td>
+                                <td> 2015-05-04 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 53.915 </td>
+                                <td> -138.85 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 4786 m </td>
+                                <td> 3200 m </td>
+                                <td> N/A </td>
+                                <td> 2015-05-01 </td>
+                                <td class="selectCell"> AXYS 6m NOMAD </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 52.425 </td>
+                                <td> -129.792 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 449 m </td>
+                                <td> 230 m </td>
+                                <td> N/A </td>
+                                <td> 2015-05-06 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 51.384 </td>
+                                <td> -128.767 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 439 m </td>
+                                <td> 222 m </td>
+                                <td> 2016-06-21 </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 54.185 </td>
+                                <td> -134.323055 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 3639 m </td>
+                                <td> 2675 m </td>
+                                <td> 2016-08-31 </td>
+                                <td> 2016-04-29 </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 48.835 </td>
+                                <td> -125.998 </td>
+                                <td class="selectCell"> All chain (shallow to 90 m) </td>
+                                <td> 162 m </td>
+                                <td> 75 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 50.874 </td>
+                                <td> -129.916 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 2914 m </td>
+                                <td> 2125 m </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> COLUMBIA RESEACH SA-107B </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 52.515 </td>
+                                <td> -132.693 </td>
+                                <td class="selectCell"> Float inv cat (deep;>600m) </td>
+                                <td> 3957 m </td>
+                                <td> 2950 m </td>
+                                <td> 2019-02-27 </td>
+                                <td> 2016-05-06 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell"> GOES DCP </td>
+                                <td class="selectCell"> Iridium </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS HATS </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> COLUMBIA RESEACH SA-107B </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2016-11-09 </td>
+                                <td> 2016-05-19 </td>
+                                <td class="selectCell"> AXYS 6m NOMAD </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> XEOS MELO </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-12-11 </td>
+                                <td> 2019-05-16 </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 1.7m BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-12-03 </td>
+                                <td> 2019-04-02 </td>
+                                <td class="selectCell"> AXYS 3m DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-03-06 </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TRIAXYS G3 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS 6m NOMAD </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell"> AXYS 1.7m WK BUOY </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 15A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 1.7m BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-12-17 </td>
+                                <td> 2019-04-25 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3m DISCUS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> AXYS TRIAXYS DCTNL (NWII) </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-12-04 </td>
+                                <td> 2019-04-09 </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 1.7m BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TRIAXYS OEM MOTION </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-11-08 </td>
+                                <td> 2019-05-14 </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell"> AXYS 1.7m WK BUOY </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 15A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 1.7m BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 2019-12-10 </td>
+                                <td> 2019-05-07 </td>
+                                <td class="selectCell"> AXYS 1.7m WATCHKEEPER </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 1.7m BUOY </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
+                                <td class="selectCell"> XEOS MELO </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> VAISALA WMT702 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> AXYS TRIAXYS G3 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                
+
+<footer dir="ltr">
+  Optimized for Chrome - Data Retrieved: 2020-03-03
+</footer>
+
+            </div>
+        </div>
+    </body>
+</html>
+
+<script src="/js/jquery-3.3.1.slim.min.js"></script>
+
+<script src="/js/filter.js"></script>
+
+<script src="/js/exportToCSV.js"></script>
+
+<script src="/js/format.js"></script>
+
+
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/multiple-select.js"></script>
