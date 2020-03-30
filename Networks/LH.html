@@ -16,11 +16,11 @@
                 </p>
 
                 <p>
-                    <b id="count"> Stations: 29 </b>
+                    <b class="count"> Stations: 29 </b>
                 </p>
 
                 <p>
-                    <b>Query count: </b><b id="qCount">29</b>
+                    <b class="count">Query count: </b><b id="qCount" class="count">29</b>
                 </p>
 
                 <div class="fitWidth">
@@ -49,12 +49,6 @@
                             <option value="SK">SK</option>
                             <option value="YT">YT</option>
                         </select>
-
-                        <div class="floc legend"> FLOC </div>
-                        <div class="des legend"> Designations </div>
-                        <div class="WO legend"> Work Orders </div>
-                        <div class="status legend"> AWG Status </div>
-                        <div class="sensor legend"> Sensors </div>
                     </span>
                 </div>
             </div>
@@ -63,49 +57,49 @@
                     <table id="head1">
                         <tr>
                             <th id="name" class="floc"> Name </th>
-                            <th class="floc"> FLOC </th>
-                            <th class="floc"> Climate ID </th>
-                            <th class="floc"> TC ID </th>
-                            <th class="floc"> WMO ID </th>
-                            <th class="floc"> Latitude </th>
-                            <th class="floc"> Longitude </th>
                         </tr>
                     </table>
                 </div>
                 <div id="tablehead2">
                     <table id="head2">
                         <tr>
+                            <th class="floc"> FLOC </th>
+                            <th class="floc"> Climate ID </th>
+                            <th class="floc"> TC ID </th>
+                            <th class="floc"> WMO ID </th>
+                            <th class="floc"> Latitude </th>
+                            <th class="floc"> Longitude </th>
                             <th class="des">
                                 <select id="RBSNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RBSN Des.</option>
+                                    <option value="">RBSN</option>
                                     <option value="X">RBSN</option>
                                     <option value="  ">Not RBSN</option>
                                 </select>
                             </th>
                             <th class="des">
                                 <select id="RBCNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RBCN Des.</option>
+                                    <option value="">RBCN</option>
                                     <option value="X">RBCN</option>
                                     <option value="  ">Not RBCN</option>
                                 </select>
                             </th>
                             <th class="des">
                                 <select id="GSNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">GSN Des.</option>
+                                    <option value="">GSN</option>
                                     <option value="X">GSN</option>
                                     <option value="  ">Not GSN</option>
                                 </select>
                             </th>
                             <th class="des">
                                 <select id="RCSList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RCS Des.</option>
+                                    <option value="">RCS</option>
                                     <option value="X">RCS</option>
                                     <option value="  ">Not RCS</option>
                                 </select>
                             </th>
                             <th class="des">
                                 <select id="CoastalList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">Coastal Des.</option>
+                                    <option value="">Coastal</option>
                                     <option value="X">Coastal</option>
                                     <option value="  ">Not Coastal</option>
                                 </select>
@@ -294,292 +288,118 @@
                             
                             <tr>
                                 <td id="name"> TRIAL ISLAND </td>
-                                <td> 07-SURF-BC-1018238 </td>
-                                <td> 1018238 </td>
-                                <td> WIN </td>
-                                <td> 71034 </td>
-                                <td> 48.3951 </td>
-                                <td> -123.3049 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE MUDGE </td>
-                                <td> 07-SURF-BC-1021330 </td>
-                                <td> 1021330 </td>
-                                <td> WAD </td>
-                                <td> 8888 </td>
-                                <td> 49.9984 </td>
-                                <td> -125.1955 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CHATHAM POINT </td>
-                                <td> 07-SURF-BC-1021480 </td>
-                                <td> 1021480 </td>
-                                <td> WFM </td>
-                                <td>  </td>
-                                <td> 50.3331 </td>
-                                <td> -125.4456 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CHROME ISLAND </td>
-                                <td> 07-SURF-BC-1021500 </td>
-                                <td> 1021500 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 49.4722 </td>
-                                <td> -124.6831 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PINE ISLAND </td>
-                                <td> 07-SURF-BC-1026170 </td>
-                                <td> 1026170 </td>
-                                <td> WPI </td>
-                                <td> 16170 </td>
-                                <td> 50.9758 </td>
-                                <td> -127.7281 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PULTENEY POINT </td>
-                                <td> 07-SURF-BC-1026550 </td>
-                                <td> 1026550 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 50.6306 </td>
-                                <td> -127.155 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> SCARLETT POINT </td>
-                                <td> 07-SURF-BC-1027121 </td>
-                                <td> 1027121 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 50.8607 </td>
-                                <td> -127.6133 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ENTRANCE ISLAND </td>
-                                <td> 07-SURF-BC-102BFHH </td>
-                                <td> 102BFHH </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 49.2089 </td>
-                                <td> -123.8089 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> AMPHITRITE POINT </td>
-                                <td> 07-SURF-BC-1030426 </td>
-                                <td> 1030426 </td>
-                                <td> WAN </td>
-                                <td>  </td>
-                                <td> 48.9211 </td>
-                                <td> -125.5411 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE BEALE LIGHT </td>
-                                <td> 07-SURF-BC-1031316 </td>
-                                <td> 1031316 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 48.7861 </td>
-                                <td> -125.2161 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE SCOTT </td>
-                                <td> 07-SURF-BC-1031353 </td>
-                                <td> 1031353 </td>
-                                <td> WES </td>
-                                <td> 11353 </td>
-                                <td> 50.7822 </td>
-                                <td> -128.4272 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CARMANAH POINT </td>
-                                <td> 07-SURF-BC-1031402 </td>
-                                <td> 1031402 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 48.611666 </td>
-                                <td> -124.751388 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ESTEVAN POINT </td>
-                                <td> 07-SURF-BC-1032730 </td>
-                                <td> 1032730 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 49.3835 </td>
-                                <td> -126.5508 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> LENNARD ISLAND </td>
-                                <td> 07-SURF-BC-1034600 </td>
-                                <td> 1034600 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 49.1105 </td>
-                                <td> -125.9233 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> NOOTKA LIGHTSTATION </td>
-                                <td> 07-SURF-BC-1035614 </td>
-                                <td> 1035614 </td>
-                                <td> WCV </td>
-                                <td>  </td>
-                                <td> 49.6 </td>
-                                <td> -126.6167 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PACHENA POINT </td>
-                                <td> 07-SURF-BC-1035940 </td>
-                                <td> 1035940 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 48.7228 </td>
-                                <td> -125.0972 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> QUATSINO LIGHTSTATION </td>
-                                <td> 07-SURF-BC-1036572 </td>
-                                <td> 1036572 </td>
-                                <td> WIF </td>
-                                <td> 16572 </td>
-                                <td> 50.4411 </td>
-                                <td> -128.0325 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> MERRY ISLAND LIGHTSTATION </td>
-                                <td> 07-SURF-BC-1045100 </td>
-                                <td> 1045100 </td>
-                                <td> WMR </td>
-                                <td>  </td>
-                                <td> 49.4675 </td>
-                                <td> -123.9125 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> LANGARA </td>
-                                <td> 07-SURF-BC-1054500 </td>
-                                <td> 1054500 </td>
-                                <td> WLA </td>
-                                <td> 71899 </td>
-                                <td> 54.2551 </td>
-                                <td> -133.058 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ADDENBROKE ISLAND </td>
-                                <td> 07-SURF-BC-1060080 </td>
-                                <td> 1060080 </td>
-                                <td> WCZ </td>
-                                <td> 10020 </td>
-                                <td> 51.6035 </td>
-                                <td> -127.8639 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> BOAT BLUFF </td>
-                                <td> 07-SURF-BC-1060901 </td>
-                                <td> 1060901 </td>
-                                <td> WZM </td>
-                                <td>  </td>
-                                <td> 52.643 </td>
-                                <td> -128.5239 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> BONILLA ISLAND </td>
-                                <td> 07-SURF-BC-1060902 </td>
-                                <td> 1060902 </td>
-                                <td> WVB </td>
-                                <td>  </td>
-                                <td> 53.4928 </td>
-                                <td> -130.6377 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> DRYAD POINT </td>
-                                <td> 07-SURF-BC-1062544 </td>
-                                <td> 1062544 </td>
-                                <td> WAU </td>
-                                <td>  </td>
-                                <td> 52.185 </td>
-                                <td> -127.8878 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> EGG ISLAND </td>
-                                <td> 07-SURF-BC-1062646 </td>
-                                <td> 1062646 </td>
-                                <td> UNK </td>
-                                <td> 12646 </td>
-                                <td> 51.2472 </td>
-                                <td> -127.8354 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> GREEN ISLAND </td>
-                                <td> 07-SURF-BC-1063298 </td>
-                                <td> 1063298 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 54.5686 </td>
-                                <td> -130.7081 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> IVORY ISLAND </td>
-                                <td> 07-SURF-BC-1063690 </td>
-                                <td> 1063690 </td>
-                                <td> WJG </td>
-                                <td>  </td>
-                                <td> 52.2697 </td>
-                                <td> -127.5933 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> MCINNES ISLAND </td>
-                                <td> 07-SURF-BC-1065010 </td>
-                                <td> 1065010 </td>
-                                <td> WMS </td>
-                                <td> 71897 </td>
-                                <td> 52.261666 </td>
-                                <td> -128.719444 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> TRIPLE ISLAND </td>
-                                <td> 07-SURF-BC-1068250 </td>
-                                <td> 1068250 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 54.2947 </td>
-                                <td> -130.8803 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> TSAWWASSEN FERRY </td>
-                                <td> 07-SURF-BC-1108290 </td>
-                                <td> 1108290 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 49.0047 </td>
-                                <td> -123.1328 </td>
                             </tr>
                             
                         </table>
@@ -588,6 +408,12 @@
                         <table id="body2">
                             
                             <tr>
+                                <td> 07-SURF-BC-1018238 </td>
+                                <td> 1018238 </td>
+                                <td> WIN </td>
+                                <td> 71034 </td>
+                                <td> 48.3951 </td>
+                                <td> -123.3049 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -605,6 +431,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1021330 </td>
+                                <td> 1021330 </td>
+                                <td> WAD </td>
+                                <td> 8888 </td>
+                                <td> 49.9984 </td>
+                                <td> -125.1955 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -622,6 +454,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1021480 </td>
+                                <td> 1021480 </td>
+                                <td> WFM </td>
+                                <td>  </td>
+                                <td> 50.3331 </td>
+                                <td> -125.4456 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -639,6 +477,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1021500 </td>
+                                <td> 1021500 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 49.4722 </td>
+                                <td> -124.6831 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -656,6 +500,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1026170 </td>
+                                <td> 1026170 </td>
+                                <td> WPI </td>
+                                <td> 16170 </td>
+                                <td> 50.9758 </td>
+                                <td> -127.7281 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -673,6 +523,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1026550 </td>
+                                <td> 1026550 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 50.6306 </td>
+                                <td> -127.155 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -690,6 +546,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1027121 </td>
+                                <td> 1027121 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 50.8607 </td>
+                                <td> -127.6133 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -707,6 +569,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-102BFHH </td>
+                                <td> 102BFHH </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 49.2089 </td>
+                                <td> -123.8089 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -724,6 +592,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1030426 </td>
+                                <td> 1030426 </td>
+                                <td> WAN </td>
+                                <td>  </td>
+                                <td> 48.9211 </td>
+                                <td> -125.5411 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -741,6 +615,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1031316 </td>
+                                <td> 1031316 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 48.7861 </td>
+                                <td> -125.2161 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -758,6 +638,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1031353 </td>
+                                <td> 1031353 </td>
+                                <td> WES </td>
+                                <td> 11353 </td>
+                                <td> 50.7822 </td>
+                                <td> -128.4272 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -775,6 +661,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1031402 </td>
+                                <td> 1031402 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 48.611666 </td>
+                                <td> -124.751388 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -792,6 +684,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1032730 </td>
+                                <td> 1032730 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 49.3835 </td>
+                                <td> -126.5508 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -809,6 +707,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1034600 </td>
+                                <td> 1034600 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 49.1105 </td>
+                                <td> -125.9233 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -826,6 +730,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1035614 </td>
+                                <td> 1035614 </td>
+                                <td> WCV </td>
+                                <td>  </td>
+                                <td> 49.6 </td>
+                                <td> -126.6167 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -843,6 +753,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1035940 </td>
+                                <td> 1035940 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 48.7228 </td>
+                                <td> -125.0972 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -860,6 +776,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1036572 </td>
+                                <td> 1036572 </td>
+                                <td> WIF </td>
+                                <td> 16572 </td>
+                                <td> 50.4411 </td>
+                                <td> -128.0325 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -877,6 +799,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1045100 </td>
+                                <td> 1045100 </td>
+                                <td> WMR </td>
+                                <td>  </td>
+                                <td> 49.4675 </td>
+                                <td> -123.9125 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -894,6 +822,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1054500 </td>
+                                <td> 1054500 </td>
+                                <td> WLA </td>
+                                <td> 71899 </td>
+                                <td> 54.2551 </td>
+                                <td> -133.058 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -911,6 +845,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1060080 </td>
+                                <td> 1060080 </td>
+                                <td> WCZ </td>
+                                <td> 10020 </td>
+                                <td> 51.6035 </td>
+                                <td> -127.8639 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -928,6 +868,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1060901 </td>
+                                <td> 1060901 </td>
+                                <td> WZM </td>
+                                <td>  </td>
+                                <td> 52.643 </td>
+                                <td> -128.5239 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -945,6 +891,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1060902 </td>
+                                <td> 1060902 </td>
+                                <td> WVB </td>
+                                <td>  </td>
+                                <td> 53.4928 </td>
+                                <td> -130.6377 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -962,6 +914,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1062544 </td>
+                                <td> 1062544 </td>
+                                <td> WAU </td>
+                                <td>  </td>
+                                <td> 52.185 </td>
+                                <td> -127.8878 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -979,6 +937,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1062646 </td>
+                                <td> 1062646 </td>
+                                <td> UNK </td>
+                                <td> 12646 </td>
+                                <td> 51.2472 </td>
+                                <td> -127.8354 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -996,6 +960,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1063298 </td>
+                                <td> 1063298 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 54.5686 </td>
+                                <td> -130.7081 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -1013,6 +983,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1063690 </td>
+                                <td> 1063690 </td>
+                                <td> WJG </td>
+                                <td>  </td>
+                                <td> 52.2697 </td>
+                                <td> -127.5933 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -1030,6 +1006,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1065010 </td>
+                                <td> 1065010 </td>
+                                <td> WMS </td>
+                                <td> 71897 </td>
+                                <td> 52.261666 </td>
+                                <td> -128.719444 </td>
                                 <td> X </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -1047,6 +1029,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1068250 </td>
+                                <td> 1068250 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 54.2947 </td>
+                                <td> -130.8803 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -1064,6 +1052,12 @@
                             </tr>
                             
                             <tr>
+                                <td> 07-SURF-BC-1108290 </td>
+                                <td> 1108290 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> 49.0047 </td>
+                                <td> -123.1328 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
