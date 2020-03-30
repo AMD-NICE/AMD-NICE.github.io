@@ -10,37 +10,37 @@
     <body onload="setupPage();">
         <div class="page">
             <div class="top">
-                <p>
-                    <b id="networks"> MSC Moored Buoy Network </b>
-                    <button id="mode" onclick="toggleDark();"></button>
-                </p>
+                <div id="counts">
+                    <p>
+                        <b id="networks"> MSC Moored Buoy Network </b>
+                        <button id="mode" onclick="toggleDark();"></button>
+                    </p>
 
-                <p>
-                    <b id="count"> Sites: 60 </b>
-                </p>
+                    <p>
+                        <b class="count"> Sites: 60 </b>
+                    </p>
 
-                <p>
-                    <b>Query count: </b><b id="qCount">60</b>
-                </p>
+                    <p>
+                        <b class="count">Query count: </b><b id="qCount">60</b>
+                    </p>
+                </div>
 
                 <div class="fitWidth">
                     <input type="text" id="Input" onkeyup="MarineFilter();" placeholder="Search by site name or FLOC...">
                 </div>
-                <div class="fitWidth2">
-                    <span class="buttons">
-                        <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
+                <div class="buttons">
+                    <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
 
-                        <button id="Export" class="button">Export to CSV</button>
+                    <button id="Export" class="button">Export to CSV</button>
 
-                        <button class="button" onClick="clearMarineFilters();">Clear Filters</button>
+                    <button class="button" onClick="clearMarineFilters();">Clear Filters</button>
 
-                        <div class="floc legend"> FLOC </div>
-                        <div class="mooring legend"> Mooring </div>
-                        <div class="WO legend"> Work Orders </div>
-                        <div class="buoy legend"> Buoy/Payload </div>
-                        <div class="trans legend"> Communications </div>
-                        <div class="sensor legend"> Sensors </div>
-                    </span>
+                    <div class="floc legend"> FLOC </div>
+                    <div class="mooring legend"> Mooring </div>
+                    <div class="WO legend"> Work Orders </div>
+                    <div class="buoy legend"> Buoy/Payload </div>
+                    <div class="trans legend"> Communications </div>
+                    <div class="sensor legend"> Sensors </div>
                 </div>
             </div>
             <div class="middle">
@@ -2823,7 +2823,7 @@
                 
 
 <footer dir="ltr">
-  Optimized for Chrome - Data Retrieved: 2020-03-03
+  Data Retrieved: 2020-03-03
 </footer>
 
             </div>

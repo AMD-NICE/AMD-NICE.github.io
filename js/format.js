@@ -20,44 +20,71 @@ function setMode() {
                 links[i].style.color = "black";
             }
 
+            var filters = $('.filter');
+            var filterLen = filters.length;
+
+            for (var j = 0; j < filterLen; j++) {
+                filters[j].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
+                filters[j].style.backgroundSize = '0.5vw 1vh';
+            }
+
             modeButton.innerText = "Dark mode";
         }
     }
 }
 
 function toggleDark() {
+    var main = document.getElementById("main");
+
+    var mainLightBackground = "white";
+    var mainLightColor = "black"
+
     var modeButton = document.getElementById("mode");
 
+    var links = document.getElementsByTagName('a');
+    var len = links.length;
+
+    var filters = $('.filter');
+    var filterLen = filters.length;
+
+    var mainBackground = "";
+    var mainColor = "";
+    var linkColor = "";
+    var filterColor = "";
+    var modeText = "";
+
     if (localStorage.getItem("modeType") == "light") {
-        var main = document.getElementById("main");
-        main.style.background = "dimgrey";
-        main.style.color = "linen";
+        mainBackground = "dimgrey";
+        mainColor = "linen";
+        linkColor = "linen";
+        filterColor = "white";
+        modeText = "Light Mode";
 
-        var links = document.getElementsByTagName('a');
-        var len = links.length;
-
-        for (var i = 0; i < len; i++) {
-            links[i].style.color = "linen";
-        }
-
-        modeButton.innerText = "Light mode";
         localStorage.setItem("modeType", "dark");
 
     } else  {
-        var main = document.getElementById("main");
-        main.style.background = "white";
-        main.style.color = "black";
+        mainBackground = "white";
+        mainColor = "black";
+        linkColor = "black";
+        filterColor = "black";
+        modeText = "Dark Mode";
 
-        var links = document.getElementsByTagName('a');
-        var len = links.length;
-
-        for (var i = 0; i < len; i++) {
-            links[i].style.color = "black";
-        }
-
-        modeButton.innerText = "Dark mode";
         localStorage.setItem("modeType", "light");
     }
+
+    main.style.background = mainBackground;
+    main.style.color = mainColor;
+
+    for (var i = 0; i < len; i++) {
+        links[i].style.color = linkColor;
+    }
+
+    for (var j = 0; j < filterLen; j++) {
+        filters[j].style.background = ['url("/CSS/', filterColor, 'Arrow.png") no-repeat right'].join('');
+        filters[j].style.backgroundSize = '0.5vw 1vh';
+    }
+
+    modeButton.innerText = modeText;
 }
 
 function setupPage() {

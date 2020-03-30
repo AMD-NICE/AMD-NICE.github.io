@@ -116,22 +116,22 @@ function SurfaceFilter() {
     trLst2 = trB2[i].getElementsByTagName("td");
 
     td00 = trLst1[0];
-    td01 = trLst1[1];
-    td02 = trLst1[2];
-    td03 = trLst1[3];
-    td04 = trLst1[4];
+    td01 = trLst2[0];
+    td02 = trLst2[1];
+    td03 = trLst2[2];
+    td04 = trLst2[3];
 
-    td1 = trLst2[0];
-    td2 = trLst2[1];
-    td3 = trLst2[2];
-    td4 = trLst2[3];
-    td5 = trLst2[4];
-    td6 = trLst2[8];
-    td7 = trLst2[9];
-    td8 = trLst2[10];
-    td9 = trLst2[11];
-    td10 = trLst2[12];
-    td11 = trLst2[13];
+    td1 = trLst2[6];
+    td2 = trLst2[7];
+    td3 = trLst2[8];
+    td4 = trLst2[9];
+    td5 = trLst2[10];
+    td6 = trLst2[14];
+    td7 = trLst2[15];
+    td8 = trLst2[16];
+    td9 = trLst2[17];
+    td10 = trLst2[18];
+    td11 = trLst2[19];
 
     try {
         prov = td01.innerHTML.split("-")[2];
