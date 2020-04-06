@@ -53,11 +53,16 @@ function export_table_to_csv(filename) {
         } else {
             element = header2[h - HLen1];
         }
-        if (element.children.length > 0){
-            head.push(element.children[0].options[0].text);
+        var childrenLen = element.children.length;
+        if (childrenLen > 0) {
+            if (childrenLen == 1){
+                head.push(element.children[0].options[0].value);
 
+            } else {
+                head.push(element.children[1].options[0].value);
+            }
         } else {
-            head.push(element.innerHTML);
+            head.push(element.innerText);
         }
     }
 

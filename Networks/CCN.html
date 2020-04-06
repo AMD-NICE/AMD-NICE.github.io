@@ -10,46 +10,48 @@
     <body onload="setupPage();">
         <div class="page">
             <div class="top">
-                <p>
-                    <b id="networks"> Cooperative Climate Network (CCN) </b>
-                    <button id="mode" onclick="toggleDark();"></button>
-                </p>
+                <div class="counts">
+                    <p>
+                        <b id="networks"> Cooperative Climate Network (CCN) </b>
+                        <button id="mode" onclick="toggleDark();"></button>
+                    </p>
 
-                <p>
-                    <b class="count"> Stations: 411 </b>
-                </p>
+                    <p>
+                        <b class="count"> Stations: 385 </b>
+                    </p>
 
-                <p>
-                    <b class="count">Query count: </b><b id="qCount" class="count">411</b>
-                </p>
+                    <p>
+                        <b class="count">Query count: </b><b id="qCount" class="count">385</b>
+                    </p>
+                </div>
 
                 <div class="fitWidth">
                     <input type="text" id="Input" onkeyup="SurfaceFilter();" placeholder="Search by site name, FLOC, or IDs...">
                 </div>
-                <div class="fitWidth2">
-                    <span class="buttons">
-                        <button id="Home" onclick="window.location.href ='/'">Home</button>
+                <div class="buttons">
 
-                        <button id="Export">Export to CSV</button>
+                    <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
 
-                        <button onClick="clearSurfaceFilters();">Clear Filters</button>
+                    <button id="Export" class="button">Export to CSV</button>
 
-                        <select name="Provs" id="ProvList" onchange="SurfaceFilter();" size="13" multiple="multiple">
-                            <option value="AB">AB</option>
-                            <option value="BC">BC</option>
-                            <option value="MB">MB</option>
-                            <option value="NB">NB</option>
-                            <option value="NL">NL</option>
-                            <option value="NS">NS</option>
-                            <option value="NT">NT</option>
-                            <option value="NU">NU</option>
-                            <option value="ON">ON</option>
-                            <option value="PE">PE</option>
-                            <option value="QC">QC</option>
-                            <option value="SK">SK</option>
-                            <option value="YT">YT</option>
-                        </select>
-                    </span>
+                    <button id="Clear" class="button" onClick="clearSurfaceFilters();">Clear Filters</button>
+
+                    <select name="Provs" id="ProvList" onchange="SurfaceFilter();" size="13" multiple="multiple">
+                        <option value="AB">AB</option>
+                        <option value="BC">BC</option>
+                        <option value="MB">MB</option>
+                        <option value="NB">NB</option>
+                        <option value="NL">NL</option>
+                        <option value="NS">NS</option>
+                        <option value="NT">NT</option>
+                        <option value="NU">NU</option>
+                        <option value="ON">ON</option>
+                        <option value="PE">PE</option>
+                        <option value="QC">QC</option>
+                        <option value="SK">SK</option>
+                        <option value="YT">YT</option>
+                    </select>
+
                 </div>
             </div>
             <div class="middle">
@@ -70,36 +72,36 @@
                             <th class="floc"> Latitude </th>
                             <th class="floc"> Longitude </th>
                             <th class="des">
-                                <select id="RBSNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RBSN</option>
+                                <select id="RBSNList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="RBSN">RBSN</option>
                                     <option value="X">RBSN</option>
                                     <option value="  ">Not RBSN</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="RBCNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RBCN</option>
+                                <select id="RBCNList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="RBCN">RBCN</option>
                                     <option value="X">RBCN</option>
                                     <option value="  ">Not RBCN</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="GSNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">GSN</option>
+                                <select id="GSNList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="GSN">GSN</option>
                                     <option value="X">GSN</option>
                                     <option value="  ">Not GSN</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="RCSList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RCS</option>
+                                <select id="RCSList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="RCS">RCS</option>
                                     <option value="X">RCS</option>
                                     <option value="  ">Not RCS</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="CoastalList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">Coastal</option>
+                                <select id="CoastalList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Coastal">Coastal</option>
                                     <option value="X">Coastal</option>
                                     <option value="  ">Not Coastal</option>
                                 </select>
@@ -108,22 +110,22 @@
                             <th class="WO"> Last Complete PM22 </th>
                             <th class="status"> AWG Status </th>
                             <th class="sensor selectCell">
-                                <select id="TempList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value=""> Air Temp</option>
+                                <select id="TempList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Air Temperature"> Air Temperature</option>
                                     
                                         
                                             
-                                                <option>GENERIC MAXIMUM THERMOMETER</option>
+                                                <option value="GENERIC MAXIMUM THERMOMETER">GENERIC MAXIMUM THERMOMETER</option>
                                             
-                                                <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+                                                <option value="GENERIC ORDINARY SLING-TYPE THERMOMETER">GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
                                             
-                                                <option>VAISALA HMP155A</option>
+                                                <option value="VAISALA HMP155A">VAISALA HMP155A</option>
                                             
-                                                <option>VAISALA HMP35AC</option>
+                                                <option value="VAISALA HMP35AC">VAISALA HMP35AC</option>
                                             
-                                                <option>VAISALA HMP41</option>
+                                                <option value="VAISALA HMP41">VAISALA HMP41</option>
                                             
-                                                <option>YSI 44212EC</option>
+                                                <option value="YSI 44212EC">YSI 44212EC</option>
                                             
                                         
                                     
@@ -140,18 +142,18 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="RHList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">Relative Humidity</option>
+                                <select id="RHList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Relative Humidity">Relative Humidity</option>
                                     
                                         
                                     
                                         
                                             
-                                                <option>VAISALA HMP155A</option>
+                                                <option value="VAISALA HMP155A">VAISALA HMP155A</option>
                                             
-                                                <option>VAISALA HMP35AC</option>
+                                                <option value="VAISALA HMP35AC">VAISALA HMP35AC</option>
                                             
-                                                <option>VAISALA HMP41</option>
+                                                <option value="VAISALA HMP41">VAISALA HMP41</option>
                                             
                                         
                                     
@@ -166,8 +168,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="BARList" onchange="SurfaceFilter();" class="sensor filter">
-                                  <option value="">Barometer</option>
+                                <select id="BARList" onchange="SurfaceFilter();" class="filter">
+                                  <option class="hide" value="Barometer">Barometer</option>
                                   
                                       
                                   
@@ -175,13 +177,13 @@
                                   
                                       
                                           
-                                              <option>SETRA 270</option>
+                                              <option value="SETRA 270">SETRA 270</option>
                                           
-                                              <option>SETRA 270A</option>
+                                              <option value="SETRA 270A">SETRA 270A</option>
                                           
-                                              <option>SUTRON 5600-0120-3B</option>
+                                              <option value="SUTRON 5600-0120-3B">SUTRON 5600-0120-3B</option>
                                           
-                                              <option>VAISALA PTB220</option>
+                                              <option value="VAISALA PTB220">VAISALA PTB220</option>
                                           
                                       
                                   
@@ -194,8 +196,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="10MList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">10m Wind</option>
+                                <select id="10MList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="10m Wind">10m Wind</option>
                                     
                                         
                                     
@@ -205,11 +207,11 @@
                                     
                                         
                                             
-                                                <option>RM YOUNG 05103</option>
+                                                <option value="RM YOUNG 05103">RM YOUNG 05103</option>
                                             
-                                                <option>RM YOUNG 05103AP</option>
+                                                <option value="RM YOUNG 05103AP">RM YOUNG 05103AP</option>
                                             
-                                                <option>RM YOUNG 05106</option>
+                                                <option value="RM YOUNG 05106">RM YOUNG 05106</option>
                                             
                                         
                                     
@@ -220,8 +222,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="AWGList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">AWG</option>
+                                <select id="AWGList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="AWG">AWG</option>
                                     
                                         
                                     
@@ -233,15 +235,15 @@
                                     
                                         
                                             
-                                                <option>BELFORT</option>
+                                                <option value="BELFORT">BELFORT</option>
                                             
-                                                <option>GEONOR T-200B WG (600 mm)</option>
+                                                <option value="GEONOR T-200B WG (600 mm)">GEONOR T-200B WG (600 mm)</option>
                                             
-                                                <option>GEONOR T-200B-M WG (1000 mm)</option>
+                                                <option value="GEONOR T-200B-M WG (1000 mm)">GEONOR T-200B-M WG (1000 mm)</option>
                                             
-                                                <option>OTT PLUVIO (1000 mm)</option>
+                                                <option value="OTT PLUVIO (1000 mm)">OTT PLUVIO (1000 mm)</option>
                                             
-                                                <option>OTT PLUVIO2 (1500 mm)</option>
+                                                <option value="OTT PLUVIO2 (1500 mm)">OTT PLUVIO2 (1500 mm)</option>
                                             
                                         
                                     
@@ -250,8 +252,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="SDList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">Snow Depth</option>
+                                <select id="SDList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Snow Depth">Snow Depth</option>
                                     
                                         
                                     
@@ -265,13 +267,13 @@
                                     
                                         
                                             
-                                                <option>CAMPBELL SCI. SR50</option>
+                                                <option value="CAMPBELL SCI. SR50">CAMPBELL SCI. SR50</option>
                                             
-                                                <option>CAMPBELL SCI. SR50-45</option>
+                                                <option value="CAMPBELL SCI. SR50-45">CAMPBELL SCI. SR50-45</option>
                                             
-                                                <option>CAMPBELL SCI. SR50A</option>
+                                                <option value="CAMPBELL SCI. SR50A">CAMPBELL SCI. SR50A</option>
                                             
-                                                <option>CAMPBELL SCI. SR50M-4</option>
+                                                <option value="CAMPBELL SCI. SR50M-4">CAMPBELL SCI. SR50M-4</option>
                                             
                                         
                                     
@@ -312,10 +314,6 @@
                             
                             <tr>
                                 <td id="name"> CAMROSE 2 </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> CARNWOOD </td>
                             </tr>
                             
                             <tr>
@@ -387,14 +385,6 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> RED DEER </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> SIBBALD WESTGARD </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> SLEEPY HOLLOW </td>
                             </tr>
                             
@@ -423,18 +413,6 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> BARRIER LAKE </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> FALSE NICHOLAS </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> JOB CREEK </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> KANANASKIS </td>
                             </tr>
                             
@@ -443,27 +421,11 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> TORRENS LO </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> UPR PARKER RIDGE </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> WATERTON DAM </td>
                             </tr>
                             
                             <tr>
-                                <td id="name"> ST MARYS USA </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> LOOKOUT </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> BERLAND LO </td>
                             </tr>
                             
                             <tr>
@@ -483,31 +445,11 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> SHINING BANK </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> SHINING BANK RS </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> VEGA LO </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> HINTON VALLEY </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ELMWORTH CDA EPF </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> KEG LO </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> KIMIWAN LO </td>
                             </tr>
                             
                             <tr>
@@ -1299,10 +1241,6 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> GALLANTS </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> GOOBIES </td>
                             </tr>
                             
@@ -1340,10 +1278,6 @@
                             
                             <tr>
                                 <td id="name"> SOPS ARM WHITE BAY </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> SOUTH BROOK PASADENA </td>
                             </tr>
                             
                             <tr>
@@ -1747,10 +1681,6 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> CUPAR </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> DUVAL </td>
                             </tr>
                             
@@ -1775,10 +1705,6 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> MACOUN </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> MUENSTER </td>
                             </tr>
                             
@@ -1787,23 +1713,7 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> PARKERVIEW </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> QU'APPELLE 1 </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> REGINA RCMP SNOW </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> YELLOW GRASS </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> TONKIN </td>
                             </tr>
                             
                             <tr>
@@ -1831,14 +1741,6 @@
                             </tr>
                             
                             <tr>
-                                <td id="name"> CORONACH </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> TREELON </td>
-                            </tr>
-                            
-                            <tr>
                                 <td id="name"> BICKLEIGH </td>
                             </tr>
                             
@@ -1856,10 +1758,6 @@
                             
                             <tr>
                                 <td id="name"> HOEY </td>
-                            </tr>
-                            
-                            <tr>
-                                <td id="name"> BEACON HILL </td>
                             </tr>
                             
                             <tr>
@@ -2087,29 +1985,6 @@
                                 <td>  </td>
                                 <td> N/A </td>
                                 <td> 2014-10-17 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3011350 </td>
-                                <td> 3011350 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 53.2344 </td>
-                                <td> -114.6544 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> 2017-03-21 </td>
-                                <td> 2016-10-20 </td>
                                 <td>  </td>
                                 <td class="selectCell">  </td>
                                 <td class="selectCell">  </td>
@@ -2511,52 +2386,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-AB-3025441 </td>
-                                <td> 3025441 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 52.2467 </td>
-                                <td> -113.8278 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3025928 </td>
-                                <td> 3025928 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 51.4247 </td>
-                                <td> -110.1456 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-AB-3026009 </td>
                                 <td> 3026009 </td>
                                 <td> N/A </td>
@@ -2718,75 +2547,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-AB-3050533 </td>
-                                <td> 3050533 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 51.05 </td>
-                                <td> -115.0783 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3052603 </td>
-                                <td> 3052603 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 51.6333 </td>
-                                <td> -116.5 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3053552 </td>
-                                <td> 3053552 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 52.35 </td>
-                                <td> -116.7833 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-AB-3053600 </td>
                                 <td> 3053600 </td>
                                 <td> N/A </td>
@@ -2833,52 +2593,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-AB-3056510 </td>
-                                <td> 3056510 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 54.3 </td>
-                                <td> -119.6667 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3056657 </td>
-                                <td> 3056657 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 52.1833 </td>
-                                <td> -117.0833 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-AB-3056984 </td>
                                 <td> 3056984 </td>
                                 <td> N/A </td>
@@ -2902,58 +2616,12 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-AB-3059998 </td>
-                                <td> 3059998 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 48.7333 </td>
-                                <td> -113.4333 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-AB-305A003 </td>
                                 <td> 305A003 </td>
                                 <td> N/A </td>
                                 <td>  </td>
                                 <td> 51.0667 </td>
                                 <td> -115.75 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3060630 </td>
-                                <td> 3060630 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 54.0833 </td>
-                                <td> -117.4 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -3063,75 +2731,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-AB-3065885 </td>
-                                <td> 3065885 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 53.85 </td>
-                                <td> -115.9667 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3065886 </td>
-                                <td> 3065886 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 53.81 </td>
-                                <td> -115.94 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3066710 </td>
-                                <td> 3066710 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 54.4333 </td>
-                                <td> -114.4333 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-AB-306A009 </td>
                                 <td> 306A009 </td>
                                 <td> N/A </td>
@@ -3168,52 +2767,6 @@
                                 <td>  </td>
                                 <td> N/A </td>
                                 <td> 2013-02-14 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3073642 </td>
-                                <td> 3073642 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 57.65 </td>
-                                <td> -118.35 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-AB-3073F4M </td>
-                                <td> 3073F4M </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 56.0 </td>
-                                <td> -116.6 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
                                 <td>  </td>
                                 <td class="selectCell">  </td>
                                 <td class="selectCell">  </td>
@@ -6824,7 +6377,7 @@
                                 <td>  </td>
                                 <td>  </td>
                                 <td> 2015-11-25 </td>
-                                <td> 2018-05-30 </td>
+                                <td> 2020-02-12 </td>
                                 <td>  </td>
                                 <td class="selectCell">  </td>
                                 <td class="selectCell">  </td>
@@ -7755,29 +7308,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-NL-8401642 </td>
-                                <td> 8401642 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 48.7 </td>
-                                <td> -58.2333 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-NL-8401880 </td>
                                 <td> 8401880 </td>
                                 <td> N/A </td>
@@ -7998,29 +7528,6 @@
                                 <td>  </td>
                                 <td> N/A </td>
                                 <td> 2019-10-16 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-NL-8403693 </td>
-                                <td> 8403693 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 49.0167 </td>
-                                <td> -57.6167 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
                                 <td>  </td>
                                 <td class="selectCell">  </td>
                                 <td class="selectCell">  </td>
@@ -8840,8 +8347,8 @@
                                 <td> 610FC98 </td>
                                 <td> N/A </td>
                                 <td>  </td>
-                                <td> 45.8833 </td>
-                                <td> -77.25 </td>
+                                <td> 45.88211 </td>
+                                <td> -77.2568 </td>
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -10331,29 +9838,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-SK-4011980 </td>
-                                <td> 4011980 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 50.85 </td>
-                                <td> -104.2667 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2013-08-22 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-SK-4012300 </td>
                                 <td> 4012300 </td>
                                 <td> N/A </td>
@@ -10492,29 +9976,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-SK-4014870 </td>
-                                <td> 4014870 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 49.2333 </td>
-                                <td> -103.2333 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2013-08-19 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-SK-4015440 </td>
                                 <td> 4015440 </td>
                                 <td> N/A </td>
@@ -10561,29 +10022,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-SK-4015870 </td>
-                                <td> 4015870 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 51.4033 </td>
-                                <td> -103.2653 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2014-07-16 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-SK-4016322 </td>
                                 <td> 4016322 </td>
                                 <td> N/A </td>
@@ -10597,75 +10035,6 @@
                                 <td>  </td>
                                 <td> N/A </td>
                                 <td> 2018-11-23 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-SK-4016565 </td>
-                                <td> 4016565 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 50.4506 </td>
-                                <td> -104.6667 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-SK-4019040 </td>
-                                <td> 4019040 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 49.8225 </td>
-                                <td> -104.177777 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2016-06-30 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-SK-4019082 </td>
-                                <td> 4019082 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 51.2 </td>
-                                <td> -102.2333 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2013-05-22 </td>
                                 <td>  </td>
                                 <td class="selectCell">  </td>
                                 <td class="selectCell">  </td>
@@ -10814,52 +10183,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-SK-4031844 </td>
-                                <td> 4031844 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 49.1167 </td>
-                                <td> -105.5167 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2012-06-07 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-SK-4038116 </td>
-                                <td> 4038116 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 48.999561 </td>
-                                <td> -108.388792 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2016-06-16 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
                                 <td> 07-SURF-SK-4040587 </td>
                                 <td> 4040587 </td>
                                 <td> N/A </td>
@@ -10965,29 +10288,6 @@
                                 <td>  </td>
                                 <td> N/A </td>
                                 <td> 2017-07-07 </td>
-                                <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                            </tr>
-                            
-                            <tr>
-                                <td> 07-SURF-SK-4060452 </td>
-                                <td> 4060452 </td>
-                                <td> N/A </td>
-                                <td>  </td>
-                                <td> 54.3353 </td>
-                                <td> -109.6261 </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td>  </td>
-                                <td> N/A </td>
-                                <td> 2015-09-01 </td>
                                 <td>  </td>
                                 <td class="selectCell">  </td>
                                 <td class="selectCell">  </td>
@@ -11396,7 +10696,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-03-03
+  Data Retrieved: 2020-04-05
 </footer>
 
             </div>
@@ -11411,6 +10711,7 @@
 <script src="/js/exportToCSV.js"></script>
 
 <script src="/js/format.js"></script>
+
 
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

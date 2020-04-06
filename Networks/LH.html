@@ -10,46 +10,48 @@
     <body onload="setupPage();">
         <div class="page">
             <div class="top">
-                <p>
-                    <b id="networks"> Lighthouses </b>
-                    <button id="mode" onclick="toggleDark();"></button>
-                </p>
+                <div class="counts">
+                    <p>
+                        <b id="networks"> Lighthouses </b>
+                        <button id="mode" onclick="toggleDark();"></button>
+                    </p>
 
-                <p>
-                    <b class="count"> Stations: 29 </b>
-                </p>
+                    <p>
+                        <b class="count"> Stations: 29 </b>
+                    </p>
 
-                <p>
-                    <b class="count">Query count: </b><b id="qCount" class="count">29</b>
-                </p>
+                    <p>
+                        <b class="count">Query count: </b><b id="qCount" class="count">29</b>
+                    </p>
+                </div>
 
                 <div class="fitWidth">
                     <input type="text" id="Input" onkeyup="SurfaceFilter();" placeholder="Search by site name, FLOC, or IDs...">
                 </div>
-                <div class="fitWidth2">
-                    <span class="buttons">
-                        <button id="Home" onclick="window.location.href ='/'">Home</button>
+                <div class="buttons">
 
-                        <button id="Export">Export to CSV</button>
+                    <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
 
-                        <button onClick="clearSurfaceFilters();">Clear Filters</button>
+                    <button id="Export" class="button">Export to CSV</button>
 
-                        <select name="Provs" id="ProvList" onchange="SurfaceFilter();" size="13" multiple="multiple">
-                            <option value="AB">AB</option>
-                            <option value="BC">BC</option>
-                            <option value="MB">MB</option>
-                            <option value="NB">NB</option>
-                            <option value="NL">NL</option>
-                            <option value="NS">NS</option>
-                            <option value="NT">NT</option>
-                            <option value="NU">NU</option>
-                            <option value="ON">ON</option>
-                            <option value="PE">PE</option>
-                            <option value="QC">QC</option>
-                            <option value="SK">SK</option>
-                            <option value="YT">YT</option>
-                        </select>
-                    </span>
+                    <button id="Clear" class="button" onClick="clearSurfaceFilters();">Clear Filters</button>
+
+                    <select name="Provs" id="ProvList" onchange="SurfaceFilter();" size="13" multiple="multiple">
+                        <option value="AB">AB</option>
+                        <option value="BC">BC</option>
+                        <option value="MB">MB</option>
+                        <option value="NB">NB</option>
+                        <option value="NL">NL</option>
+                        <option value="NS">NS</option>
+                        <option value="NT">NT</option>
+                        <option value="NU">NU</option>
+                        <option value="ON">ON</option>
+                        <option value="PE">PE</option>
+                        <option value="QC">QC</option>
+                        <option value="SK">SK</option>
+                        <option value="YT">YT</option>
+                    </select>
+
                 </div>
             </div>
             <div class="middle">
@@ -70,36 +72,36 @@
                             <th class="floc"> Latitude </th>
                             <th class="floc"> Longitude </th>
                             <th class="des">
-                                <select id="RBSNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RBSN</option>
+                                <select id="RBSNList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="RBSN">RBSN</option>
                                     <option value="X">RBSN</option>
                                     <option value="  ">Not RBSN</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="RBCNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RBCN</option>
+                                <select id="RBCNList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="RBCN">RBCN</option>
                                     <option value="X">RBCN</option>
                                     <option value="  ">Not RBCN</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="GSNList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">GSN</option>
+                                <select id="GSNList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="GSN">GSN</option>
                                     <option value="X">GSN</option>
                                     <option value="  ">Not GSN</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="RCSList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">RCS</option>
+                                <select id="RCSList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="RCS">RCS</option>
                                     <option value="X">RCS</option>
                                     <option value="  ">Not RCS</option>
                                 </select>
                             </th>
                             <th class="des">
-                                <select id="CoastalList" onchange="SurfaceFilter();" class="des filter">
-                                    <option value="">Coastal</option>
+                                <select id="CoastalList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Coastal">Coastal</option>
                                     <option value="X">Coastal</option>
                                     <option value="  ">Not Coastal</option>
                                 </select>
@@ -108,22 +110,22 @@
                             <th class="WO"> Last Complete PM22 </th>
                             <th class="status"> AWG Status </th>
                             <th class="sensor selectCell">
-                                <select id="TempList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value=""> Air Temp</option>
+                                <select id="TempList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Air Temperature"> Air Temperature</option>
                                     
                                         
                                             
-                                                <option>GENERIC MAXIMUM THERMOMETER</option>
+                                                <option value="GENERIC MAXIMUM THERMOMETER">GENERIC MAXIMUM THERMOMETER</option>
                                             
-                                                <option>GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+                                                <option value="GENERIC ORDINARY SLING-TYPE THERMOMETER">GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
                                             
-                                                <option>VAISALA HMP155A</option>
+                                                <option value="VAISALA HMP155A">VAISALA HMP155A</option>
                                             
-                                                <option>VAISALA HMP35AC</option>
+                                                <option value="VAISALA HMP35AC">VAISALA HMP35AC</option>
                                             
-                                                <option>VAISALA HMP41</option>
+                                                <option value="VAISALA HMP41">VAISALA HMP41</option>
                                             
-                                                <option>YSI 44212EC</option>
+                                                <option value="YSI 44212EC">YSI 44212EC</option>
                                             
                                         
                                     
@@ -140,18 +142,18 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="RHList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">Relative Humidity</option>
+                                <select id="RHList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Relative Humidity">Relative Humidity</option>
                                     
                                         
                                     
                                         
                                             
-                                                <option>VAISALA HMP155A</option>
+                                                <option value="VAISALA HMP155A">VAISALA HMP155A</option>
                                             
-                                                <option>VAISALA HMP35AC</option>
+                                                <option value="VAISALA HMP35AC">VAISALA HMP35AC</option>
                                             
-                                                <option>VAISALA HMP41</option>
+                                                <option value="VAISALA HMP41">VAISALA HMP41</option>
                                             
                                         
                                     
@@ -166,8 +168,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="BARList" onchange="SurfaceFilter();" class="sensor filter">
-                                  <option value="">Barometer</option>
+                                <select id="BARList" onchange="SurfaceFilter();" class="filter">
+                                  <option class="hide" value="Barometer">Barometer</option>
                                   
                                       
                                   
@@ -175,13 +177,13 @@
                                   
                                       
                                           
-                                              <option>SETRA 270</option>
+                                              <option value="SETRA 270">SETRA 270</option>
                                           
-                                              <option>SETRA 270A</option>
+                                              <option value="SETRA 270A">SETRA 270A</option>
                                           
-                                              <option>SUTRON 5600-0120-3B</option>
+                                              <option value="SUTRON 5600-0120-3B">SUTRON 5600-0120-3B</option>
                                           
-                                              <option>VAISALA PTB220</option>
+                                              <option value="VAISALA PTB220">VAISALA PTB220</option>
                                           
                                       
                                   
@@ -194,8 +196,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="10MList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">10m Wind</option>
+                                <select id="10MList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="10m Wind">10m Wind</option>
                                     
                                         
                                     
@@ -205,11 +207,11 @@
                                     
                                         
                                             
-                                                <option>RM YOUNG 05103</option>
+                                                <option value="RM YOUNG 05103">RM YOUNG 05103</option>
                                             
-                                                <option>RM YOUNG 05103AP</option>
+                                                <option value="RM YOUNG 05103AP">RM YOUNG 05103AP</option>
                                             
-                                                <option>RM YOUNG 05106</option>
+                                                <option value="RM YOUNG 05106">RM YOUNG 05106</option>
                                             
                                         
                                     
@@ -220,8 +222,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="AWGList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">AWG</option>
+                                <select id="AWGList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="AWG">AWG</option>
                                     
                                         
                                     
@@ -233,15 +235,15 @@
                                     
                                         
                                             
-                                                <option>BELFORT</option>
+                                                <option value="BELFORT">BELFORT</option>
                                             
-                                                <option>GEONOR T-200B WG (600 mm)</option>
+                                                <option value="GEONOR T-200B WG (600 mm)">GEONOR T-200B WG (600 mm)</option>
                                             
-                                                <option>GEONOR T-200B-M WG (1000 mm)</option>
+                                                <option value="GEONOR T-200B-M WG (1000 mm)">GEONOR T-200B-M WG (1000 mm)</option>
                                             
-                                                <option>OTT PLUVIO (1000 mm)</option>
+                                                <option value="OTT PLUVIO (1000 mm)">OTT PLUVIO (1000 mm)</option>
                                             
-                                                <option>OTT PLUVIO2 (1500 mm)</option>
+                                                <option value="OTT PLUVIO2 (1500 mm)">OTT PLUVIO2 (1500 mm)</option>
                                             
                                         
                                     
@@ -250,8 +252,8 @@
                                 </select>
                             </th>
                             <th class="sensor selectCell">
-                                <select id="SDList" onchange="SurfaceFilter();" class="sensor filter">
-                                    <option value="">Snow Depth</option>
+                                <select id="SDList" onchange="SurfaceFilter();" class="filter">
+                                    <option class="hide" value="Snow Depth">Snow Depth</option>
                                     
                                         
                                     
@@ -265,13 +267,13 @@
                                     
                                         
                                             
-                                                <option>CAMPBELL SCI. SR50</option>
+                                                <option value="CAMPBELL SCI. SR50">CAMPBELL SCI. SR50</option>
                                             
-                                                <option>CAMPBELL SCI. SR50-45</option>
+                                                <option value="CAMPBELL SCI. SR50-45">CAMPBELL SCI. SR50-45</option>
                                             
-                                                <option>CAMPBELL SCI. SR50A</option>
+                                                <option value="CAMPBELL SCI. SR50A">CAMPBELL SCI. SR50A</option>
                                             
-                                                <option>CAMPBELL SCI. SR50M-4</option>
+                                                <option value="CAMPBELL SCI. SR50M-4">CAMPBELL SCI. SR50M-4</option>
                                             
                                         
                                     
@@ -1082,7 +1084,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-03-03
+  Data Retrieved: 2020-04-05
 </footer>
 
             </div>
@@ -1097,6 +1099,7 @@
 <script src="/js/exportToCSV.js"></script>
 
 <script src="/js/format.js"></script>
+
 
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

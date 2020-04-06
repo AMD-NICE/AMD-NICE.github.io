@@ -25,7 +25,7 @@ function setMode() {
 
             for (var j = 0; j < filterLen; j++) {
                 filters[j].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
-                filters[j].style.backgroundSize = '0.5vw 1vh';
+                filters[j].style.backgroundSize = '0.5vw 0.75vh';
             }
 
             modeButton.innerText = "Dark mode";
@@ -81,7 +81,7 @@ function toggleDark() {
 
     for (var j = 0; j < filterLen; j++) {
         filters[j].style.background = ['url("/CSS/', filterColor, 'Arrow.png") no-repeat right'].join('');
-        filters[j].style.backgroundSize = '0.5vw 1vh';
+        filters[j].style.backgroundSize = '0.5vw 0.75vh';
     }
 
     modeButton.innerText = modeText;
@@ -89,6 +89,10 @@ function toggleDark() {
 
 function setupPage() {
     setMode();
+    try {
+        formatFilters();
+    } catch {
+    }
 
     var html = $('#main')[0];
     html.style.visibility = "visible";

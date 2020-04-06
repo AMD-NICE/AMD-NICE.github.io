@@ -1,3 +1,169 @@
+var cutoff = 11;
+var spaceInd;
+
+var scenario = "-1";
+var previousInd;
+var previousInds = [];
+
+var head1 = document.getElementById("head1");
+var head2 = document.getElementById("head2");
+
+var trH1 = head1.getElementsByTagName("tr");
+var trH2 = head2.getElementsByTagName("tr");
+
+var header1 = trH1[0].querySelectorAll("th");
+var header2 = trH2[0].querySelectorAll("th");
+
+var HLen1 = header1.length;
+var HLen2 = header2.length;
+var HLen = HLen1 + HLen2;
+
+var filterID;
+
+var filters = document.getElementsByClassName('filter');
+var filtersLen = filters.length;
+
+var filterOptions;
+var filterOptionsLen;
+
+var defaults = [];
+
+for (var y = 0; y < filtersLen; y ++) {
+    defaults.push(filters[y].options[0].value);
+};
+
+function formatFilters() {
+    var filterCount = 0;
+
+    for (var h = 0; h < HLen; h++) {
+        if (h < HLen1) {
+            element = header1[h];
+        } else {
+            element = header2[h - HLen1];
+        }
+
+        // children (childs) of header
+        var childs = element.children;
+        var childrenLen = element.children.length;
+        // header has children
+        if (childrenLen > 0) {
+            if (scenario == "-1") {
+                for (var i = 0; i < element.children.length; i++) {
+                    if (childs[i].nodeName == "SELECT") {
+                        var opts = childs[i].options;
+                        var optsLen = opts.length;
+
+                        var hold = childs[i];
+                        var text = hold.options[0].text;
+                        if (text.length > cutoff) {
+                            hold.style.height = "auto";
+                            var label = document.createElement("LABEL");
+
+                            spaceInd = Math.min(text.indexOf(" "), cutoff);
+                            label.innerHTML = text.slice(0, spaceInd);
+                            hold.options[0].text = text.slice(spaceInd,);
+
+                            element.removeChild(childs[i]);
+
+                            element.appendChild(label);
+                            element.appendChild(hold);
+                        }
+                        break;
+                    }
+                }
+
+            } if (scenario == "1") {
+                if (previousInd != filterCount++) {
+
+                    continue;
+                }
+                for (var i = 0; i < element.children.length; i++) {
+                    if (childs[i].nodeName == "LABEL") {
+                        element.removeChild(childs[i]);
+                    }
+
+
+                    if (childs[i].nodeName == "SELECT") {
+                        var opts = childs[i].options;
+                        var optsLen = opts.length;
+
+                        if (!(["RBSNList", "RBCNList", "GSNList", "RCSList", "CoastalList"].includes(childs[i].id))) {
+                            for (var k = 0; k < optsLen; k++) {
+                                opts[k].text = opts[k].value;
+                            }
+                        }
+
+
+                        for (var j = 0; j < optsLen; j++) {
+                            if (opts[j].selected) {
+                                var selectedInd = j;
+
+                                break;
+                            }
+                        }
+
+                        var hold = childs[i];
+                        var text = hold.options[selectedInd].text;
+                        if (text.length > 9) {
+                            hold.style.height = "auto";
+                            var label = document.createElement("LABEL");
+
+                            spaceInd = Math.min(text.indexOf(" "), cutoff);
+                            label.innerHTML = text.slice(0, spaceInd);
+                            hold.options[selectedInd].text = text.slice(spaceInd,);
+
+                            element.removeChild(childs[i]);
+
+                            element.appendChild(label);
+                            element.appendChild(hold);
+                        }
+                        break;
+                    }
+                }
+
+            } if (scenario == "2") {
+                for (var i = 0; i < element.children.length; i++) {
+                    if (childs[i].nodeName == "LABEL") {
+                        element.removeChild(childs[i]);
+                    }
+
+                    if (childs[i].nodeName == "SELECT") {
+                        var opts = childs[i].options;
+                        var optsLen = opts.length;
+
+                        for (var j = 0; j < optsLen; j++) {
+                            if (opts[j].selected) {
+                                var selectedInd = j;
+
+                                break;
+                            }
+                        }
+
+                        var hold = childs[i];
+                        var text = hold.options[selectedInd].text;
+
+                        if (text.length > cutoff) {
+                            hold.style.height = "auto";
+                            var label = document.createElement("LABEL");
+
+                            spaceInd = Math.min(text.indexOf(" "), cutoff);
+                            label.innerHTML = text.slice(0, spaceInd);
+                            hold.options[selectedInd].text = text.slice(spaceInd,);
+
+                            element.removeChild(childs[i]);
+
+                            element.appendChild(label);
+                            element.appendChild(hold);
+
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
 function IndexList(inputs, values) {
     var inLen = inputs.length;
     var valLen = values.length;
@@ -55,7 +221,7 @@ function MatchList(inputs, values) {
             txtHold = txtHold.trim()
         }
 
-        if (inputs[j] != "" && inputs[j] != txtHold) {
+        if (!(defaults.includes(inputs[j]))  && inputs[j] != txtHold) {
 
             return false;
         }
@@ -301,49 +467,80 @@ function clearFilter(id, selected) {
 function clearSurfaceFilters() {
     clearFilter("Input", "");
     clearFilter("ProvList", "");
-    clearFilter("RBSNList", "");
-    clearFilter("RBCNList", "");
-    clearFilter("GSNList", "");
-    clearFilter("RCSList", "");
-    clearFilter("CoastalList", "");
-    clearFilter("TempList", "");
-    clearFilter("RHList", "");
-    clearFilter("BARList", "");
-    clearFilter("10MList", "");
-    clearFilter("AWGList", "");
-    clearFilter("SDList", "");
+    clearFilter("RBSNList", "RBSN");
+    clearFilter("RBCNList", "RBCN");
+    clearFilter("GSNList", "GSN");
+    clearFilter("RCSList", "RCS");
+    clearFilter("CoastalList", "Coastal");
+    clearFilter("TempList", "Air Temperature");
+    clearFilter("RHList", "Relative Humidity");
+    clearFilter("BARList", "Barometer");
+    clearFilter("10MList", "10m Wind");
+    clearFilter("AWGList", "AWG");
+    clearFilter("SDList", "Snow Depth");
 
-    $(function() {
-        $('#ProvList').change(function() {
-            console.log($(this).val());
-        }).multipleSelect({
-        });
-    });
+    $('#ProvList').multipleSelect();
 
     SurfaceFilter();
 }
 
 function clearMarineFilters() {
     clearFilter("Input", "");
-    clearFilter("BuoyList", "");
-    clearFilter("FlocList", "");
-    clearFilter("RegList", "");
-    clearFilter("ProcessorList", "");
-    clearFilter("PrsList", "");
-    clearFilter("CompassList", "");
-    clearFilter("PTransList", "");
-    clearFilter("STransList", "");
-    clearFilter("TransList", "");
-    clearFilter("SubTransList", "");
-    clearFilter("GOESList", "");
-    clearFilter("IridiumList", "");
-    clearFilter("ATempList", "");
-    clearFilter("WTempList", "");
-    clearFilter("WindList", "");
-    clearFilter("WindUSList", "");
-    clearFilter("WaveList", "");
-    clearFilter("SubWaveList", "");
-    clearFilter("MooringList", "");
+    clearFilter("RegList", "Region");
+    clearFilter("FlocList", "FLOC Type");
+    clearFilter("MooringList", "Mooring");
+    clearFilter("BuoyList", "Buoy Type");
+    clearFilter("ProcessorList", "Sensor Processor");
+    clearFilter("PrsList", "Pressure");
+    clearFilter("CompassList", "Compass");
+    clearFilter("PTransList", "Primary Trans.");
+    clearFilter("STransList", "Secondary Trans.");
+    clearFilter("TransList", "Transmitter");
+    clearFilter("SubTransList", "Sub Transmitter");
+    clearFilter("GOESList", "GOES Antenna");
+    clearFilter("IridiumList", "Iridium Beacon");
+    clearFilter("ATempList", "Air Temperature");
+    clearFilter("WTempList", "Water Temperature");
+    clearFilter("WindList", "Wind");
+    clearFilter("WindUSList", "Wind (Ultra Sonic)");
+    clearFilter("WaveList", "Wave Module");
+    clearFilter("SubWaveList", "Sub Wave");
 
     MarineFilter();
 }
+
+$(".filter").on('focus', function () {
+    scenario = "1";
+
+    var filterID = this.id;
+
+    for (var z = 0; z < filtersLen; z++) {
+        if (filters[z].id == filterID) {
+            previousInd = z;
+
+            break;
+        }
+    }
+}).on("change", function () {
+    formatFilters();
+});
+
+document.getElementById("Clear").addEventListener("click", function () {
+    scenario = "2";
+    // reset text values of all filters
+    for (var f = 0; f < filtersLen; f++) {
+        if (["RBSNList", "RBCNList", "GSNList", "RCSList", "CoastalList"].includes(filters[f].id)){
+
+            continue;
+        }
+        filterOptions = filters[f].options;
+        filterOptionsLen = filterOptions.length;
+
+        for (var o = 0; o < filterOptionsLen; o++) {
+            filterOptions[o].text = filterOptions[o].value;
+
+        }
+    }
+
+    formatFilters();
+});
