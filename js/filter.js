@@ -342,7 +342,6 @@ function SurfaceFilter() {
   document.getElementById("qCount").innerHTML = count;
 }
 
-
 function MarineFilter() {
     var count, table1, table2, tr1, tr2, i;
     var nameIn, RegIn, BuoyIn, ProcessorIn, PrsIn, CompassIn, PTransIn, STransIn, TransIn, SubTransIn, GOESIn;
@@ -459,6 +458,98 @@ txt13, txt14, txt15];
     document.getElementById("qCount").innerHTML = count;
 }
 
+function AVOSFilter() {
+    var count, table1, table2, tr1, tr2, i;
+    var nameIn, RegIn, ShipIn, PayloadIn, CompassIn, GPSIn, IridiumIn, BridgeIn, GPucIn, ATempIn, RHIn, WTempIn, PrsIn;
+    var WindIn;
+    var td00, td01, td02, td0, td01, td02, td03, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11;
+    var txt00, txt01, txt02, txt0, txt01, txt02, txt03, txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11;
+    var tr1Lst, tr2Lst, in1, val1, in2, val2;
+
+    nameIn = document.getElementById("Input").value.toUpperCase();
+
+    RegIn = document.getElementById("RegList").value;
+
+    ShipIn = document.getElementById("ShipList").value;
+    PayloadIn = document.getElementById("PayloadList").value;
+    CompassIn = document.getElementById("CompassList").value;
+    GPSIn = document.getElementById("GPSList").value
+    IridiumIn = document.getElementById("IridiumList").value;
+    BridgeIn = document.getElementById("BridgeList").value;
+    GPucIn = document.getElementById("GPucList").value;
+    ATempIn = document.getElementById("ATempList").value;
+    RHIn = document.getElementById("RHList").value;
+    WTempIn = document.getElementById("WTempList").value;
+    PrsIn = document.getElementById("PrsList").value;
+    WindIn = document.getElementById("WindList").value;
+
+
+    in1 = [nameIn];
+    in2 = [RegIn, ShipIn, PayloadIn, CompassIn, GPSIn, IridiumIn, BridgeIn, GPucIn, ATempIn, RHIn, WTempIn, PrsIn, WindIn]
+
+    body1 = document.getElementById("body1");
+    body2 = document.getElementById("body2");
+    trB1 = body1.getElementsByTagName("tr");
+    trB2 = body2.getElementsByTagName("tr");
+
+    count = 0;
+
+    var len = trB1.length;
+
+    for (i = 0; i < len; i++) {
+        trB1Lst = trB1[i].getElementsByTagName("td")
+        td00 = trB1Lst[0];
+        td01 = trB1Lst[1];
+        td02 = trB1Lst[2];
+
+        trB2Lst = trB2[i].getElementsByTagName("td")
+        td0 = trB2Lst[0];
+        td1 = trB2Lst[6];
+        td2 = trB2Lst[7];
+        td3 = trB2Lst[8];
+        td4 = trB2Lst[9];
+        td5 = trB2Lst[10];
+        td6 = trB2Lst[11];
+        td7 = trB2Lst[12];
+        td8 = trB2Lst[13];
+        td9 = trB2Lst[14];
+        td10 = trB2Lst[15];
+        td11 = trB2Lst[16];
+
+        if (td00 && td01 && td02 && td0 && td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11) {
+            txt00 = td00.textContent || td00.innerText;
+            txt01 = td01.textContent || td01.innerText;
+            txt02 = td02.textContent || td02.innerText;
+
+            txt0 = td0.textContent || td0.innerText;
+            txt1 = td1.textContent || td1.innerText;
+            txt2 = td2.textContent || td2.innerText;
+            txt3 = td3.textContent || td3.innerText;
+            txt4 = td4.textContent || td4.innerText;
+            txt5 = td5.textContent || td5.innerText;
+            txt6 = td6.textContent || td6.innerText;
+            txt7 = td7.textContent || td7.innerText;
+            txt8 = td8.textContent || td8.innerText;
+            txt9 = td9.textContent || td9.innerText;
+            txt10 = td10.textContent || td10.innerText;
+            txt11 = td11.textContent || td11.innerText;
+
+            val1 = [txt01, txt02];
+            val2 = [txt00, txt0, txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11];
+
+            if (Filter(in1, val1, in2, val2)) {
+                count += 1;
+                trB1[i].style.display = "";
+                trB2[i].style.display = "";
+            } else {
+                trB1[i].style.display = "none";
+                trB2[i].style.display = "none";
+            }
+        }
+    }
+    document.getElementById("qCount").innerHTML = count;
+}
+
 function clearFilter(id, selected) {
     let element = document.getElementById(id);
     element.value = selected;
@@ -491,7 +582,7 @@ function clearMarineFilters() {
     clearFilter("MooringList", "Mooring");
     clearFilter("BuoyList", "Buoy Type");
     clearFilter("ProcessorList", "Sensor Processor");
-    clearFilter("PrsList", "Pressure");
+    clearFilter("PrsList", "Barometer");
     clearFilter("CompassList", "Compass");
     clearFilter("PTransList", "Primary Trans.");
     clearFilter("STransList", "Secondary Trans.");
@@ -507,6 +598,25 @@ function clearMarineFilters() {
     clearFilter("SubWaveList", "Sub Wave");
 
     MarineFilter();
+}
+
+function clearAVOSFilters() {
+    clearFilter("Input", "");
+    clearFilter("RegList", "Region");
+    clearFilter("ShipList", "Ship Type");
+    clearFilter("PayloadList", "Payload");
+    clearFilter("CompassList", "Compass");
+    clearFilter("GPSList", "GPS");
+    clearFilter("IridiumList", "Iridium Transmitter");
+    clearFilter("BridgeList", "Bridge");
+    clearFilter("GPucList", "GPuc");
+    clearFilter("ATempList", "Air Temperature");
+    clearFilter("RHList", "Relative Humidity");
+    clearFilter("WTempList", "Water Temperature");
+    clearFilter("PrsList", "Barometer");
+    clearFilter("WindList", "Wind");
+
+    AVOSFilter();
 }
 
 $(".filter").on('focus', function () {

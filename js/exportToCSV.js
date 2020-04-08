@@ -70,7 +70,7 @@ function export_table_to_csv(filename) {
 
     var len = trB1.length;
 
-    for (i = 1; i < len; i++) {
+    for (i = 0; i < len; i++) {
         var row = [], cols1 = trB1[i].querySelectorAll("td"), cols2 = trB2[i].querySelectorAll("td");
 
         if (trB1[i].style.display == "") {
