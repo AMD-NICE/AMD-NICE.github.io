@@ -35,19 +35,19 @@
 
                     <button id="Clear" class="button" onClick="clearMarineFilters();">Clear Filters</button>
 
-                    <div class="floc legend"> FLOC </div>
-                    <div class="mooring legend"> Mooring </div>
-                    <div class="WO legend"> Work Orders </div>
-                    <div class="buoy legend"> Buoy/Payload </div>
-                    <div class="trans legend"> Communications </div>
-                    <div class="sensor legend"> Sensors </div>
+                    <div class="purple legend"> FLOC </div>
+                    <div class="blue legend"> Mooring </div>
+                    <div class="green legend"> Work Orders </div>
+                    <div class="yellow legend"> Buoy/Payload </div>
+                    <div class="orange legend"> Communications </div>
+                    <div class="red legend"> Sensors </div>
                 </div>
             </div>
             <div class="middle">
                 <div id="tablehead1">
                     <table id="head1">
                         <tr>
-                            <th class="floc">
+                            <th class="purple">
                                 <select id="RegList" class="filter" onchange="MarineFilter();">
                                     <option value="Region" class="hide"> Region </option>
                                     <option value="ATL"> ATL </option>
@@ -55,25 +55,25 @@
                                     <option value="PYR"> PYR </option>
                                 </select>
                             </th>
-                            <th id="name" class="floc"> Name </th>
-                            <th class="floc"> FLOC </th>
-                            <th class="floc selectCell">
+                            <th id="name" class="purple"> Name </th>
+                            <th class="purple"> FLOC </th>
+                            <th class="purple selectCell">
                                 <select id="FlocList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="FLOC Type"> FLOC Type </option>
                                     <option value="Anchor"> Anchor </option>
                                     <option value="Storage"> Storage </option>
                                 </select>
                             </th>
-                            <th class="floc"> Buoy Equip. # </th>
+                            <th class="purple"> Buoy Equip. # </th>
                         </tr>
                     </table>
                 </div>
                 <div id="tablehead2">
                     <table id="head2">
                         <tr>
-                            <th class="mooring"> Latitude </th>
-                            <th class="mooring"> Longitude </th>
-                            <th class="mooring selectCell">
+                            <th class="blue"> Latitude </th>
+                            <th class="blue"> Longitude </th>
+                            <th class="blue selectCell">
                                 <select id="MooringList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Mooring"> Mooring </option>
                                     
@@ -119,11 +119,11 @@
                                     
                                 </select>
                             </th>
-                            <th class="mooring"> Mooring Length </th>
-                            <th class="mooring"> Water Depth </th>
-                            <th class="WO"> Last Complete PM21 </th>
-                            <th class="WO"> Last Complete PM22 </th>
-                            <th class="buoy selectCell">
+                            <th class="blue"> Mooring Length </th>
+                            <th class="blue"> Water Depth </th>
+                            <th class="green"> Last Complete PM21 </th>
+                            <th class="green"> Last Complete PM22 </th>
+                            <th class="yellow selectCell">
                                 <select id="BuoyList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Buoy Type"> Buoy Type </option>
                                     
@@ -177,7 +177,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="buoy selectCell">
+                            <th class="yellow selectCell">
                                 <select id="ProcessorList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Sensor Processor"> Sensor Processor </option>
                                     
@@ -221,7 +221,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="buoy selectCell">
+                            <th class="yellow selectCell">
                                 <select id="PrsList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Barometer"> Barometer </option>
                                     
@@ -263,7 +263,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="buoy selectCell">
+                            <th class="yellow selectCell">
                                 <select id="CompassList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Compass"> Compass </option>
                                     
@@ -307,21 +307,21 @@
                                     
                                 </select>
                             </th>
-                            <th class="trans selectCell">
+                            <th class="orange selectCell">
                                 <select id="PTransList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Primary Trans."> Primary Trans. </option>
                                     <option value="GOES DCP"> GOES DCP </option>
                                     <option value="GOES primary ARGOS backup"> GOES primary ARGOS backup </option>
                                 </select>
                             </th>
-                            <th class="trans selectCell">
+                            <th class="orange selectCell">
                                 <select id="STransList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Secondary Trans."> Secondary Trans. </option>
                                     <option value="Iridium"> Iridium </option>
                                     <option value="None"> None </option>
                                 </select>
                             </th>
-                            <th class="trans selectCell">
+                            <th class="orange selectCell">
                                 <select id="TransList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Transmitter">Transmitter</option>
                                     
@@ -365,7 +365,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="trans selectCell">
+                            <th class="orange selectCell">
                                 <select id="SubTransList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Sub Transmitter"> Sub Transmitter </option>
                                     
@@ -407,7 +407,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="trans selectCell">
+                            <th class="orange selectCell">
                                 <select id="GOESList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="GOES Antenna"> GOES Antenna </option>
                                     
@@ -453,7 +453,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="trans selectCell">
+                            <th class="orange selectCell">
                                 <select id="IridiumList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Iridium Beacon"> Iridium Beacon </option>
                                     
@@ -495,7 +495,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="ATempList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Air Temperature"> Air Temperature </option>
                                     
@@ -537,7 +537,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="WTempList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Water Temperature"> Water Temperature </option>
                                     
@@ -583,7 +583,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="WindList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Wind"> Wind </option>
                                     
@@ -627,7 +627,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="WindUSList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Wind (Ultra Sonic)"> Wind (Ultra Sonic) </option>
                                     
@@ -671,7 +671,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="WaveList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Wave Module"> Wave Module </option>
                                     
@@ -713,7 +713,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="SubWaveList" class="filter" onchange="MarineFilter();">
                                     <option class="hide" value="Sub Wave"> Sub Wave </option>
                                     
@@ -871,7 +871,7 @@
                                 <td id="name"> PORT COLBORNE </td>
                                 <td> 07-BUOY-XX-45142 </td>
                                 <td class="selectCell"> Anchor </td>
-                                <td>  </td>
+                                <td> 20133268 </td>
                             </tr>
                             
                             <tr>
@@ -959,7 +959,7 @@
                                 <td id="name"> NW LAKE ONTARIO AJAX </td>
                                 <td> 07-BUOY-XX-45159 </td>
                                 <td class="selectCell"> Anchor </td>
-                                <td>  </td>
+                                <td> 20133234 </td>
                             </tr>
                             
                             <tr>
@@ -1573,24 +1573,24 @@
                                 <td class="selectCell"> All chain (shallow to 90 m) </td>
                                 <td> 54 m </td>
                                 <td> 27 m </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
+                                <td> 2019-09-12 </td>
+                                <td> 2020-03-12 </td>
+                                <td class="selectCell"> PROF COMPONENTS 3M DISCUS </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
                                 <td class="selectCell"> GOES DCP </td>
                                 <td class="selectCell"> None </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
                                 <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
                             </tr>
                             
                             <tr>
@@ -1859,24 +1859,24 @@
                                 <td class="selectCell"> All chain (shallow to 90 m) </td>
                                 <td> 107 m </td>
                                 <td> 54 m </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
+                                <td> 2020-04-07 </td>
+                                <td> 2020-03-16 </td>
+                                <td class="selectCell"> AXYS 3m FOAM </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUO </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
+                                <td class="selectCell"> KVH KVHC100 SE25 </td>
                                 <td class="selectCell"> GOES DCP </td>
                                 <td class="selectCell"> None </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> SUTRON 40W SATLINK2 SL2-B40W-1 </td>
+                                <td class="selectCell"> HARSH SYNERGETICS 14A-NS </td>
                                 <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS TAIR </td>
+                                <td class="selectCell"> AXYS 3m & NOMAD BUOY </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
+                                <td class="selectCell"> JEWELL LCM100 </td>
                             </tr>
                             
                             <tr>
@@ -2342,7 +2342,7 @@
                                 <td class="selectCell"> AXYS TAIR </td>
                                 <td class="selectCell"> AXYS 1.7m BUOY </td>
                                 <td class="selectCell"> RM YOUNG 05103 </td>
-                                <td class="selectCell"> VAISALA WS425 </td>
+                                <td class="selectCell">  </td>
                                 <td class="selectCell"> AXYS 1.7m WK/3m/6m NOMAD BUOY </td>
                                 <td class="selectCell"> JEWELL LCM100 </td>
                             </tr>
@@ -2823,7 +2823,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-04-20; NICE v1.0
+  Data Retrieved: 2020-04-23; NICE v1.0
 </footer>
 
             </div>

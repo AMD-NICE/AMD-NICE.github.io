@@ -52,64 +52,69 @@
                         <option value="YT">YT</option>
                     </select>
 
+                    <div class="purple legend"> FLOC </div>
+                    <div class="blue legend"> Designations </div>
+                    <div class="green legend"> Work Orders </div>
+                    <div class="yellow legend"> AWG Status </div>
+                    <div class="red legend"> Sensors </div>
                 </div>
             </div>
             <div class="middle">
                 <div id="tablehead1">
                     <table id="head1">
                         <tr>
-                            <th id="name" class="floc"> Name </th>
+                            <th id="name" class="purple"> Name </th>
+                            <th class="purple"> FLOC </th>
                         </tr>
                     </table>
                 </div>
                 <div id="tablehead2">
                     <table id="head2">
                         <tr>
-                            <th class="floc"> FLOC </th>
-                            <th class="floc"> Climate ID </th>
-                            <th class="floc"> TC ID </th>
-                            <th class="floc"> WMO ID </th>
-                            <th class="floc"> Latitude </th>
-                            <th class="floc"> Longitude </th>
-                            <th class="des">
+                            <th class="purple"> Climate ID </th>
+                            <th class="purple"> TC ID </th>
+                            <th class="purple"> WMO ID </th>
+                            <th class="purple"> Latitude </th>
+                            <th class="purple"> Longitude </th>
+                            <th class="blue">
                                 <select id="RBSNList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="RBSN">RBSN</option>
                                     <option value="X">RBSN</option>
                                     <option value="  ">Not RBSN</option>
                                 </select>
                             </th>
-                            <th class="des">
+                            <th class="blue">
                                 <select id="RBCNList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="RBCN">RBCN</option>
                                     <option value="X">RBCN</option>
                                     <option value="  ">Not RBCN</option>
                                 </select>
                             </th>
-                            <th class="des">
+                            <th class="blue">
                                 <select id="GSNList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="GSN">GSN</option>
                                     <option value="X">GSN</option>
                                     <option value="  ">Not GSN</option>
                                 </select>
                             </th>
-                            <th class="des">
+                            <th class="blue">
                                 <select id="RCSList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="RCS">RCS</option>
                                     <option value="X">RCS</option>
                                     <option value="  ">Not RCS</option>
                                 </select>
                             </th>
-                            <th class="des">
+                            <th class="blue">
                                 <select id="CoastalList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="Coastal">Coastal</option>
                                     <option value="X">Coastal</option>
                                     <option value="  ">Not Coastal</option>
                                 </select>
                             </th>
-                            <th class="WO"> Last Complete PM21 </th>
-                            <th class="WO"> Last Complete PM22 </th>
-                            <th class="status"> AWG Status </th>
-                            <th class="sensor selectCell">
+                            <th class="green"> Last Complete PM21 </th>
+                            <th class="green"> Last Complete PM22 </th>
+                            <th class="yellow"> AWG Status </th>
+                            <th class="red selectCell">
                                 <select id="TempList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="Air Temperature"> Air Temperature</option>
                                     
@@ -141,7 +146,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="RHList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="Relative Humidity">Relative Humidity</option>
                                     
@@ -167,7 +172,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="BARList" onchange="SurfaceFilter();" class="filter">
                                   <option class="hide" value="Barometer">Barometer</option>
                                   
@@ -195,7 +200,7 @@
                                   
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="10MList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="10m Wind">10m Wind</option>
                                     
@@ -221,7 +226,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="AWGList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="AWG">AWG</option>
                                     
@@ -251,7 +256,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="SDList" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="Snow Depth">Snow Depth</option>
                                     
@@ -290,118 +295,147 @@
                             
                             <tr>
                                 <td id="name"> TRIAL ISLAND </td>
+                                <td> 07-SURF-BC-1018238 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE MUDGE </td>
+                                <td> 07-SURF-BC-1021330 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CHATHAM POINT </td>
+                                <td> 07-SURF-BC-1021480 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CHROME ISLAND </td>
+                                <td> 07-SURF-BC-1021500 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PINE ISLAND </td>
+                                <td> 07-SURF-BC-1026170 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PULTENEY POINT </td>
+                                <td> 07-SURF-BC-1026550 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> SCARLETT POINT </td>
+                                <td> 07-SURF-BC-1027121 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ENTRANCE ISLAND </td>
+                                <td> 07-SURF-BC-102BFHH </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> AMPHITRITE POINT </td>
+                                <td> 07-SURF-BC-1030426 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE BEALE LIGHT </td>
+                                <td> 07-SURF-BC-1031316 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE SCOTT </td>
+                                <td> 07-SURF-BC-1031353 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CARMANAH POINT </td>
+                                <td> 07-SURF-BC-1031402 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ESTEVAN POINT </td>
+                                <td> 07-SURF-BC-1032730 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> LENNARD ISLAND </td>
+                                <td> 07-SURF-BC-1034600 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> NOOTKA LIGHTSTATION </td>
+                                <td> 07-SURF-BC-1035614 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PACHENA POINT </td>
+                                <td> 07-SURF-BC-1035940 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> QUATSINO LIGHTSTATION </td>
+                                <td> 07-SURF-BC-1036572 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> MERRY ISLAND LIGHTSTATION </td>
+                                <td> 07-SURF-BC-1045100 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> LANGARA </td>
+                                <td> 07-SURF-BC-1054500 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ADDENBROKE ISLAND </td>
+                                <td> 07-SURF-BC-1060080 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> BOAT BLUFF </td>
+                                <td> 07-SURF-BC-1060901 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> BONILLA ISLAND </td>
+                                <td> 07-SURF-BC-1060902 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> DRYAD POINT </td>
+                                <td> 07-SURF-BC-1062544 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> EGG ISLAND </td>
+                                <td> 07-SURF-BC-1062646 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> GREEN ISLAND </td>
+                                <td> 07-SURF-BC-1063298 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> IVORY ISLAND </td>
+                                <td> 07-SURF-BC-1063690 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> MCINNES ISLAND </td>
+                                <td> 07-SURF-BC-1065010 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> TRIPLE ISLAND </td>
+                                <td> 07-SURF-BC-1068250 </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> TSAWWASSEN FERRY </td>
+                                <td> 07-SURF-BC-1108290 </td>
                             </tr>
                             
                         </table>
@@ -410,7 +444,6 @@
                         <table id="body2">
                             
                             <tr>
-                                <td> 07-SURF-BC-1018238 </td>
                                 <td> 1018238 </td>
                                 <td> WIN </td>
                                 <td> 71034 </td>
@@ -433,7 +466,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1021330 </td>
                                 <td> 1021330 </td>
                                 <td> WAD </td>
                                 <td> 8888 </td>
@@ -456,7 +488,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1021480 </td>
                                 <td> 1021480 </td>
                                 <td> WFM </td>
                                 <td> 88888 </td>
@@ -479,7 +510,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1021500 </td>
                                 <td> 1021500 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -502,7 +532,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1026170 </td>
                                 <td> 1026170 </td>
                                 <td> WPI </td>
                                 <td> 16170 </td>
@@ -525,7 +554,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1026550 </td>
                                 <td> 1026550 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -548,7 +576,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1027121 </td>
                                 <td> 1027121 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -571,7 +598,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-102BFHH </td>
                                 <td> 102BFHH </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -594,7 +620,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1030426 </td>
                                 <td> 1030426 </td>
                                 <td> WAN </td>
                                 <td>  </td>
@@ -617,7 +642,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1031316 </td>
                                 <td> 1031316 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -640,7 +664,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1031353 </td>
                                 <td> 1031353 </td>
                                 <td> WES </td>
                                 <td> 11353 </td>
@@ -663,7 +686,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1031402 </td>
                                 <td> 1031402 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -686,7 +708,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1032730 </td>
                                 <td> 1032730 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -709,7 +730,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1034600 </td>
                                 <td> 1034600 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -732,7 +752,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1035614 </td>
                                 <td> 1035614 </td>
                                 <td> WCV </td>
                                 <td>  </td>
@@ -755,7 +774,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1035940 </td>
                                 <td> 1035940 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -778,7 +796,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1036572 </td>
                                 <td> 1036572 </td>
                                 <td> WIF </td>
                                 <td> 16572 </td>
@@ -801,7 +818,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1045100 </td>
                                 <td> 1045100 </td>
                                 <td> WMR </td>
                                 <td>  </td>
@@ -824,7 +840,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1054500 </td>
                                 <td> 1054500 </td>
                                 <td> WLA </td>
                                 <td> 71899 </td>
@@ -847,7 +862,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1060080 </td>
                                 <td> 1060080 </td>
                                 <td> WCZ </td>
                                 <td> 10020 </td>
@@ -870,7 +884,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1060901 </td>
                                 <td> 1060901 </td>
                                 <td> WZM </td>
                                 <td>  </td>
@@ -893,7 +906,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1060902 </td>
                                 <td> 1060902 </td>
                                 <td> WVB </td>
                                 <td>  </td>
@@ -916,7 +928,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1062544 </td>
                                 <td> 1062544 </td>
                                 <td> WAU </td>
                                 <td>  </td>
@@ -939,7 +950,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1062646 </td>
                                 <td> 1062646 </td>
                                 <td> UNK </td>
                                 <td> 12646 </td>
@@ -962,7 +972,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1063298 </td>
                                 <td> 1063298 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -985,7 +994,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1063690 </td>
                                 <td> 1063690 </td>
                                 <td> WJG </td>
                                 <td>  </td>
@@ -1008,7 +1016,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1065010 </td>
                                 <td> 1065010 </td>
                                 <td> WMS </td>
                                 <td> 71897 </td>
@@ -1031,7 +1038,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1068250 </td>
                                 <td> 1068250 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -1054,7 +1060,6 @@
                             </tr>
                             
                             <tr>
-                                <td> 07-SURF-BC-1108290 </td>
                                 <td> 1108290 </td>
                                 <td>  </td>
                                 <td>  </td>
@@ -1084,7 +1089,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-04-20; NICE v1.0
+  Data Retrieved: 2020-04-23; NICE v1.0
 </footer>
 
             </div>

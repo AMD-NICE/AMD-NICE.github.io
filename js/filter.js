@@ -282,22 +282,22 @@ function SurfaceFilter() {
     trLst2 = trB2[i].getElementsByTagName("td");
 
     td00 = trLst1[0];
-    td01 = trLst2[0];
-    td02 = trLst2[1];
-    td03 = trLst2[2];
-    td04 = trLst2[3];
+    td01 = trLst1[1];
+    td02 = trLst2[0];
+    td03 = trLst2[1];
+    td04 = trLst2[2];
 
-    td1 = trLst2[6];
-    td2 = trLst2[7];
-    td3 = trLst2[8];
-    td4 = trLst2[9];
-    td5 = trLst2[10];
-    td6 = trLst2[14];
-    td7 = trLst2[15];
-    td8 = trLst2[16];
-    td9 = trLst2[17];
-    td10 = trLst2[18];
-    td11 = trLst2[19];
+    td1 = trLst2[5];
+    td2 = trLst2[6];
+    td3 = trLst2[7];
+    td4 = trLst2[8];
+    td5 = trLst2[9];
+    td6 = trLst2[13];
+    td7 = trLst2[14];
+    td8 = trLst2[15];
+    td9 = trLst2[16];
+    td10 = trLst2[17];
+    td11 = trLst2[18];
 
     try {
         prov = td01.innerHTML.split("-")[2];
@@ -305,15 +305,12 @@ function SurfaceFilter() {
         prov = td01.innerHTML;
     }
 
-    if (td00 && td01 && td02 && td03 && td04 && td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10
-&& td11 && prov) {
+    if (1) {
         txt00 = td00.textContent || td00.innerText;
         txt01 = td01.textContent || td01.innerText;
         txt02 = td02.textContent || td02.innerText;
         txt03 = td03.textContent || td03.innerText;
         txt04 = td04.textContent || td04.innerText;
-
-        val1 = [txt00, txt01, txt02, txt03, txt04, prov];
 
         txt1 = td1.innerHTML;
         txt2 = td2.innerHTML;
@@ -327,7 +324,101 @@ function SurfaceFilter() {
         txt10 = td10.textContent || td10.innerText;
         txt11 = td11.textContent || td11.innerText;
 
+        val1 = [txt00, txt01, txt02, txt03, txt04, prov];
         val2 = [txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11];
+
+        if (Filter(in1, val1, in2, val2)) {
+            count += 1;
+            trB1[i].style.display = "";
+            trB2[i].style.display = "";
+        } else {
+            trB1[i].style.display = "none";
+            trB2[i].style.display = "none";
+      }
+    }
+  }
+  document.getElementById("qCount").innerHTML = count;
+}
+
+function MobileFilter() {
+  var count, i, nameIn, LocationIn, StatusIn, MethodIn, TypeIn, PrimaryTxIn, SecondaryTxIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn;
+  var td00, td01, td02, td03, td04, td0, td1, td2, td3, td4, td5, td6, td7, td8, td9, td10, td11, filter;
+  var txt00, txt01, txt0, txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11, txt12, txt13, txt14;
+  var in1, val1, in2, val2;
+  var body1, body2, trB1, trB2;
+
+  nameIn = document.getElementById("Input").value.toUpperCase();
+
+  LocationIn = document.getElementById("LocationList").value;
+  StatusIn = document.getElementById("StatusList").value;
+  MethodIn = document.getElementById("MethodList").value;
+  TypeIn = document.getElementById("TypeList").value;
+  PrimaryTxIn = document.getElementById("PrimaryTxList").value;
+  SecondaryTxIn = document.getElementById("SecondaryTxList").value;
+  TempIn = document.getElementById("TempList").value;
+  RHIn = document.getElementById("RHList").value;
+  BARIn = document.getElementById("BARList").value;
+  WindIn = document.getElementById("WindList").value;
+  AWGIn = document.getElementById("AWGList").value;
+  SDIn = document.getElementById("SDList").value;
+
+  body1 = document.getElementById("body1");
+  trB1 = body1.getElementsByTagName("tr");
+  body2 = document.getElementById("body2");
+  trB2 = body2.getElementsByTagName("tr");
+
+  in1 = [nameIn];
+  in2 = [LocationIn, StatusIn, MethodIn, TypeIn, PrimaryTxIn, SecondaryTxIn, TempIn, RHIn, BARIn, WindIn, AWGIn, SDIn];
+
+  count = 0;
+
+  var len = trB1.length;
+
+  for (i = 0; i < len; i++) {
+    trLst1 = trB1[i].getElementsByTagName("td");
+    trLst2 = trB2[i].getElementsByTagName("td");
+
+    td00 = trLst1[0];
+    td01 = trLst2[1];
+    td02 = trLst2[0];
+    td03 = trLst2[1];
+    td04 = trLst2[2];
+
+    td0 = trLst2[3];
+    td1 = trLst2[4];
+    td2 = trLst2[5];
+    td3 = trLst2[6];
+    td4 = trLst2[9];
+    td5 = trLst2[10];
+    td6 = trLst2[11];
+    td7 = trLst2[12];
+    td8 = trLst2[13];
+    td9 = trLst2[14];
+    td10 = trLst2[15];
+    td11 = trLst2[16];
+
+    if (1) {
+        txt00 = td00.textContent || td00.innerText;
+        txt01 = td01.textContent || td01.innerText;
+        txt02 = td02.textContent || td02.innerText;
+        txt03 = td03.textContent || td03.innerText;
+        txt04 = td04.textContent || td04.innerText;
+
+        txt0 = td0.innerHTML;
+        txt1 = td1.innerHTML;
+        txt2 = td2.innerHTML;
+        txt3 = td3.textContent || td3.innerText;
+        txt4 = td4.textContent || td4.innerText;
+        txt5 = td5.textContent || td5.innerText;
+        txt6 = td6.textContent || td6.innerText;
+        txt7 = td7.textContent || td7.innerText;
+        txt8 = td8.textContent || td8.innerText;
+        txt9 = td9.textContent || td9.innerText;
+        txt10 = td10.textContent || td10.innerText;
+        txt11 = td11.textContent || td11.innerText;
+
+        val1 = [txt00, txt01, txt02, txt03, txt04];
+        val2 = [txt0, txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10, txt11];
 
         if (Filter(in1, val1, in2, val2)) {
             count += 1;
@@ -415,8 +506,7 @@ GOESIn, IridiumIn, ATempIn, WTempIn, WindIn, WindUSIn, WaveIn, SubWaveIn]
         td14 = trB2Lst[21];
         td15 = trB2Lst[22];
 
-        if (td00 && td01 && td02 && td03 && td04 && td && td0 && td1 && td2 && td3 && td4 && td5 && td6 && td7 &&
-td8 && td9 && td10 && td11 && td12 && td13 && td14 && td15) {
+        if (1) {
             txt00 = td00.textContent || td00.innerText;
             txt01 = td01.textContent || td01.innerText;
             txt02 = td02.textContent || td02.innerText;
@@ -516,7 +606,7 @@ function AVOSFilter() {
         td10 = trB2Lst[15];
         td11 = trB2Lst[16];
 
-        if (td00 && td01 && td02 && td0 && td1 && td2 && td3 && td4 && td5 && td6 && td7 && td8 && td9 && td10 && td11) {
+        if (1) {
             txt00 = td00.textContent || td00.innerText;
             txt01 = td01.textContent || td01.innerText;
             txt02 = td02.textContent || td02.innerText;
@@ -617,6 +707,24 @@ function clearAVOSFilters() {
     clearFilter("WindList", "Wind");
 
     AVOSFilter();
+}
+
+function clearMobileFilters() {
+    clearFilter("Input", "");
+    clearFilter("LocationList", "Storage Location");
+    clearFilter("StatusList", "Station Status");
+    clearFilter("MethodList", "Collection Method");
+    clearFilter("TypeList", "Collection Type");
+    clearFilter("PrimaryTxList", "Primary Tx");
+    clearFilter("SecondaryTxList", "Secondary Tx");
+    clearFilter("TempList", "Air Temperature");
+    clearFilter("RHList", "Relative Humidity");
+    clearFilter("BARList", "Barometer");
+    clearFilter("WindList", "Wind");
+    clearFilter("AWGList", "AWG");
+    clearFilter("SDList", "Snow Depth");
+
+    MobileFilter();
 }
 
 $(".filter").on('focus', function () {

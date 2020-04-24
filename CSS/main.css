@@ -73,22 +73,6 @@ a:visited {
   overflow: hidden;
 }
 
-.top {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-}
-
-.top-text {
-  flex 1 1 auto;
-}
-
-#counts {
-  flex: 1 1 auto;
-}
-
 .foot {
   flex: 0 0 auto;
   width: 100%;
@@ -101,18 +85,22 @@ a:visited {
   flex: 1 1 3vh;
 }
 
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hide {
+  display: none;
+}
+
 .buttons {
   flex: 1 1 3vh;
   width: 60%;
   margin: 0px 0px 0px 0px;
   display: flex;
   justify-content: flex-start;
-}
-
-.centre {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .filters {
@@ -134,10 +122,6 @@ a:visited {
   flex: 0 0 5.5vw;
 }
 
-.hide {
-  display: none;
-}
-
 .filter {
   border: none;
   font-size: 0.8vw;
@@ -156,36 +140,78 @@ a:visited {
   background-color: inherit;
 }
 
-.floc {
+.purple {
   background: BlueViolet;
 }
 
-.mooring {
+.blue {
   background: RoyalBlue;
 }
 
-.des {
-  background: RoyalBlue;
-}
-
-.WO {
+.green {
   background: MediumSeaGreen;
 }
 
-.buoy {
+.yellow {
   background: GoldenRod;
 }
 
-.status {
-  background: GoldenRod;
-}
-
-.trans {
+.orange {
   background: OrangeRed;
 }
 
-.sensor {
+.red {
   background: Firebrick;
+}
+
+.count {
+  font-size: 2vh;
+}
+
+.top {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.top-text {
+  flex 1 1 auto;
+}
+
+.middle {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.bottom {
+  flex: 1 1 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.bottom2 {
+  flex: 1 1 0;
+  width: 100%;
+}
+
+.tablewrapper {
+  flex: 1 1 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+#title {
+  font-size: 5vh;
 }
 
 #mode {
@@ -193,10 +219,6 @@ a:visited {
   width: 5vw;
   position: absolute;
   left: 94vw;
-}
-
-#title {
-  font-size: 5vh;
 }
 
 #networks {
@@ -207,20 +229,12 @@ a:visited {
   min-width: 5.5vw;
 }
 
-.count {
-  font-size: 2vh;
+#counts {
+  flex: 1 1 auto;
 }
 
 #qcount {
   font-size: 2vh;
-}
-
-.middle {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 5px;
 }
 
 #tablehead1 {
@@ -242,27 +256,6 @@ a:visited {
 
 #head2 {
   height: 100%;
-}
-
-.bottom {
-  flex: 1 1 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  min-height: 0;
-}
-.bottom2 {
-  flex: 1 1 0;
-  width: 100%;
-}
-
-.tablewrapper {
-  flex: 1 1 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  min-height: 0;
 }
 
 #tablebody1 {

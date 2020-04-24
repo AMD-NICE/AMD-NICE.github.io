@@ -1,0 +1,763 @@
+<link rel="stylesheet" href="/CSS/main.css">
+
+
+
+
+<html id="main">
+    <head>
+        <title>NICE/EERS</title>
+    </head>
+    <body onload="setupPage();">
+        <div class="page">
+            <div class="top">
+                <div class="counts">
+                    <p>
+                        <b id="networks"> Environmental Emergency Response Stations (EERS) </b>
+                        <button id="mode" onclick="toggleDark();"></button>
+                    </p>
+
+                    <p>
+                        <b class="count"> Stations: 13 </b>
+                    </p>
+
+                    <p>
+                        <b class="count">Query count: </b><b id="qCount" class="count">13</b>
+                    </p>
+                </div>
+
+                <div class="fitWidth">
+                    <input type="text" id="Input" onkeyup="MobileFilter();" placeholder="Search by site name, FLOC, or IDs...">
+                </div>
+                <div class="buttons">
+
+                    <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
+
+                    <button id="Export" class="button">Export to CSV</button>
+
+                    <button id="Clear" class="button" onClick="clearMobileFilters();">Clear Filters</button>
+
+                    <div class="purple legend"> FLOC </div>
+                    <div class="blue legend"> Mobile Station </div>
+                    <div class="green legend"> Work Orders </div>
+                    <div class="yellow legend"> Communications </div>
+                    <div class="red legend"> Sensors </div>
+                </div>
+            </div>
+            <div class="middle">
+                <div id="tablehead1">
+                    <table id="head1">
+                        <tr>
+                            <th id="name" class="purple"> Name </th>
+                            <th class="purple"> FLOC </th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tablehead2">
+                    <table id="head2">
+                        <tr>
+                            <th class="purple"> Climate ID </th>
+                            <th class="purple"> TC ID </th>
+                            <th class="purple"> WMO ID </th>
+                            <th class="blue selectCell">
+                                <select id="LocationList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Storage Location">Storage Location</option>
+                                    
+                                        
+                                            
+                                                <option value="Bedford-Depot">Bedford-Depot</option>
+                                            
+                                                <option value="Dartmouth-Depot">Dartmouth-Depot</option>
+                                            
+                                                <option value="Edmonton-Depot">Edmonton-Depot</option>
+                                            
+                                                <option value="Mt Pearl-Depot">Mt Pearl-Depot</option>
+                                            
+                                                <option value="Mtl Welli-Depot">Mtl Welli-Depot</option>
+                                            
+                                                <option value="North Bay-Depot">North Bay-Depot</option>
+                                            
+                                                <option value="Richmond-Depot">Richmond-Depot</option>
+                                            
+                                                <option value="Saskatoon-Depot">Saskatoon-Depot</option>
+                                            
+                                                <option value="Thdr Bay-Depot">Thdr Bay-Depot</option>
+                                            
+                                                <option value="Wpg WH-Depot">Wpg WH-Depot</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="blue selectCell">
+                                <select id="StatusList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Station Status">Station Status</option>
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="In Storage">In Storage</option>
+                                            
+                                                <option value="Operational in the field">Operational in the field</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="blue selectCell">
+                                <select id="MethodList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Collection Method">Collection Method</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="Operator is a human">Operator is a human</option>
+                                            
+                                                <option value="Operator is a machine">Operator is a machine</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="blue selectCell">
+                                <select id="TypeList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Collection Type">Collection Type</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="Automatic Wx Observing System">Automatic Wx Observing System</option>
+                                            
+                                                <option value="MSC automatic sounding system">MSC automatic sounding system</option>
+                                            
+                                                <option value="MSC datalogger">MSC datalogger</option>
+                                            
+                                                <option value="Mobile Surface & Upper Air Stn">Mobile Surface & Upper Air Stn</option>
+                                            
+                                        
+                                    
+                                </select>
+                            <th class="green"> Last Complete PM21 </th>
+                            <th class="green"> Last Complete PM22 </th>
+                            </th>
+                            <th class="yellow selectCell">
+                                <select id="PrimaryTxList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Primary Tx">Primary Tx</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="Cellular Modem">Cellular Modem</option>
+                                            
+                                                <option value="Not Transmitted">Not Transmitted</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="yellow selectCell">
+                                <select id="SecondaryTxList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Secondary Tx">Secondary Tx</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="No secondary method needed">No secondary method needed</option>
+                                            
+                                                <option value="Satellite">Satellite</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="red selectCell">
+                                <select id="TempList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Air Temperature">Air Temperature</option>
+                                    
+                                        
+                                            
+                                                <option value="GENERIC MAXIMUM THERMOMETER">GENERIC MAXIMUM THERMOMETER</option>
+                                            
+                                                <option value="GENERIC ORDINARY SLING-TYPE THERMOMETER">GENERIC ORDINARY SLING-TYPE THERMOMETER</option>
+                                            
+                                                <option value="VAISALA HMP155A">VAISALA HMP155A</option>
+                                            
+                                                <option value="VAISALA HMP35AC">VAISALA HMP35AC</option>
+                                            
+                                                <option value="VAISALA HMP41">VAISALA HMP41</option>
+                                            
+                                                <option value="YSI 44212EC">YSI 44212EC</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="red selectCell">
+                                <select id="RHList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Relative Humidity">Relative Humidity</option>
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="VAISALA HMP155A">VAISALA HMP155A</option>
+                                            
+                                                <option value="VAISALA HMP35AC">VAISALA HMP35AC</option>
+                                            
+                                                <option value="VAISALA HMP41">VAISALA HMP41</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="red selectCell">
+                                <select id="BARList" onchange="MobileFilter();" class="filter">
+                                  <option class="hide" value="Barometer">Barometer</option>
+                                  
+                                      
+                                  
+                                      
+                                  
+                                      
+                                          
+                                              <option value="SETRA 270">SETRA 270</option>
+                                          
+                                              <option value="SETRA 270A">SETRA 270A</option>
+                                          
+                                              <option value="SUTRON 5600-0120-3B">SUTRON 5600-0120-3B</option>
+                                          
+                                              <option value="VAISALA PTB220">VAISALA PTB220</option>
+                                          
+                                      
+                                  
+                                      
+                                  
+                                      
+                                  
+                                      
+                                  
+                                </select>
+                            </th>
+                            <th class="red selectCell">
+                                <select id="WindList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Wind">Wind</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="RM YOUNG 05103">RM YOUNG 05103</option>
+                                            
+                                                <option value="RM YOUNG 05103AP">RM YOUNG 05103AP</option>
+                                            
+                                                <option value="RM YOUNG 05106">RM YOUNG 05106</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="red selectCell">
+                                <select id="AWGList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="AWG">AWG</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="BELFORT">BELFORT</option>
+                                            
+                                                <option value="GEONOR T-200B WG (600 mm)">GEONOR T-200B WG (600 mm)</option>
+                                            
+                                                <option value="GEONOR T-200B-M WG (1000 mm)">GEONOR T-200B-M WG (1000 mm)</option>
+                                            
+                                                <option value="OTT PLUVIO (1000 mm)">OTT PLUVIO (1000 mm)</option>
+                                            
+                                                <option value="OTT PLUVIO2 (1500 mm)">OTT PLUVIO2 (1500 mm)</option>
+                                            
+                                        
+                                    
+                                        
+                                    
+                                </select>
+                            </th>
+                            <th class="red selectCell">
+                                <select id="SDList" onchange="MobileFilter();" class="filter">
+                                    <option class="hide" value="Snow Depth">Snow Depth</option>
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                                <option value="CAMPBELL SCI. SR50">CAMPBELL SCI. SR50</option>
+                                            
+                                                <option value="CAMPBELL SCI. SR50-45">CAMPBELL SCI. SR50-45</option>
+                                            
+                                                <option value="CAMPBELL SCI. SR50A">CAMPBELL SCI. SR50A</option>
+                                            
+                                                <option value="CAMPBELL SCI. SR50M-4">CAMPBELL SCI. SR50M-4</option>
+                                            
+                                        
+                                    
+                                </select>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="tablewrapper">
+                    <div id="tablebody1">
+                        <table id="body1">
+                            
+                            <tr>
+                                <td id="name"> EDMONTON EER </td>
+                                <td> 07-EERS-XX-3014580 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> SASKATOON EER </td>
+                                <td> 07-EERS-XX-4057135 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> WINNIPEG EER UA </td>
+                                <td> 07-EERS-XX-5021790 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> NORTHERN ONTARIO EER </td>
+                                <td> 07-EERS-XX-604S001 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> ONTARIO EER UA </td>
+                                <td> 07-EERS-XX-6155200 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> SOUTHERN ONTARIO EER </td>
+                                <td> 07-EERS-XX-615S002 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> QUEBEC EER UA </td>
+                                <td> 07-EERS-XX-7025000 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> DARTMOUTH EER </td>
+                                <td> 07-EERS-XX-8200190 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> DARTMOUTH EER 2 </td>
+                                <td> 07-EERS-XX-8200195 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> ATLANTIC EER UA </td>
+                                <td> 07-EERS-XX-8201310 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> ATLANTIC EER (New Ross ERU) </td>
+                                <td> 07-EERS-XX-8202195 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> ST JOHN'S EER </td>
+                                <td> 07-EERS-XX-8403570 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="name"> ST JOHN'S EER 2 </td>
+                                <td> 07-EERS-XX-8403580 </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div id="tablebody2">
+                        <table id="body2">
+                            
+                            <tr>
+                                <td> 3014580 </td>
+                                <td> NEE </td>
+                                <td> 71169 </td>
+                                <td class="selectCell"> Edmonton-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a human </td>
+                                <td class="selectCell"> Mobile Surface & Upper Air Stn </td>
+                                <td> 2019-10-03 </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> Cellular Modem </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td> NET </td>
+                                <td>  </td>
+                                <td class="selectCell"> Saskatoon-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> Automatic Wx Observing System </td>
+                                <td> N/A </td>
+                                <td> 2019-05-30 </td>
+                                <td class="selectCell"> Cellular Modem </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell"> VAISALA HMP41 </td>
+                                <td class="selectCell"> VAISALA HMP41 </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 5021790 </td>
+                                <td> EWM </td>
+                                <td> 71146 </td>
+                                <td class="selectCell"> Wpg WH-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a human </td>
+                                <td class="selectCell"> Mobile Surface & Upper Air Stn </td>
+                                <td> N/A </td>
+                                <td> 2019-04-25 </td>
+                                <td class="selectCell"> Not Transmitted </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell"> YSI 44212EC </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 604S001 </td>
+                                <td> XQT </td>
+                                <td>  </td>
+                                <td class="selectCell"> Thdr Bay-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> MSC datalogger </td>
+                                <td> 2019-07-22 </td>
+                                <td> 2015-03-03 </td>
+                                <td class="selectCell"> Cellular Modem </td>
+                                <td class="selectCell"> Satellite </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 6155200 </td>
+                                <td> EWO </td>
+                                <td> 71117 </td>
+                                <td class="selectCell"> North Bay-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a human </td>
+                                <td class="selectCell"> Mobile Surface & Upper Air Stn </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> Not Transmitted </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 615S002 </td>
+                                <td> WOW </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> MSC datalogger </td>
+                                <td> 2019-02-11 </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 7025000 </td>
+                                <td> EUQ </td>
+                                <td> 71054 </td>
+                                <td class="selectCell"> Mtl Welli-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a human </td>
+                                <td class="selectCell"> Mobile Surface & Upper Air Stn </td>
+                                <td> 2019-02-06 </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> Not Transmitted </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> VAISALA HMP155A </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 8200190 </td>
+                                <td> EDA </td>
+                                <td> 9999 </td>
+                                <td class="selectCell"> Bedford-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> MSC datalogger </td>
+                                <td> 2018-07-26 </td>
+                                <td> 2019-11-14 </td>
+                                <td class="selectCell"> Cellular Modem </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell"> VAISALA HMP41 </td>
+                                <td class="selectCell"> VAISALA HMP41 </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 8200195 </td>
+                                <td> EDB </td>
+                                <td>  </td>
+                                <td class="selectCell"> Dartmouth-Depot </td>
+                                <td class="selectCell"> Operational in the field </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> MSC datalogger </td>
+                                <td> 2020-03-16 </td>
+                                <td> 2019-11-27 </td>
+                                <td class="selectCell"> Cellular Modem </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> YSI 44212EC </td>
+                                <td class="selectCell"> VAISALA HMP41 </td>
+                                <td class="selectCell"> SETRA 270 </td>
+                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> GEONOR T-200B WG (600 mm) </td>
+                                <td class="selectCell"> CAMPBELL SCI. SR50-45 </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 8201310 </td>
+                                <td> EWA </td>
+                                <td> 71194 </td>
+                                <td class="selectCell"> Bedford-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a human </td>
+                                <td class="selectCell"> MSC automatic sounding system </td>
+                                <td> N/A </td>
+                                <td> 2019-11-14 </td>
+                                <td class="selectCell"> Not Transmitted </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 8202195 </td>
+                                <td> ERU </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> MSC datalogger </td>
+                                <td> 2016-03-17 </td>
+                                <td> 2015-01-19 </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> 8403570 </td>
+                                <td> EDJ </td>
+                                <td> 71711 </td>
+                                <td class="selectCell"> Mt Pearl-Depot </td>
+                                <td class="selectCell"> In Storage </td>
+                                <td class="selectCell"> Operator is a machine </td>
+                                <td class="selectCell"> MSC datalogger </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell"> Cellular Modem </td>
+                                <td class="selectCell"> No secondary method needed </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                                <td class="selectCell">  </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                
+
+<footer dir="ltr">
+  Data Retrieved: 2020-04-23; NICE v1.0
+</footer>
+
+            </div>
+        </div>
+    </body>
+</html>
+
+<script src="/js/jquery-3.3.1.slim.min.js"></script>
+
+<script src="/js/filter.js"></script>
+
+<script src="/js/exportToCSV.js"></script>
+
+<script src="/js/format.js"></script>
+
+
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/multiple-select.js"></script>

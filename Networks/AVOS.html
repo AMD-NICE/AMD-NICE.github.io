@@ -35,19 +35,19 @@
 
                     <button id="Clear" class="button" onClick="clearAVOSFilters();">Clear Filters</button>
 
-                    <div class="floc legend"> FLOC </div>
-                    <div class="mooring legend"> Ship </div>
-                    <div class="WO legend"> Work Orders </div>
-                    <div class="buoy legend"> Payload </div>
-                    <div class="trans legend"> Software </div>
-                    <div class="sensor legend"> Sensors </div>
+                    <div class="purple legend"> FLOC </div>
+                    <div class="blue legend"> Ship </div>
+                    <div class="green legend"> Work Orders </div>
+                    <div class="yellow legend"> Payload </div>
+                    <div class="orange legend"> Software </div>
+                    <div class="red legend"> Sensors </div>
                 </div>
             </div>
             <div class="middle">
                 <div id="tablehead1">
                     <table id="head1">
                         <tr>
-                            <th class="floc">
+                            <th class="purple">
                                 <select id="RegList" class="filter" onchange="AVOSFilter();">
                                     <option value="Region" class="hide"> Region </option>
                                     <option value="PYR"> PYR </option>
@@ -56,15 +56,15 @@
                                     <option value="QAR"> QAR </option>
                                 </select>
                             </th>
-                            <th id="name" class="floc"> Name </th>
-                            <th class="floc"> FLOC </th>
+                            <th id="name" class="purple"> Name </th>
+                            <th class="purple"> FLOC </th>
                         </tr>
                     </table>
                 </div>
                 <div id="tablehead2">
                     <table id="head2">
                         <tr>
-                            <th class="mooring selectCell">
+                            <th class="blue selectCell">
                                 <select id="ShipList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Ship Type"> Ship Type </option>
                                     
@@ -124,12 +124,12 @@
                                     
                                 </select>
                             </th>
-                            <th class="mooring"> Length </th>
-                            <th class="mooring"> Beam </th>
-                            <th class="mooring"> Draft </th>
-                            <th class="WO"> Last Complete PM21 </th>
-                            <th class="WO"> Last Complete PM22 </th>
-                            <th class="buoy selectCell">
+                            <th class="blue"> Length </th>
+                            <th class="blue"> Beam </th>
+                            <th class="blue"> Draft </th>
+                            <th class="green"> Last Complete PM21 </th>
+                            <th class="green"> Last Complete PM22 </th>
+                            <th class="yellow selectCell">
                                 <select id="PayloadList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Payload"> Payload </option>
                                     
@@ -163,7 +163,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="buoy selectCell">
+                            <th class="yellow selectCell">
                                 <select id="CompassList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Compass"> Compass </option>
                                     
@@ -197,7 +197,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="buoy selectCell">
+                            <th class="yellow selectCell">
                                 <select id="GPSList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="GPS"> GPS </option>
                                     
@@ -231,7 +231,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="buoy selectCell">
+                            <th class="yellow selectCell">
                                 <select id="IridiumList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Iridium Transmitter"> Iridium Transmitter </option>
                                     
@@ -267,7 +267,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="trans">
+                            <th class="orange">
                                 <select id="BridgeList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Bridge"> Bridge </option>
                                     
@@ -309,7 +309,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="trans">
+                            <th class="orange">
                                 <select id="GPucList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="GPuc"> GPuc </option>
                                     
@@ -359,7 +359,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="ATempList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Air Temperature"> Air Temperature </option>
                                     
@@ -393,7 +393,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="RHList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Relative Humidity"> Relative Humidity </option>
                                     
@@ -427,7 +427,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="WTempList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Water Temperature"> Water Temperature </option>
                                     
@@ -461,7 +461,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="PrsList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Barometer"> Barometer </option>
                                     
@@ -495,7 +495,7 @@
                                     
                                 </select>
                             </th>
-                            <th class="sensor selectCell">
+                            <th class="red selectCell">
                                 <select id="WindList" class="filter" onchange="AVOSFilter();">
                                     <option class="hide" value="Wind"> Wind </option>
                                     
@@ -1822,7 +1822,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-04-20; NICE v1.0
+  Data Retrieved: 2020-04-23; NICE v1.0
 </footer>
 
             </div>
