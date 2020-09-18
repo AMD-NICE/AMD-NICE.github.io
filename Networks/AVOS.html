@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/CSS/main.css">
+<link rel="stylesheet" href="/CSS/multiple-select.css">
 
 
 
@@ -48,8 +49,7 @@
                     <table id="head1">
                         <tr>
                             <th class="purple">
-                                <select id="RegList" class="filter" onchange="AVOSFilter();">
-                                    <option value="Region" class="hide"> Region </option>
+                                <select id="Reg" onchange="AVOSFilter();" multiple="multiple">
                                     <option value="PYR"> PYR </option>
                                     <option value="PNR"> PNR </option>
                                     <option value="OR"> OR </option>
@@ -58,6 +58,8 @@
                             </th>
                             <th id="name" class="purple"> Name </th>
                             <th class="purple"> FLOC </th>
+                            <th class="purple"> Call Sign </th>
+                            <th class="purple"> Serial Number </th>
                         </tr>
                     </table>
                 </div>
@@ -65,471 +67,463 @@
                     <table id="head2">
                         <tr>
                             <th class="blue selectCell">
-                                <select id="ShipList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Ship Type"> Ship Type </option>
+                                <select id="ShipType" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="Bulk carrier (e.g. Ore/Oil)">Bulk carrier (e.g. Ore/Oil)</option>
+												
+													<option value="Cable ship">Cable ship</option>
+												
+													<option value="Coastguard (all types)">Coastguard (all types)</option>
+												
+													<option value="Container ship (all types)">Container ship (all types)</option>
+												
+													<option value="General cargo ship (1+ holds)">General cargo ship (1+ holds)</option>
+												
+													<option value="Liquid tanker (e.g. oil;chem.">Liquid tanker (e.g. oil;chem.</option>
+												
+													<option value="Other (specify in footnote)">Other (specify in footnote)</option>
+												
+													<option value="Passenger ship & cruise liner">Passenger ship & cruise liner</option>
+												
+													<option value="Research vessel">Research vessel</option>
+												
+													<option value="Ro Ro cargo ship">Ro Ro cargo ship</option>
+												
+													<option value="Ro Ro ferry (pax; laden veh.)">Ro Ro ferry (pax; laden veh.)</option>
+												
+													<option value="Support vessel">Support vessel</option>
+												
+													<option value="Trawler fishing vessel">Trawler fishing vessel</option>
+												
+													<option value="Tug (e.g. pilot vessel;tender">Tug (e.g. pilot vessel;tender</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="Bulk carrier (e.g. Ore/Oil)"> Bulk carrier (e.g. Ore/Oil) </option>
-                                            
-                                                <option value="Cable ship"> Cable ship </option>
-                                            
-                                                <option value="Coastguard (all types)"> Coastguard (all types) </option>
-                                            
-                                                <option value="Container ship (all types)"> Container ship (all types) </option>
-                                            
-                                                <option value="General cargo ship (1+ holds)"> General cargo ship (1+ holds) </option>
-                                            
-                                                <option value="Liquid tanker (e.g. oil;chem."> Liquid tanker (e.g. oil;chem. </option>
-                                            
-                                                <option value="Other (specify in footnote)"> Other (specify in footnote) </option>
-                                            
-                                                <option value="Passenger ship & cruise liner"> Passenger ship & cruise liner </option>
-                                            
-                                                <option value="Research vessel"> Research vessel </option>
-                                            
-                                                <option value="Ro Ro cargo ship"> Ro Ro cargo ship </option>
-                                            
-                                                <option value="Ro Ro ferry (pax; laden veh.)"> Ro Ro ferry (pax; laden veh.) </option>
-                                            
-                                                <option value="Support vessel"> Support vessel </option>
-                                            
-                                                <option value="Trawler fishing vessel"> Trawler fishing vessel </option>
-                                            
-                                                <option value="Tug (e.g. pilot vessel;tender"> Tug (e.g. pilot vessel;tender </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="blue"> Length </th>
-                            <th class="blue"> Beam </th>
+                            <th class="blue"> Breadth </th>
+                            <th class="blue"> Freeboard </th>
                             <th class="blue"> Draft </th>
+                            <th class="blue"> AVOS Rec. Date </th>
+                            <th class="blue"> VOSCLIM Rec. Date </th>
+                            <th class="blue"> Ship Route </th>
                             <th class="green"> Last Complete PM21 </th>
                             <th class="green"> Last Complete PM22 </th>
                             <th class="yellow selectCell">
-                                <select id="PayloadList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Payload"> Payload </option>
+                                <select id="Payload" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
+												
+													<option value="AXYS WM100 - 7300000020">AXYS WM100 - 7300000020</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="AXYS WM100"> AXYS WM100 </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="CompassList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Compass"> Compass </option>
+                                <select id="Compass" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="KVH KVH1000 AUTOCOMP - 7300000191">KVH KVH1000 AUTOCOMP - 7300000191</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="KVH KVH1000 AUTOCOMP"> KVH KVH1000 AUTOCOMP </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="GPSList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="GPS"> GPS </option>
+                                <select id="GPS" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="GARMIN GA16XHVS - 7300000130">GARMIN GA16XHVS - 7300000130</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="GARMIN GA16XHVS"> GARMIN GA16XHVS </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="IridiumList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Iridium Transmitter"> Iridium Transmitter </option>
+                                <select id="Iridium" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="NAL 9601 - 7300000275">NAL 9601 - 7300000275</option>
+												
+													<option value="NAL 9602 - 7300000276">NAL 9602 - 7300000276</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="NAL 9601"> NAL 9601 </option>
-                                            
-                                                <option value="NAL 9602"> NAL 9602 </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="orange">
-                                <select id="BridgeList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Bridge"> Bridge </option>
+                                <select id="Bridge" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="1.23.0014">1.23.0014</option>
+												
+													<option value="1.23.0015">1.23.0015</option>
+												
+													<option value="1.23.0016">1.23.0016</option>
+												
+													<option value="1.23.0017">1.23.0017</option>
+												
+													<option value="1.23.0019">1.23.0019</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="1.23.0014"> 1.23.0014 </option>
-                                            
-                                                <option value="1.23.0015"> 1.23.0015 </option>
-                                            
-                                                <option value="1.23.0016"> 1.23.0016 </option>
-                                            
-                                                <option value="1.23.0017"> 1.23.0017 </option>
-                                            
-                                                <option value="1.23.0019"> 1.23.0019 </option>
-                                            
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="orange">
-                                <select id="GPucList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="GPuc"> GPuc </option>
+                                <select id="GPuc" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="1.16">1.16</option>
+												
+													<option value="1.17">1.17</option>
+												
+													<option value="1.18">1.18</option>
+												
+													<option value="1.19">1.19</option>
+												
+													<option value="1.21">1.21</option>
+												
+													<option value="1.25">1.25</option>
+												
+													<option value="1.28">1.28</option>
+												
+													<option value="1.29">1.29</option>
+												
+													<option value="1.3">1.3</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="1.16"> 1.16 </option>
-                                            
-                                                <option value="1.17"> 1.17 </option>
-                                            
-                                                <option value="1.18"> 1.18 </option>
-                                            
-                                                <option value="1.19"> 1.19 </option>
-                                            
-                                                <option value="1.21"> 1.21 </option>
-                                            
-                                                <option value="1.25"> 1.25 </option>
-                                            
-                                                <option value="1.28"> 1.28 </option>
-                                            
-                                                <option value="1.29"> 1.29 </option>
-                                            
-                                                <option value="1.3"> 1.3 </option>
-                                            
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="ATempList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Air Temperature"> Air Temperature </option>
+                                <select id="ATemp" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
+												
+													<option value="ROTRONICS MP101A-T-7 - 7300000305">ROTRONICS MP101A-T-7 - 7300000305</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="ROTRONICS MP101A-T-7"> ROTRONICS MP101A-T-7 </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="RHList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Relative Humidity"> Relative Humidity </option>
+                                <select id="RH" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="ROTRONICS MP101A-T-7 - 7300000305">ROTRONICS MP101A-T-7 - 7300000305</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="ROTRONICS MP101A-T-7"> ROTRONICS MP101A-T-7 </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WTempList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Water Temperature"> Water Temperature </option>
+                                <select id="WTemp" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="AXYS HATS - 7300000036">AXYS HATS - 7300000036</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="AXYS HATS"> AXYS HATS </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="PrsList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Barometer"> Barometer </option>
+                                <select id="BAR" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="VAISALA PTB210B1T1B - 7300000346">VAISALA PTB210B1T1B - 7300000346</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="VAISALA PTB210B1T1B"> VAISALA PTB210B1T1B </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WindList" class="filter" onchange="AVOSFilter();">
-                                    <option class="hide" value="Wind"> Wind </option>
+                                <select id="Wind" class="ms" onchange="AVOSFilter();" multiple>
+									
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
+												
+													<option value="RM YOUNG 05103 - 7300000302">RM YOUNG 05103 - 7300000302</option>
+												
+													<option value="RM YOUNG 05106 - 7300000303">RM YOUNG 05106 - 7300000303</option>
+												
+											
                                     
-                                        
-                                            
-                                                <option value="RM YOUNG 05103"> RM YOUNG 05103 </option>
-                                            
-                                                <option value="RM YOUNG 05106"> RM YOUNG 05106 </option>
-                                            
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
+											
                                     
-                                        
-                                    
-                                </select>
+								</select>
                             </th>
                         </tr>
                     </table>
@@ -541,297 +535,395 @@
                         <table id="body1">
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> I. T. INTREPID </td>
                                 <td> 07-AVOS-XX-0008PSH </td>
+                                <td> 0008PSH </td>
+                                <td> 805HUB </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> CCGS TELEOST </td>
                                 <td> 07-AVOS-XX-000CCGS </td>
+                                <td> 000CCGS </td>
+                                <td>   </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> LOUIS S. ST-LAURENT </td>
                                 <td> 07-AVOS-XX-000CGBN </td>
+                                <td> 000CGBN </td>
+                                <td> 8036JM </td>
                             </tr>
                             
                             <tr>
                                 <td> PYR </td>
                                 <td id="name"> GORDON REID </td>
                                 <td> 07-AVOS-XX-000CGBR </td>
+                                <td> 000CGBR </td>
+                                <td> 803G5D </td>
                             </tr>
                             
                             <tr>
                                 <td> PYR </td>
                                 <td id="name"> TANU </td>
                                 <td> 07-AVOS-XX-000CGBY </td>
+                                <td> 000CGBY </td>
+                                <td> 8043R0 </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> CCGS TELEOST </td>
                                 <td> 07-AVOS-XX-000CGCB </td>
+                                <td> 000CGCB </td>
+                                <td> 300034013232970 </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> MARTHA L. BLACK </td>
                                 <td> 07-AVOS-XX-000CGCC </td>
+                                <td> 000CGCC </td>
+                                <td> 803R1P </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> GEORGE R. PEARKES </td>
                                 <td> 07-AVOS-XX-000CGCX </td>
+                                <td> 000CGCX </td>
+                                <td> 803E93 </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> BARTLETT </td>
                                 <td> 07-AVOS-XX-000CGDR </td>
+                                <td> 000CGDR </td>
+                                <td> 8042W7 </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> GRIFFON </td>
                                 <td> 07-AVOS-XX-000CGDS </td>
+                                <td> 000CGDS </td>
+                                <td> 800UPE </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> AMUNDSEN </td>
                                 <td> 07-AVOS-XX-000CGDT </td>
+                                <td> 000CGDT </td>
+                                <td> 803G2T </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> DES GROSEILLIERS </td>
                                 <td> 07-AVOS-XX-000CGDX </td>
+                                <td> 000CGDX </td>
+                                <td> 8031VS </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> HENRY LARSEN </td>
                                 <td> 07-AVOS-XX-000CGHL </td>
+                                <td> 000CGHL </td>
+                                <td> 8031PZ </td>
                             </tr>
                             
                             <tr>
                                 <td> PYR </td>
                                 <td id="name"> SIR WILFRID LAURIER </td>
                                 <td> 07-AVOS-XX-000CGJK </td>
+                                <td> 000CGJK </td>
+                                <td> 803G25 </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> EDWARD CORNWALLIS </td>
                                 <td> 07-AVOS-XX-000CGJV </td>
+                                <td> 000CGJV </td>
+                                <td> 803V4L </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> PIERRE RADISSON </td>
                                 <td> 07-AVOS-XX-000CGSB </td>
+                                <td> 000CGSB </td>
+                                <td> 803M0A </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> TERRY FOX </td>
                                 <td> 07-AVOS-XX-000CGTF </td>
+                                <td> 000CGTF </td>
+                                <td> 8035JH </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> SIR WILLIAM ALEXANDER </td>
                                 <td> 07-AVOS-XX-000CGUM </td>
+                                <td> 000CGUM </td>
+                                <td> 804UB7 </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> BELLA DESGAGNES </td>
                                 <td> 07-AVOS-XX-000CZJG </td>
+                                <td> 000CZJG </td>
+                                <td> 38045 </td>
                             </tr>
                             
                             <tr>
                                 <td> OR </td>
                                 <td id="name"> ALGOSCOTIA </td>
                                 <td> 07-AVOS-XX-000VAAP </td>
+                                <td> 000VAAP </td>
+                                <td> 8043RU </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> NEWFOUNDLAND LYNX </td>
                                 <td> 07-AVOS-XX-000VAAZ </td>
+                                <td> 000VAAZ </td>
+                                <td> D03WEK </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> CCGS CAPE ROGER </td>
                                 <td> 07-AVOS-XX-000VCBT </td>
+                                <td> 000VCBT </td>
+                                <td> D031MJ </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> DARA DESGAGNES </td>
                                 <td> 07-AVOS-XX-000VCBW </td>
+                                <td> 000VCBW </td>
+                                <td> 37739 </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> JANA DESGAGNES </td>
                                 <td> 07-AVOS-XX-000VCDR </td>
+                                <td> 000VCDR </td>
+                                <td> D02ZNW </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> ALGOMA ENTERPRISE </td>
                                 <td> 07-AVOS-XX-000VCJM </td>
+                                <td> 000VCJM </td>
+                                <td> 8043RG </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> ARCTIC </td>
                                 <td> 07-AVOS-XX-000VCLM </td>
+                                <td> 000VCLM </td>
+                                <td> 804TUA </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> CTMA MADELEINE </td>
                                 <td> 07-AVOS-XX-000VCRG </td>
+                                <td> 000VCRG </td>
+                                <td> 804TLK </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> MARIA DESGAGNES </td>
                                 <td> 07-AVOS-XX-000VCWL </td>
+                                <td> 000VCWL </td>
+                                <td> 803QW0 </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> LEIF ERICSON </td>
                                 <td> 07-AVOS-XX-000VOCJ </td>
+                                <td> 000VOCJ </td>
+                                <td> 804UBD </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> STRAIT EXPLORER </td>
                                 <td> 07-AVOS-XX-000VOFG </td>
+                                <td> 000VOFG </td>
+                                <td> 804TVL </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> AVALON </td>
                                 <td> 07-AVOS-XX-000VOKJ </td>
+                                <td> 000VOKJ </td>
+                                <td> 8035AR </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> OCEANEX SANDERLING </td>
                                 <td> 07-AVOS-XX-000VOLG </td>
+                                <td> 000VOLG </td>
+                                <td> 80314V </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> BLUE PUTTEES </td>
                                 <td> 07-AVOS-XX-000VXKF </td>
+                                <td> 000VXKF </td>
+                                <td> 8038MK </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> SARAH DESGAGNES </td>
                                 <td> 07-AVOS-XX-000XJAB </td>
+                                <td> 000XJAB </td>
+                                <td> D0304Z </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> ALGOMA EQUINOX </td>
                                 <td> 07-AVOS-XX-000XJBH </td>
+                                <td> 000XJBH </td>
+                                <td> 805GYE </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> WESTWOOD VICTORIA </td>
                                 <td> 07-AVOS-XX-00C6SI6 </td>
+                                <td> 00C6SI6 </td>
+                                <td> 805HBS </td>
                             </tr>
                             
                             <tr>
                                 <td> OR </td>
                                 <td id="name"> OOCL MONTREAL </td>
                                 <td> 07-AVOS-XX-00VRYO3 </td>
+                                <td> 00VRYO3 </td>
+                                <td> 8036EY </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> LIMNOS </td>
                                 <td> 07-AVOS-XX-0CG2350 </td>
+                                <td> 0CG2350 </td>
+                                <td> 8031Q9 </td>
                             </tr>
                             
                             <tr>
                                 <td> PNR </td>
                                 <td id="name"> DUMIT </td>
                                 <td> 07-AVOS-XX-0CG2522 </td>
+                                <td> 0CG2522 </td>
+                                <td> 300034013700580 </td>
                             </tr>
                             
                             <tr>
                                 <td> PYR </td>
                                 <td id="name"> JOHN P. TULLY </td>
                                 <td> 07-AVOS-XX-0CG2958 </td>
+                                <td> 0CG2958 </td>
+                                <td> 803LZL </td>
                             </tr>
                             
                             <tr>
                                 <td> OR </td>
                                 <td id="name"> SAMUEL RISLEY </td>
                                 <td> 07-AVOS-XX-0CG2960 </td>
+                                <td> 0CG2960 </td>
+                                <td> 8036D2 </td>
                             </tr>
                             
                             <tr>
                                 <td> PNR </td>
                                 <td id="name"> ECKALOO </td>
                                 <td> 07-AVOS-XX-0CG2992 </td>
+                                <td> 0CG2992 </td>
+                                <td> 300034012775030 </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> EARL GREY </td>
                                 <td> 07-AVOS-XX-0CG3029 </td>
+                                <td> 0CG3029 </td>
+                                <td> 80564J </td>
                             </tr>
                             
                             <tr>
                                 <td> PNR </td>
                                 <td id="name"> KELLY OVAYUAK </td>
                                 <td> 07-AVOS-XX-0CZ3695 </td>
+                                <td> 0CZ3695 </td>
+                                <td> 300034012183780 </td>
                             </tr>
                             
                             <tr>
                                 <td> PNR </td>
                                 <td id="name"> NAMAO </td>
                                 <td> 07-AVOS-XX-0CZ9742 </td>
+                                <td> 0CZ9742 </td>
+                                <td>   </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> NUNAKPUT </td>
                                 <td> 07-AVOS-XX-0VC6750 </td>
+                                <td> 0VC6750 </td>
+                                <td> 36684 </td>
                             </tr>
                             
                             <tr>
-                                <td>  </td>
+                                <td>   </td>
                                 <td id="name"> ATLANTIC CONDOR </td>
                                 <td> 07-AVOS-XX-CFK9798 </td>
+                                <td> CFK9798 </td>
+                                <td> 8036H9 </td>
                             </tr>
                             
                             <tr>
                                 <td> QAR </td>
                                 <td id="name"> C. T. M. A. VACANCIER </td>
                                 <td> 07-AVOS-XX-CFN3031 </td>
+                                <td> CFN3031 </td>
+                                <td> 803G6J </td>
                             </tr>
                             
                             <tr>
                                 <td> PNR </td>
                                 <td id="name"> NULIAJUK </td>
                                 <td> 07-AVOS-XX-CFN5537 </td>
+                                <td> CFN5537 </td>
+                                <td> 803MW7 </td>
                             </tr>
                             
                         </table>
@@ -844,19 +936,23 @@
                                 <td> 115.2 m </td>
                                 <td> 18.1 m </td>
                                 <td> 6.3 m </td>
+                                <td> 6.3 m </td>
+                                <td> 2005/09/14 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R44 </td>
                                 <td> 2020-05-07 </td>
                                 <td> 2019-06-18 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -865,19 +961,23 @@
                                 <td>  </td>
                                 <td>  </td>
                                 <td>  </td>
-                                <td> N/A </td>
-                                <td> N/A </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
                                 <td>  </td>
                                 <td>  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  -- </td>
+                                <td>  -- </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
 
                             </tr>
                             
@@ -886,19 +986,23 @@
                                 <td> 119.6 m </td>
                                 <td> 24.4 m </td>
                                 <td> 9.9 m </td>
+                                <td> 6.4 m </td>
+                                <td> 2003/07/14 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R44 </td>
                                 <td> 2020-09-01 </td>
                                 <td> 2020-09-01 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -907,19 +1011,23 @@
                                 <td> 50.0 m </td>
                                 <td> 11.0 m </td>
                                 <td> 5.4 m </td>
+                                <td> 1.7 m </td>
+                                <td> 2003/10/01 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R46 </td>
                                 <td> 2016-07-19 </td>
                                 <td> 2020-01-29 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0014 </td>
                                 <td> 1.16 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05106 - 7300000303 </td>
 
                             </tr>
                             
@@ -928,19 +1036,23 @@
                                 <td> 54.7 m </td>
                                 <td> 9.7 m </td>
                                 <td> 3.7 m </td>
+                                <td> 1.1 m </td>
+                                <td> 2005/08/29 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R46 </td>
                                 <td> 2016-02-09 </td>
                                 <td> 2020-01-27 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05106 - 7300000303 </td>
 
                             </tr>
                             
@@ -949,19 +1061,23 @@
                                 <td> 63.0 m </td>
                                 <td> 14.0 m </td>
                                 <td> 7.2 m </td>
+                                <td>  </td>
+                                <td> 2016/02/17 </td>
+                                <td>  </td>
+                                <td> R44 </td>
                                 <td> 2019-07-17 </td>
                                 <td> 2018-06-27 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -970,19 +1086,23 @@
                                 <td> 83.0 m </td>
                                 <td> 16.2 m </td>
                                 <td> 6.0 m </td>
+                                <td> 1.7 m </td>
+                                <td> 2004/07/29 </td>
+                                <td> 2007/03/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2020-02-25 </td>
                                 <td> 2019-08-28 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -991,19 +1111,23 @@
                                 <td> 83.0 m </td>
                                 <td> 16.0 m </td>
                                 <td>  </td>
+                                <td>  </td>
+                                <td> 2008/07/11 </td>
+                                <td>  </td>
+                                <td> R44 </td>
                                 <td> 2020-08-12 </td>
                                 <td> 2019-08-21 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0015 </td>
                                 <td> 1.19 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1012,19 +1136,23 @@
                                 <td> 57.0 m </td>
                                 <td> 13.1 m </td>
                                 <td> 3.8 m </td>
+                                <td> 1.4 m </td>
+                                <td> 2003/10/01 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R46 </td>
                                 <td> 2016-02-10 </td>
                                 <td> 2019-07-08 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0014 </td>
                                 <td> 1.16 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05106 - 7300000303 </td>
 
                             </tr>
                             
@@ -1033,19 +1161,23 @@
                                 <td> 71.3 m </td>
                                 <td> 14.9 m </td>
                                 <td> 4.7 m </td>
+                                <td> 1.8 m </td>
+                                <td> 2002/05/26 </td>
+                                <td> 2002/10/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2020-01-28 </td>
                                 <td> 2017-10-12 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1054,19 +1186,23 @@
                                 <td> 98.3 m </td>
                                 <td> 19.5 m </td>
                                 <td> 7.3 m </td>
+                                <td> 3.5 m </td>
+                                <td> 2003/07/16 </td>
+                                <td> 2007/03/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2020-07-20 </td>
                                 <td> 2019-05-07 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1075,19 +1211,23 @@
                                 <td> 98.2 m </td>
                                 <td> 19.5 m </td>
                                 <td> 7.2 m </td>
+                                <td> 3.5 m </td>
+                                <td> 2002/06/21 </td>
+                                <td> 2002/10/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2020-02-26 </td>
                                 <td> 2019-05-08 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1096,19 +1236,23 @@
                                 <td> 99.8 m </td>
                                 <td> 19.8 m </td>
                                 <td> 7.3 m </td>
+                                <td> 3.8 m </td>
+                                <td> 2006/06/21 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R44 </td>
                                 <td> 2019-08-02 </td>
                                 <td> 2019-07-09 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0017 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1117,19 +1261,23 @@
                                 <td> 83.0 m </td>
                                 <td> 16.2 m </td>
                                 <td> 6.0 m </td>
+                                <td> 1.7 m </td>
+                                <td> 2001/09/01 </td>
+                                <td> 2002/05/01 </td>
+                                <td> R46 </td>
                                 <td> 2016-02-09 </td>
                                 <td> 2020-07-28 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05106 - 7300000303 </td>
 
                             </tr>
                             
@@ -1138,19 +1286,23 @@
                                 <td> 83.0 m </td>
                                 <td> 16.0 m </td>
                                 <td> 6.0 m </td>
+                                <td>  </td>
+                                <td> 2010/10/04 </td>
+                                <td>  </td>
+                                <td> R44 </td>
                                 <td> 2016-01-28 </td>
                                 <td> 2019-07-09 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1159,19 +1311,23 @@
                                 <td> 93.0 m </td>
                                 <td> 19.5 m </td>
                                 <td> 7.2 m </td>
+                                <td> 3.7 m </td>
+                                <td> 2003/07/10 </td>
+                                <td> 2002/05/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2020-02-25 </td>
                                 <td> 2019-11-18 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell">  </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell">   </td>
 
                             </tr>
                             
@@ -1180,19 +1336,23 @@
                                 <td> 88.0 m </td>
                                 <td> 17.8 m </td>
                                 <td> 8.3 m </td>
+                                <td> 0.8 m </td>
+                                <td> 2005/11/09 </td>
+                                <td> 2002/05/01 </td>
+                                <td> R44 </td>
                                 <td> 2019-06-11 </td>
                                 <td> 2019-05-30 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1201,19 +1361,23 @@
                                 <td> 83.0 m </td>
                                 <td> 16.2 m </td>
                                 <td> 5.8 m </td>
+                                <td> 1.7 m </td>
+                                <td> 2008/08/18 </td>
+                                <td> 2008/07/16 </td>
+                                <td> R44 </td>
                                 <td> 2020-03-17 </td>
                                 <td> 2020-01-06 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1222,19 +1386,23 @@
                                 <td> 97.1 m </td>
                                 <td> 19.3 m </td>
                                 <td> 6.9 m </td>
+                                <td>  </td>
+                                <td> 2014/04/09 </td>
+                                <td> 2014/04/09 </td>
+                                <td> R44 </td>
                                 <td> 2019-07-22 </td>
                                 <td> 2019-02-21 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1243,19 +1411,23 @@
                                 <td> 148.8 m </td>
                                 <td> 23.8 m </td>
                                 <td> 3.6 m </td>
+                                <td> 3.6 m </td>
+                                <td> 2005/09/15 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R44 </td>
                                 <td> 2017-10-04 </td>
                                 <td> 2017-09-19 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1264,19 +1436,23 @@
                                 <td> 67.5 m </td>
                                 <td> 13.5 m </td>
                                 <td> 8.1 m </td>
+                                <td> 1.1 m </td>
+                                <td> 2004/12/14 </td>
+                                <td> 2007/03/01 </td>
+                                <td> R44 </td>
                                 <td> 2019-08-01 </td>
                                 <td> 2020-08-18 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1285,19 +1461,23 @@
                                 <td> 62.5 m </td>
                                 <td> 12.2 m </td>
                                 <td> 4.8 m </td>
+                                <td>  </td>
+                                <td> 2014/01/28 </td>
+                                <td> 2014/01/28 </td>
+                                <td> R44 </td>
                                 <td> 2017-12-07 </td>
                                 <td> 2020-03-09 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9602 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9602 - 7300000276 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1306,19 +1486,23 @@
                                 <td> 123.7 m </td>
                                 <td> 17.7 m </td>
                                 <td> 8.4 m </td>
+                                <td> 2.3 m </td>
+                                <td> 2011/05/30 </td>
+                                <td> 2011/05/30 </td>
+                                <td> R44 </td>
                                 <td> 2016-01-27 </td>
                                 <td> 2018-05-01 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1327,19 +1511,23 @@
                                 <td> 123.7 m </td>
                                 <td> 17.7 m </td>
                                 <td> 8.4 m </td>
+                                <td> 10.6 m </td>
+                                <td> 2016/06/14 </td>
+                                <td> 2016/06/14 </td>
+                                <td> R44 </td>
                                 <td> 2020-02-28 </td>
                                 <td> 2019-10-24 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1348,19 +1536,23 @@
                                 <td> 222.5 m </td>
                                 <td> 23.2 m </td>
                                 <td> 5.0 m </td>
+                                <td> 9.1 m </td>
+                                <td> 2010/03/20 </td>
+                                <td> 2010/05/05 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2017-01-31 </td>
                                 <td> 2018-10-24 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1369,19 +1561,23 @@
                                 <td> 220.8 m </td>
                                 <td> 22.9 m </td>
                                 <td> 11.5 m </td>
+                                <td> 3.8 m </td>
+                                <td> 2001/08/15 </td>
+                                <td> 2002/05/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2019-07-03 </td>
                                 <td> 2019-05-13 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0014 </td>
                                 <td> 1.16 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1390,19 +1586,23 @@
                                 <td> 115.6 m </td>
                                 <td> 18.5 m </td>
                                 <td> 4.8 m </td>
+                                <td>  </td>
+                                <td> 2008/05/28 </td>
+                                <td> 2008/05/28 </td>
+                                <td> R44 </td>
                                 <td> 2016-01-12 </td>
                                 <td> 2019-10-09 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1411,19 +1611,23 @@
                                 <td> 120.0 m </td>
                                 <td> 20.0 m </td>
                                 <td> 7.6 m </td>
+                                <td> 2.8 m </td>
+                                <td> 2010/06/01 </td>
+                                <td> 2010/06/01 </td>
+                                <td> R44 </td>
                                 <td> 2020-02-28 </td>
                                 <td> 2019-05-07 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1432,19 +1636,23 @@
                                 <td> 157.0 m </td>
                                 <td> 24.3 m </td>
                                 <td> 5.5 m </td>
+                                <td> 2.0 m </td>
+                                <td> 2003/03/28 </td>
+                                <td> 2002/10/01 </td>
+                                <td> R44 </td>
                                 <td> 2017-04-04 </td>
                                 <td> 2019-10-30 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1453,19 +1661,23 @@
                                 <td> 45.7 m </td>
                                 <td> 11.2 m </td>
                                 <td> 4.7 m </td>
+                                <td> 1.2 m </td>
+                                <td> 2010/05/01 </td>
+                                <td> 2010/05/05 </td>
+                                <td> R65 </td>
                                 <td> 2016-05-11 </td>
                                 <td> 2018-06-28 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1474,19 +1686,23 @@
                                 <td> 148.9 m </td>
                                 <td> 25.9 m </td>
                                 <td> 7.9 m </td>
+                                <td>  </td>
+                                <td> 2010/01/11 </td>
+                                <td> 2010/01/11 </td>
+                                <td> R44 </td>
                                 <td> 2020-02-14 </td>
                                 <td> 2019-06-28 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1495,19 +1711,23 @@
                                 <td> 193.0 m </td>
                                 <td> 27.0 m </td>
                                 <td> 8.4 m </td>
+                                <td>  </td>
+                                <td> 2009/07/06 </td>
+                                <td> 2009/07/06 </td>
+                                <td> R44 </td>
                                 <td> 2019-04-11 </td>
                                 <td> 2019-06-20 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1516,19 +1736,23 @@
                                 <td> 200.0 m </td>
                                 <td> 26.7 m </td>
                                 <td> 6.3 m </td>
+                                <td>  </td>
+                                <td> 2011/06/01 </td>
+                                <td> 2011/07/06 </td>
+                                <td> R44 </td>
                                 <td> 2019-04-18 </td>
                                 <td> 2019-10-29 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1537,19 +1761,23 @@
                                 <td> 147.5 m </td>
                                 <td> 22.4 m </td>
                                 <td>  </td>
+                                <td> 9.5 m </td>
+                                <td> 2013/07/07 </td>
+                                <td> 2013/07/07 </td>
+                                <td> R44 </td>
                                 <td> 2017-06-07 </td>
                                 <td> 2019-04-25 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1558,19 +1786,23 @@
                                 <td> 225.6 m </td>
                                 <td> 23.8 m </td>
                                 <td> 9.0 m </td>
+                                <td> 7.0 m </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> R44 </td>
                                 <td> 2018-10-04 </td>
                                 <td> 2018-09-13 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1579,19 +1811,23 @@
                                 <td> 199.9 m </td>
                                 <td> 31.0 m </td>
                                 <td> 12.5 m </td>
-                                <td> N/A </td>
+                                <td> 5.0 m </td>
+                                <td> 2007/10/25 </td>
+                                <td> 2007/10/25 </td>
+                                <td> R46 </td>
+                                <td>  -- </td>
                                 <td> 2019-04-04 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0015 </td>
                                 <td> 1.17 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05106 - 7300000303 </td>
 
                             </tr>
                             
@@ -1600,19 +1836,23 @@
                                 <td> 294.0 m </td>
                                 <td> 32.3 m </td>
                                 <td> 10.8 m </td>
+                                <td> 31.8 m </td>
+                                <td> 2009/11/24 </td>
+                                <td>  </td>
+                                <td> R44 </td>
                                 <td> 2020-02-26 </td>
                                 <td> 2019-05-16 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0016 </td>
                                 <td> 1.18 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1621,19 +1861,23 @@
                                 <td> 44.8 m </td>
                                 <td> 9.8 m </td>
                                 <td> 2.6 m </td>
+                                <td> 1.0 m </td>
+                                <td> 2002/04/02 </td>
+                                <td> 2002/10/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2018-05-23 </td>
                                 <td> 2019-06-12 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1642,19 +1886,23 @@
                                 <td> 48.8 m </td>
                                 <td> 12.2 m </td>
                                 <td> 1.6 m </td>
+                                <td> 1.4 m </td>
+                                <td> 2002/06/06 </td>
+                                <td> 2002/10/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2019-08-06 </td>
                                 <td> 2019-06-07 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.29 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1663,19 +1911,23 @@
                                 <td> 68.9 m </td>
                                 <td> 14.5 m </td>
                                 <td> 4.5 m </td>
+                                <td> 2.8 m </td>
+                                <td> 2002/05/01 </td>
+                                <td> 2002/05/01 </td>
+                                <td> R46 </td>
                                 <td> 2016-02-09 </td>
                                 <td> 2019-12-12 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.28 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05106 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05106 - 7300000303 </td>
 
                             </tr>
                             
@@ -1684,19 +1936,23 @@
                                 <td> 69.7 m </td>
                                 <td> 13.7 m </td>
                                 <td> 5.2 m </td>
+                                <td> 1.5 m </td>
+                                <td> 2002/01/16 </td>
+                                <td> 2002/10/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2017-12-06 </td>
                                 <td> 2019-07-24 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1705,19 +1961,23 @@
                                 <td> 49.0 m </td>
                                 <td> 13.4 m </td>
                                 <td> 1.4 m </td>
+                                <td> 1.2 m </td>
+                                <td> 2002/05/31 </td>
+                                <td> 2002/10/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2018-03-23 </td>
                                 <td> 2019-05-28 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0015 </td>
                                 <td> 1.29 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1726,19 +1986,23 @@
                                 <td> 69.7 m </td>
                                 <td> 13.7 m </td>
                                 <td> 5.2 m </td>
+                                <td> 1.5 m </td>
+                                <td> 2009/02/04 </td>
+                                <td> 2009/02/04 </td>
+                                <td> R44 </td>
                                 <td> 2016-03-04 </td>
                                 <td> 2019-06-04 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1747,19 +2011,23 @@
                                 <td> 45.2 m </td>
                                 <td> 15.9 m </td>
                                 <td> 1.1 m </td>
+                                <td> 3.0 m </td>
+                                <td> 2009/06/01 </td>
+                                <td> 2009/07/15 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2016-07-21 </td>
                                 <td> 2019-05-29 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0015 </td>
                                 <td> 1.21 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1768,19 +2036,23 @@
                                 <td> 33.6 m </td>
                                 <td> 9.0 m </td>
                                 <td> 6.2 m </td>
+                                <td> 1.3 m </td>
+                                <td> 2009/04/30 </td>
+                                <td> 2009/04/30 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2017-06-09 </td>
                                 <td> 2018-06-07 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell">  </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell">   </td>
                                 <td> 1.23.0015 </td>
                                 <td> 1.19 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1789,19 +2061,23 @@
                                 <td> 51.1 m </td>
                                 <td> 14.6 m </td>
                                 <td> 1.8 m </td>
+                                <td> 3.2 m </td>
+                                <td> 2004/07/17 </td>
+                                <td> 2007/03/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2019-07-31 </td>
                                 <td> 2019-08-09 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0015 </td>
                                 <td> 1.21 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1810,19 +2086,23 @@
                                 <td> 73.6 m </td>
                                 <td> 16.0 m </td>
                                 <td> 5.8 m </td>
-                                <td> N/A </td>
+                                <td>  </td>
+                                <td> 2018/08/28 </td>
+                                <td>  </td>
+                                <td> R44 </td>
+                                <td>  -- </td>
                                 <td> 2020-01-10 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell"> GARMIN GA16XHVS </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell"> GARMIN GA16XHVS - 7300000130 </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
-                                <td> 1.3 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td> 1.30 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1831,19 +2111,23 @@
                                 <td> 125.6 m </td>
                                 <td> 21.6 m </td>
                                 <td> 5.3 m </td>
+                                <td> 5.4 m </td>
+                                <td> 2003/11/10 </td>
+                                <td> 2007/03/01 </td>
+                                <td> Inland Sea/River (see footnote </td>
                                 <td> 2018-02-22 </td>
                                 <td> 2019-08-29 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0014 </td>
                                 <td> 1.16 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> AXYS HATS </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> AXYS HATS - 7300000036 </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1852,19 +2136,23 @@
                                 <td> 19.5 m </td>
                                 <td> 6.4 m </td>
                                 <td>  </td>
+                                <td>  </td>
+                                <td> 2011/06/15 </td>
+                                <td> 2011/06/15 </td>
+                                <td> R44 </td>
                                 <td> 2019-07-04 </td>
                                 <td> 2018-02-06 </td>
-                                <td class="selectCell"> AXYS WM100 </td>
-                                <td class="selectCell"> KVH KVH1000 AUTOCOMP </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> NAL 9601 </td>
+                                <td class="selectCell"> AXYS WM100 - 7300000020 </td>
+                                <td class="selectCell"> KVH KVH1000 AUTOCOMP - 7300000191 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> NAL 9601 - 7300000275 </td>
                                 <td> 1.23.0019 </td>
                                 <td> 1.25 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell"> ROTRONICS MP101A-T-7 </td>
-                                <td class="selectCell">  </td>
-                                <td class="selectCell"> VAISALA PTB210B1T1B </td>
-                                <td class="selectCell"> RM YOUNG 05103 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell"> ROTRONICS MP101A-T-7 - 7300000305 </td>
+                                <td class="selectCell">   </td>
+                                <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
+                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
 
                             </tr>
                             
@@ -1876,7 +2164,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-13; NICE v1.0
+  Data Retrieved: 2020-09-17; NICE v1.1
 </footer>
 
             </div>

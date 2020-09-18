@@ -140,13 +140,13 @@
 
         // restore class and title from select element
         this.$parent = $(sprintf(
-            '<div class="ProvList-parent %s" %s/>',
+            '<div class="ms-parent %s" %s/>',
             $el.attr('class') || '',
             sprintf('title="%s"', $el.attr('title'))));
 
         // add placeholder to choice button
         this.$choice = $(sprintf([
-                '<button type="button" class="ProvList-choice">',
+                '<button type="button" class="ms-choice">',
                 '<span class="placeholder">%s</span>',
                 '<div></div>',
                 '</button>'
@@ -154,7 +154,7 @@
             this.options.placeholder));
 
         // default position is bottom
-        this.$drop = $(sprintf('<div class="ProvList-drop %s"%s></div>',
+        this.$drop = $(sprintf('<div class="ms-drop %s"%s></div>',
             this.options.position,
             sprintf(' style="width: %s"', this.options.dropWidth)));
 
@@ -177,11 +177,11 @@
         if (!this.options.keepOpen) {
             $(document).click(function (e) {
                 if ($(e.target)[0] === that.$choice[0] ||
-                    $(e.target).parents('.ProvList-choice')[0] === that.$choice[0]) {
+                    $(e.target).parents('.ms-choice')[0] === that.$choice[0]) {
                     return;
                 }
                 if (($(e.target)[0] === that.$drop[0] ||
-                    $(e.target).parents('.ProvList-drop')[0] !== that.$drop[0] && e.target !== $el[0]) &&
+                    $(e.target).parents('.ms-drop')[0] !== that.$drop[0] && e.target !== $el[0]) &&
                     that.options.isOpen) {
                     that.close();
                 }
@@ -200,7 +200,7 @@
 
             if (this.options.filter) {
                 this.$drop.append([
-                    '<div class="ProvList-search">',
+                    '<div class="ms-search">',
                     '<input type="text" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false">',
                     '</div>'].join('')
                 );
@@ -208,7 +208,7 @@
 
             if (this.options.selectAll && !this.options.single) {
                 $ul.append([
-                    '<li class="ProvList-select-all">',
+                    '<li class="ms-select-all">',
                     '<label>',
                     sprintf('<input type="checkbox" %s /> ', this.selectAllName),
                     this.options.selectAllDelimiter[0],
@@ -222,18 +222,18 @@
             $.each(this.$el.children(), function (i, elm) {
                 $ul.append(that.optionToHtml(i, elm));
             });
-            $ul.append(sprintf('<li class="ProvList-no-results">%s</li>', this.options.noMatchesFound));
+            $ul.append(sprintf('<li class="ms-no-results">%s</li>', this.options.noMatchesFound));
             this.$drop.append($ul);
 
             this.$drop.find('ul').css('max-height', this.options.maxHeight + 'px');
             this.$drop.find('.multiple').css('width', this.options.multipleWidth + 'px');
 
-            this.$searchInput = this.$drop.find('.ProvList-search input');
+            this.$searchInput = this.$drop.find('.ms-search input');
             this.$selectAll = this.$drop.find('input[' + this.selectAllName + ']');
             this.$selectGroups = this.$drop.find('input[' + this.selectGroupName + ']');
             this.$selectItems = this.$drop.find('input[' + this.selectItemName + ']:enabled');
             this.$disableItems = this.$drop.find('input[' + this.selectItemName + ']:disabled');
-            this.$noResults = this.$drop.find('.ProvList-no-results');
+            this.$noResults = this.$drop.find('.ms-no-results');
 
             this.events();
             this.updateSelectAll(true);
@@ -477,21 +477,6 @@
                 $span = this.$choice.find('>span'),
                 sl = selects.length;
 
-            if (sl === 0) {
-                $span.addClass('placeholder').html(this.options.placeholder);
-            } else if (this.options.allSelected && sl === this.$selectItems.length + this.$disableItems.length) {
-                $span.removeClass('placeholder').html(this.options.allSelected);
-            } else if (this.options.ellipsis && sl > this.options.minimumCountSelected) {
-                $span.removeClass('placeholder').text(selects.slice(0, this.options.minimumCountSelected)
-                    .join(this.options.delimiter) + '...');
-            } else if (this.options.countSelected && sl > this.options.minimumCountSelected) {
-                $span.removeClass('placeholder').html(this.options.countSelected
-                    .replace('#', selects.length)
-                    .replace('%', this.$selectItems.length + this.$disableItems.length));
-            } else {
-                $span.removeClass('placeholder').text(selects.join(this.options.delimiter));
-            }
-
             if (this.options.addTitle) {
                 $span.prop('title', this.getSelects('text'));
             }
@@ -720,19 +705,18 @@
     $.fn.multipleSelect.defaults = {
         name: '',
         isOpen: false,
-        isOpen: false,
-        placeholder: 'Province',
-        selectAll: true,
+        placeholder: '...',
+        selectAll: false,
         selectAllDelimiter: ['[', ']'],
-        minimumCountSelected: 3,
+        minimumCountSelected: 2,
         ellipsis: false,
         multiple: false,
-        multipleWidth: 80,
+        multipleWidth: 'auto',
         single: false,
         filter: false,
-        width: undefined,
-        dropWidth: undefined,
-        maxHeight: 300,
+        width: '100%',
+        dropWidth: 'auto',
+        maxHeight: undefined,
         container: null,
         position: 'bottom',
         keepOpen: false,
@@ -788,10 +772,14 @@
     };
 })(jQuery);
 
-$(function() {
-    $('#ProvList').change(function() {
-        console.log($(this).val());
-    }).multipleSelect({
-        width: '5vw'
-    });
-});
+function setMultipleSelects(lst) {
+    var len = lst.length;
+
+    for (var ms = 0; ms < len; ms++) {
+        $('#'+lst[ms][0]).multipleSelect({
+                placeholder: lst[ms][1],
+            });
+    }
+
+    document.getElementsByClassName('ms-drop bottom')[len - 1].style.right = '0';
+}

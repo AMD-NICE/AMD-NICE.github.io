@@ -1,3 +1,30 @@
+var page = window.location.pathname.split('/');
+page = page[page.length - 1];
+var MSs = [];
+
+if (page == "AWS.html") {
+    MSs = [['Prov', 'Prov.'], ['Temp1', 'Air Temp 1'], ['Temp2', 'Air Temp. 2'], ['Temp3', 'Air Temp. 3'],
+    ['RH', 'Relative Humidity'], ['BAR', 'Barometer'], ['Wind1', 'Wind 1'], ['Wind2', 'Wind 2'], ['AWG1', 'AWPG 1'], ['AWG2', 'AWPG 2'], ['AWG3', 'AWPG 3'],
+    ['Alter', 'AWPG Shield'], ['SG1', 'Snow Depth 1'], ['SG2', 'Snow Depth 2'], ['SG3', 'Snow Depth 3'], ['Logger', 'Datalogger']];
+} else if (["CCN.html", "LH.html"].includes(page)) {
+    MSs = [['Prov', 'Prov.'], ['Temp1', 'Air Temp. 1'], ['Temp2', 'Air Temp. 2'], ['Temp3', 'Air Temp. 3'], ['RH', 'Relative Humidity'],
+    ['BAR', 'Barometer'], ['Wind', 'Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Logger', 'Datalogger']];
+}else if (page == "AVOS.html") {
+    MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
+    ['Iridium', 'Iridium Transmitter'], ['Bridge', 'Bridge'], ['GPuc', 'GPuc'], ['ATemp', 'Air Temperature'],
+    ['RH', 'Relative Humidity'], ['WTemp', 'Water Temperature'], ['BAR', 'Barometer'], ['Wind', 'Wind']];
+} else if (page == "Moored.html") {
+    MSs = [['Reg', 'Region'], ['Floc', 'FLOC Type'], ['Mooring', 'Mooring'], ['Buoy', 'Buoy Type'], ['Processor', 'Sensor Processor'],
+    ['BAR', 'Barometer'], ['Compass', 'Compass'], ['PTrans', "Primary Transmitter"], ['STrans', 'Secondary Transmitter'],
+    ['GOES', 'GOES Antenna'], ['Trans', 'Transmitter'], ['SubTrans', 'Sub Transmitter'], ['Iridium', 'Iridium Beacon'],
+    ['ATemp', 'Air Temperature'], ['WTemp', 'Water Temperature'], ['Wind', 'Wind'], ['WindUS', 'Wind (Ultra Sonic)'],
+    ['Wave', 'Wave Module'], ['SubWave', 'Sub Wave']];
+} else if (page == "Mobile.html") {
+    MSs = [['Location', 'Storage Location'], ['Status', 'Station Status'], ['Method', 'Collection Method'], ['Type', 'Collection Type'],
+    ['PrimaryTx', 'Primary Tx'], ['SecondaryTx', 'Secondary Tx'], ['Temp', 'Air Temperature'], ['RH', 'Relative Humidity'],
+    ['BAR', 'Barometer'], ['Wind', 'Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Logger', 'DataLogger']];
+}
+
 function setMode() {
     var modeButton = document.getElementById("mode");
 
@@ -28,6 +55,14 @@ function setMode() {
                 filters[j].style.backgroundSize = '0.5vw 0.75vh';
             }
 
+            var MSs = document.getElementsByClassName('ms-choice');
+            var MSsLen = MSs.length;
+
+            for (var k = 0; k < MSsLen; k++) {
+                MSs[k].childNodes[1].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
+                MSs[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
+            }
+
             modeButton.innerText = "Dark mode";
         }
     }
@@ -46,6 +81,9 @@ function toggleDark() {
 
     var filters = $('.filter');
     var filterLen = filters.length;
+
+    var MSs = document.getElementsByClassName('ms-choice');
+    var MSsLen = MSs.length;
 
     var mainBackground = "";
     var mainColor = "";
@@ -82,15 +120,23 @@ function toggleDark() {
     for (var j = 0; j < filterLen; j++) {
         filters[j].style.background = ['url("/CSS/', filterColor, 'Arrow.png") no-repeat right'].join('');
         filters[j].style.backgroundSize = '0.5vw 0.75vh';
+        filters[j].style.backgroundColor = "inherit";
     }
+
+    for (var k = 0; k < MSsLen; k++) {
+        MSs[k].childNodes[1].style.background = ['url("/CSS/', filterColor, 'Arrow.png") no-repeat right'].join('');
+        MSs[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
+    }
+
 
     modeButton.innerText = modeText;
 }
 
 function setupPage() {
     setMode();
+
     try {
-        formatFilters();
+        setMultipleSelects(MSs);
     } catch {
     }
 

@@ -55,11 +55,10 @@ function export_table_to_csv(filename) {
         }
         var childrenLen = element.children.length;
         if (childrenLen > 0) {
-            if (childrenLen == 1){
-                head.push(element.children[0].options[0].value);
-
+            if (childrenLen > 1) {
+                head.push(element.children[1].getElementsByClassName('placeholder')[0].textContent);
             } else {
-                head.push(element.children[1].options[0].value);
+                head.push(element.children[0].options[0].value);
             }
         } else {
             head.push(element.innerText);
