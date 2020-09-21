@@ -10,7 +10,7 @@ if (page == "AWS.html") {
     MSs = [['Prov', 'Prov.'], ['Temp1', 'Air Temp. 1'], ['Temp2', 'Air Temp. 2'], ['Temp3', 'Air Temp. 3'], ['RH', 'Relative Humidity'],
     ['BAR', 'Barometer'], ['Wind', 'Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Logger', 'Datalogger']];
 }else if (page == "AVOS.html") {
-    MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
+    MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Route', 'Ship Route'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
     ['Iridium', 'Iridium Transmitter'], ['Bridge', 'Bridge'], ['GPuc', 'GPuc'], ['ATemp', 'Air Temperature'],
     ['RH', 'Relative Humidity'], ['WTemp', 'Water Temperature'], ['BAR', 'Barometer'], ['Wind', 'Wind']];
 } else if (page == "Moored.html") {

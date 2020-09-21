@@ -256,19 +256,20 @@ function AVOSFilter() {
     //For multiple select
     var ms0 = trLst1[0].textContent || trLst1[0].innerText;
     var ms1 = trLst2[0].textContent || trLst2[0].innerText;
-    var ms2 = trLst2[10].textContent || trLst2[10].innerText;
-    var ms3 = trLst2[11].textContent || trLst2[11].innerText;
-    var ms4 = trLst2[12].textContent || trLst2[12].innerText;
-    var ms5 = trLst2[13].textContent || trLst2[13].innerText;
-    var ms6 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms7 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms8 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms9 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms10 = trLst2[18].textContent || trLst2[18].innerText;
-    var ms11 = trLst2[19].textContent || trLst2[19].innerText;
-    var ms12 = trLst2[20].textContent || trLst2[20].innerText;
+    var ms2 = trLst2[7].textContent || trLst2[7].innerText;
+    var ms3 = trLst2[10].textContent || trLst2[10].innerText;
+    var ms4 = trLst2[11].textContent || trLst2[11].innerText;
+    var ms5 = trLst2[12].textContent || trLst2[12].innerText;
+    var ms6 = trLst2[13].textContent || trLst2[13].innerText;
+    var ms7 = trLst2[14].textContent || trLst2[14].innerText;
+    var ms8 = trLst2[15].textContent || trLst2[15].innerText;
+    var ms9 = trLst2[16].textContent || trLst2[16].innerText;
+    var ms10 = trLst2[17].textContent || trLst2[17].innerText;
+    var ms11 = trLst2[18].textContent || trLst2[18].innerText;
+    var ms12 = trLst2[19].textContent || trLst2[19].innerText;
+    var ms13 = trLst2[20].textContent || trLst2[20].innerText;
 
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12];
+    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13];
 
     if (Filter(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
         count += 1;
