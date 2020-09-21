@@ -51,7 +51,7 @@ function setMode() {
             var filterLen = filters.length;
 
             for (var j = 0; j < filterLen; j++) {
-                filters[j].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
+                filters[j].style.background = 'url("/CSS/whiteArrow.png") no-repeat right';
                 filters[j].style.backgroundSize = '0.5vw 0.75vh';
             }
 
@@ -59,7 +59,7 @@ function setMode() {
             var MSsLen = MSs.length;
 
             for (var k = 0; k < MSsLen; k++) {
-                MSs[k].childNodes[1].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
+                MSs[k].childNodes[1].style.background = 'url("/CSS/whiteArrow.png") no-repeat right';
                 MSs[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
             }
 
