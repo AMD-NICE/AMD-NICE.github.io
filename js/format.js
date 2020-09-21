@@ -51,16 +51,16 @@ function setMode() {
             var filterLen = filters.length;
 
             for (var j = 0; j < filterLen; j++) {
-                filters[j].style.background = 'url("/CSS/whiteArrow.png") no-repeat right';
+                filters[j].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
                 filters[j].style.backgroundSize = '0.5vw 0.75vh';
             }
 
-            var MSs = document.getElementsByClassName('ms-choice');
-            var MSsLen = MSs.length;
+            var multiples = document.getElementsByClassName('ms-choice');
+            var MSsLen = multiples.length;
 
             for (var k = 0; k < MSsLen; k++) {
-                MSs[k].childNodes[1].style.background = 'url("/CSS/whiteArrow.png") no-repeat right';
-                MSs[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
+                multiples[k].childNodes[1].style.background = 'url("/CSS/blackArrow.png") no-repeat right';
+                multiples[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
             }
 
             modeButton.innerText = "Dark mode";
@@ -82,8 +82,8 @@ function toggleDark() {
     var filters = $('.filter');
     var filterLen = filters.length;
 
-    var MSs = document.getElementsByClassName('ms-choice');
-    var MSsLen = MSs.length;
+    var multiples = document.getElementsByClassName('ms-choice');
+    var MSsLen = multiples.length;
 
     var mainBackground = "";
     var mainColor = "";
@@ -124,8 +124,8 @@ function toggleDark() {
     }
 
     for (var k = 0; k < MSsLen; k++) {
-        MSs[k].childNodes[1].style.background = ['url("/CSS/', filterColor, 'Arrow.png") no-repeat right'].join('');
-        MSs[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
+        multiples[k].childNodes[1].style.background = ['url("/CSS/', filterColor, 'Arrow.png") no-repeat right'].join('');
+        multiples[k].childNodes[1].style.backgroundSize = '0.5vw 0.75vh';
     }
 
 
@@ -133,12 +133,12 @@ function toggleDark() {
 }
 
 function setupPage() {
-    setMode();
-
     try {
         setMultipleSelects(MSs);
     } catch {
     }
+
+    setMode();
 
     var html = $('#main')[0];
     html.style.visibility = "visible";
