@@ -23,7 +23,40 @@ function Filter(sIn, sValues, oIns, oValues, msIns, msValues) {
 
     var msLen = msValues.length;
     for (var z = 0; z < msLen; z++) {
-        if (msIns[z].length != 0 && !(msIns[z].includes(msValues[z].trim().replace("  ", " ")))) {
+        if (MSs[z][0] == "AWPGStatus" && msIns[z].length > 0) {
+            try {
+                var include = false;
+                var level = msValues[z].split('%');
+
+                if (level.length == 1) {
+                    msBool = false;
+
+                    break;
+
+                } else {
+                    level = Number(level[0]);
+                }
+
+                var levels = [[-1, 25], [25, 50], [50, 75], [75, 101]];
+
+                for (var m = 0; m < msIns[z].length; m++) {
+                    var cutoffs = levels[msIns[z][Number(m)]];
+
+                    if (level > cutoffs[0] && level <= cutoffs[1]) {
+                        include = true
+
+                        break
+                    }
+
+                } if (!(include)) {
+                    msBool = false;
+
+                    break;
+                }
+
+            } catch {
+            }
+        } else if (msIns[z].length != 0 && !(msIns[z].includes(msValues[z].trim()))) {
             msBool = false;
 
             break;
@@ -56,7 +89,7 @@ function AWSFilter() {
       var itemLen = item.length;
       for (var y = 0; y < itemLen; y++) {
         if (item[y].selected) {
-            itemsHold.push(item[y].text);
+            itemsHold.push(item[y].value);
         }
       }
       multipleIn.push(itemsHold);
@@ -111,8 +144,9 @@ function AWSFilter() {
     var ms12 = trLst2[26].textContent || trLst2[26].innerText;
     var ms13 = trLst2[27].textContent || trLst2[27].innerText;
     var ms14 = trLst2[28].textContent || trLst2[28].innerText;
+    var ms15 = trLst2[13].textContent || trLst2[13].innerText;
 
-    var multipleValues = [ms00, ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13, ms14];
+    var multipleValues = [ms00, ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13, ms14, ms15];
 
     if (Filter(searchIn, searchValues, obsIn, obsValues, multipleIn, multipleValues)) {
         count += 1;
