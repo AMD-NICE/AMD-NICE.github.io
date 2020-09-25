@@ -22,19 +22,19 @@
                     </p>
 
                     <p>
-                        <b class="count">Query count: </b><b id="qCount">60</b>
+                        <b class="count">Query count: </b><b id="qCount" class="count">60</b>
                     </p>
                 </div>
 
                 <div class="fitWidth">
-                    <input type="text" id="Input" onkeyup="MooredFilter();" placeholder="Search by site name or FLOC...">
+                    <input type="text" id="Input" onkeyup="MooredFilter();" placeholder="Search by site name, FLOC, or IDs...">
                 </div>
                 <div class="buttons">
-                    <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
+                    <button id="Home" class="options" onclick="window.location.href ='/'">Home</button>
 
-                    <button id="Export" class="button">Export to CSV</button>
+                    <button id="Export" class="options">Export to CSV</button>
 
-                    <button id="Clear" class="button" onClick="clearMooredFilters();">Clear Filters</button>
+                    <button id="Clear" class="options" onClick="clearMooredFilters();">Clear Filters</button>
 
                     <div class="purple legend"> FLOC </div>
                     <div class="blue legend"> Mooring </div>
@@ -50,10 +50,9 @@
                         <tr>
                             <th class="purple">
                                 <select id="Reg" onchange="MooredFilter();" multiple="multiple">
-                                    <option value="ATL"> PYR </option>
-                                    <option value="CENTRAL"> PNR </option>
-                                    <option value="PYR"> OR </option>
-                                    <option value="QAR"> QAR </option>
+                                    <option value="ATL"> ATL </option>
+                                    <option value="CENTRAL"> CENTRAL </option>
+                                    <option value="PYR"> PYR </option>
                                 </select>
                             </th>
                             <th id="name" class="purple"> Name </th>
@@ -65,7 +64,7 @@
                                 </select>
                             </th>
                             <th class="purple"> Buoy Equip. # </th>
-                            <th class="purple"> Serial Number </th>
+                            <th class="purple"> Iridium Module S/N </th>
                         </tr>
                     </table>
                 </div>
@@ -1228,7 +1227,7 @@
                                 <td> 07-BUOY-XX-46205 </td>
                                 <td class="selectCell"> Anchor </td>
                                 <td> 20133258 </td>
-                                <td> J10X6E </td>
+                                <td>   </td>
                             </tr>
                             
                             <tr>
@@ -2360,7 +2359,7 @@
                                 <td> 439 m </td>
                                 <td> 222 m </td>
                                 <td> 2019-06-19 </td>
-                                <td>   </td>
+                                <td> 2018-04-30 </td>
                                 <td class="selectCell"> PROF COMPONENTS 3M DISCUS - 7300000022 </td>
                                 <td class="selectCell">   </td>
                                 <td class="selectCell">   </td>
@@ -2390,10 +2389,10 @@
                                 <td class="selectCell"> PROF COMPONENTS 3M DISCUS - 7300000022 </td>
                                 <td class="selectCell"> AXYS 3m & NOMAD BUO - 7300000030 </td>
                                 <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
-                                <td class="selectCell"> KVH KVHC100 SE25 - 7300000192 </td>
+                                <td class="selectCell">   </td>
                                 <td class="selectCell"> GOES DCP </td>
                                 <td class="selectCell"> Iridium </td>
-                                <td class="selectCell"> AXYS 3m & NOMAD BUOY - 7300000040 </td>
+                                <td class="selectCell">   </td>
                                 <td class="selectCell">   </td>
                                 <td class="selectCell"> HARSH SYNERGETICS 14A-NS - 7300000163 </td>
                                 <td class="selectCell">   </td>
@@ -2412,7 +2411,7 @@
                                 <td> 162 m </td>
                                 <td> 75 m </td>
                                 <td> 2020-06-24 </td>
-                                <td> 2015-06-05 </td>
+                                <td> 2018-04-30 </td>
                                 <td class="selectCell"> PROF COMPONENTS 3M DISCUS - 7300000022 </td>
                                 <td class="selectCell"> AXYS 3m & NOMAD BUO - 7300000030 </td>
                                 <td class="selectCell"> VAISALA PTB210B1T1B - 7300000346 </td>
@@ -3011,7 +3010,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-21; NICE v1.1
+  Data Retrieved: 2020-09-24; NICE v1.1
 </footer>
 
             </div>

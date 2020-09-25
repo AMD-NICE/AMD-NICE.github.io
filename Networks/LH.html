@@ -8,7 +8,7 @@
     <head>
         <title>NICE/LH</title>
     </head>
-    <body onload="setupPage();">
+    <body onload="setupPage();" onresize="setupPage();">
         <div class="page">
             <div class="top">
                 <div class="counts">
@@ -19,6 +19,7 @@
 
                     <p>
                         <b class="count"> Stations: 29 </b>
+
                     </p>
 
                     <p>
@@ -31,16 +32,16 @@
                 </div>
                 <div class="buttons">
 
-                    <button id="Home" class="button" onclick="window.location.href ='/'">Home</button>
+                    <button id="Home" class="options" onclick="window.location.href ='/'">Home</button>
 
-                    <button id="Export" class="button">Export to CSV</button>
+                    <button id="Export" class="options">Export to CSV</button>
 
-                    <button id="Clear" class="button" onClick="clearSurfaceFilters();">Clear Filters</button>
+                    <button id="Clear" class="options" onclick="clearSurfaceFilters();">Clear Filters</button>
 
                     <div class="purple legend"> FLOC </div>
                     <div class="blue legend"> Designations </div>
                     <div class="green legend"> Work Orders </div>
-                    <div class="yellow legend"> AWG Status </div>
+                    <div class="yellow legend"> AWPG Status </div>
                     <div class="red legend"> Sensors </div>
 
                 </div>
@@ -51,7 +52,7 @@
                         <tr>
                             <th id="name" class="purple"> Name </th>
                             <th class="purple"> FLOC </th>
-                            <th class="purple">
+                            <th class="purple thinCell">
                                 <select id="Prov" onchange="SurfaceFilter();" multiple="multiple">
                                     <option value="AB">AB</option>
                                     <option value="BC">BC</option>
@@ -79,42 +80,42 @@
                             <th class="purple"> WMO ID </th>
                             <th class="purple"> Latitude </th>
                             <th class="purple"> Longitude </th>
-                            <th class="blue">
+                            <th class="blue thinCell">
                                 <select id="RBSN" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="RBSN">RBSN</option>
                                     <option value=" X ">RBSN</option>
                                     <option value="   ">Not RBSN</option>
                                 </select>
                             </th>
-                            <th class="blue">
+                            <th class="blue thinCell">
                                 <select id="RBCN" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="RBCN">RBCN</option>
                                     <option value=" X ">RBCN</option>
                                     <option value="   ">Not RBCN</option>
                                 </select>
                             </th>
-                            <th class="blue">
+                            <th class="blue thinCell">
                                 <select id="GSN" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="GSN">GSN</option>
                                     <option value=" X ">GSN</option>
                                     <option value="   ">Not GSN</option>
                                 </select>
                             </th>
-                            <th class="blue">
+                            <th class="blue thinCell">
                                 <select id="RCS" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="RCS">RCS</option>
                                     <option value=" X ">RCS</option>
                                     <option value="   ">Not RCS</option>
                                 </select>
                             </th>
-                            <th class="blue">
+                            <th class="blue thinCell">
                                 <select id="Coastal" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="Coastal">Coastal</option>
                                     <option value=" X ">Coastal</option>
                                     <option value="   ">Not Coastal</option>
                                 </select>
                             </th>
-                            <th class="blue">
+                            <th class="blue thinCell">
                                 <select id="CRD" onchange="SurfaceFilter();" class="filter">
                                     <option class="hide" value="CRD">CRD</option>
                                     <option value=" X ">CRD</option>
@@ -123,34 +124,33 @@
                             </th>
                             <th class="green"> Last Complete PM21 </th>
                             <th class="green"> Last Complete PM22 </th>
-                            <th class="yellow"> AWG Status </th>
-                            <th class="red selectCell">
-                                <select id="Temp1" onchange="SurfaceFilter();" multiple="multiple">
+                            <th class="yellow">
+                                <select id="AWPGStatus" onchange="SurfaceFilter();" multiple="multiple">
+                                    <option value="0"><25%</option>
+                                    <option value="1">25-50%</option>
+                                    <option value="2">50-75%</option>
+                                    <option value="3">>75%</option
+                                </select>
+                            </th>
+                            <th class="red">
+                                <select id="Temp" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
 												
-													<option value="GENERIC - 7300000147">GENERIC - 7300000147</option>
+													<option value="1x GENERIC - 7300000147">1x GENERIC - 7300000147</option>
 												
-													<option value="GENERIC - 7300000148">GENERIC - 7300000148</option>
+													<option value="2x GENERIC - 7300000147">2x GENERIC - 7300000147</option>
 												
-													<option value="GENERIC - 7300000151">GENERIC - 7300000151</option>
+													<option value="4x GENERIC - 7300000147">4x GENERIC - 7300000147</option>
 												
-													<option value="GENERIC ORDINARY SLING-TYPE THERMOMETER - 7300000150">GENERIC ORDINARY SLING-TYPE THERMOMETER - 7300000150</option>
+													<option value="2x GENERIC - 7300000148">2x GENERIC - 7300000148</option>
 												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
+													<option value="4x GENERIC - 7300000148">4x GENERIC - 7300000148</option>
+												
+													<option value="4x GENERIC - 7300000151">4x GENERIC - 7300000151</option>
+												
+													<option value="4x GENERIC ORDINARY SLING-TYPE THERMOMETER - 7300000150">4x GENERIC ORDINARY SLING-TYPE THERMOMETER - 7300000150</option>
+												
 											
                                     
 											
@@ -169,113 +169,13 @@
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
-                                <select id="Temp2" onchange="SurfaceFilter();" multiple="multiple">
-									
-											
-                                    
-											
-												
-													<option value="GENERIC - 7300000147">GENERIC - 7300000147</option>
-												
-													<option value="GENERIC - 7300000148">GENERIC - 7300000148</option>
-												
-													<option value="GENERIC - 7300000151">GENERIC - 7300000151</option>
-												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-								</select>
-                            </th>
-                            <th class="red selectCell">
-                                <select id="Temp3" onchange="SurfaceFilter();" multiple="multiple">
-									
-											
-                                    
-											
-                                    
-											
-												
-													<option value="GENERIC - 7300000147">GENERIC - 7300000147</option>
-												
-													<option value="GENERIC - 7300000148">GENERIC - 7300000148</option>
-												
-													<option value="GENERIC - 7300000151">GENERIC - 7300000151</option>
-												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-								</select>
-                            </th>
-                            <th class="red selectCell">
+                            <th class="red">
                                 <select id="RH" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
                                     
 											
-                                    
-											
-                                    
-											
 												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
 											
                                     
 											
@@ -292,7 +192,7 @@
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
+                            <th class="red">
                                 <select id="BAR" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
@@ -300,21 +200,7 @@
 											
                                     
 											
-                                    
-											
-                                    
-											
 												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
 											
                                     
 											
@@ -329,7 +215,7 @@
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
+                            <th class="red">
                                 <select id="Wind" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
@@ -339,23 +225,9 @@
 											
                                     
 											
-                                    
-											
-                                    
-											
 												
-													<option value="RM YOUNG 05103 - 7300000302">RM YOUNG 05103 - 7300000302</option>
+													<option value="1x RM YOUNG 05103 - 7300000302">1x RM YOUNG 05103 - 7300000302</option>
 												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
 											
                                     
 											
@@ -368,7 +240,7 @@
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
+                            <th class="red">
                                 <select id="AWG" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
@@ -380,21 +252,7 @@
 											
                                     
 											
-                                    
-											
-                                    
-											
-                                    
-											
 												
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
 											
                                     
 											
@@ -405,7 +263,7 @@
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
+                            <th class="red">
                                 <select id="Alter" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
@@ -423,26 +281,12 @@
 											
                                     
 											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
 												
 											
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
+                            <th class="red">
                                 <select id="SG" onchange="SurfaceFilter();" multiple="multiple">
 									
 											
@@ -456,21 +300,7 @@
 											
                                     
 											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
 												
-											
-                                    
-											
-                                    
 											
                                     
 											
@@ -479,23 +309,9 @@
                                     
 								</select>
                             </th>
-                            <th class="red selectCell">
-                                <select id="Logger" onchange="SurfaceFilter();" multiple="multiple">
+                            <th class="red">
+                                <select id="Datalogger" onchange="SurfaceFilter();" multiple="multiple">
 									
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
-											
-                                    
 											
                                     
 											
@@ -528,175 +344,175 @@
                             <tr>
                                 <td id="name"> TRIAL ISLAND </td>
                                 <td> 07-SURF-BC-1018238 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE MUDGE </td>
                                 <td> 07-SURF-BC-1021330 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CHATHAM POINT </td>
                                 <td> 07-SURF-BC-1021480 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CHROME ISLAND </td>
                                 <td> 07-SURF-BC-1021500 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PINE ISLAND </td>
                                 <td> 07-SURF-BC-1026170 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PULTENEY POINT </td>
                                 <td> 07-SURF-BC-1026550 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> SCARLETT POINT </td>
                                 <td> 07-SURF-BC-1027121 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ENTRANCE ISLAND </td>
                                 <td> 07-SURF-BC-102BFHH </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> AMPHITRITE POINT </td>
                                 <td> 07-SURF-BC-1030426 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE BEALE LIGHT </td>
                                 <td> 07-SURF-BC-1031316 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CAPE SCOTT </td>
                                 <td> 07-SURF-BC-1031353 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> CARMANAH POINT </td>
                                 <td> 07-SURF-BC-1031402 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ESTEVAN POINT </td>
                                 <td> 07-SURF-BC-1032730 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> LENNARD ISLAND </td>
                                 <td> 07-SURF-BC-1034600 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> NOOTKA LIGHTSTATION </td>
                                 <td> 07-SURF-BC-1035614 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> PACHENA POINT </td>
                                 <td> 07-SURF-BC-1035940 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> QUATSINO LIGHTSTATION </td>
                                 <td> 07-SURF-BC-1036572 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> MERRY ISLAND LIGHTSTATION </td>
                                 <td> 07-SURF-BC-1045100 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> LANGARA </td>
                                 <td> 07-SURF-BC-1054500 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> ADDENBROKE ISLAND </td>
                                 <td> 07-SURF-BC-1060080 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> BOAT BLUFF </td>
                                 <td> 07-SURF-BC-1060901 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> BONILLA ISLAND </td>
                                 <td> 07-SURF-BC-1060902 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> DRYAD POINT </td>
                                 <td> 07-SURF-BC-1062544 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> EGG ISLAND </td>
                                 <td> 07-SURF-BC-1062646 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> GREEN ISLAND </td>
                                 <td> 07-SURF-BC-1063298 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> IVORY ISLAND </td>
                                 <td> 07-SURF-BC-1063690 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> MCINNES ISLAND </td>
                                 <td> 07-SURF-BC-1065010 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> TRIPLE ISLAND </td>
                                 <td> 07-SURF-BC-1068250 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                             <tr>
                                 <td id="name"> TSAWWASSEN FERRY </td>
                                 <td> 07-SURF-BC-1108290 </td>
-                                <td> BC </td>
+                                <td class="thinCell"> BC </td>
                             </tr>
                             
                         </table>
@@ -710,25 +526,23 @@
                                 <td> 71034 </td>
                                 <td> 48.395100 </td>
                                 <td> -123.304900 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2015-06-25 </td>
                                 <td>   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -737,25 +551,23 @@
                                 <td> 8888 </td>
                                 <td> 49.998400 </td>
                                 <td> -125.195500 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2020-08-13 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000151; GENERIC - 7300000148; GENERIC - 7300000147 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -764,25 +576,23 @@
                                 <td> 88888 </td>
                                 <td> 50.333100 </td>
                                 <td> -125.445600 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2020-08-11 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000151; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -791,25 +601,23 @@
                                 <td>  </td>
                                 <td> 49.472200 </td>
                                 <td> -124.683100 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-11-17 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -818,25 +626,23 @@
                                 <td> 16170 </td>
                                 <td> 50.975800 </td>
                                 <td> -127.728100 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2019-11-05 </td>
                                 <td> 2018-11-22 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000148; GENERIC - 7300000147; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -845,25 +651,23 @@
                                 <td>  </td>
                                 <td> 50.630600 </td>
                                 <td> -127.155000 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-08-10 </td>
                                 <td>   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -872,25 +676,23 @@
                                 <td>  </td>
                                 <td> 50.860700 </td>
                                 <td> -127.613300 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-08-10 </td>
                                 <td>   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -899,25 +701,23 @@
                                 <td>  </td>
                                 <td> 49.208900 </td>
                                 <td> -123.808900 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2015-12-31 </td>
                                 <td> 2016-07-26 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000148; GENERIC - 7300000147; GENERIC - 7300000151; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -926,25 +726,23 @@
                                 <td>  </td>
                                 <td> 48.921100 </td>
                                 <td> -125.541100 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-04-14 </td>
                                 <td>   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -953,25 +751,23 @@
                                 <td>  </td>
                                 <td> 48.786100 </td>
                                 <td> -125.216100 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2020-02-17 </td>
                                 <td> 2016-08-30 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000148; GENERIC - 7300000147 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> RM YOUNG 05103 - 7300000302 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -980,25 +776,23 @@
                                 <td> 11353 </td>
                                 <td> 50.782200 </td>
                                 <td> -128.427200 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2018-12-11 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000148; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1007,25 +801,23 @@
                                 <td>  </td>
                                 <td> 48.611666 </td>
                                 <td> -124.751388 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-08-30 </td>
                                 <td>   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1034,25 +826,23 @@
                                 <td>  </td>
                                 <td> 49.383500 </td>
                                 <td> -126.550800 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-09-13 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000151; GENERIC - 7300000147 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1061,25 +851,23 @@
                                 <td>  </td>
                                 <td> 49.110500 </td>
                                 <td> -125.923300 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2019-12-03 </td>
                                 <td> 2017-01-24 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000148; GENERIC - 7300000147 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> RM YOUNG 05103 - 7300000302 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1088,25 +876,23 @@
                                 <td>  </td>
                                 <td> 49.600000 </td>
                                 <td> -126.616700 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2020-08-11 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC ORDINARY SLING-TYPE THERMOMETER - 7300000150 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC ORDINARY SLING-TYPE THERMOMETER - 7300000150; GENERIC - 7300000148; GENERIC - 7300000147; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> RM YOUNG 05103 - 7300000302 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1115,25 +901,23 @@
                                 <td>  </td>
                                 <td> 48.722800 </td>
                                 <td> -125.097200 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2016-11-21 </td>
                                 <td> 2016-09-01 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> RM YOUNG 05103 - 7300000302 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1142,25 +926,23 @@
                                 <td> 16572 </td>
                                 <td> 50.441100 </td>
                                 <td> -128.032500 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2018-11-21 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1169,25 +951,23 @@
                                 <td>  </td>
                                 <td> 49.467500 </td>
                                 <td> -123.912500 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2019-07-18 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell"> RM YOUNG 05103 - 7300000302 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td> RM YOUNG 05103 - 7300000302 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1196,25 +976,23 @@
                                 <td> 71899 </td>
                                 <td> 54.255100 </td>
                                 <td> -133.058000 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2020-03-09 </td>
                                 <td> 2019-08-15 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1223,25 +1001,23 @@
                                 <td> 10020 </td>
                                 <td> 51.603500 </td>
                                 <td> -127.863900 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2020-02-27 </td>
                                 <td> 2020-02-20 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147; GENERIC - 7300000151; GENERIC - 7300000151; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1250,25 +1026,23 @@
                                 <td>  </td>
                                 <td> 52.643000 </td>
                                 <td> -128.523900 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2020-05-07 </td>
                                 <td> 2020-02-19 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147; GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1277,25 +1051,23 @@
                                 <td>  </td>
                                 <td> 53.492800 </td>
                                 <td> -130.637700 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2019-11-18 </td>
                                 <td> 2019-08-14 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000148; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1304,25 +1076,23 @@
                                 <td>  </td>
                                 <td> 52.185000 </td>
                                 <td> -127.887800 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2019-10-30 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147; GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1331,25 +1101,23 @@
                                 <td> 12646 </td>
                                 <td> 51.247200 </td>
                                 <td> -127.835400 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2020-02-20 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147; GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000151 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1358,25 +1126,23 @@
                                 <td>  </td>
                                 <td> 54.568600 </td>
                                 <td> -130.708100 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2016-12-12 </td>
                                 <td> 2019-08-13 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000147; GENERIC - 7300000151; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1385,25 +1151,23 @@
                                 <td>  </td>
                                 <td> 52.269700 </td>
                                 <td> -127.593300 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2019-10-30 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000148; GENERIC - 7300000151; GENERIC - 7300000147 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1412,25 +1176,23 @@
                                 <td> 71897 </td>
                                 <td> 52.261666 </td>
                                 <td> -128.719444 </td>
-                                <td> X </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td> 2020-08-04 </td>
                                 <td> 2019-10-29 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000147 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000147; GENERIC - 7300000151; GENERIC - 7300000151; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1439,25 +1201,23 @@
                                 <td>  </td>
                                 <td> 54.294700 </td>
                                 <td> -130.880300 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2019-08-13 </td>
                                 <td>   </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000151 </td>
-                                <td class="selectCell"> GENERIC - 7300000148 </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td> GENERIC - 7300000151; GENERIC - 7300000151; GENERIC - 7300000148; GENERIC - 7300000148 </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                             <tr>
@@ -1466,25 +1226,23 @@
                                 <td>  </td>
                                 <td> 49.004700 </td>
                                 <td> -123.132800 </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td>   </td>
-                                <td> X </td>
-                                <td>   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell">   </td>
+                                <td class="thinCell"> X </td>
+                                <td class="thinCell">   </td>
                                 <td>   </td>
                                 <td> 2016-08-11 </td>
                                 <td>   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
-                                <td class="selectCell">   </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
                             </tr>
                             
                         </table>
@@ -1495,7 +1253,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-21; NICE v1.1
+  Data Retrieved: 2020-09-24; NICE v1.1
 </footer>
 
             </div>

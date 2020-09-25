@@ -781,5 +781,6 @@ function setMultipleSelects(lst) {
             });
     }
 
+    document.getElementsByClassName('ms-drop bottom')[len - 2].style.right = '0';
     document.getElementsByClassName('ms-drop bottom')[len - 1].style.right = '0';
 }

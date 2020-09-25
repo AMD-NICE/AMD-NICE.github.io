@@ -29,6 +29,7 @@
     -moz-border-radius: 0px;
     border-radius: 0px;
     background-color: inherit;
+    font-size: inherit;
 
 }
 
@@ -44,7 +45,7 @@
     overflow: hidden;
     display: block;
     padding-left: 8px;
-    font-size: 0.8vw;
+    font-size: inherit;
     text-align: center;
     margin: auto;
     padding-right: 0.5vw;
@@ -53,23 +54,23 @@
 .ms-choice > span.placeholder {
     color: inherit;
     font-family: "Arial", Arial, sans-serif;
-    font-size: 0.8vw;
+    font-size: inherit;
     font-weight: bold;
 }
 
 .ms-choice > div {
     position: absolute;
-    top: calc(50% - 0.5vh);
+    top: calc(50% - 4px);
     right: 0;
-    width: 1vw;
-    height: 1vh;
+    width: 10px;
+    height: 8px;
     background: url("/CSS/whiteArrow.png") no-repeat right;
-    background-size: 0.5vw 0.75vh;
+    background-size: 10px 8px;
 }
 
 .ms-choice > div.open {
     background: url("/CSS/whiteArrow.png") no-repeat right;
-    background-size: 0.5vw 0.75vh;
+    background-size: 10px 8px;
 }
 
 .ms-drop {
@@ -198,8 +199,8 @@
 
 .ms-drop input[type="checkbox"] {
     vertical-align: middle;
-    width: 1vw;
-    height: 1vh;
+    width: 10px;
+    height: 10px;
 }
 
 .ms-drop .ms-no-results {

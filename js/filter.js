@@ -21,6 +21,101 @@ function Filter(sIn, sValues, oIns, oValues, msIns, msValues) {
         }
     }
 
+    var msLen = msIns.length;
+    for (var z = 0; z < msLen; z++) {
+        selectedLen = msIns[z].length;
+
+        if (MSs[z][0] == "AWPGStatus" && selectedLen > 0) {
+            try {
+                var include = false;
+                var level = msValues[z].split('%');
+
+                if (level.length == 1) {
+                    msBool = false;
+
+                    break;
+
+                } else {
+                    level = Number(level[0]);
+                }
+
+                var levels = [[-1, 25], [25, 50], [50, 75], [75, 101]];
+
+                for (var m = 0; m < selectedLen; m++) {
+                    var cutoffs = levels[Number(msIns[z][m])];
+
+                    if (level > cutoffs[0] && level <= cutoffs[1]) {
+                        include = true
+
+                        break
+                    }
+
+                } if (!(include)) {
+                    msBool = false;
+
+                    break;
+                }
+
+            } catch {
+            }
+        } else {
+            if (["Prov", "Reg"].includes(MSs[z][0])) {
+                if (msIns[z].length != 0 && !(msIns[z].includes(msValues[z].trim()))) {
+                msBool = false;
+
+                break;
+                }
+            } else if (selectedLen > 0) {
+                for (var s = 0; s < selectedLen; s++) {
+                    var lstHold = msIns[z][s].split('x ');
+                    var inLen = Number(lstHold[0]);
+                    var inValue = lstHold[1];
+
+                    var match = false;
+
+                    var valueLen = msValues[z].split('; ').length;
+
+                    if (inLen == valueLen && msValues[z].includes(inValue)){
+                        match = true;
+
+                        break;
+                    }
+                } if (match == false) {
+                    msBool = false;
+
+                    break;
+                }
+            }
+        }
+    }
+
+
+    return searchBool && obsBool && msBool;
+}
+
+function Filter2(sIn, sValues, oIns, oValues, msIns, msValues) {
+    var searchBool = false;
+    var obsBool = true;
+    var msBool = true;
+
+    var sLen = sValues.length;
+    for (var x = 0; x < sLen; x++) {
+        if (sValues[x].includes(sIn)) {
+            searchBool = true;
+
+            break;
+        }
+    }
+
+    var oLen = oValues.length;
+    for (var y = 0; y < oLen; y++) {
+        if ([" X ", "   "].includes(oIns[y]) && oIns[y] != oValues[y]) {
+            obsBool = false;
+
+            break;
+        }
+    }
+
     var msLen = msValues.length;
     for (var z = 0; z < msLen; z++) {
         if (MSs[z][0] == "AWPGStatus" && msIns[z].length > 0) {
@@ -67,7 +162,7 @@ function Filter(sIn, sValues, oIns, oValues, msIns, msValues) {
     return searchBool && obsBool && msBool;
 }
 
-function AWSFilter() {
+function SurfaceFilter() {
   var searchIn = document.getElementById("Input").value.toUpperCase();
 
   var RBSN = document.getElementById("RBSN").value;
@@ -128,25 +223,18 @@ function AWSFilter() {
     var obsValues = [obs0, obs1, obs2, obs3, obs4, obs5];
 
     //For multiple select
-    var ms00 = trLst1[2].textContent || trLst1[2].innerText;
-    var ms0 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms1 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms2 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms3 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms4 = trLst2[18].textContent || trLst2[18].innerText;
-    var ms5 = trLst2[19].textContent || trLst2[19].innerText;
-    var ms6 = trLst2[20].textContent || trLst2[20].innerText;
-    var ms7 = trLst2[21].textContent || trLst2[21].innerText;
-    var ms8 = trLst2[22].textContent || trLst2[22].innerText;
-    var ms9 = trLst2[23].textContent || trLst2[23].innerText;
-    var ms10 = trLst2[24].textContent || trLst2[24].innerText;
-    var ms11 = trLst2[25].textContent || trLst2[25].innerText;
-    var ms12 = trLst2[26].textContent || trLst2[26].innerText;
-    var ms13 = trLst2[27].textContent || trLst2[27].innerText;
-    var ms14 = trLst2[28].textContent || trLst2[28].innerText;
-    var ms15 = trLst2[13].textContent || trLst2[13].innerText;
+    var ms0 = trLst1[2].textContent || trLst1[2].innerText;
+    var ms1 = trLst2[14].textContent || trLst2[14].innerText;
+    var ms2 = trLst2[15].textContent || trLst2[15].innerText;
+    var ms3 = trLst2[16].textContent || trLst2[16].innerText;
+    var ms4 = trLst2[17].textContent || trLst2[17].innerText;
+    var ms5 = trLst2[18].textContent || trLst2[18].innerText;
+    var ms6 = trLst2[19].textContent || trLst2[19].innerText;
+    var ms7 = trLst2[20].textContent || trLst2[20].innerText;
+    var ms8 = trLst2[21].textContent || trLst2[21].innerText;
+    var ms9 = trLst2[13].textContent || trLst2[13].innerText;
 
-    var multipleValues = [ms00, ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13, ms14, ms15];
+    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9];
 
     if (Filter(searchIn, searchValues, obsIn, obsValues, multipleIn, multipleValues)) {
         count += 1;
@@ -160,7 +248,7 @@ function AWSFilter() {
   document.getElementById("qCount").innerHTML = count;
 }
 
-function SurfaceFilter() {
+function TestFilter() {
   var searchIn = document.getElementById("Input").value.toUpperCase();
 
   var RBSN = document.getElementById("RBSN").value;
@@ -305,7 +393,7 @@ function AVOSFilter() {
 
     var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13];
 
-    if (Filter(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
+    if (Filter2(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
         count += 1;
         trB1[i].style.display = "";
         trB2[i].style.display = "";
@@ -371,10 +459,12 @@ function MobileFilter() {
     var ms9 = trLst2[14].textContent || trLst2[14].innerText;
     var ms10 = trLst2[15].textContent || trLst2[15].innerText;
     var ms11 = trLst2[16].textContent || trLst2[16].innerText;
+    var ms12 = trLst2[17].textContent || trLst2[17].innerText;
+    var ms13 = trLst2[18].textContent || trLst2[18].innerText;
 
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11];
+    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13];
 
-    if (Filter(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
+    if (Filter2(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
         count += 1;
         trB1[i].style.display = "";
         trB2[i].style.display = "";
@@ -449,7 +539,7 @@ function MooredFilter() {
 
     var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13, ms14, ms15, ms16, ms17, ms18];
 
-    if (Filter(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
+    if (Filter2(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
         count += 1;
         trB1[i].style.display = "";
         trB2[i].style.display = "";
