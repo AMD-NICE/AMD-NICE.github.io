@@ -12,7 +12,7 @@ if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
 } else if (page == "Moored.html") {
     MSs = [['Reg', 'Region'], ['Floc', 'FLOC Type'], ['Mooring', 'Mooring'], ['Buoy', 'Buoy Type'], ['Processor', 'Sensor Processor'],
     ['BAR', 'Barometer'], ['Compass', 'Compass'], ['PTrans', "Primary Transmitter"], ['STrans', 'Secondary Transmitter'],
-    ['GOES', 'GOES Antenna'], ['Trans', 'Transmitter'], ['SubTrans', 'Sub Transmitter'], ['Iridium', 'Iridium Beacon'],
+    ['Trans', 'Transmitter'], ['SubTrans', 'Sub Transmitter'], ['GOES', 'GOES Antenna'], ['Iridium', 'Iridium Beacon'],
     ['ATemp', 'Air Temp.'], ['WTemp', 'Water Temp.'], ['Wind', 'Wind'], ['WindUS', 'Wind (UltraSonic)'],
     ['Wave', 'Wave Module'], ['SubWave', 'Sub Wave']];
 } else if (page == "Mobile.html") {
