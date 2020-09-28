@@ -124,8 +124,20 @@
                             </th>
                             <th class="blue"> Mooring Length </th>
                             <th class="blue"> Water Depth </th>
-                            <th class="green"> Last Complete PM21 </th>
-                            <th class="green"> Last Complete PM22 </th>
+                            <th class="green">
+                                <select id="PM21" class="ms WO" onchange="filterTable();" multiple>
+                                    <option value="0"><1 Year</option>
+                                    <option value="1">1-2 Years</option>
+                                    <option value="2">>2 Years</option>
+                                </select>
+                            </th>
+                            <th class="green">
+                                <select id="PM22" class="ms WO" onchange="filterTable();" multiple>
+                                    <option value="0"><1 Year</option>
+                                    <option value="1">1-2 Years</option>
+                                    <option value="2">>2 Years</option>
+                                </select>
+                            </th>
                             <th class="yellow selectCell">
                                 <select id="Buoy" class="ms" onchange="filterTable();" multiple="multiple">
                                     

@@ -53,9 +53,10 @@
 
 .ms-choice > span.placeholder {
     color: inherit;
-    font-family: "Arial", Arial, sans-serif;
+    font-family: inherit;
     font-size: inherit;
     font-weight: bold;
+    line-height: initial;
 }
 
 .ms-choice > div {

@@ -1,3 +1,37 @@
+function compareDates(d1, d2) {
+    if (d1[0] == d2[0]) {
+
+        return "0"
+
+    } else if (d1[0] - 1 == d2[0]) {
+        if (d1[1] < d2[1] || (d1[1] == d2[1] && d1[2] <= d2[2])) {
+
+            return "0"
+
+        } else if (d1[1] > d2[1] || (d1[1] == d2[1] && d1[2] > d2[2])) {
+
+            return "1"
+        }
+    } else if (d1[0] - 2 == d2[0]) {
+        if (d1[1] < d2[1] || (d1[1] == d2[1] && d1[2] <= d2[2])) {
+
+            return "1"
+
+        } else if (d1[1] > d2[1] | (d1[1] == d2[1] && d1[2] > d2[2])) {
+
+            return "2"
+
+        }
+    } else if (d1[0] - 2 > d2[0]) {
+
+        return "2"
+
+    }
+
+    return "-1"
+}
+
+
 function filter(searchIn, obsIn, msIn, lst1, lst2) {
     var sBool = false;
     var oBool = true;
@@ -107,6 +141,40 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
 
                 break;
             }
+        } else if (hold[1][2] == "3") {
+            var include = false;
+
+            if (msHold == "   ") {
+                msBool = false;
+
+                break;
+            } else {
+                var WODate = msHold.trim().split('-');
+            }
+
+            var date = document.getElementsByTagName('footer')[0].textContent.split(": ")[1].split(';')[0].split('-');
+
+            for (var d = 0; d < 3; d++) {
+                date[d] = Number(date[d]);
+                WODate[d] = Number(WODate[d]);
+            }
+
+            for (var n = 0; n < holdLen; n++) {
+                var WOScenerio = msValuesHold[n];
+
+                if (WOScenerio == compareDates(date, WODate)) {
+                    include = true;
+
+                    break;
+                }
+
+            } if (!(include)) {
+                msBool = false;
+
+                break;
+            }
+
+
         } else {
             if (msValuesHold.length != 0 && !(msValuesHold.includes(msHold.trim()))) {
                 msBool = false;
@@ -215,6 +283,8 @@ function filterTable() {
             special = "1";
         } else if (classLst.contains('lst')) {
             special = "2";
+        } else if (classLst.contains('WO')) {
+            special = "3";
         }
 
         hold.push([table, ind, special]);

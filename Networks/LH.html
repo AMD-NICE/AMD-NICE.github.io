@@ -122,8 +122,20 @@
                                     <option value="   ">Not CRD</option>
                                 </select>
                             </th>
-                            <th class="green"> Last Complete PM21 </th>
-                            <th class="green"> Last Complete PM22 </th>
+                            <th class="green">
+                                <select id="PM21" class="ms WO" onchange="filterTable();" multiple>
+                                    <option value="0"><1 Year</option>
+                                    <option value="1">1-2 Years</option>
+                                    <option value="2">>2 Years</option>
+                                </select>
+                            </th>
+                            <th class="green">
+                                <select id="PM22" class="ms WO" onchange="filterTable();" multiple>
+                                    <option value="0"><1 Year</option>
+                                    <option value="1">1-2 Years</option>
+                                    <option value="2">>2 Years</option>
+                                </select>
+                            </th>
                             <th class="yellow">
                                 <select id="AWPGStatus" class="ms AWGS" onchange="filterTable();" multiple="multiple">
                                     <option value="0"><25%</option>
