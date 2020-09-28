@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="fitWidth">
-                    <input type="text" id="Input" onkeyup="MobileFilter();" placeholder="Search by site name, FLOC, or IDs...">
+                    <input type="text" id="Input" onkeyup="MobileFilterTable();" placeholder="Search by site name, FLOC, or IDs...">
                 </div>
                 <div class="buttons">
 
@@ -35,7 +35,7 @@
 
                     <button id="Export" class="options">Export to CSV</button>
 
-                    <button id="Clear" class="options" onClick="clearMobileFilters();">Clear Filters</button>
+                    <button id="Clear" class="options" onClick="clearFilters();">Clear Filters</button>
 
                     <div class="purple legend"> FLOC </div>
                     <div class="blue legend"> Mobile Station </div>
@@ -60,7 +60,7 @@
                             <th class="purple"> TC ID </th>
                             <th class="purple"> WMO ID </th>
                             <th class="blue selectCell">
-                                <select id="Location" onchange="MobileFilter();" multiple>
+                                <select id="Location" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -115,7 +115,7 @@
                                 </select>
                             </th>
                             <th class="blue selectCell">
-                                <select id="Status" onchange="MobileFilter();" multiple>
+                                <select id="Status" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -154,7 +154,7 @@
                                 </select>
                             </th>
                             <th class="blue selectCell">
-                                <select id="Method" onchange="MobileFilter();" multiple>
+                                <select id="Method" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -193,7 +193,7 @@
                                 </select>
                             </th>
                             <th class="blue selectCell">
-                                <select id="Type" onchange="MobileFilter();" multiple>
+                                <select id="Type" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -238,7 +238,7 @@
                             <th class="green"> Last Complete PM22 </th>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="PrimaryTx" onchange="MobileFilter();" multiple>
+                                <select id="PrimaryTx" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -277,7 +277,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="SecondaryTx" onchange="MobileFilter();" multiple>
+                                <select id="SecondaryTx" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -316,7 +316,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Temp" onchange="MobileFilter();" multiple>
+                                <select id="Temp" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                             
@@ -353,7 +353,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="RH" onchange="MobileFilter();" multiple>
+                                <select id="RH" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -392,7 +392,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="BAR" onchange="MobileFilter();" multiple>
+                                <select id="BAR" class="ms" onchange="filterTable();" multiple>
                                     
                                       
                                     
@@ -429,7 +429,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Wind" onchange="MobileFilter();" multiple>
+                                <select id="Wind" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -466,7 +466,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="AWG" onchange="MobileFilter();" multiple>
+                                <select id="AWG" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -503,7 +503,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Alter" onchange="MobileFilter();" multiple>
+                                <select id="Alter" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -538,7 +538,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="SG" onchange="MobileFilter();" multiple>
+                                <select id="SG" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -575,7 +575,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Datalogger" onchange="MobileFilter();" multiple>
+                                <select id="Datalogger" class="ms" onchange="filterTable();" multiple>
                                     
                                         
                                     
@@ -986,7 +986,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-24; NICE v1.1
+  Data Retrieved: 2020-09-27; NICE v1.1
 </footer>
 
             </div>

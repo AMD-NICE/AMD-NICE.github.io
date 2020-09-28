@@ -27,14 +27,14 @@
                 </div>
 
                 <div class="fitWidth">
-                    <input type="text" id="Input" onkeyup="MooredFilter();" placeholder="Search by site name, FLOC, or IDs...">
+                    <input type="text" id="Input" onkeyup="filterTable();" placeholder="Search by site name, FLOC, or IDs...">
                 </div>
                 <div class="buttons">
                     <button id="Home" class="options" onclick="window.location.href ='/'">Home</button>
 
                     <button id="Export" class="options">Export to CSV</button>
 
-                    <button id="Clear" class="options" onClick="clearMooredFilters();">Clear Filters</button>
+                    <button id="Clear" class="options" onClick="clearFilters();">Clear Filters</button>
 
                     <div class="purple legend"> FLOC </div>
                     <div class="blue legend"> Mooring </div>
@@ -49,7 +49,7 @@
                     <table id="head1">
                         <tr>
                             <th class="purple">
-                                <select id="Reg" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Reg" class="ms" onchange="filterTable();" multiple="multiple">
                                     <option value="ATL"> ATL </option>
                                     <option value="CENTRAL"> CENTRAL </option>
                                     <option value="PYR"> PYR </option>
@@ -58,7 +58,7 @@
                             <th id="name" class="purple"> Name </th>
                             <th class="purple"> FLOC </th>
                             <th class="purple selectCell">
-                                <select id="Floc" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Floc" class="ms" onchange="filterTable();" multiple="multiple">
                                     <option value="Anchor"> Anchor </option>
                                     <option value="Storage"> Storage </option>
                                 </select>
@@ -74,7 +74,7 @@
                             <th class="blue"> Latitude </th>
                             <th class="blue"> Longitude </th>
                             <th class="blue selectCell">
-                                <select id="Mooring" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Mooring" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -127,7 +127,7 @@
                             <th class="green"> Last Complete PM21 </th>
                             <th class="green"> Last Complete PM22 </th>
                             <th class="yellow selectCell">
-                                <select id="Buoy" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Buoy" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                             
@@ -186,7 +186,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Processor" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Processor" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -233,7 +233,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="BAR" onchange="MooredFilter();" multiple="multiple">
+                                <select id="BAR" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -278,7 +278,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Compass" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Compass" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -325,7 +325,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="PTrans" onchange="MooredFilter();" multiple="multiple">
+                                <select id="PTrans" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -372,7 +372,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="STrans" onchange="MooredFilter();" multiple="multiple">
+                                <select id="STrans" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -419,7 +419,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="Trans" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Trans" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -466,7 +466,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="SubTrans" onchange="MooredFilter();" multiple="multiple">
+                                <select id="SubTrans" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -511,7 +511,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="GOES" onchange="MooredFilter();" multiple="multiple">
+                                <select id="GOES" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -560,7 +560,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="Iridium" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Iridium" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -605,7 +605,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="ATemp" onchange="MooredFilter();" multiple="multiple">
+                                <select id="ATemp" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -650,7 +650,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WTemp" onchange="MooredFilter();" multiple="multiple">
+                                <select id="WTemp" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -699,7 +699,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Wind" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Wind" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -746,7 +746,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WindUS" onchange="MooredFilter();" multiple="multiple">
+                                <select id="WindUS" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -793,7 +793,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Wave" onchange="MooredFilter();" multiple="multiple">
+                                <select id="Wave" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -838,7 +838,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="SubWave" onchange="MooredFilter();" multiple="multiple">
+                                <select id="SubWave" class="ms" onchange="filterTable();" multiple="multiple">
                                     
                                         
                                     
@@ -3010,7 +3010,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-24; NICE v1.1
+  Data Retrieved: 2020-09-27; NICE v1.1
 </footer>
 
             </div>

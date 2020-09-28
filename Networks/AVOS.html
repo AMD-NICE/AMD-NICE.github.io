@@ -27,14 +27,14 @@
                 </div>
 
                 <div class="fitWidth">
-                    <input type="text" id="Input" onkeyup="AVOSFilter();" placeholder="Search by ship name, FLOC, or IDs...">
+                    <input type="text" id="Input" onkeyup="filterTable();" placeholder="Search by ship name, FLOC, or IDs...">
                 </div>
                 <div class="buttons">
                     <button id="Home" class="options" onclick="window.location.href ='/'">Home</button>
 
                     <button id="Export" class="options">Export to CSV</button>
 
-                    <button id="Clear" class="options" onClick="clearAVOSFilters();">Clear Filters</button>
+                    <button id="Clear" class="options" onClick="clearFilters();">Clear Filters</button>
 
                     <div class="purple legend"> FLOC </div>
                     <div class="blue legend"> Ship </div>
@@ -49,7 +49,7 @@
                     <table id="head1">
                         <tr>
                             <th class="purple">
-                                <select id="Reg" onchange="AVOSFilter();" multiple="multiple">
+                                <select id="Reg" class="ms" onchange="filterTable();" multiple="multiple">
                                     <option value="PYR"> PYR </option>
                                     <option value="PNR"> PNR </option>
                                     <option value="OR"> OR </option>
@@ -67,7 +67,7 @@
                     <table id="head2">
                         <tr>
                             <th class="blue selectCell">
-                                <select id="ShipType" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="ShipType" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -130,7 +130,7 @@
                             <th class="blue"> AVOS Rec. Date </th>
                             <th class="blue"> VOSCLIM Rec. Date </th>
                             <th class="blue">
-                                <select id="Route" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="Route" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -173,7 +173,7 @@
                             <th class="green"> Last Complete PM21 </th>
                             <th class="green"> Last Complete PM22 </th>
                             <th class="yellow selectCell">
-                                <select id="Payload" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="Payload" class="ms" onchange="filterTable();" multiple>
 									
 											
 												
@@ -208,7 +208,7 @@
 								</select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Compass" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="Compass" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -243,7 +243,7 @@
 								</select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="GPS" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="GPS" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -278,7 +278,7 @@
 								</select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Iridium" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="Iridium" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -315,7 +315,7 @@
 								</select>
                             </th>
                             <th class="orange">
-                                <select id="Bridge" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="Bridge" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -358,7 +358,7 @@
 								</select>
                             </th>
                             <th class="orange">
-                                <select id="GPuc" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="GPuc" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -409,7 +409,7 @@
 								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="ATemp" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="ATemp" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -444,7 +444,7 @@
 								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="RH" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="RH" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -479,7 +479,7 @@
 								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WTemp" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="WTemp" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -514,7 +514,7 @@
 								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="BAR" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="BAR" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -549,7 +549,7 @@
 								</select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Wind" class="ms" onchange="AVOSFilter();" multiple>
+                                <select id="Wind" class="ms" onchange="filterTable();" multiple>
 									
 											
                                     
@@ -2191,7 +2191,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-24; NICE v1.1
+  Data Retrieved: 2020-09-27; NICE v1.1
 </footer>
 
             </div>

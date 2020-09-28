@@ -1,563 +1,260 @@
-function Filter(sIn, sValues, oIns, oValues, msIns, msValues) {
-    var searchBool = false;
-    var obsBool = true;
+function filter(searchIn, obsIn, msIn, lst1, lst2) {
+    var sBool = false;
+    var oBool = true;
     var msBool = true;
 
-    var sLen = sValues.length;
-    for (var x = 0; x < sLen; x++) {
-        if (sValues[x].includes(sIn)) {
-            searchBool = true;
+    lst1Len = lst1.length;
+    lst2Len = lst2.length;
+
+    for (var l = 0; l < lst1Len; l++) {
+        var hold = lst1[l].textContent || lst1[l].innerText;
+
+        if (hold.includes(searchIn)) {
+        sBool = true;
+
+        break
+        }
+    }
+
+    var oLen = obsIn.length;
+
+    for (var o = 0; o < oLen; o++) {
+        var hold = obsIn[o];
+
+        if (hold[1][0] == '1') {
+            var obsHold = lst1[hold[1][1]].innerHTML;
+        } else if (hold[1][0] == '2') {
+            var obsHold = lst2[hold[1][1]].innerHTML;
+        }
+        var valueHold = hold[0];
+
+        if ([" X ", "   "].includes(valueHold) && obsHold != valueHold) {
+            oBool = false;
 
             break;
         }
     }
 
-    var oLen = oValues.length;
-    for (var y = 0; y < oLen; y++) {
-        if ([" X ", "   "].includes(oIns[y]) && oIns[y] != oValues[y]) {
-            obsBool = false;
+    var msLen = msIn.length;
 
-            break;
+    for (var m = 0; m < msLen; m++) {
+        var hold = msIn[m];
+
+        if (hold[1][0] == '1') {
+            var msHold = lst1[hold[1][1]].textContent || lst1[hold[1][1]].innerText;
+        } else if (hold[1][0] == '2') {
+            var msHold = lst2[hold[1][1]].textContent || lst2[hold[1][1]].innerText;
         }
-    }
+        var lstHold = hold[0];
+        var lstLen = lstHold.length;
 
-    var msLen = msIns.length;
-    for (var z = 0; z < msLen; z++) {
-        selectedLen = msIns[z].length;
+        var msValuesHold = [];
 
-        if (MSs[z][0] == "AWPGStatus" && selectedLen > 0) {
-            try {
-                var include = false;
-                var level = msValues[z].split('%');
+        for (var i = 0; i < lstLen; i++) {
+            msValuesHold.push(lstHold[i].value);
+        }
 
-                if (level.length == 1) {
-                    msBool = false;
+        var holdLen = msValuesHold.length;
 
-                    break;
+        if (hold[1][2] == "1") {
+            var include = false;
+            var level = msHold.split('%');
 
-                } else {
-                    level = Number(level[0]);
-                }
-
-                var levels = [[-1, 25], [25, 50], [50, 75], [75, 101]];
-
-                for (var m = 0; m < selectedLen; m++) {
-                    var cutoffs = levels[Number(msIns[z][m])];
-
-                    if (level > cutoffs[0] && level <= cutoffs[1]) {
-                        include = true
-
-                        break
-                    }
-
-                } if (!(include)) {
-                    msBool = false;
-
-                    break;
-                }
-
-            } catch {
-            }
-        } else {
-            if (["Prov", "Reg"].includes(MSs[z][0])) {
-                if (msIns[z].length != 0 && !(msIns[z].includes(msValues[z].trim()))) {
+            if (level.length == 1) {
                 msBool = false;
 
                 break;
+
+            } else {
+                level = Number(level[0]);
+            }
+
+            var levels = [[-1, 25], [25, 50], [50, 75], [75, 101]];
+
+            for (var n = 0; n < holdLen; n++) {
+                var cutoffs = levels[Number(msValuesHold[n])];
+
+                if (level > cutoffs[0] && level <= cutoffs[1]) {
+                    include = true
+
+                    break
                 }
-            } else if (selectedLen > 0) {
-                for (var s = 0; s < selectedLen; s++) {
-                    var lstHold = msIns[z][s].split('x ');
-                    var inLen = Number(lstHold[0]);
-                    var inValue = lstHold[1];
 
-                    var match = false;
+            } if (!(include)) {
+                msBool = false;
 
-                    var valueLen = msValues[z].split('; ').length;
+                break;
+            }
 
-                    if (inLen == valueLen && msValues[z].includes(inValue)){
-                        match = true;
 
-                        break;
-                    }
-                } if (match == false) {
-                    msBool = false;
+        } else if (hold[1][2] == "2") {
+            for (var s = 0; s < holdLen; s++) {
+                var sensorHold = msValuesHold[s].split('x ');
+                var inLen = Number(msValuesHold[s][0]);
+                var inValue = sensorHold[1];
+
+                var match = false;
+
+                var valueLen = msHold.split('; ').length;
+
+                if (inLen == valueLen && msHold.includes(inValue)){
+                    match = true;
 
                     break;
                 }
+            } if (match == false) {
+                msBool = false;
+
+                break;
+            }
+        } else {
+            if (msValuesHold.length != 0 && !(msValuesHold.includes(msHold.trim()))) {
+                msBool = false;
+
+                break;
             }
         }
     }
 
-
-    return searchBool && obsBool && msBool;
+    return sBool && oBool && msBool
 }
 
-function Filter2(sIn, sValues, oIns, oValues, msIns, msValues) {
-    var searchBool = false;
-    var obsBool = true;
-    var msBool = true;
+function filterTable() {
+    var header1 = document.getElementById('head1').getElementsByTagName('th');
 
-    var sLen = sValues.length;
-    for (var x = 0; x < sLen; x++) {
-        if (sValues[x].includes(sIn)) {
-            searchBool = true;
+    var header1Values = [];
 
-            break;
+    var header2 = document.getElementById('head2').getElementsByTagName('th');
+
+    var header2Values = [];
+
+    var h1Len = header1.length;
+    var h2Len = header2.length;
+    var hLen = h1Len + h2Len;
+
+    for (var h = 0; h < hLen; h++) {
+        if (h < h1Len) {
+            var hold = header1[h];
+            var valuesHold = header1Values;
+        } else {
+            var hold = header2[h-h1Len];
+            var valuesHold = header2Values;
+        }
+
+        var childs = hold.children;
+
+        if (childs.length >= 1) {
+            valuesHold.push(childs[0].id);
+        } else {
+            valuesHold.push(hold.id);
         }
     }
 
-    var oLen = oValues.length;
-    for (var y = 0; y < oLen; y++) {
-        if ([" X ", "   "].includes(oIns[y]) && oIns[y] != oValues[y]) {
-            obsBool = false;
+    var search = document.getElementById('Input').value.toUpperCase();
 
-            break;
+    var obs = document.getElementsByClassName('obs');
+    var obsLen = obs.length;
+    var obsValues = [];
+
+    for (var o = 0; o < obsLen; o++) {
+        var id = obs[o].id;
+        var hold = [obs[o].value];
+        if (header1Values.includes(id)){
+            hold.push(['1', header1Values.indexOf(id)]);
+
+        } else if (header2Values.includes(id)) {
+            hold.push(['2', header2Values.indexOf(id)]);
+        } else {
+        alert('Invalid Filter');
+
+        return 0
         }
+        obsValues.push(hold);
     }
 
-    var msLen = msValues.length;
-    for (var z = 0; z < msLen; z++) {
-        if (MSs[z][0] == "AWPGStatus" && msIns[z].length > 0) {
-            try {
-                var include = false;
-                var level = msValues[z].split('%');
+    var ms = document.getElementsByClassName('ms');
+    var msLen = ms.length;
+    var msValues = [];
 
-                if (level.length == 1) {
-                    msBool = false;
+    for (var m = 0; m < msLen; m++) {
+        var select = ms[m];
+        var id = select.id;
 
-                    break;
+        var selected = select.selectedOptions;
 
-                } else {
-                    level = Number(level[0]);
-                }
-
-                var levels = [[-1, 25], [25, 50], [50, 75], [75, 101]];
-
-                for (var m = 0; m < msIns[z].length; m++) {
-                    var cutoffs = levels[msIns[z][Number(m)]];
-
-                    if (level > cutoffs[0] && level <= cutoffs[1]) {
-                        include = true
-
-                        break
-                    }
-
-                } if (!(include)) {
-                    msBool = false;
-
-                    break;
-                }
-
-            } catch {
-            }
-        } else if (msIns[z].length != 0 && !(msIns[z].includes(msValues[z].trim()))) {
-            msBool = false;
-
-            break;
+        if (select.type != "select-multiple" || selected.length == 0) {
+            continue;
         }
+
+        var hold = [selected];
+
+        var table;
+        var ind;
+
+        var special = "0";
+
+        if (header1Values.includes(id)){
+            table = "1";
+
+            ind = header1Values.indexOf(id);
+
+        } else if (header2Values.includes(id)) {
+            table = "2";
+
+            ind = header2Values.indexOf(id);
+
+        } else {
+            alert('Invalid Filter');
+
+            return 0
+        }
+
+        var classLst = select.classList;
+
+        if (classLst.contains("AWGS")) {
+            special = "1";
+        } else if (classLst.contains('lst')) {
+            special = "2";
+        }
+
+        hold.push([table, ind, special]);
+
+        msValues.push(hold);
     }
 
+    var rows1 = document.getElementById("body1").getElementsByTagName("tr");
+    var rows2 = document.getElementById("body2").getElementsByTagName("tr");
 
-    return searchBool && obsBool && msBool;
+    var rowsLen = rows1.length;
+
+    var count = 0
+
+    for (var r = 0; r < rowsLen; r++) {
+        var row1Hold = rows1[r].getElementsByTagName('td');
+        var row2Hold = rows2[r].getElementsByTagName('td');
+
+
+        if (filter(search, obsValues, msValues, row1Hold, row2Hold)) {
+            rows1[r].style.display = "";
+            rows2[r].style.display = "";
+
+            count += 1;
+        } else {
+            rows1[r].style.display = "none";
+            rows2[r].style.display = "none";
+        }
+
+    }
+    document.getElementById("qCount").innerHTML = count;
 }
 
-function SurfaceFilter() {
-  var searchIn = document.getElementById("Input").value.toUpperCase();
-
-  var RBSN = document.getElementById("RBSN").value;
-  var RBCN = document.getElementById("RBCN").value;
-  var GSN = document.getElementById("GSN").value;
-  var RCS = document.getElementById("RCS").value;
-  var Coastal = document.getElementById("Coastal").value;
-  var CRD = document.getElementById("CRD").value;
-
-  var obsIn = [RBSN, RBCN, GSN, RCS, Coastal, CRD];
-
-  var multipleIn = [];
-
-  var multipleLen = MSs.length;
-  for (var x = 0; x < multipleLen; x++) {
-      var item = document.getElementById(MSs[x][0]);
-      var itemsHold = [];
-
-      var itemLen = item.length;
-      for (var y = 0; y < itemLen; y++) {
-        if (item[y].selected) {
-            itemsHold.push(item[y].value);
-        }
-      }
-      multipleIn.push(itemsHold);
-  }
-
-  var body1 = document.getElementById("body1");
-  var trB1 = body1.getElementsByTagName("tr");
-  var body2 = document.getElementById("body2");
-  var trB2 = body2.getElementsByTagName("tr");
-
-  var count = 0;
-
-  var len = trB1.length;
-
-  for (i = 0; i < len; i++) {
-    var trLst1 = trB1[i].getElementsByTagName("td");
-    var trLst2 = trB2[i].getElementsByTagName("td");
-
-    //For search bar
-    var search0 = trLst1[0].textContent || trLst1[0].innerText;
-    var search1 = trLst1[1].textContent || trLst1[1].innerText;
-    var search2 = trLst2[0].textContent || trLst2[0].innerText;
-    var search3 = trLst2[1].textContent || trLst2[1].innerText;
-    var search4 = trLst2[2].textContent || trLst2[2].innerText;
-
-    var searchValues = [search0, search1, search2, search3, search4];
-
-    //For observing network
-    var obs0 = trLst2[5].innerHTML;
-    var obs1 = trLst2[6].innerHTML;
-    var obs2 = trLst2[7].innerHTML;
-    var obs3 = trLst2[8].innerHTML;
-    var obs4 = trLst2[9].innerHTML;
-    var obs5 = trLst2[10].innerHTML;
-
-    var obsValues = [obs0, obs1, obs2, obs3, obs4, obs5];
-
-    //For multiple select
-    var ms0 = trLst1[2].textContent || trLst1[2].innerText;
-    var ms1 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms2 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms3 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms4 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms5 = trLst2[18].textContent || trLst2[18].innerText;
-    var ms6 = trLst2[19].textContent || trLst2[19].innerText;
-    var ms7 = trLst2[20].textContent || trLst2[20].innerText;
-    var ms8 = trLst2[21].textContent || trLst2[21].innerText;
-    var ms9 = trLst2[13].textContent || trLst2[13].innerText;
-
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9];
-
-    if (Filter(searchIn, searchValues, obsIn, obsValues, multipleIn, multipleValues)) {
-        count += 1;
-        trB1[i].style.display = "";
-        trB2[i].style.display = "";
-    } else {
-        trB1[i].style.display = "none";
-        trB2[i].style.display = "none";
-    }
-  }
-  document.getElementById("qCount").innerHTML = count;
-}
-
-function TestFilter() {
-  var searchIn = document.getElementById("Input").value.toUpperCase();
-
-  var RBSN = document.getElementById("RBSN").value;
-  var RBCN = document.getElementById("RBCN").value;
-  var GSN = document.getElementById("GSN").value;
-  var RCS = document.getElementById("RCS").value;
-  var Coastal = document.getElementById("Coastal").value;
-  var CRD = document.getElementById("CRD").value;
-
-  var obsIn = [RBSN, RBCN, GSN, RCS, Coastal, CRD];
-
-  var multipleIn = [];
-
-  var multipleLen = MSs.length;
-  for (var x = 0; x < multipleLen; x++) {
-      var item = document.getElementById(MSs[x][0]);
-      var itemsHold = [];
-
-      var itemLen = item.length;
-      for (var y = 0; y < itemLen; y++) {
-        if (item[y].selected) {
-            itemsHold.push(item[y].text);
-        }
-      }
-      multipleIn.push(itemsHold);
-  }
-
-  var body1 = document.getElementById("body1");
-  var trB1 = body1.getElementsByTagName("tr");
-  var body2 = document.getElementById("body2");
-  var trB2 = body2.getElementsByTagName("tr");
-
-  var count = 0;
-
-  var len = trB1.length;
-
-  for (i = 0; i < len; i++) {
-    var trLst1 = trB1[i].getElementsByTagName("td");
-    var trLst2 = trB2[i].getElementsByTagName("td");
-
-    //For search bar
-    var search0 = trLst1[0].textContent || trLst1[0].innerText;
-    var search1 = trLst1[1].textContent || trLst1[1].innerText;
-    var search2 = trLst2[0].textContent || trLst2[0].innerText;
-    var search3 = trLst2[1].textContent || trLst2[1].innerText;
-    var search4 = trLst2[2].textContent || trLst2[2].innerText;
-
-    var searchValues = [search0, search1, search2, search3, search4];
-
-    //For observing network
-    var obs0 = trLst2[5].innerHTML;
-    var obs1 = trLst2[6].innerHTML;
-    var obs2 = trLst2[7].innerHTML;
-    var obs3 = trLst2[8].innerHTML;
-    var obs4 = trLst2[9].innerHTML;
-    var obs5 = trLst2[10].innerHTML;
-
-    var obsValues = [obs0, obs1, obs2, obs3, obs4, obs5];
-
-    //For multiple select
-    var ms0 = trLst1[2].textContent || trLst1[2].innerText;
-    var ms1 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms2 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms3 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms4 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms5 = trLst2[18].textContent || trLst2[18].innerText;
-    var ms6 = trLst2[19].textContent || trLst2[19].innerText;
-    var ms7 = trLst2[20].textContent || trLst2[20].innerText;
-    var ms8 = trLst2[21].textContent || trLst2[21].innerText;
-    var ms9 = trLst2[22].textContent || trLst2[22].innerText;
-    var ms10 = trLst2[23].textContent || trLst2[23].innerText;
-
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10];
-
-    if (Filter(searchIn, searchValues, obsIn, obsValues, multipleIn, multipleValues)) {
-        count += 1;
-        trB1[i].style.display = "";
-        trB2[i].style.display = "";
-    } else {
-        trB1[i].style.display = "none";
-        trB2[i].style.display = "none";
-    }
-  }
-  document.getElementById("qCount").innerHTML = count;
-}
-
-function AVOSFilter() {
-  var searchIn = document.getElementById("Input").value.toUpperCase();
-
-  var multipleIn = [];
-
-  var multipleLen = MSs.length;
-  for (var x = 0; x < multipleLen; x++) {
-      var item = document.getElementById(MSs[x][0]);
-      var itemsHold = [];
-
-      var itemLen = item.length;
-      for (var y = 0; y < itemLen; y++) {
-        if (item[y].selected) {
-            itemsHold.push(item[y].text);
-        }
-      }
-      multipleIn.push(itemsHold);
-  }
-
-  var body1 = document.getElementById("body1");
-  var trB1 = body1.getElementsByTagName("tr");
-  var body2 = document.getElementById("body2");
-  var trB2 = body2.getElementsByTagName("tr");
-
-  var count = 0;
-
-  var len = trB1.length;
-
-  for (i = 0; i < len; i++) {
-    var trLst1 = trB1[i].getElementsByTagName("td");
-    var trLst2 = trB2[i].getElementsByTagName("td");
-
-    //For search bar
-    var search0 = trLst1[1].textContent || trLst1[1].innerText;
-    var search1 = trLst1[2].textContent || trLst1[2].innerText;
-    var search2 = trLst1[3].textContent || trLst1[3].innerText;
-    var search3 = trLst1[4].textContent || trLst1[4].innerText;
-
-    var searchValues = [search0, search1, search2, search3];
-
-    //For multiple select
-    var ms0 = trLst1[0].textContent || trLst1[0].innerText;
-    var ms1 = trLst2[0].textContent || trLst2[0].innerText;
-    var ms2 = trLst2[7].textContent || trLst2[7].innerText;
-    var ms3 = trLst2[10].textContent || trLst2[10].innerText;
-    var ms4 = trLst2[11].textContent || trLst2[11].innerText;
-    var ms5 = trLst2[12].textContent || trLst2[12].innerText;
-    var ms6 = trLst2[13].textContent || trLst2[13].innerText;
-    var ms7 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms8 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms9 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms10 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms11 = trLst2[18].textContent || trLst2[18].innerText;
-    var ms12 = trLst2[19].textContent || trLst2[19].innerText;
-    var ms13 = trLst2[20].textContent || trLst2[20].innerText;
-
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13];
-
-    if (Filter2(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
-        count += 1;
-        trB1[i].style.display = "";
-        trB2[i].style.display = "";
-    } else {
-        trB1[i].style.display = "none";
-        trB2[i].style.display = "none";
-    }
-  }
-  document.getElementById("qCount").innerHTML = count;
-}
-
-function MobileFilter() {
-  var searchIn = document.getElementById("Input").value.toUpperCase();
-
-  var multipleIn = [];
-
-  var multipleLen = MSs.length;
-  for (var x = 0; x < multipleLen; x++) {
-      var item = document.getElementById(MSs[x][0]);
-      var itemsHold = [];
-
-      var itemLen = item.length;
-      for (var y = 0; y < itemLen; y++) {
-        if (item[y].selected) {
-            itemsHold.push(item[y].text);
-        }
-      }
-      multipleIn.push(itemsHold);
-  }
-
-  var body1 = document.getElementById("body1");
-  var trB1 = body1.getElementsByTagName("tr");
-  var body2 = document.getElementById("body2");
-  var trB2 = body2.getElementsByTagName("tr");
-
-  var count = 0;
-
-  var len = trB1.length;
-
-  for (i = 0; i < len; i++) {
-    var trLst1 = trB1[i].getElementsByTagName("td");
-    var trLst2 = trB2[i].getElementsByTagName("td");
-
-    //For search bar
-    var search0 = trLst1[0].textContent || trLst1[0].innerText;
-    var search1 = trLst1[1].textContent || trLst1[1].innerText;
-    var search2 = trLst2[0].textContent || trLst2[0].innerText;
-    var search3 = trLst2[1].textContent || trLst2[1].innerText;
-    var search4 = trLst2[2].textContent || trLst2[2].innerText;
-
-    var searchValues = [search0, search1, search2, search3, search4];
-
-    //For multiple select
-    var ms0 = trLst2[3].textContent || trLst2[3].innerText;
-    var ms1 = trLst2[4].textContent || trLst2[4].innerText;
-    var ms2 = trLst2[5].textContent || trLst2[5].innerText;
-    var ms3 = trLst2[6].textContent || trLst2[6].innerText;
-    var ms4 = trLst2[9].textContent || trLst2[9].innerText;
-    var ms5 = trLst2[10].textContent || trLst2[10].innerText;
-    var ms6 = trLst2[11].textContent || trLst2[11].innerText;
-    var ms7 = trLst2[12].textContent || trLst2[12].innerText;
-    var ms8 = trLst2[13].textContent || trLst2[13].innerText;
-    var ms9 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms10 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms11 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms12 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms13 = trLst2[18].textContent || trLst2[18].innerText;
-
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13];
-
-    if (Filter2(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
-        count += 1;
-        trB1[i].style.display = "";
-        trB2[i].style.display = "";
-    } else {
-        trB1[i].style.display = "none";
-        trB2[i].style.display = "none";
-    }
-  }
-  document.getElementById("qCount").innerHTML = count;
-}
-
-function MooredFilter() {
-  var searchIn = document.getElementById("Input").value.toUpperCase();
-
-  var multipleIn = [];
-
-  var multipleLen = MSs.length;
-  for (var x = 0; x < multipleLen; x++) {
-      var item = document.getElementById(MSs[x][0]);
-      var itemsHold = [];
-
-      var itemLen = item.length;
-      for (var y = 0; y < itemLen; y++) {
-        if (item[y].selected) {
-            itemsHold.push(item[y].text);
-        }
-      }
-      multipleIn.push(itemsHold);
-  }
-
-  var body1 = document.getElementById("body1");
-  var trB1 = body1.getElementsByTagName("tr");
-  var body2 = document.getElementById("body2");
-  var trB2 = body2.getElementsByTagName("tr");
-
-  var count = 0;
-
-  var len = trB1.length;
-
-  for (i = 0; i < len; i++) {
-    var trLst1 = trB1[i].getElementsByTagName("td");
-    var trLst2 = trB2[i].getElementsByTagName("td");
-
-    //For search bar
-    var search0 = trLst1[1].textContent || trLst1[1].innerText;
-    var search1 = trLst1[2].textContent || trLst1[2].innerText;
-    var search2 = trLst1[4].textContent || trLst1[3].innerText;
-    var search3 = trLst1[5].textContent || trLst1[4].innerText;
-
-    var searchValues = [search0, search1, search2, search3];
-
-    //For multiple select
-    var ms0 = trLst1[0].textContent || trLst1[0].innerText;
-    var ms1 = trLst1[3].textContent || trLst1[3].innerText;
-    var ms2 = trLst2[2].textContent || trLst2[2].innerText;
-    var ms3 = trLst2[7].textContent || trLst2[7].innerText;
-    var ms4 = trLst2[8].textContent || trLst2[8].innerText;
-    var ms5 = trLst2[9].textContent || trLst2[9].innerText;
-    var ms6 = trLst2[10].textContent || trLst2[10].innerText;
-    var ms7 = trLst2[11].textContent || trLst2[11].innerText;
-    var ms8 = trLst2[12].textContent || trLst2[12].innerText;
-    var ms9 = trLst2[13].textContent || trLst2[13].innerText;
-    var ms10 = trLst2[14].textContent || trLst2[14].innerText;
-    var ms11 = trLst2[15].textContent || trLst2[15].innerText;
-    var ms12 = trLst2[16].textContent || trLst2[16].innerText;
-    var ms13 = trLst2[17].textContent || trLst2[17].innerText;
-    var ms14 = trLst2[18].textContent || trLst2[18].innerText;
-    var ms15 = trLst2[19].textContent || trLst2[19].innerText;
-    var ms16 = trLst2[20].textContent || trLst2[20].innerText;
-    var ms17 = trLst2[21].textContent || trLst2[21].innerText;
-    var ms18 = trLst2[22].textContent || trLst2[22].innerText;
-
-    var multipleValues = [ms0, ms1, ms2, ms3, ms4, ms5, ms6, ms7, ms8, ms9, ms10, ms11, ms12, ms13, ms14, ms15, ms16, ms17, ms18];
-
-    if (Filter2(searchIn, searchValues, [], [], multipleIn, multipleValues)) {
-        count += 1;
-        trB1[i].style.display = "";
-        trB2[i].style.display = "";
-    } else {
-        trB1[i].style.display = "none";
-        trB2[i].style.display = "none";
-    }
-  }
-  document.getElementById("qCount").innerHTML = count;
-}
-
-function clearSurfaceFilters() {
+function clearFilters() {
     document.getElementById("Input").value = "";
 
-    var filters = ["RBSN", "RBCN", "GSN", "RCS", "Coastal", "CRD"];
+    var filters = document.getElementsByClassName("obs");
     var filtersLen = filters.length;
     for (var i = 0; i < filtersLen; i++) {
-        let element = document.getElementById(filters[i]);
+        let element = filters[i];
 
         element.value = element.options[0].text;
     }
@@ -570,47 +267,5 @@ function clearSurfaceFilters() {
 
     setMultipleSelects(MSs);
 
-    SurfaceFilter();
-}
-
-function clearMooredFilters() {
-    document.getElementById("Input").value = "";
-
-    var MSsLen = MSs.length;
-    for (var j = 0; j < MSsLen; j++) {
-        let element = document.getElementById(MSs[j][0]);
-        element.value = "";
-    }
-
-    setMultipleSelects(MSs);
-
-    MooredFilter();
-}
-
-function clearAVOSFilters() {
-    document.getElementById("Input").value = "";
-
-    var MSsLen = MSs.length;
-    for (var j = 0; j < MSsLen; j++) {
-        let element = document.getElementById(MSs[j][0]);
-        element.value = "";
-    }
-
-    setMultipleSelects(MSs);
-
-    AVOSFilter();
-}
-
-function clearMobileFilters() {
-    document.getElementById("Input").value = "";
-
-    var MSsLen = MSs.length;
-    for (var j = 0; j < MSsLen; j++) {
-        let element = document.getElementById(MSs[j][0]);
-        element.value = "";
-    }
-
-    setMultipleSelects(MSs);
-
-    MobileFilter();
+    filterTable();
 }

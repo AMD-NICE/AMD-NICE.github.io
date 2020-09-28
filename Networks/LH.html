@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="fitWidth">
-                    <input type="text" id="Input" onkeyup="SurfaceFilter();" placeholder="Search by site name, FLOC, or IDs...">
+                    <input type="text" id="Input" onkeyup="filterTable();" placeholder="Search by site name, FLOC, or IDs...">
                 </div>
                 <div class="buttons">
 
@@ -36,7 +36,7 @@
 
                     <button id="Export" class="options">Export to CSV</button>
 
-                    <button id="Clear" class="options" onclick="clearSurfaceFilters();">Clear Filters</button>
+                    <button id="Clear" class="options" onclick="clearFilters();">Clear Filters</button>
 
                     <div class="purple legend"> FLOC </div>
                     <div class="blue legend"> Designations </div>
@@ -53,7 +53,7 @@
                             <th id="name" class="purple"> Name </th>
                             <th class="purple"> FLOC </th>
                             <th class="purple thinCell">
-                                <select id="Prov" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="Prov" class="ms" onchange="filterTable();" multiple="multiple">
                                     <option value="AB">AB</option>
                                     <option value="BC">BC</option>
                                     <option value="MB">MB</option>
@@ -81,42 +81,42 @@
                             <th class="purple"> Latitude </th>
                             <th class="purple"> Longitude </th>
                             <th class="blue thinCell">
-                                <select id="RBSN" onchange="SurfaceFilter();" class="filter">
+                                <select id="RBSN" onchange="filterTable();" class="filter obs">
                                     <option class="hide" value="RBSN">RBSN</option>
                                     <option value=" X ">RBSN</option>
                                     <option value="   ">Not RBSN</option>
                                 </select>
                             </th>
                             <th class="blue thinCell">
-                                <select id="RBCN" onchange="SurfaceFilter();" class="filter">
+                                <select id="RBCN" onchange="filterTable();" class="filter obs">
                                     <option class="hide" value="RBCN">RBCN</option>
                                     <option value=" X ">RBCN</option>
                                     <option value="   ">Not RBCN</option>
                                 </select>
                             </th>
                             <th class="blue thinCell">
-                                <select id="GSN" onchange="SurfaceFilter();" class="filter">
+                                <select id="GSN" onchange="filterTable();" class="filter obs">
                                     <option class="hide" value="GSN">GSN</option>
                                     <option value=" X ">GSN</option>
                                     <option value="   ">Not GSN</option>
                                 </select>
                             </th>
                             <th class="blue thinCell">
-                                <select id="RCS" onchange="SurfaceFilter();" class="filter">
+                                <select id="RCS" onchange="filterTable();" class="filter obs">
                                     <option class="hide" value="RCS">RCS</option>
                                     <option value=" X ">RCS</option>
                                     <option value="   ">Not RCS</option>
                                 </select>
                             </th>
                             <th class="blue thinCell">
-                                <select id="Coastal" onchange="SurfaceFilter();" class="filter">
+                                <select id="Coastal" onchange="filterTable();" class="filter obs">
                                     <option class="hide" value="Coastal">Coastal</option>
                                     <option value=" X ">Coastal</option>
                                     <option value="   ">Not Coastal</option>
                                 </select>
                             </th>
                             <th class="blue thinCell">
-                                <select id="CRD" onchange="SurfaceFilter();" class="filter">
+                                <select id="CRD" onchange="filterTable();" class="filter obs">
                                     <option class="hide" value="CRD">CRD</option>
                                     <option value=" X ">CRD</option>
                                     <option value="   ">Not CRD</option>
@@ -125,7 +125,7 @@
                             <th class="green"> Last Complete PM21 </th>
                             <th class="green"> Last Complete PM22 </th>
                             <th class="yellow">
-                                <select id="AWPGStatus" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="AWPGStatus" class="ms AWGS" onchange="filterTable();" multiple="multiple">
                                     <option value="0"><25%</option>
                                     <option value="1">25-50%</option>
                                     <option value="2">50-75%</option>
@@ -133,7 +133,7 @@
                                 </select>
                             </th>
                             <th class="red">
-                                <select id="Temp" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="Temp" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
 												
@@ -170,7 +170,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="RH" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="RH" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -193,7 +193,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="BAR" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="BAR" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -216,7 +216,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="Wind" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="Wind" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -241,7 +241,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="AWG" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="AWG" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -264,7 +264,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="Alter" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="Alter" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -287,7 +287,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="SG" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="SG" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -310,7 +310,7 @@
 								</select>
                             </th>
                             <th class="red">
-                                <select id="Datalogger" onchange="SurfaceFilter();" multiple="multiple">
+                                <select id="Datalogger" class="ms lst" onchange="filterTable();" multiple="multiple">
 									
 											
                                     
@@ -1253,7 +1253,7 @@
                 
 
 <footer dir="ltr">
-  Data Retrieved: 2020-09-24; NICE v1.1
+  Data Retrieved: 2020-09-27; NICE v1.1
 </footer>
 
             </div>
