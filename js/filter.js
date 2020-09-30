@@ -1,3 +1,27 @@
+var page = window.location.pathname.split('/');
+page = page[page.length - 1];
+var MSs = [];
+
+if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
+    MSs = [['Prov', 'Prov.'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'], ['BAR', 'Barometer'],
+    ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger'], ['AWPGStatus', "AWPG Status"]];
+}else if (page == "AVOS.html") {
+    MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Route', 'Ship Route'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
+    ['Iridium', 'Iridium Transmitter'], ['Bridge', 'Bridge'], ['GPuc', 'GPuc'], ['ATemp', 'Air Temp.'],
+    ['RH', 'Relative Humidity'], ['WTemp', 'Water Temp.'], ['BAR', 'Barometer'], ['Wind', 'Wind']];
+} else if (page == "Moored.html") {
+    MSs = [['Reg', 'Region'], ['Floc', 'FLOC Type'], ['Mooring', 'Mooring'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Buoy', 'Buoy Type'], ['Processor', 'Sensor Processor'],
+    ['BAR', 'Barometer'], ['Compass', 'Compass'], ['PTrans', "Primary Transmitter"], ['STrans', 'Secondary Transmitter'],
+    ['Trans', 'Transmitter'], ['SubTrans', 'Sub Transmitter'], ['Watchman', 'Watchman'], ['GOES', 'GOES Antenna'], ['Iridium', 'Iridium Beacon'],
+    ['ATemp', 'Air Temp.'], ['WTemp', 'Water Temp.'], ['Wind', 'Wind'], ['WindUS', 'Wind (UltraSonic)'],
+    ['Wave', 'Wave Module'], ['SubWave', 'Sub Wave']];
+} else if (page == "Mobile.html") {
+    MSs = [['Location', 'Storage Location'], ['Status', 'Station Status'], ['Method', 'Collection Method'], ['Type', 'Collection Type'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'],
+    ['PrimaryTx', 'Primary Tx'], ['SecondaryTx', 'Secondary Tx'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'],
+    ['BAR', 'Barometer'], ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger']];
+}
+
+
 function compareDates(d1, d2) {
     if (d1[0] == d2[0]) {
 
