@@ -85,11 +85,3 @@ function export_table_to_csv(filename) {
     // Download CSV
     download_csv(csv.join("\n"), filename);
 }
-
-try {
-    document.getElementById("Export").addEventListener("click", function () {
-        export_table_to_csv("export.csv");
-    });
-} catch {
-}
-

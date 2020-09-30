@@ -1,12 +1,23 @@
-<link rel="stylesheet" href="/CSS/main.css">
-<link rel="stylesheet" href="/CSS/multiple-select.css">
-
 
 
 
 <html id="main">
     <head>
         <title>NICE/EERS</title>
+
+        <link rel="stylesheet" href="/CSS/main.css">
+
+        <link rel="stylesheet" href="/CSS/multiple-select.css">
+
+        <script src="/js/jquery-3.3.1.slim.min.js"></script>
+
+        <script src="/js/filter.js"></script>
+
+        <script src="/js/exportToCSV.js"></script>
+
+        <script src="/js/format.js"></script>
+
+        <script src="/js/multiple-select.js"></script>
     </head>
     <body onload="setupPage();">
         <div class="page">
@@ -33,7 +44,7 @@
 
                     <button id="Home" class="options" onclick="window.location.href ='/'">Home</button>
 
-                    <button id="Export" class="options">Export to CSV</button>
+                    <button id="Export" class="options" onclick="export_table_to_csv('export.csv');">Export to CSV</button>
 
                     <button id="Clear" class="options" onClick="clearFilters();">Clear Filters</button>
 
@@ -1085,13 +1096,3 @@
         </div>
     </body>
 </html>
-
-<script src="/js/jquery-3.3.1.slim.min.js"></script>
-
-<script src="/js/filter.js"></script>
-
-<script src="/js/exportToCSV.js"></script>
-
-<script src="/js/format.js"></script>
-
-<script src="/js/multiple-select.js"></script>

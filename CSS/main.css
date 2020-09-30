@@ -1,4 +1,4 @@
-html {
+#main {
   background: dimgrey;
   color: linen;
   font-family: "Arial", Arial, sans-serif;
@@ -247,13 +247,13 @@ a:visited {
 
 #tablehead2 {
   height: 100%;
-  flex: 1 0 0;
+  flex: 1 1 0;
   overflow-x: scroll;
   margin: 0 17 0 0;
   scrollbar-width: none;
   overflow-y: visible;
-  padding-bottom: 50vh;
-  margin-bottom: -50vh;
+  padding-bottom: 70vh;
+  margin-bottom: -70vh;
 }
 
 #head1 {
