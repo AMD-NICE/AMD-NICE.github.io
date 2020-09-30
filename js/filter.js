@@ -61,16 +61,24 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
     var oBool = true;
     var msBool = true;
 
-    lst1Len = lst1.length;
-    lst2Len = lst2.length;
+    var lst1Len = lst1.length;
+    var lst2Len = lst2.length;
 
-    for (var l = 0; l < lst1Len; l++) {
-        var hold = lst1[l].textContent || lst1[l].innerText;
+    var lstHold = [...lst1];
+
+    if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
+        lstHold = lstHold.concat(Array.from(lst2).slice(0, 3));
+    }
+
+    var lstHoldLen = lstHold.length;
+
+    for (var l = 0; l < lstHoldLen; l++) {
+        var hold = lstHold[l].textContent || lstHold[l].innerText;
 
         if (hold.includes(searchIn)) {
-        sBool = true;
+            sBool = true;
 
-        break
+            break
         }
     }
 
@@ -355,7 +363,9 @@ function clearFilters() {
 
     var MSsLen = MSs.length;
     for (var j = 0; j < MSsLen; j++) {
-        let element = document.getElementById(MSs[j][0]);
+        var element = document.getElementById(MSs[j][0]);
+        element.onchange = "";
+
         element.value = "";
     }
 
