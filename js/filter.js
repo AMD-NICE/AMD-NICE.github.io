@@ -4,7 +4,7 @@ var MSs = [];
 
 if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
     MSs = [['Prov', 'Prov.'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'], ['BAR', 'Barometer'],
-    ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger'], ['AWPGStatus', "AWPG Status"]];
+    ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['TB', 'Rate of Rainfall'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger'], ['AWPGStatus', "AWPG Status"]];
 }else if (page == "AVOS.html") {
     MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Route', 'Ship Route'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
     ['Iridium', 'Iridium Transmitter'], ['Bridge', 'Bridge'], ['GPuc', 'GPuc'], ['ATemp', 'Air Temp.'],
