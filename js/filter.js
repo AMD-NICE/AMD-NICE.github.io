@@ -18,7 +18,7 @@ if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
 } else if (page == "Mobile.html") {
     MSs = [['Location', 'Storage Location'], ['Status', 'Station Status'], ['Method', 'Collection Method'], ['Type', 'Collection Type'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'],
     ['PrimaryTx', 'Primary Tx'], ['SecondaryTx', 'Secondary Tx'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'],
-    ['BAR', 'Barometer'], ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger']];
+    ['BAR', 'Barometer'], ['Wind', 'Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger']];
 }
 
 
