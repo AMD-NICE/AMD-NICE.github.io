@@ -49,6 +49,7 @@ th {
 td {
   font-size: 12px;
   min-height: 100%;
+  overflow-wrap: anywhere;
 }
 
 p {
