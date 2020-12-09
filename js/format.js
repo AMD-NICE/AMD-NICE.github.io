@@ -182,3 +182,19 @@ function setupPage() {
     document.getElementById('main').style.visibility = "visible";
 }
 
+function setMultipleSelects(lst) {
+    var len = lst.length;
+
+    for (var ms = 0; ms < len; ms++) {
+        var elm = document.getElementById(lst[ms][0]);
+
+        $('#'+lst[ms][0]).multipleSelect({
+                placeholder: lst[ms][1],
+        });
+
+        elm.onchange = function(){filterTable()};
+
+        document.getElementsByClassName('ms-drop bottom')[ms].style.right = '0';
+    }
+
+}

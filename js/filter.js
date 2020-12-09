@@ -5,20 +5,29 @@ var MSs = [];
 if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
     MSs = [['Prov', 'Prov.'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'], ['BAR', 'Barometer'],
     ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['TB', 'Rate of Rainfall'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger'], ['AWPGStatus', "AWPG Status"]];
-}else if (page == "AVOS.html") {
+
+} else if (page == "AVOS.html") {
     MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Route', 'Ship Route'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
     ['IridiumTransmitter', 'Iridium Transmitter'], ['Bridge', 'Bridge'], ['GPuc', 'GPuc'], ['ATemp', 'Air Temp.'],
     ['RH', 'Relative Humidity'], ['WTemp', 'Water Temp.'], ['BAR', 'Barometer'], ['Wind', 'Wind']];
+
 } else if (page == "Moored.html") {
     MSs = [['Reg', 'Region'], ['Floc', 'FLOC Type'], ['Mooring', 'Mooring'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Buoy', 'Buoy Type'], ['Processor', 'Sensor Processor'],
     ['BAR', 'Barometer'], ['Compass', 'Compass'], ['PTrans', "Primary Transmitter"], ['STrans', 'Secondary Transmitter'],
     ['Trans', 'Transmitter'], ['SubTrans', 'Sub Transmitter'], ['IridiumTransmitter', 'Iridium Transmitter'], ['GOES', 'GOES Antenna'], ['Iridium', 'Iridium Beacon'],
     ['ATemp', 'Air Temp.'], ['WTemp', 'Water Temp.'], ['Wind', 'Wind'], ['WindUS', 'Wind (UltraSonic)'],
     ['Wave', 'Wave Module'], ['SubWave', 'Sub Wave']];
+
 } else if (page == "Mobile.html") {
     MSs = [['Location', 'Storage Location'], ['Status', 'Station Status'], ['Method', 'Collection Method'], ['Type', 'Collection Type'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'],
     ['PrimaryTx', 'Primary Tx'], ['SecondaryTx', 'Secondary Tx'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'],
     ['BAR', 'Barometer'], ['Wind', 'Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger']];
+
+} else if (page == "AWSMetadata.html") {
+    MSs = [['Prov', 'Prov.']];
+
+} else {
+    MSs = [];
 }
 
 
@@ -66,7 +75,7 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
 
     var lstHold = [...lst1];
 
-    if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
+    if (["AWS.html", "CCN.html", "LH.html", "AWSMetadata.html"].includes(page)) {
         lstHold = lstHold.concat(Array.from(lst2).slice(0, 3));
     }
 
