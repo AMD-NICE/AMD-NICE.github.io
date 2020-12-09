@@ -194,7 +194,9 @@ function setMultipleSelects(lst) {
 
         elm.onchange = function(){filterTable()};
 
-        document.getElementsByClassName('ms-drop bottom')[ms].style.right = '0';
+        if lst[ms][0] != "ShipType" {
+            document.getElementsByClassName('ms-drop bottom')[ms].style.right = '0';
+        }
     }
 
 }
