@@ -74,10 +74,11 @@ function export_table_to_csv(filename) {
 
         if (trB1[i].style.display == "") {
                 for (var j = 0; j < cols1.length; j++) {
-                    row.push(cols1[j].innerText);
+                    row.push('\"' + cols1[j].innerText + '\"');
                 }
                 for (var j = 0; j < cols2.length; j++) {
-                    row.push(cols2[j].innerText);
+                    row.push('\"' + cols2[j].innerText + '\"');
+
                 }
 		    csv.push(row.join(","));
         }
