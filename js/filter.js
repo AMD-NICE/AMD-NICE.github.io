@@ -1,35 +1,5 @@
 var page = window.location.pathname.split('/');
 page = page[page.length - 1];
-var MSs = [];
-
-if (["AWS.html", "CCN.html", "LH.html"].includes(page)) {
-    MSs = [['Prov', 'Prov.'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'], ['BAR', 'Barometer'],
-    ['Wind10M', '10M Wind'], ['Wind2M', '2M Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['TB', 'Rate of Rainfall'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger'], ['AWPGStatus', "AWPG Status"]];
-
-} else if (page == "AVOS.html") {
-    MSs = [['Reg', 'Region'], ['ShipType', 'Ship Type'], ['Route', 'Ship Route'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Payload', 'Payload'], ['Compass', 'Compass'], ['GPS', 'GPS'],
-    ['IridiumTransmitter', 'Iridium Transmitter'], ['Bridge', 'Bridge'], ['GPuc', 'GPuc'], ['ATemp', 'Air Temp.'],
-    ['RH', 'Relative Humidity'], ['WTemp', 'Water Temp.'], ['BAR', 'Barometer'], ['Wind', 'Wind']];
-
-} else if (page == "Moored.html") {
-    MSs = [['Reg', 'Region'], ['Floc', 'FLOC Type'], ['Mooring', 'Mooring'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'], ['Buoy', 'Buoy Type'], ['Processor', 'Sensor Processor'],
-    ['BAR', 'Barometer'], ['Compass', 'Compass'], ['PTrans', "Primary Transmitter"], ['STrans', 'Secondary Transmitter'],
-    ['Trans', 'Transmitter'], ['SubTrans', 'Sub Transmitter'], ['IridiumTransmitter', 'Iridium Transmitter'], ['GOES', 'GOES Antenna'], ['Iridium', 'Iridium Beacon'],
-    ['ATemp', 'Air Temp.'], ['WTemp', 'Water Temp.'], ['Wind', 'Wind'], ['WindUS', 'Wind (UltraSonic)'],
-    ['Wave', 'Wave Module'], ['SubWave', 'Sub Wave']];
-
-} else if (page == "Mobile.html") {
-    MSs = [['Location', 'Storage Location'], ['Status', 'Station Status'], ['Method', 'Collection Method'], ['Type', 'Collection Type'], ['PM21', 'Last Complete PM21'], ['PM22', 'Last Complete PM22'],
-    ['PrimaryTx', 'Primary Tx'], ['SecondaryTx', 'Secondary Tx'], ['Temp', 'Air Temp.'], ['RH', 'Relative Humidity'],
-    ['BAR', 'Barometer'], ['Wind', 'Wind'], ['AWG', 'AWPG'], ['Alter', 'AWPG Shield'], ['SG', 'Snow Depth'], ['Datalogger', 'Datalogger']];
-
-} else if (page == "AWSMetadata.html") {
-    MSs = [['Prov', 'Prov.']];
-
-} else {
-    MSs = [];
-}
-
 
 function compareDates(d1, d2) {
     if (d1[0] == d2[0]) {
@@ -73,7 +43,11 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
     var lst1Len = lst1.length;
     var lst2Len = lst2.length;
 
-    var lstHold = [...lst1];
+    var lstHold = [];
+
+    for (var i = 0; i < lst1Len; i++) {
+        lstHold.push(lst1[i]);
+    }
 
     if (["AWS.html", "CCN.html", "LH.html", "AWSMetadata.html"].includes(page)) {
         lstHold = lstHold.concat(Array.from(lst2).slice(0, 3));
@@ -98,6 +72,7 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
 
         if (hold[1][0] == '1') {
             var obsHold = lst1[hold[1][1]].innerHTML;
+
         } else if (hold[1][0] == '2') {
             var obsHold = lst2[hold[1][1]].innerHTML;
         }
@@ -117,6 +92,7 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
 
         if (hold[1][0] == '1') {
             var msHold = lst1[hold[1][1]].textContent || lst1[hold[1][1]].innerText;
+
         } else if (hold[1][0] == '2') {
             var msHold = lst2[hold[1][1]].textContent || lst2[hold[1][1]].innerText;
         }
@@ -273,10 +249,11 @@ function filterTable() {
 
         } else if (header2Values.includes(id)) {
             hold.push(['2', header2Values.indexOf(id)]);
-        } else {
-        alert('Invalid Filter');
 
-        return 0
+        } else {
+            alert('Invalid Filter');
+
+            return 0
         }
         obsValues.push(hold);
     }
@@ -322,8 +299,10 @@ function filterTable() {
 
         if (classLst.contains("AWGS")) {
             special = "1";
+
         } else if (classLst.contains('lst')) {
             special = "2";
+
         } else if (classLst.contains('WO')) {
             special = "3";
         }
@@ -365,14 +344,14 @@ function clearFilters() {
     var filters = document.getElementsByClassName("obs");
     var filtersLen = filters.length;
     for (var i = 0; i < filtersLen; i++) {
-        let element = filters[i];
+        element = filters[i];
 
         element.value = element.options[0].text;
     }
 
     var MSsLen = MSs.length;
     for (var j = 0; j < MSsLen; j++) {
-        var element = document.getElementById(MSs[j][0]);
+        var element = document.getElementById(MSs[j].id);
         element.onchange = "";
 
         element.value = "";

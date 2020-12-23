@@ -61,7 +61,7 @@
                     <table id="head1">
                         <tr>
                             <th class="purple">
-                                <select id="Reg" class="ms" multiple="multiple">
+                                <select id="Reg" name="Region" class="ms" multiple="multiple">
                                     <option value="ATL"> ATL </option>
                                     <option value="CENTRAL"> CENTRAL </option>
                                     <option value="PYR"> PYR </option>
@@ -70,7 +70,7 @@
                             <th id="name" class="purple"> Name </th>
                             <th class="purple"> FLOC </th>
                             <th class="purple selectCell">
-                                <select id="Floc" class="ms" multiple="multiple">
+                                <select id="FlocType" name="FLOC Type" class="ms" multiple="multiple">
                                     <option value="Anchor"> Anchor </option>
                                     <option value="Storage"> Storage </option>
                                 </select>
@@ -86,7 +86,7 @@
                             <th class="blue"> Latitude </th>
                             <th class="blue"> Longitude </th>
                             <th class="blue selectCell">
-                                <select id="Mooring" class="ms" multiple="multiple">
+                                <select id="Mooring" name="Mooring Type" class="ms" multiple="multiple">
                                     
                                         
                                     
@@ -137,21 +137,21 @@
                             <th class="blue"> Mooring Length </th>
                             <th class="blue"> Water Depth </th>
                             <th class="green">
-                                <select id="PM21" class="ms WO" multiple>
+                                <select id="PM21" name="Last Complete PM21" class="ms WO" multiple>
                                     <option value="0"><1 Year</option>
                                     <option value="1">1-2 Years</option>
                                     <option value="2">>2 Years</option>
                                 </select>
                             </th>
                             <th class="green">
-                                <select id="PM22" class="ms WO" multiple>
+                                <select id="PM22" name="Last Complete PM22" class="ms WO" multiple>
                                     <option value="0"><1 Year</option>
                                     <option value="1">1-2 Years</option>
                                     <option value="2">>2 Years</option>
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Buoy" class="ms lst" multiple="multiple">
+                                <select id="Hull" name="Hull Type" class="ms lst" multiple="multiple">
                                     
                                         
                                             
@@ -202,7 +202,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Processor" class="ms lst" multiple="multiple">
+                                <select id="Processor" name="Sensor Processor" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -249,7 +249,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="BAR" class="ms lst" multiple="multiple">
+                                <select id="BAR" name="Barometer" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -296,7 +296,7 @@
                                 </select>
                             </th>
                             <th class="yellow selectCell">
-                                <select id="Compass" class="ms lst" multiple="multiple">
+                                <select id="Compass" name="Compass" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -346,7 +346,7 @@
                             <th class="orange selectCell"> *GOES Trans # </th>
                             <th class="orange selectCell"> *Iridium Trans # </th>
                             <th class="orange selectCell">
-                                <select id="PTrans" class="ms" multiple="multiple">
+                                <select id="PTrans" name="Primary Transmitter" class="ms" multiple="multiple">
                                     
                                         
                                     
@@ -391,7 +391,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="STrans" class="ms" multiple="multiple">
+                                <select id="STrans" name="Secondary Transmitter" class="ms" multiple="multiple">
                                     
                                         
                                     
@@ -438,7 +438,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="Trans" class="ms lst" multiple="multiple">
+                                <select id="Trans" name="Transmitter" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -485,7 +485,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="SubTrans" class="ms lst" multiple="multiple">
+                                <select id="SubTrans" name="Sub Transmitter" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -530,7 +530,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="IridiumTransmitter" class="ms lst" multiple="multiple">
+                                <select id="IridiumTransmitter" name="Iridium Transmitter" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -575,7 +575,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="GOES" class="ms lst" multiple="multiple">
+                                <select id="GOES" name="GOES Antenna" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -622,7 +622,7 @@
                                 </select>
                             </th>
                             <th class="orange selectCell">
-                                <select id="Iridium" class="ms lst" multiple="multiple">
+                                <select id="IridiumBeacon" name="Iridium Beacon" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -667,7 +667,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="ATemp" class="ms lst" multiple="multiple">
+                                <select id="ATemp" name="Air Temp" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -712,7 +712,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WTemp" class="ms lst" multiple="multiple">
+                                <select id="WTemp" name="Water Temp" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -761,7 +761,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Wind" class="ms lst" multiple="multiple">
+                                <select id="Wind" name="Wind" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -808,7 +808,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="WindUS" class="ms lst" multiple="multiple">
+                                <select id="WindUS" name="Wind (Ultra Sonic)" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -855,7 +855,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="Wave" class="ms lst" multiple="multiple">
+                                <select id="Wave" name="Wave Module" class="ms lst" multiple="multiple">
                                     
                                         
                                     
@@ -900,7 +900,7 @@
                                 </select>
                             </th>
                             <th class="red selectCell">
-                                <select id="SubWave" class="ms lst" multiple="multiple">
+                                <select id="SubWave" name="Sub Wave" class="ms lst" multiple="multiple">
                                     
                                         
                                     

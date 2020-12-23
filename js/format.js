@@ -148,13 +148,37 @@ function syncScrolls() {
     }
 }
 
+function setMultipleSelects(lst) {
+    var len = lst.length;
+
+    for (var ms = 0; ms < len; ms++) {
+        var elm = lst[ms];
+
+        $('#'+elm.id).multipleSelect({
+                placeholder: elm.name,
+        });
+
+        elm.onchange = function(){filterTable()};
+
+        if (elm.id !== "ShipType") {
+            document.getElementsByClassName('ms-drop bottom')[ms].style.right = '0';
+        }
+    }
+
+}
+
 function setupPage() {
     setMode();
 
     try {
+        MSs = document.querySelectorAll('.ms')
+
         setMultipleSelects(MSs);
 
+    } catch (ReferenceError) {
+    } try {
         syncScrolls();
+
     } catch (ReferenceError) {
     }
 
@@ -180,23 +204,4 @@ function setupPage() {
     }
 
     document.getElementById('main').style.visibility = "visible";
-}
-
-function setMultipleSelects(lst) {
-    var len = lst.length;
-
-    for (var ms = 0; ms < len; ms++) {
-        var elm = document.getElementById(lst[ms][0]);
-
-        $('#'+lst[ms][0]).multipleSelect({
-                placeholder: lst[ms][1],
-        });
-
-        elm.onchange = function(){filterTable()};
-
-        if (lst[ms][0] !== "ShipType") {
-            document.getElementsByClassName('ms-drop bottom')[ms].style.right = '0';
-        }
-    }
-
 }
