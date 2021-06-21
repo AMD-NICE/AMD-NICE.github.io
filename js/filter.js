@@ -120,7 +120,7 @@ function filter(searchIn, obsIn, msIn, lst1, lst2) {
                 level = Number(level[0]);
             }
 
-            var levels = [[-1, 25], [25, 50], [50, 75], [75, 101]];
+            var levels = [[-1, 25], [25, 50], [50, 75], [75, 200]];
 
             for (var n = 0; n < holdLen; n++) {
                 var cutoffs = levels[Number(msValuesHold[n])];
